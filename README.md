@@ -125,7 +125,7 @@ deprecated API 警告，无错误）。
 
 ### 运行步骤（Qt 5.15.2 / Windows）
 
-1. **生成 generator.exe**（已在 `generator/release/` 和 `generator/buil-result/` 提供）：
+1. **生成 generator.exe**（构建产物不入库，请按下述步骤自行构建）：
 
    ```
    cd generator

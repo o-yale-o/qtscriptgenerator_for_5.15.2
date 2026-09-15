@@ -21,3 +21,22 @@ qtbindings/*/moc_*.cpp
 /generator/Makefile.Release
 /generator/release/
 .qmake.stash
+
+# IDE caches and build outputs (regenerable; never commit these)
+.qtc_clangd/
+.vs/
+*.pro.user
+*.pro.user.*
+*.vcxproj.user
+*.idx
+*.obj
+*.exe
+*.dll
+*.ilk
+*.idb
+*.exp
+/generator/build/
+/generator/debug/
+/generator/buil-result/
+/generator/buil-result=/
+/generator/release=/
