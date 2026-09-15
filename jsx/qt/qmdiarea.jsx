@@ -15,21 +15,17 @@ import "qt/qtimerevent.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QMdiArea_ViewMode {}
-
 final native class Qt_QMdiArea_AreaOption {}
 
 final native class Qt_QMdiArea_AreaOptions {}
 
 final native class Qt_QMdiArea_WindowOrder {}
 
+final native class Qt_QMdiArea_ViewMode {}
+
 native class QMdiArea extends QAbstractScrollArea
 {
     function constructor (parent : QWidget);
-
-    static const SubWindowView : Qt_QMdiArea_ViewMode;
-    static const TabbedView : Qt_QMdiArea_ViewMode;
-    static function ViewMode(value : Qt_QMdiArea_ViewMode) : Qt_QMdiArea_ViewMode;
 
     static const DontMaximizeSubWindowOnActivation : Qt_QMdiArea_AreaOption;
     static function AreaOption(value : Qt_QMdiArea_AreaOption) : Qt_QMdiArea_AreaOption;
@@ -39,6 +35,10 @@ native class QMdiArea extends QAbstractScrollArea
     static const StackingOrder : Qt_QMdiArea_WindowOrder;
     static const ActivationHistoryOrder : Qt_QMdiArea_WindowOrder;
     static function WindowOrder(value : Qt_QMdiArea_WindowOrder) : Qt_QMdiArea_WindowOrder;
+
+    static const SubWindowView : Qt_QMdiArea_ViewMode;
+    static const TabbedView : Qt_QMdiArea_ViewMode;
+    static function ViewMode(value : Qt_QMdiArea_ViewMode) : Qt_QMdiArea_ViewMode;
 
     // Methods
     function activateNextSubWindow () : void;

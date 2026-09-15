@@ -7,17 +7,17 @@
  */
 import "qt/qstylehintreturn.jsx";
 
-final native class Qt_QStyleHintReturnMask_StyleOptionVersion {}
-
 final native class Qt_QStyleHintReturnMask_StyleOptionType {}
+
+final native class Qt_QStyleHintReturnMask_StyleOptionVersion {}
 
 native class QStyleHintReturnMask extends QStyleHintReturn
 {
     function constructor ();
 
-    static const Version : Qt_QStyleHintReturnMask_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleHintReturnMask_StyleOptionVersion) : Qt_QStyleHintReturnMask_StyleOptionVersion;
-
     static const Type : Qt_QStyleHintReturnMask_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleHintReturnMask_StyleOptionType) : Qt_QStyleHintReturnMask_StyleOptionType;
+
+    static const Version : Qt_QStyleHintReturnMask_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleHintReturnMask_StyleOptionVersion) : Qt_QStyleHintReturnMask_StyleOptionVersion;
 }

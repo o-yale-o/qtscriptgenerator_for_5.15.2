@@ -1592,7 +1592,8 @@
   
     <modify-function signature="fontInfo()const" remove="all"/>
     <modify-function signature="fontMetrics()const" remove="all"/>
-    <modify-function signature="QPainter(QPaintDevice*)" remove="all"/>
+    <!-- Qt 5 fix: ctor was removed in the Qt4-era typesystem; with
+         QPaintDevice registered, new QPainter(paintDevice) binds fine -->
 
     <modify-function signature="begin(QPaintDevice*)">
       <modify-argument index="1">

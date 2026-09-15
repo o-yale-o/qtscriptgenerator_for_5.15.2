@@ -931,12 +931,18 @@ static void writeEnumClass(QTextStream &stream, const AbstractMetaClass *meta_cl
            << "        qtscript_" << qtScriptEnumName << "_fromScriptValue,"
            << " ctor.property(QString::fromLatin1(\"prototype\")));" << endl;
 
-    // enum values are properties of the constructor
+    // enum values are properties of both the parent object (legacy short
+    // form used by most scripts: Qt.SolidPattern, QPainter.Antialiasing)
+    // and the enum constructor itself (qualified form: Qt.DayOfWeek.Monday,
+    // QPainter.RenderHint.Antialiasing)
     stream << "    for (int i = 0; i < " << uniqueIndexes.size() << "; ++i) {" << endl
+           << "        QScriptValue ev = engine->newVariant(qVariantFromValue(qtscript_"
+           << qtScriptEnumName << "_values[i]));" << endl
            << "        clazz.setProperty(QString::fromLatin1(qtscript_"
-           << qtScriptEnumName << "_keys[i])," << endl
-           << "            engine->newVariant(qVariantFromValue(qtscript_"
-           << qtScriptEnumName << "_values[i]))," << endl
+           << qtScriptEnumName << "_keys[i]), ev," << endl
+           << "            QScriptValue::ReadOnly | QScriptValue::Undeletable);" << endl
+           << "        ctor.setProperty(QString::fromLatin1(qtscript_"
+           << qtScriptEnumName << "_keys[i]), ev," << endl
            << "            QScriptValue::ReadOnly | QScriptValue::Undeletable);" << endl
            << "    }" << endl;
 

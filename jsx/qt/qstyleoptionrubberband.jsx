@@ -7,18 +7,18 @@
  */
 import "qt/qstyleoption.jsx";
 
-final native class Qt_QStyleOptionRubberBand_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionRubberBand_StyleOptionType {}
+
+final native class Qt_QStyleOptionRubberBand_StyleOptionVersion {}
 
 native class QStyleOptionRubberBand extends QStyleOption
 {
     function constructor ();
     function constructor (other : QStyleOptionRubberBand);
 
-    static const Version : Qt_QStyleOptionRubberBand_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionRubberBand_StyleOptionVersion) : Qt_QStyleOptionRubberBand_StyleOptionVersion;
-
     static const Type : Qt_QStyleOptionRubberBand_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionRubberBand_StyleOptionType) : Qt_QStyleOptionRubberBand_StyleOptionType;
+
+    static const Version : Qt_QStyleOptionRubberBand_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionRubberBand_StyleOptionVersion) : Qt_QStyleOptionRubberBand_StyleOptionVersion;
 }

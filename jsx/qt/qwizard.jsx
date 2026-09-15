@@ -15,13 +15,13 @@ import "qt/_signals.jsx";
 
 final native class Qt_QWizard_WizardButton {}
 
-final native class Qt_QWizard_WizardStyle {}
-
 final native class Qt_QWizard_WizardOption {}
 
 final native class Qt_QWizard_WizardOptions {}
 
 final native class Qt_QWizard_WizardPixmap {}
+
+final native class Qt_QWizard_WizardStyle {}
 
 native class QWizard extends QDialog
 {
@@ -39,13 +39,6 @@ native class QWizard extends QDialog
     static const CustomButton3 : Qt_QWizard_WizardButton;
     static const Stretch : Qt_QWizard_WizardButton;
     static function WizardButton(value : Qt_QWizard_WizardButton) : Qt_QWizard_WizardButton;
-
-    static const ClassicStyle : Qt_QWizard_WizardStyle;
-    static const ModernStyle : Qt_QWizard_WizardStyle;
-    static const MacStyle : Qt_QWizard_WizardStyle;
-    static const AeroStyle : Qt_QWizard_WizardStyle;
-    static const NStyles : Qt_QWizard_WizardStyle;
-    static function WizardStyle(value : Qt_QWizard_WizardStyle) : Qt_QWizard_WizardStyle;
 
     static const IndependentPages : Qt_QWizard_WizardOption;
     static const IgnoreSubTitles : Qt_QWizard_WizardOption;
@@ -73,6 +66,13 @@ native class QWizard extends QDialog
     static const BackgroundPixmap : Qt_QWizard_WizardPixmap;
     static const NPixmaps : Qt_QWizard_WizardPixmap;
     static function WizardPixmap(value : Qt_QWizard_WizardPixmap) : Qt_QWizard_WizardPixmap;
+
+    static const ClassicStyle : Qt_QWizard_WizardStyle;
+    static const ModernStyle : Qt_QWizard_WizardStyle;
+    static const MacStyle : Qt_QWizard_WizardStyle;
+    static const AeroStyle : Qt_QWizard_WizardStyle;
+    static const NStyles : Qt_QWizard_WizardStyle;
+    static function WizardStyle(value : Qt_QWizard_WizardStyle) : Qt_QWizard_WizardStyle;
 
     // Methods
     function addPage (page : QWizardPage) : int;

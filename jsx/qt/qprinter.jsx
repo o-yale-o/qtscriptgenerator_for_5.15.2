@@ -12,29 +12,33 @@ import "qt/qrect.jsx";
 import "qt/qrectf.jsx";
 import "qt/qsizef.jsx";
 
+final native class Qt_QPrinter_OutputFormat {}
+
 final native class Qt_QPrinter_PaperSource {}
-
-final native class Qt_QPrinter_PrinterMode {}
-
-final native class Qt_QPrinter_Orientation {}
-
-final native class Qt_QPrinter_Unit {}
 
 final native class Qt_QPrinter_PageOrder {}
 
-final native class Qt_QPrinter_OutputFormat {}
-
 final native class Qt_QPrinter_ColorMode {}
-
-final native class Qt_QPrinter_PrinterState {}
 
 final native class Qt_QPrinter_PrintRange {}
 
 final native class Qt_QPrinter_DuplexMode {}
 
+final native class Qt_QPrinter_PrinterMode {}
+
+final native class Qt_QPrinter_Unit {}
+
+final native class Qt_QPrinter_PrinterState {}
+
+final native class Qt_QPrinter_Orientation {}
+
 native class QPrinter
 {
     function constructor (mode : Qt_QPrinter_PrinterMode);
+
+    static const NativeFormat : Qt_QPrinter_OutputFormat;
+    static const PdfFormat : Qt_QPrinter_OutputFormat;
+    static function OutputFormat(value : Qt_QPrinter_OutputFormat) : Qt_QPrinter_OutputFormat;
 
     static const OnlyOne : Qt_QPrinter_PaperSource;
     static const Lower : Qt_QPrinter_PaperSource;
@@ -53,41 +57,13 @@ native class QPrinter
     static const CustomSource : Qt_QPrinter_PaperSource;
     static function PaperSource(value : Qt_QPrinter_PaperSource) : Qt_QPrinter_PaperSource;
 
-    static const ScreenResolution : Qt_QPrinter_PrinterMode;
-    static const PrinterResolution : Qt_QPrinter_PrinterMode;
-    static const HighResolution : Qt_QPrinter_PrinterMode;
-    static function PrinterMode(value : Qt_QPrinter_PrinterMode) : Qt_QPrinter_PrinterMode;
-
-    static const Portrait : Qt_QPrinter_Orientation;
-    static const Landscape : Qt_QPrinter_Orientation;
-    static function Orientation(value : Qt_QPrinter_Orientation) : Qt_QPrinter_Orientation;
-
-    static const Millimeter : Qt_QPrinter_Unit;
-    static const Point : Qt_QPrinter_Unit;
-    static const Inch : Qt_QPrinter_Unit;
-    static const Pica : Qt_QPrinter_Unit;
-    static const Didot : Qt_QPrinter_Unit;
-    static const Cicero : Qt_QPrinter_Unit;
-    static const DevicePixel : Qt_QPrinter_Unit;
-    static function Unit(value : Qt_QPrinter_Unit) : Qt_QPrinter_Unit;
-
     static const FirstPageFirst : Qt_QPrinter_PageOrder;
     static const LastPageFirst : Qt_QPrinter_PageOrder;
     static function PageOrder(value : Qt_QPrinter_PageOrder) : Qt_QPrinter_PageOrder;
 
-    static const NativeFormat : Qt_QPrinter_OutputFormat;
-    static const PdfFormat : Qt_QPrinter_OutputFormat;
-    static function OutputFormat(value : Qt_QPrinter_OutputFormat) : Qt_QPrinter_OutputFormat;
-
     static const GrayScale : Qt_QPrinter_ColorMode;
     static const Color : Qt_QPrinter_ColorMode;
     static function ColorMode(value : Qt_QPrinter_ColorMode) : Qt_QPrinter_ColorMode;
-
-    static const Idle : Qt_QPrinter_PrinterState;
-    static const Active : Qt_QPrinter_PrinterState;
-    static const Aborted : Qt_QPrinter_PrinterState;
-    static const Error : Qt_QPrinter_PrinterState;
-    static function PrinterState(value : Qt_QPrinter_PrinterState) : Qt_QPrinter_PrinterState;
 
     static const AllPages : Qt_QPrinter_PrintRange;
     static const Selection : Qt_QPrinter_PrintRange;
@@ -100,6 +76,30 @@ native class QPrinter
     static const DuplexLongSide : Qt_QPrinter_DuplexMode;
     static const DuplexShortSide : Qt_QPrinter_DuplexMode;
     static function DuplexMode(value : Qt_QPrinter_DuplexMode) : Qt_QPrinter_DuplexMode;
+
+    static const ScreenResolution : Qt_QPrinter_PrinterMode;
+    static const PrinterResolution : Qt_QPrinter_PrinterMode;
+    static const HighResolution : Qt_QPrinter_PrinterMode;
+    static function PrinterMode(value : Qt_QPrinter_PrinterMode) : Qt_QPrinter_PrinterMode;
+
+    static const Millimeter : Qt_QPrinter_Unit;
+    static const Point : Qt_QPrinter_Unit;
+    static const Inch : Qt_QPrinter_Unit;
+    static const Pica : Qt_QPrinter_Unit;
+    static const Didot : Qt_QPrinter_Unit;
+    static const Cicero : Qt_QPrinter_Unit;
+    static const DevicePixel : Qt_QPrinter_Unit;
+    static function Unit(value : Qt_QPrinter_Unit) : Qt_QPrinter_Unit;
+
+    static const Idle : Qt_QPrinter_PrinterState;
+    static const Active : Qt_QPrinter_PrinterState;
+    static const Aborted : Qt_QPrinter_PrinterState;
+    static const Error : Qt_QPrinter_PrinterState;
+    static function PrinterState(value : Qt_QPrinter_PrinterState) : Qt_QPrinter_PrinterState;
+
+    static const Portrait : Qt_QPrinter_Orientation;
+    static const Landscape : Qt_QPrinter_Orientation;
+    static function Orientation(value : Qt_QPrinter_Orientation) : Qt_QPrinter_Orientation;
 
     // Methods
     function abort () : boolean;

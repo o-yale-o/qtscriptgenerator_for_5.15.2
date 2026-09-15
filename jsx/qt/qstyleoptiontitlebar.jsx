@@ -7,18 +7,18 @@
  */
 import "qt/qstyleoptioncomplex.jsx";
 
-final native class Qt_QStyleOptionTitleBar_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionTitleBar_StyleOptionType {}
+
+final native class Qt_QStyleOptionTitleBar_StyleOptionVersion {}
 
 native class QStyleOptionTitleBar extends QStyleOptionComplex
 {
     function constructor ();
     function constructor (other : QStyleOptionTitleBar);
 
-    static const Version : Qt_QStyleOptionTitleBar_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionTitleBar_StyleOptionVersion) : Qt_QStyleOptionTitleBar_StyleOptionVersion;
-
     static const Type : Qt_QStyleOptionTitleBar_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionTitleBar_StyleOptionType) : Qt_QStyleOptionTitleBar_StyleOptionType;
+
+    static const Version : Qt_QStyleOptionTitleBar_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionTitleBar_StyleOptionVersion) : Qt_QStyleOptionTitleBar_StyleOptionVersion;
 }

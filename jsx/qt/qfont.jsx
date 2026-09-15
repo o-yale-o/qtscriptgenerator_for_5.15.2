@@ -9,17 +9,17 @@ import "qt/qpaintdevice.jsx";
 
 final native class Qt_QFont_Capitalization {}
 
-final native class Qt_QFont_Weight {}
-
 final native class Qt_QFont_Style {}
 
-final native class Qt_QFont_Stretch {}
+final native class Qt_QFont_SpacingType {}
 
 final native class Qt_QFont_StyleHint {}
 
-final native class Qt_QFont_StyleStrategy {}
+final native class Qt_QFont_Weight {}
 
-final native class Qt_QFont_SpacingType {}
+final native class Qt_QFont_Stretch {}
+
+final native class Qt_QFont_StyleStrategy {}
 
 native class QFont
 {
@@ -46,6 +46,26 @@ native class QFont
     static const Capitalize : Qt_QFont_Capitalization;
     static function Capitalization(value : Qt_QFont_Capitalization) : Qt_QFont_Capitalization;
 
+    static const StyleNormal : Qt_QFont_Style;
+    static const StyleItalic : Qt_QFont_Style;
+    static const StyleOblique : Qt_QFont_Style;
+    static function Style(value : Qt_QFont_Style) : Qt_QFont_Style;
+
+    static const PercentageSpacing : Qt_QFont_SpacingType;
+    static const AbsoluteSpacing : Qt_QFont_SpacingType;
+    static function SpacingType(value : Qt_QFont_SpacingType) : Qt_QFont_SpacingType;
+
+    static const Helvetica : Qt_QFont_StyleHint;
+    static const Times : Qt_QFont_StyleHint;
+    static const Courier : Qt_QFont_StyleHint;
+    static const OldEnglish : Qt_QFont_StyleHint;
+    static const System : Qt_QFont_StyleHint;
+    static const AnyStyle : Qt_QFont_StyleHint;
+    static const Cursive : Qt_QFont_StyleHint;
+    static const Monospace : Qt_QFont_StyleHint;
+    static const Fantasy : Qt_QFont_StyleHint;
+    static function StyleHint(value : Qt_QFont_StyleHint) : Qt_QFont_StyleHint;
+
     static const Thin : Qt_QFont_Weight;
     static const ExtraLight : Qt_QFont_Weight;
     static const Light : Qt_QFont_Weight;
@@ -56,11 +76,6 @@ native class QFont
     static const ExtraBold : Qt_QFont_Weight;
     static const Black : Qt_QFont_Weight;
     static function Weight(value : Qt_QFont_Weight) : Qt_QFont_Weight;
-
-    static const StyleNormal : Qt_QFont_Style;
-    static const StyleItalic : Qt_QFont_Style;
-    static const StyleOblique : Qt_QFont_Style;
-    static function Style(value : Qt_QFont_Style) : Qt_QFont_Style;
 
     static const AnyStretch : Qt_QFont_Stretch;
     static const UltraCondensed : Qt_QFont_Stretch;
@@ -73,17 +88,6 @@ native class QFont
     static const ExtraExpanded : Qt_QFont_Stretch;
     static const UltraExpanded : Qt_QFont_Stretch;
     static function Stretch(value : Qt_QFont_Stretch) : Qt_QFont_Stretch;
-
-    static const Helvetica : Qt_QFont_StyleHint;
-    static const Times : Qt_QFont_StyleHint;
-    static const Courier : Qt_QFont_StyleHint;
-    static const OldEnglish : Qt_QFont_StyleHint;
-    static const System : Qt_QFont_StyleHint;
-    static const AnyStyle : Qt_QFont_StyleHint;
-    static const Cursive : Qt_QFont_StyleHint;
-    static const Monospace : Qt_QFont_StyleHint;
-    static const Fantasy : Qt_QFont_StyleHint;
-    static function StyleHint(value : Qt_QFont_StyleHint) : Qt_QFont_StyleHint;
 
     static const PreferDefault : Qt_QFont_StyleStrategy;
     static const PreferBitmap : Qt_QFont_StyleStrategy;
@@ -100,10 +104,6 @@ native class QFont
     static const PreferNoShaping : Qt_QFont_StyleStrategy;
     static const NoFontMerging : Qt_QFont_StyleStrategy;
     static function StyleStrategy(value : Qt_QFont_StyleStrategy) : Qt_QFont_StyleStrategy;
-
-    static const PercentageSpacing : Qt_QFont_SpacingType;
-    static const AbsoluteSpacing : Qt_QFont_SpacingType;
-    static function SpacingType(value : Qt_QFont_SpacingType) : Qt_QFont_SpacingType;
 
     // Methods
     function bold () : boolean;

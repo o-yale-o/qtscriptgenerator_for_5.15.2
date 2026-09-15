@@ -7,18 +7,18 @@
  */
 import "qt/qstyleoption.jsx";
 
-final native class Qt_QStyleOptionDockWidget_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionDockWidget_StyleOptionType {}
+
+final native class Qt_QStyleOptionDockWidget_StyleOptionVersion {}
 
 native class QStyleOptionDockWidget extends QStyleOption
 {
     function constructor ();
     function constructor (other : QStyleOptionDockWidget);
 
-    static const Version : Qt_QStyleOptionDockWidget_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionDockWidget_StyleOptionVersion) : Qt_QStyleOptionDockWidget_StyleOptionVersion;
-
     static const Type : Qt_QStyleOptionDockWidget_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionDockWidget_StyleOptionType) : Qt_QStyleOptionDockWidget_StyleOptionType;
+
+    static const Version : Qt_QStyleOptionDockWidget_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionDockWidget_StyleOptionVersion) : Qt_QStyleOptionDockWidget_StyleOptionVersion;
 }

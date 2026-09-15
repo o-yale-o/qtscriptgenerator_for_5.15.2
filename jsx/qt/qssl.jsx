@@ -8,11 +8,11 @@
 
 final native class Qt_QSsl_SslProtocol {}
 
+final native class Qt_QSsl_KeyType {}
+
 final native class Qt_QSsl_EncodingFormat {}
 
 final native class Qt_QSsl_KeyAlgorithm {}
-
-final native class Qt_QSsl_KeyType {}
 
 native class QSsl
 {
@@ -37,6 +37,10 @@ native class QSsl
     static const TlsV1_3OrLater : Qt_QSsl_SslProtocol;
     static function SslProtocol(value : Qt_QSsl_SslProtocol) : Qt_QSsl_SslProtocol;
 
+    static const PrivateKey : Qt_QSsl_KeyType;
+    static const PublicKey : Qt_QSsl_KeyType;
+    static function KeyType(value : Qt_QSsl_KeyType) : Qt_QSsl_KeyType;
+
     static const Pem : Qt_QSsl_EncodingFormat;
     static const Der : Qt_QSsl_EncodingFormat;
     static function EncodingFormat(value : Qt_QSsl_EncodingFormat) : Qt_QSsl_EncodingFormat;
@@ -47,8 +51,4 @@ native class QSsl
     static const Ec : Qt_QSsl_KeyAlgorithm;
     static const Dh : Qt_QSsl_KeyAlgorithm;
     static function KeyAlgorithm(value : Qt_QSsl_KeyAlgorithm) : Qt_QSsl_KeyAlgorithm;
-
-    static const PrivateKey : Qt_QSsl_KeyType;
-    static const PublicKey : Qt_QSsl_KeyType;
-    static function KeyType(value : Qt_QSsl_KeyType) : Qt_QSsl_KeyType;
 }

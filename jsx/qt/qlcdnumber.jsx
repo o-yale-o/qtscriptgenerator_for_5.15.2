@@ -9,25 +9,25 @@ import "qt/qframe.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QLCDNumber_SegmentStyle {}
-
 final native class Qt_QLCDNumber_Mode {}
+
+final native class Qt_QLCDNumber_SegmentStyle {}
 
 native class QLCDNumber extends QFrame
 {
     function constructor (parent : QWidget);
     function constructor (numDigits : int, parent : QWidget);
 
-    static const Outline : Qt_QLCDNumber_SegmentStyle;
-    static const Filled : Qt_QLCDNumber_SegmentStyle;
-    static const Flat : Qt_QLCDNumber_SegmentStyle;
-    static function SegmentStyle(value : Qt_QLCDNumber_SegmentStyle) : Qt_QLCDNumber_SegmentStyle;
-
     static const Hex : Qt_QLCDNumber_Mode;
     static const Dec : Qt_QLCDNumber_Mode;
     static const Oct : Qt_QLCDNumber_Mode;
     static const Bin : Qt_QLCDNumber_Mode;
     static function Mode(value : Qt_QLCDNumber_Mode) : Qt_QLCDNumber_Mode;
+
+    static const Outline : Qt_QLCDNumber_SegmentStyle;
+    static const Filled : Qt_QLCDNumber_SegmentStyle;
+    static const Flat : Qt_QLCDNumber_SegmentStyle;
+    static function SegmentStyle(value : Qt_QLCDNumber_SegmentStyle) : Qt_QLCDNumber_SegmentStyle;
 
     // Methods
     function checkOverflow (num : number) : boolean;

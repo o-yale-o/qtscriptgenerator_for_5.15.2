@@ -19,18 +19,13 @@ import "qt/qsslconfiguration.jsx";
 import "qt/qsslerror.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QNetworkAccessManager_NetworkAccessibility {}
-
 final native class Qt_QNetworkAccessManager_Operation {}
+
+final native class Qt_QNetworkAccessManager_NetworkAccessibility {}
 
 native class QNetworkAccessManager extends QObject
 {
     function constructor (parent : QObject);
-
-    static const UnknownAccessibility : Qt_QNetworkAccessManager_NetworkAccessibility;
-    static const NotAccessible : Qt_QNetworkAccessManager_NetworkAccessibility;
-    static const Accessible : Qt_QNetworkAccessManager_NetworkAccessibility;
-    static function NetworkAccessibility(value : Qt_QNetworkAccessManager_NetworkAccessibility) : Qt_QNetworkAccessManager_NetworkAccessibility;
 
     static const UnknownOperation : Qt_QNetworkAccessManager_Operation;
     static const HeadOperation : Qt_QNetworkAccessManager_Operation;
@@ -40,6 +35,11 @@ native class QNetworkAccessManager extends QObject
     static const DeleteOperation : Qt_QNetworkAccessManager_Operation;
     static const CustomOperation : Qt_QNetworkAccessManager_Operation;
     static function Operation(value : Qt_QNetworkAccessManager_Operation) : Qt_QNetworkAccessManager_Operation;
+
+    static const UnknownAccessibility : Qt_QNetworkAccessManager_NetworkAccessibility;
+    static const NotAccessible : Qt_QNetworkAccessManager_NetworkAccessibility;
+    static const Accessible : Qt_QNetworkAccessManager_NetworkAccessibility;
+    static function NetworkAccessibility(value : Qt_QNetworkAccessManager_NetworkAccessibility) : Qt_QNetworkAccessManager_NetworkAccessibility;
 
     // Methods
     function autoDeleteReplies () : boolean;

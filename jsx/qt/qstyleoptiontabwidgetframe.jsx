@@ -7,18 +7,18 @@
  */
 import "qt/qstyleoption.jsx";
 
-final native class Qt_QStyleOptionTabWidgetFrame_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionTabWidgetFrame_StyleOptionType {}
+
+final native class Qt_QStyleOptionTabWidgetFrame_StyleOptionVersion {}
 
 native class QStyleOptionTabWidgetFrame extends QStyleOption
 {
     function constructor ();
     function constructor (other : QStyleOptionTabWidgetFrame);
 
-    static const Version : Qt_QStyleOptionTabWidgetFrame_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionTabWidgetFrame_StyleOptionVersion) : Qt_QStyleOptionTabWidgetFrame_StyleOptionVersion;
-
     static const Type : Qt_QStyleOptionTabWidgetFrame_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionTabWidgetFrame_StyleOptionType) : Qt_QStyleOptionTabWidgetFrame_StyleOptionType;
+
+    static const Version : Qt_QStyleOptionTabWidgetFrame_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionTabWidgetFrame_StyleOptionVersion) : Qt_QStyleOptionTabWidgetFrame_StyleOptionVersion;
 }

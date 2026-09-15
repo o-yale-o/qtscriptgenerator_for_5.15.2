@@ -7,9 +7,9 @@
  */
 import "qt/qcolor.jsx";
 
-final native class Qt_QGradient_Type {}
-
 final native class Qt_QGradient_CoordinateMode {}
+
+final native class Qt_QGradient_Type {}
 
 final native class Qt_QGradient_Spread {}
 
@@ -17,17 +17,17 @@ native class QGradient
 {
     function constructor ();
 
-    static const LinearGradient : Qt_QGradient_Type;
-    static const RadialGradient : Qt_QGradient_Type;
-    static const ConicalGradient : Qt_QGradient_Type;
-    static const NoGradient : Qt_QGradient_Type;
-    static function Type(value : Qt_QGradient_Type) : Qt_QGradient_Type;
-
     static const LogicalMode : Qt_QGradient_CoordinateMode;
     static const StretchToDeviceMode : Qt_QGradient_CoordinateMode;
     static const ObjectBoundingMode : Qt_QGradient_CoordinateMode;
     static const ObjectMode : Qt_QGradient_CoordinateMode;
     static function CoordinateMode(value : Qt_QGradient_CoordinateMode) : Qt_QGradient_CoordinateMode;
+
+    static const LinearGradient : Qt_QGradient_Type;
+    static const RadialGradient : Qt_QGradient_Type;
+    static const ConicalGradient : Qt_QGradient_Type;
+    static const NoGradient : Qt_QGradient_Type;
+    static function Type(value : Qt_QGradient_Type) : Qt_QGradient_Type;
 
     static const PadSpread : Qt_QGradient_Spread;
     static const ReflectSpread : Qt_QGradient_Spread;

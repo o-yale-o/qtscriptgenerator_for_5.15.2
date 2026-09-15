@@ -14,9 +14,9 @@ final native class Qt_QTextStream_NumberFlag {}
 
 final native class Qt_QTextStream_NumberFlags {}
 
-final native class Qt_QTextStream_Status {}
-
 final native class Qt_QTextStream_RealNumberNotation {}
+
+final native class Qt_QTextStream_Status {}
 
 final native class Qt_QTextStream_FieldAlignment {}
 
@@ -34,16 +34,16 @@ native class QTextStream
     static function NumberFlag(value : Qt_QTextStream_NumberFlag) : Qt_QTextStream_NumberFlag;
     static function NumberFlags(...value : Qt_QTextStream_NumberFlag) : Qt_QTextStream_NumberFlags;
 
+    static const SmartNotation : Qt_QTextStream_RealNumberNotation;
+    static const FixedNotation : Qt_QTextStream_RealNumberNotation;
+    static const ScientificNotation : Qt_QTextStream_RealNumberNotation;
+    static function RealNumberNotation(value : Qt_QTextStream_RealNumberNotation) : Qt_QTextStream_RealNumberNotation;
+
     static const Ok : Qt_QTextStream_Status;
     static const ReadPastEnd : Qt_QTextStream_Status;
     static const ReadCorruptData : Qt_QTextStream_Status;
     static const WriteFailed : Qt_QTextStream_Status;
     static function Status(value : Qt_QTextStream_Status) : Qt_QTextStream_Status;
-
-    static const SmartNotation : Qt_QTextStream_RealNumberNotation;
-    static const FixedNotation : Qt_QTextStream_RealNumberNotation;
-    static const ScientificNotation : Qt_QTextStream_RealNumberNotation;
-    static function RealNumberNotation(value : Qt_QTextStream_RealNumberNotation) : Qt_QTextStream_RealNumberNotation;
 
     static const AlignLeft : Qt_QTextStream_FieldAlignment;
     static const AlignRight : Qt_QTextStream_FieldAlignment;

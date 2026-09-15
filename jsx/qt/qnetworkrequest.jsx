@@ -10,30 +10,21 @@ import "qt/qobject.jsx";
 import "qt/qsslconfiguration.jsx";
 import "qt/qurl.jsx";
 
+final native class Qt_QNetworkRequest_Attribute {}
+
 final native class Qt_QNetworkRequest_LoadControl {}
 
 final native class Qt_QNetworkRequest_Priority {}
 
-final native class Qt_QNetworkRequest_Attribute {}
+final native class Qt_QNetworkRequest_KnownHeaders {}
 
 final native class Qt_QNetworkRequest_CacheLoadControl {}
-
-final native class Qt_QNetworkRequest_KnownHeaders {}
 
 native class QNetworkRequest
 {
     function constructor ();
     function constructor (other : QNetworkRequest);
     function constructor (url : QUrl);
-
-    static const Automatic : Qt_QNetworkRequest_LoadControl;
-    static const Manual : Qt_QNetworkRequest_LoadControl;
-    static function LoadControl(value : Qt_QNetworkRequest_LoadControl) : Qt_QNetworkRequest_LoadControl;
-
-    static const HighPriority : Qt_QNetworkRequest_Priority;
-    static const NormalPriority : Qt_QNetworkRequest_Priority;
-    static const LowPriority : Qt_QNetworkRequest_Priority;
-    static function Priority(value : Qt_QNetworkRequest_Priority) : Qt_QNetworkRequest_Priority;
 
     static const HttpStatusCodeAttribute : Qt_QNetworkRequest_Attribute;
     static const HttpReasonPhraseAttribute : Qt_QNetworkRequest_Attribute;
@@ -68,11 +59,14 @@ native class QNetworkRequest
     static const UserMax : Qt_QNetworkRequest_Attribute;
     static function Attribute(value : Qt_QNetworkRequest_Attribute) : Qt_QNetworkRequest_Attribute;
 
-    static const AlwaysNetwork : Qt_QNetworkRequest_CacheLoadControl;
-    static const PreferNetwork : Qt_QNetworkRequest_CacheLoadControl;
-    static const PreferCache : Qt_QNetworkRequest_CacheLoadControl;
-    static const AlwaysCache : Qt_QNetworkRequest_CacheLoadControl;
-    static function CacheLoadControl(value : Qt_QNetworkRequest_CacheLoadControl) : Qt_QNetworkRequest_CacheLoadControl;
+    static const Automatic : Qt_QNetworkRequest_LoadControl;
+    static const Manual : Qt_QNetworkRequest_LoadControl;
+    static function LoadControl(value : Qt_QNetworkRequest_LoadControl) : Qt_QNetworkRequest_LoadControl;
+
+    static const HighPriority : Qt_QNetworkRequest_Priority;
+    static const NormalPriority : Qt_QNetworkRequest_Priority;
+    static const LowPriority : Qt_QNetworkRequest_Priority;
+    static function Priority(value : Qt_QNetworkRequest_Priority) : Qt_QNetworkRequest_Priority;
 
     static const ContentTypeHeader : Qt_QNetworkRequest_KnownHeaders;
     static const ContentLengthHeader : Qt_QNetworkRequest_KnownHeaders;
@@ -88,6 +82,12 @@ native class QNetworkRequest
     static const IfMatchHeader : Qt_QNetworkRequest_KnownHeaders;
     static const IfNoneMatchHeader : Qt_QNetworkRequest_KnownHeaders;
     static function KnownHeaders(value : Qt_QNetworkRequest_KnownHeaders) : Qt_QNetworkRequest_KnownHeaders;
+
+    static const AlwaysNetwork : Qt_QNetworkRequest_CacheLoadControl;
+    static const PreferNetwork : Qt_QNetworkRequest_CacheLoadControl;
+    static const PreferCache : Qt_QNetworkRequest_CacheLoadControl;
+    static const AlwaysCache : Qt_QNetworkRequest_CacheLoadControl;
+    static function CacheLoadControl(value : Qt_QNetworkRequest_CacheLoadControl) : Qt_QNetworkRequest_CacheLoadControl;
 
     // Methods
     function attribute (code : Qt_QNetworkRequest_Attribute, defaultValue : variant) : variant;

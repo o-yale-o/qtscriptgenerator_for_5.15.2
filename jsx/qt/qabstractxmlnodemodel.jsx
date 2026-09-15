@@ -10,22 +10,22 @@ import "qt/qurl.jsx";
 import "qt/qxmlname.jsx";
 import "qt/qxmlnodemodelindex.jsx";
 
-final native class Qt_QAbstractXmlNodeModel_SimpleAxis {}
-
 final native class Qt_QAbstractXmlNodeModel_NodeCopySetting {}
+
+final native class Qt_QAbstractXmlNodeModel_SimpleAxis {}
 
 native class QAbstractXmlNodeModel
 {
+
+    static const InheritNamespaces : Qt_QAbstractXmlNodeModel_NodeCopySetting;
+    static const PreserveNamespaces : Qt_QAbstractXmlNodeModel_NodeCopySetting;
+    static function NodeCopySetting(value : Qt_QAbstractXmlNodeModel_NodeCopySetting) : Qt_QAbstractXmlNodeModel_NodeCopySetting;
 
     static const Parent : Qt_QAbstractXmlNodeModel_SimpleAxis;
     static const FirstChild : Qt_QAbstractXmlNodeModel_SimpleAxis;
     static const PreviousSibling : Qt_QAbstractXmlNodeModel_SimpleAxis;
     static const NextSibling : Qt_QAbstractXmlNodeModel_SimpleAxis;
     static function SimpleAxis(value : Qt_QAbstractXmlNodeModel_SimpleAxis) : Qt_QAbstractXmlNodeModel_SimpleAxis;
-
-    static const InheritNamespaces : Qt_QAbstractXmlNodeModel_NodeCopySetting;
-    static const PreserveNamespaces : Qt_QAbstractXmlNodeModel_NodeCopySetting;
-    static function NodeCopySetting(value : Qt_QAbstractXmlNodeModel_NodeCopySetting) : Qt_QAbstractXmlNodeModel_NodeCopySetting;
 
     // Methods
     function attributes (element : QXmlNodeModelIndex) : QXmlNodeModelIndex[];

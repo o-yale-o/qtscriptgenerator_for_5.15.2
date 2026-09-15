@@ -18,13 +18,13 @@ import "qt/qtextlistformat.jsx";
 import "qt/qtexttablecellformat.jsx";
 import "qt/qtexttableformat.jsx";
 
-final native class Qt_QTextFormat_PageBreakFlag {}
-
-final native class Qt_QTextFormat_PageBreakFlags {}
-
 final native class Qt_QTextFormat_FormatType {}
 
 final native class Qt_QTextFormat_Property {}
+
+final native class Qt_QTextFormat_PageBreakFlag {}
+
+final native class Qt_QTextFormat_PageBreakFlags {}
 
 final native class Qt_QTextFormat_ObjectTypes {}
 
@@ -33,12 +33,6 @@ native class QTextFormat
     function constructor ();
     function constructor (rhs : QTextFormat);
     function constructor (type : int);
-
-    static const PageBreak_Auto : Qt_QTextFormat_PageBreakFlag;
-    static const PageBreak_AlwaysBefore : Qt_QTextFormat_PageBreakFlag;
-    static const PageBreak_AlwaysAfter : Qt_QTextFormat_PageBreakFlag;
-    static function PageBreakFlag(value : Qt_QTextFormat_PageBreakFlag) : Qt_QTextFormat_PageBreakFlag;
-    static function PageBreakFlags(...value : Qt_QTextFormat_PageBreakFlag) : Qt_QTextFormat_PageBreakFlags;
 
     static const InvalidFormat : Qt_QTextFormat_FormatType;
     static const BlockFormat : Qt_QTextFormat_FormatType;
@@ -152,6 +146,12 @@ native class QTextFormat
     static const PageBreakPolicy : Qt_QTextFormat_Property;
     static const UserProperty : Qt_QTextFormat_Property;
     static function Property(value : Qt_QTextFormat_Property) : Qt_QTextFormat_Property;
+
+    static const PageBreak_Auto : Qt_QTextFormat_PageBreakFlag;
+    static const PageBreak_AlwaysBefore : Qt_QTextFormat_PageBreakFlag;
+    static const PageBreak_AlwaysAfter : Qt_QTextFormat_PageBreakFlag;
+    static function PageBreakFlag(value : Qt_QTextFormat_PageBreakFlag) : Qt_QTextFormat_PageBreakFlag;
+    static function PageBreakFlags(...value : Qt_QTextFormat_PageBreakFlag) : Qt_QTextFormat_PageBreakFlags;
 
     static const NoObject : Qt_QTextFormat_ObjectTypes;
     static const ImageObject : Qt_QTextFormat_ObjectTypes;

@@ -21,28 +21,28 @@ import "qt/qurl.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
+final native class Qt_QTextEdit_LineWrapMode {}
+
 final native class Qt_QTextEdit_AutoFormattingFlag {}
 
 final native class Qt_QTextEdit_AutoFormatting {}
-
-final native class Qt_QTextEdit_LineWrapMode {}
 
 native class QTextEdit extends QAbstractScrollArea
 {
     function constructor (parent : QWidget);
     function constructor (text : string, parent : QWidget);
 
-    static const AutoAll : Qt_QTextEdit_AutoFormattingFlag;
-    static const AutoNone : Qt_QTextEdit_AutoFormattingFlag;
-    static const AutoBulletList : Qt_QTextEdit_AutoFormattingFlag;
-    static function AutoFormattingFlag(value : Qt_QTextEdit_AutoFormattingFlag) : Qt_QTextEdit_AutoFormattingFlag;
-    static function AutoFormatting(...value : Qt_QTextEdit_AutoFormattingFlag) : Qt_QTextEdit_AutoFormatting;
-
     static const NoWrap : Qt_QTextEdit_LineWrapMode;
     static const WidgetWidth : Qt_QTextEdit_LineWrapMode;
     static const FixedPixelWidth : Qt_QTextEdit_LineWrapMode;
     static const FixedColumnWidth : Qt_QTextEdit_LineWrapMode;
     static function LineWrapMode(value : Qt_QTextEdit_LineWrapMode) : Qt_QTextEdit_LineWrapMode;
+
+    static const AutoAll : Qt_QTextEdit_AutoFormattingFlag;
+    static const AutoNone : Qt_QTextEdit_AutoFormattingFlag;
+    static const AutoBulletList : Qt_QTextEdit_AutoFormattingFlag;
+    static function AutoFormattingFlag(value : Qt_QTextEdit_AutoFormattingFlag) : Qt_QTextEdit_AutoFormattingFlag;
+    static function AutoFormatting(...value : Qt_QTextEdit_AutoFormattingFlag) : Qt_QTextEdit_AutoFormatting;
 
     // Methods
     function alignment () : Qt_Alignment;

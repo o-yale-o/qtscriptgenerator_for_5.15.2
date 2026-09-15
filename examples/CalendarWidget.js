@@ -185,10 +185,12 @@ CalendarWidget.prototype.createGeneralOptionsGroupBox = function() {
             label += "/";
             label += QLocale.countryToString(country);
             var locale = new QLocale(lang, country);
-            if (this.locale().language() == lang && this.locale().country() == country)
+            // locale is a QObject property on the wrapper; access the value
+            // directly (JS idiom) instead of calling it like a method
+            if (this.locale.language() == lang && this.locale.country() == country)
                 curLocaleIndex = index;
 
-            localeCombo.addItem(label, locale);
+            this.localeCombo.addItem(label, locale);
             ++index;
         }
     }

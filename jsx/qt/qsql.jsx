@@ -8,13 +8,13 @@
 
 final native class Qt_QSql_NumericalPrecisionPolicy {}
 
-final native class Qt_QSql_ParamTypeFlag {}
-
-final native class Qt_QSql_ParamType {}
+final native class Qt_QSql_Location {}
 
 final native class Qt_QSql_TableType {}
 
-final native class Qt_QSql_Location {}
+final native class Qt_QSql_ParamTypeFlag {}
+
+final native class Qt_QSql_ParamType {}
 
 native class QSql
 {
@@ -25,12 +25,9 @@ native class QSql
     static const LowPrecisionDouble : Qt_QSql_NumericalPrecisionPolicy;
     static function NumericalPrecisionPolicy(value : Qt_QSql_NumericalPrecisionPolicy) : Qt_QSql_NumericalPrecisionPolicy;
 
-    static const In : Qt_QSql_ParamTypeFlag;
-    static const Out : Qt_QSql_ParamTypeFlag;
-    static const InOut : Qt_QSql_ParamTypeFlag;
-    static const Binary : Qt_QSql_ParamTypeFlag;
-    static function ParamTypeFlag(value : Qt_QSql_ParamTypeFlag) : Qt_QSql_ParamTypeFlag;
-    static function ParamType(...value : Qt_QSql_ParamTypeFlag) : Qt_QSql_ParamType;
+    static const AfterLastRow : Qt_QSql_Location;
+    static const BeforeFirstRow : Qt_QSql_Location;
+    static function Location(value : Qt_QSql_Location) : Qt_QSql_Location;
 
     static const Tables : Qt_QSql_TableType;
     static const SystemTables : Qt_QSql_TableType;
@@ -38,7 +35,10 @@ native class QSql
     static const AllTables : Qt_QSql_TableType;
     static function TableType(value : Qt_QSql_TableType) : Qt_QSql_TableType;
 
-    static const AfterLastRow : Qt_QSql_Location;
-    static const BeforeFirstRow : Qt_QSql_Location;
-    static function Location(value : Qt_QSql_Location) : Qt_QSql_Location;
+    static const In : Qt_QSql_ParamTypeFlag;
+    static const Out : Qt_QSql_ParamTypeFlag;
+    static const InOut : Qt_QSql_ParamTypeFlag;
+    static const Binary : Qt_QSql_ParamTypeFlag;
+    static function ParamTypeFlag(value : Qt_QSql_ParamTypeFlag) : Qt_QSql_ParamTypeFlag;
+    static function ParamType(...value : Qt_QSql_ParamTypeFlag) : Qt_QSql_ParamType;
 }

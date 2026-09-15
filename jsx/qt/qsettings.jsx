@@ -8,11 +8,11 @@
 import "qt/qobject.jsx";
 import "qt/qtextcodec.jsx";
 
-final native class Qt_QSettings_Format {}
-
 final native class Qt_QSettings_Scope {}
 
 final native class Qt_QSettings_Status {}
+
+final native class Qt_QSettings_Format {}
 
 native class QSettings extends QObject
 {
@@ -20,6 +20,15 @@ native class QSettings extends QObject
     function constructor (organization : string, application : string, parent : QObject);
 
     // Static Members
+
+    static const UserScope : Qt_QSettings_Scope;
+    static const SystemScope : Qt_QSettings_Scope;
+    static function Scope(value : Qt_QSettings_Scope) : Qt_QSettings_Scope;
+
+    static const NoError : Qt_QSettings_Status;
+    static const AccessError : Qt_QSettings_Status;
+    static const FormatError : Qt_QSettings_Status;
+    static function Status(value : Qt_QSettings_Status) : Qt_QSettings_Status;
 
     static const NativeFormat : Qt_QSettings_Format;
     static const IniFormat : Qt_QSettings_Format;
@@ -41,15 +50,6 @@ native class QSettings extends QObject
     static const CustomFormat15 : Qt_QSettings_Format;
     static const CustomFormat16 : Qt_QSettings_Format;
     static function Format(value : Qt_QSettings_Format) : Qt_QSettings_Format;
-
-    static const UserScope : Qt_QSettings_Scope;
-    static const SystemScope : Qt_QSettings_Scope;
-    static function Scope(value : Qt_QSettings_Scope) : Qt_QSettings_Scope;
-
-    static const NoError : Qt_QSettings_Status;
-    static const AccessError : Qt_QSettings_Status;
-    static const FormatError : Qt_QSettings_Status;
-    static function Status(value : Qt_QSettings_Status) : Qt_QSettings_Status;
 
     // Methods
     function allKeys () : string[];

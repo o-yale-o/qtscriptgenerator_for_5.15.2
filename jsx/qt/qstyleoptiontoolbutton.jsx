@@ -7,18 +7,21 @@
  */
 import "qt/qstyleoptioncomplex.jsx";
 
+final native class Qt_QStyleOptionToolButton_StyleOptionType {}
+
 final native class Qt_QStyleOptionToolButton_ToolButtonFeature {}
 
 final native class Qt_QStyleOptionToolButton_ToolButtonFeatures {}
 
 final native class Qt_QStyleOptionToolButton_StyleOptionVersion {}
 
-final native class Qt_QStyleOptionToolButton_StyleOptionType {}
-
 native class QStyleOptionToolButton extends QStyleOptionComplex
 {
     function constructor ();
     function constructor (other : QStyleOptionToolButton);
+
+    static const Type : Qt_QStyleOptionToolButton_StyleOptionType;
+    static function StyleOptionType(value : Qt_QStyleOptionToolButton_StyleOptionType) : Qt_QStyleOptionToolButton_StyleOptionType;
 
     static const None : Qt_QStyleOptionToolButton_ToolButtonFeature;
     static const Arrow : Qt_QStyleOptionToolButton_ToolButtonFeature;
@@ -30,7 +33,4 @@ native class QStyleOptionToolButton extends QStyleOptionComplex
 
     static const Version : Qt_QStyleOptionToolButton_StyleOptionVersion;
     static function StyleOptionVersion(value : Qt_QStyleOptionToolButton_StyleOptionVersion) : Qt_QStyleOptionToolButton_StyleOptionVersion;
-
-    static const Type : Qt_QStyleOptionToolButton_StyleOptionType;
-    static function StyleOptionType(value : Qt_QStyleOptionToolButton_StyleOptionType) : Qt_QStyleOptionToolButton_StyleOptionType;
 }

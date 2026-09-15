@@ -41,6 +41,7 @@ final native class Qt_QPainter_RenderHints {}
 native class QPainter
 {
     function constructor ();
+    function constructor (arg__1 : QPaintDevice);
 
     // Static Members
     static function redirected (device : QPaintDevice, offset : QPoint) : QPaintDevice;

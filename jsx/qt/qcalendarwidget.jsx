@@ -15,9 +15,9 @@ import "qt/qtextcharformat.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QCalendarWidget_VerticalHeaderFormat {}
-
 final native class Qt_QCalendarWidget_HorizontalHeaderFormat {}
+
+final native class Qt_QCalendarWidget_VerticalHeaderFormat {}
 
 final native class Qt_QCalendarWidget_SelectionMode {}
 
@@ -25,15 +25,15 @@ native class QCalendarWidget extends QWidget
 {
     function constructor (parent : QWidget);
 
-    static const NoVerticalHeader : Qt_QCalendarWidget_VerticalHeaderFormat;
-    static const ISOWeekNumbers : Qt_QCalendarWidget_VerticalHeaderFormat;
-    static function VerticalHeaderFormat(value : Qt_QCalendarWidget_VerticalHeaderFormat) : Qt_QCalendarWidget_VerticalHeaderFormat;
-
     static const NoHorizontalHeader : Qt_QCalendarWidget_HorizontalHeaderFormat;
     static const SingleLetterDayNames : Qt_QCalendarWidget_HorizontalHeaderFormat;
     static const ShortDayNames : Qt_QCalendarWidget_HorizontalHeaderFormat;
     static const LongDayNames : Qt_QCalendarWidget_HorizontalHeaderFormat;
     static function HorizontalHeaderFormat(value : Qt_QCalendarWidget_HorizontalHeaderFormat) : Qt_QCalendarWidget_HorizontalHeaderFormat;
+
+    static const NoVerticalHeader : Qt_QCalendarWidget_VerticalHeaderFormat;
+    static const ISOWeekNumbers : Qt_QCalendarWidget_VerticalHeaderFormat;
+    static function VerticalHeaderFormat(value : Qt_QCalendarWidget_VerticalHeaderFormat) : Qt_QCalendarWidget_VerticalHeaderFormat;
 
     static const NoSelection : Qt_QCalendarWidget_SelectionMode;
     static const SingleSelection : Qt_QCalendarWidget_SelectionMode;

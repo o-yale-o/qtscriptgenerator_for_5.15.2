@@ -136,7 +136,9 @@ ImageComposer.prototype.addOp = function(mode, name)
 ImageComposer.prototype.chooseImage = function(title, property, button)
 {
     var fileName = QFileDialog.getOpenFileName(this, title);
-    if (!fileName.isEmpty())
+    // getOpenFileName returns a native JS string (QString results are
+    // converted), so use JS idioms instead of QString::isEmpty()
+    if (fileName != "")
         loadImage(fileName, property, button);
 }
 

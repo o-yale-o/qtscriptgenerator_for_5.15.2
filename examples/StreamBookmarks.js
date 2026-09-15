@@ -256,7 +256,7 @@ function MainWindow()
     labels.push(tr("Location"));
 
     this.treeWidget = new QTreeWidget();
-    this.treeWidget.header().setResizeMode(QHeaderView.Stretch);
+    this.treeWidget.header().setSectionResizeMode(QHeaderView.Stretch);
     this.treeWidget.setHeaderLabels(labels);
     this.setCentralWidget(this.treeWidget);
 
@@ -286,9 +286,9 @@ MainWindow.prototype.open = function()
     var file = new QFile(fileName);
     if (!file.open(QIODevice.OpenMode(QIODevice.ReadOnly, QIODevice.Text))) {
         QMessageBox.warning(this, tr("QXmlStream Bookmarks"),
-                             tr("Cannot read file %1:\n%2.")
-                             .arg(fileName)
-                             .arg(file.errorString()));
+                            tr("Cannot read file %1:\n%2.")
+                            .replace("%1", fileName)
+                            .replace("%2", file.errorString()));
         return;
     }
 
@@ -315,9 +315,9 @@ MainWindow.prototype.saveAs = function()
     var file = new QFile(fileName);
     if (!file.open(QIODevice.OpenMode(QIODevice.WriteOnly, QIODevice.Text))) {
         QMessageBox.warning(this, tr("QXmlStream Bookmarks"),
-                             tr("Cannot write file %1:\n%2.")
-                             .arg(fileName)
-                             .arg(file.errorString()));
+                            tr("Cannot write file %1:\n%2.")
+                            .replace("%1", fileName)
+                            .replace("%2", file.errorString()));
         return;
     }
 
