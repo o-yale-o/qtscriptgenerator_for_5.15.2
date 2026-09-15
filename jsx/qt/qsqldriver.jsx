@@ -16,9 +16,9 @@ import "qt/_signals.jsx";
 
 final native class Qt_QSqlDriver_DriverFeature {}
 
-final native class Qt_QSqlDriver_IdentifierType {}
-
 final native class Qt_QSqlDriver_StatementType {}
+
+final native class Qt_QSqlDriver_IdentifierType {}
 
 native class QSqlDriver extends QObject
 {
@@ -41,16 +41,16 @@ native class QSqlDriver extends QObject
     static const CancelQuery : Qt_QSqlDriver_DriverFeature;
     static function DriverFeature(value : Qt_QSqlDriver_DriverFeature) : Qt_QSqlDriver_DriverFeature;
 
-    static const FieldName : Qt_QSqlDriver_IdentifierType;
-    static const TableName : Qt_QSqlDriver_IdentifierType;
-    static function IdentifierType(value : Qt_QSqlDriver_IdentifierType) : Qt_QSqlDriver_IdentifierType;
-
     static const WhereStatement : Qt_QSqlDriver_StatementType;
     static const SelectStatement : Qt_QSqlDriver_StatementType;
     static const UpdateStatement : Qt_QSqlDriver_StatementType;
     static const InsertStatement : Qt_QSqlDriver_StatementType;
     static const DeleteStatement : Qt_QSqlDriver_StatementType;
     static function StatementType(value : Qt_QSqlDriver_StatementType) : Qt_QSqlDriver_StatementType;
+
+    static const FieldName : Qt_QSqlDriver_IdentifierType;
+    static const TableName : Qt_QSqlDriver_IdentifierType;
+    static function IdentifierType(value : Qt_QSqlDriver_IdentifierType) : Qt_QSqlDriver_IdentifierType;
 
     // Methods
     function beginTransaction () : boolean;

@@ -8,9 +8,9 @@
 import "qt/qbytearray.jsx";
 import "qt/qlatin1string.jsx";
 
-final native class Qt_QUuid_Variant {}
-
 final native class Qt_QUuid_Version {}
+
+final native class Qt_QUuid_Variant {}
 
 native class QUuid
 {
@@ -26,13 +26,6 @@ native class QUuid
     static function fromRfc4122 (arg__1 : QByteArray) : QUuid;
     static function fromString (string : QLatin1String) : QUuid;
 
-    static const VarUnknown : Qt_QUuid_Variant;
-    static const NCS : Qt_QUuid_Variant;
-    static const DCE : Qt_QUuid_Variant;
-    static const Microsoft : Qt_QUuid_Variant;
-    static const Reserved : Qt_QUuid_Variant;
-    static function Variant(value : Qt_QUuid_Variant) : Qt_QUuid_Variant;
-
     static const VerUnknown : Qt_QUuid_Version;
     static const Time : Qt_QUuid_Version;
     static const EmbeddedPOSIX : Qt_QUuid_Version;
@@ -40,6 +33,13 @@ native class QUuid
     static const Random : Qt_QUuid_Version;
     static const Sha1 : Qt_QUuid_Version;
     static function Version(value : Qt_QUuid_Version) : Qt_QUuid_Version;
+
+    static const VarUnknown : Qt_QUuid_Variant;
+    static const NCS : Qt_QUuid_Variant;
+    static const DCE : Qt_QUuid_Variant;
+    static const Microsoft : Qt_QUuid_Variant;
+    static const Reserved : Qt_QUuid_Variant;
+    static function Variant(value : Qt_QUuid_Variant) : Qt_QUuid_Variant;
 
     // Methods
     function isNull () : boolean;

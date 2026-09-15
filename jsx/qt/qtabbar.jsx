@@ -16,19 +16,15 @@ import "qt/qtimerevent.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QTabBar_ButtonPosition {}
-
 final native class Qt_QTabBar_Shape {}
 
 final native class Qt_QTabBar_SelectionBehavior {}
 
+final native class Qt_QTabBar_ButtonPosition {}
+
 native class QTabBar extends QWidget
 {
     function constructor (parent : QWidget);
-
-    static const LeftSide : Qt_QTabBar_ButtonPosition;
-    static const RightSide : Qt_QTabBar_ButtonPosition;
-    static function ButtonPosition(value : Qt_QTabBar_ButtonPosition) : Qt_QTabBar_ButtonPosition;
 
     static const RoundedNorth : Qt_QTabBar_Shape;
     static const RoundedSouth : Qt_QTabBar_Shape;
@@ -44,6 +40,10 @@ native class QTabBar extends QWidget
     static const SelectRightTab : Qt_QTabBar_SelectionBehavior;
     static const SelectPreviousTab : Qt_QTabBar_SelectionBehavior;
     static function SelectionBehavior(value : Qt_QTabBar_SelectionBehavior) : Qt_QTabBar_SelectionBehavior;
+
+    static const LeftSide : Qt_QTabBar_ButtonPosition;
+    static const RightSide : Qt_QTabBar_ButtonPosition;
+    static function ButtonPosition(value : Qt_QTabBar_ButtonPosition) : Qt_QTabBar_ButtonPosition;
 
     // Methods
     function accessibleTabName (index : int) : string;

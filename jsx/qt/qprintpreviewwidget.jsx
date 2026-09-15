@@ -10,24 +10,24 @@ import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QPrintPreviewWidget_ZoomMode {}
-
 final native class Qt_QPrintPreviewWidget_ViewMode {}
+
+final native class Qt_QPrintPreviewWidget_ZoomMode {}
 
 native class QPrintPreviewWidget extends QWidget
 {
     function constructor (printer : QPrinter, parent : QWidget, flags : Qt_WindowFlags);
     function constructor (parent : QWidget, flags : Qt_WindowFlags);
 
-    static const CustomZoom : Qt_QPrintPreviewWidget_ZoomMode;
-    static const FitToWidth : Qt_QPrintPreviewWidget_ZoomMode;
-    static const FitInView : Qt_QPrintPreviewWidget_ZoomMode;
-    static function ZoomMode(value : Qt_QPrintPreviewWidget_ZoomMode) : Qt_QPrintPreviewWidget_ZoomMode;
-
     static const SinglePageView : Qt_QPrintPreviewWidget_ViewMode;
     static const FacingPagesView : Qt_QPrintPreviewWidget_ViewMode;
     static const AllPagesView : Qt_QPrintPreviewWidget_ViewMode;
     static function ViewMode(value : Qt_QPrintPreviewWidget_ViewMode) : Qt_QPrintPreviewWidget_ViewMode;
+
+    static const CustomZoom : Qt_QPrintPreviewWidget_ZoomMode;
+    static const FitToWidth : Qt_QPrintPreviewWidget_ZoomMode;
+    static const FitInView : Qt_QPrintPreviewWidget_ZoomMode;
+    static function ZoomMode(value : Qt_QPrintPreviewWidget_ZoomMode) : Qt_QPrintPreviewWidget_ZoomMode;
 
     // Methods
     function currentPage () : int;

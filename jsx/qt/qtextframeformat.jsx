@@ -9,13 +9,18 @@ import "qt/qbrush.jsx";
 import "qt/qtextformat.jsx";
 import "qt/qtextlength.jsx";
 
-final native class Qt_QTextFrameFormat_BorderStyle {}
-
 final native class Qt_QTextFrameFormat_Position {}
+
+final native class Qt_QTextFrameFormat_BorderStyle {}
 
 native class QTextFrameFormat extends QTextFormat
 {
     function constructor ();
+
+    static const InFlow : Qt_QTextFrameFormat_Position;
+    static const FloatLeft : Qt_QTextFrameFormat_Position;
+    static const FloatRight : Qt_QTextFrameFormat_Position;
+    static function Position(value : Qt_QTextFrameFormat_Position) : Qt_QTextFrameFormat_Position;
 
     static const BorderStyle_None : Qt_QTextFrameFormat_BorderStyle;
     static const BorderStyle_Dotted : Qt_QTextFrameFormat_BorderStyle;
@@ -29,11 +34,6 @@ native class QTextFrameFormat extends QTextFormat
     static const BorderStyle_Inset : Qt_QTextFrameFormat_BorderStyle;
     static const BorderStyle_Outset : Qt_QTextFrameFormat_BorderStyle;
     static function BorderStyle(value : Qt_QTextFrameFormat_BorderStyle) : Qt_QTextFrameFormat_BorderStyle;
-
-    static const InFlow : Qt_QTextFrameFormat_Position;
-    static const FloatLeft : Qt_QTextFrameFormat_Position;
-    static const FloatRight : Qt_QTextFrameFormat_Position;
-    static function Position(value : Qt_QTextFrameFormat_Position) : Qt_QTextFrameFormat_Position;
 
     // Methods
     function border () : number;

@@ -10,19 +10,13 @@ import "qt/qiodevice.jsx";
 import "qt/qobject.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QLocalSocket_LocalSocketState {}
-
 final native class Qt_QLocalSocket_LocalSocketError {}
+
+final native class Qt_QLocalSocket_LocalSocketState {}
 
 native class QLocalSocket extends QIODevice
 {
     function constructor (parent : QObject);
-
-    static const UnconnectedState : Qt_QLocalSocket_LocalSocketState;
-    static const ConnectingState : Qt_QLocalSocket_LocalSocketState;
-    static const ConnectedState : Qt_QLocalSocket_LocalSocketState;
-    static const ClosingState : Qt_QLocalSocket_LocalSocketState;
-    static function LocalSocketState(value : Qt_QLocalSocket_LocalSocketState) : Qt_QLocalSocket_LocalSocketState;
 
     static const UnknownSocketError : Qt_QLocalSocket_LocalSocketError;
     static const ConnectionRefusedError : Qt_QLocalSocket_LocalSocketError;
@@ -36,6 +30,12 @@ native class QLocalSocket extends QIODevice
     static const UnsupportedSocketOperationError : Qt_QLocalSocket_LocalSocketError;
     static const OperationError : Qt_QLocalSocket_LocalSocketError;
     static function LocalSocketError(value : Qt_QLocalSocket_LocalSocketError) : Qt_QLocalSocket_LocalSocketError;
+
+    static const UnconnectedState : Qt_QLocalSocket_LocalSocketState;
+    static const ConnectingState : Qt_QLocalSocket_LocalSocketState;
+    static const ConnectedState : Qt_QLocalSocket_LocalSocketState;
+    static const ClosingState : Qt_QLocalSocket_LocalSocketState;
+    static function LocalSocketState(value : Qt_QLocalSocket_LocalSocketState) : Qt_QLocalSocket_LocalSocketState;
 
     // Methods
     function abort () : void;

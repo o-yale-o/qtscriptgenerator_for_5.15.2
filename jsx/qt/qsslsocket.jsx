@@ -19,9 +19,9 @@ import "qt/qsslkey.jsx";
 import "qt/qtcpsocket.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QSslSocket_PeerVerifyMode {}
-
 final native class Qt_QSslSocket_SslMode {}
+
+final native class Qt_QSslSocket_PeerVerifyMode {}
 
 native class QSslSocket extends QTcpSocket
 {
@@ -42,16 +42,16 @@ native class QSslSocket extends QTcpSocket
     static function supportsSsl () : boolean;
     static function systemCaCertificates () : QSslCertificate[];
 
+    static const UnencryptedMode : Qt_QSslSocket_SslMode;
+    static const SslClientMode : Qt_QSslSocket_SslMode;
+    static const SslServerMode : Qt_QSslSocket_SslMode;
+    static function SslMode(value : Qt_QSslSocket_SslMode) : Qt_QSslSocket_SslMode;
+
     static const VerifyNone : Qt_QSslSocket_PeerVerifyMode;
     static const QueryPeer : Qt_QSslSocket_PeerVerifyMode;
     static const VerifyPeer : Qt_QSslSocket_PeerVerifyMode;
     static const AutoVerifyPeer : Qt_QSslSocket_PeerVerifyMode;
     static function PeerVerifyMode(value : Qt_QSslSocket_PeerVerifyMode) : Qt_QSslSocket_PeerVerifyMode;
-
-    static const UnencryptedMode : Qt_QSslSocket_SslMode;
-    static const SslClientMode : Qt_QSslSocket_SslMode;
-    static const SslServerMode : Qt_QSslSocket_SslMode;
-    static function SslMode(value : Qt_QSslSocket_SslMode) : Qt_QSslSocket_SslMode;
 
     // Methods
     function addCaCertificate (certificate : QSslCertificate) : void;

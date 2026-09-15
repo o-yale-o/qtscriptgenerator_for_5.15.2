@@ -7,9 +7,9 @@
  */
 import "qt/qt.jsx";
 
-final native class Qt_QRegExp_PatternSyntax {}
-
 final native class Qt_QRegExp_CaretMode {}
+
+final native class Qt_QRegExp_PatternSyntax {}
 
 native class QRegExp
 {
@@ -20,6 +20,11 @@ native class QRegExp
     // Static Members
     static function escape (str : string) : string;
 
+    static const CaretAtZero : Qt_QRegExp_CaretMode;
+    static const CaretAtOffset : Qt_QRegExp_CaretMode;
+    static const CaretWontMatch : Qt_QRegExp_CaretMode;
+    static function CaretMode(value : Qt_QRegExp_CaretMode) : Qt_QRegExp_CaretMode;
+
     static const RegExp : Qt_QRegExp_PatternSyntax;
     static const Wildcard : Qt_QRegExp_PatternSyntax;
     static const FixedString : Qt_QRegExp_PatternSyntax;
@@ -27,11 +32,6 @@ native class QRegExp
     static const WildcardUnix : Qt_QRegExp_PatternSyntax;
     static const W3CXmlSchema11 : Qt_QRegExp_PatternSyntax;
     static function PatternSyntax(value : Qt_QRegExp_PatternSyntax) : Qt_QRegExp_PatternSyntax;
-
-    static const CaretAtZero : Qt_QRegExp_CaretMode;
-    static const CaretAtOffset : Qt_QRegExp_CaretMode;
-    static const CaretWontMatch : Qt_QRegExp_CaretMode;
-    static function CaretMode(value : Qt_QRegExp_CaretMode) : Qt_QRegExp_CaretMode;
 
     // Methods
     function cap (nth : int) : string;

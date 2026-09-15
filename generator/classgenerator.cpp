@@ -359,6 +359,18 @@ static int writePrepareArguments(QTextStream &stream, const AbstractMetaFunction
                 argType = arg->type();
                 typeName = normalizedType(argType);
             }
+            if (typeName == QLatin1String("const char*")) {
+                // A JS string cannot go through qscriptvalue_cast<const char*>
+                // (the cast yields a null pointer at runtime, and the pointed-to
+                // data would not outlive the call anyway). Keep the QByteArray
+                // alive in a local, mirroring the typesystem template
+                // core.convert_string_arg_to_char* used by assignProperty.
+                stream << indentStr << "QByteArray " << actualOut << "_ba = " << actualIn << ".toString().toLatin1();" << endl;
+                stream << indentStr << "const char* " << actualOut << " = " << actualOut << "_ba.constData();" << endl;
+                if (!fun->argumentRemoved(j+1))
+                    ++scriptArgIndex;
+                continue;
+            }
             stream << indentStr << typeName << " " << actualOut;
             QString converter;
             // ### generalize the QSet check (we should check if the type has push_back())

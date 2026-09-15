@@ -21,14 +21,18 @@ import "qt/qdomprocessinginstruction.jsx";
 import "qt/qdomtext.jsx";
 import "qt/qtextstream.jsx";
 
-final native class Qt_QDomNode_NodeType {}
-
 final native class Qt_QDomNode_EncodingPolicy {}
+
+final native class Qt_QDomNode_NodeType {}
 
 native class QDomNode
 {
     function constructor ();
     function constructor (arg__1 : QDomNode);
+
+    static const EncodingFromDocument : Qt_QDomNode_EncodingPolicy;
+    static const EncodingFromTextStream : Qt_QDomNode_EncodingPolicy;
+    static function EncodingPolicy(value : Qt_QDomNode_EncodingPolicy) : Qt_QDomNode_EncodingPolicy;
 
     static const ElementNode : Qt_QDomNode_NodeType;
     static const AttributeNode : Qt_QDomNode_NodeType;
@@ -45,10 +49,6 @@ native class QDomNode
     static const BaseNode : Qt_QDomNode_NodeType;
     static const CharacterDataNode : Qt_QDomNode_NodeType;
     static function NodeType(value : Qt_QDomNode_NodeType) : Qt_QDomNode_NodeType;
-
-    static const EncodingFromDocument : Qt_QDomNode_EncodingPolicy;
-    static const EncodingFromTextStream : Qt_QDomNode_EncodingPolicy;
-    static function EncodingPolicy(value : Qt_QDomNode_EncodingPolicy) : Qt_QDomNode_EncodingPolicy;
 
     // Methods
     function appendChild (newChild : QDomNode) : QDomNode;

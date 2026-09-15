@@ -7,25 +7,20 @@
  */
 import "qt/qstyleoption.jsx";
 
-final native class Qt_QStyleOptionToolBar_ToolBarFeature {}
-
-final native class Qt_QStyleOptionToolBar_ToolBarFeatures {}
-
 final native class Qt_QStyleOptionToolBar_ToolBarPosition {}
 
 final native class Qt_QStyleOptionToolBar_StyleOptionVersion {}
 
 final native class Qt_QStyleOptionToolBar_StyleOptionType {}
 
+final native class Qt_QStyleOptionToolBar_ToolBarFeature {}
+
+final native class Qt_QStyleOptionToolBar_ToolBarFeatures {}
+
 native class QStyleOptionToolBar extends QStyleOption
 {
     function constructor ();
     function constructor (other : QStyleOptionToolBar);
-
-    static const None : Qt_QStyleOptionToolBar_ToolBarFeature;
-    static const Movable : Qt_QStyleOptionToolBar_ToolBarFeature;
-    static function ToolBarFeature(value : Qt_QStyleOptionToolBar_ToolBarFeature) : Qt_QStyleOptionToolBar_ToolBarFeature;
-    static function ToolBarFeatures(...value : Qt_QStyleOptionToolBar_ToolBarFeature) : Qt_QStyleOptionToolBar_ToolBarFeatures;
 
     static const Beginning : Qt_QStyleOptionToolBar_ToolBarPosition;
     static const Middle : Qt_QStyleOptionToolBar_ToolBarPosition;
@@ -38,4 +33,9 @@ native class QStyleOptionToolBar extends QStyleOption
 
     static const Type : Qt_QStyleOptionToolBar_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionToolBar_StyleOptionType) : Qt_QStyleOptionToolBar_StyleOptionType;
+
+    static const None : Qt_QStyleOptionToolBar_ToolBarFeature;
+    static const Movable : Qt_QStyleOptionToolBar_ToolBarFeature;
+    static function ToolBarFeature(value : Qt_QStyleOptionToolBar_ToolBarFeature) : Qt_QStyleOptionToolBar_ToolBarFeature;
+    static function ToolBarFeatures(...value : Qt_QStyleOptionToolBar_ToolBarFeature) : Qt_QStyleOptionToolBar_ToolBarFeatures;
 }
