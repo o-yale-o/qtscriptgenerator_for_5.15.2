@@ -12,6 +12,7 @@ final native class Qt_QUrl_ParsingMode {}
 native class QUrl
 {
     function constructor ();
+    function constructor (other : QUrl);
     function constructor (url : string, mode : Qt_QUrl_ParsingMode);
     function constructor (copy : QUrl);
 

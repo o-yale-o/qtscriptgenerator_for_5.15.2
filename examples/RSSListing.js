@@ -66,15 +66,15 @@ function RSSListing(parent)
     headerLabels.push(tr("Title"));
     headerLabels.push(tr("Link"));
     this.treeWidget.setHeaderLabels(headerLabels);
-    this.treeWidget.header().setResizeMode(QHeaderView.ResizeToContents);
+    this.treeWidget.header().setSectionResizeMode(QHeaderView.ResizeToContents);
 
-    this.http = new QHttp(this);
-    this.http.readyRead.connect(this, this.readData);
-    this.http.requestFinished.connect(this, this.finished);
+    // QHttp was removed in Qt5; use QNetworkAccessManager instead
+    this.manager = new QNetworkAccessManager(this);
+    this.reply = null;
 
     this.lineEdit.returnPressed.connect(this, this.fetch);
     this.fetchButton.clicked.connect(this, this.fetch);
-    this.abortButton.clicked.connect(this.http, this.http.abort);
+    this.abortButton.clicked.connect(this, this.abort);
 
     var layout = new QVBoxLayout(this);
 
@@ -105,32 +105,33 @@ RSSListing.prototype.fetch = function()
 
     var url = new QUrl(this.lineEdit.text);
 
-    this.http.setHost(url.host());
-    this.connectionId = this.http.get(url.path());
+    this.reply = this.manager.get(new QNetworkRequest(url));
+    this.reply.readyRead.connect(this, this.readData);
+    this.reply.finished.connect(this, this.finished);
 }
 
-RSSListing.prototype.readData = function(resp)
+RSSListing.prototype.abort = function()
 {
-    if (resp.statusCode() != 200)
-        this.http.abort();
-    else {
-        this.xml.addData(this.http.readAll());
-        this.parseXml();
-    }
+    if (this.reply)
+        this.reply.abort();
 }
 
-RSSListing.prototype.finished = function(id, error)
+RSSListing.prototype.readData = function()
 {
-    if (error) {
-        print("Received error during HTTP fetch."); // ### qWarning()
-        this.lineEdit.readOnly = false;
-        this.abortButton.enabled = false;
-        this.fetchButton.enabled = true;
-    } else if (id == this.connectionId) {
-        this.lineEdit.readOnly = false;
-        this.abortButton.enabled = false;
-        this.fetchButton.enabled = true;
+    var status = this.reply.attribute(QNetworkRequest.HttpStatusCodeAttribute);
+    if (typeof status == "number" && status != 200) {
+        this.reply.abort();
+        return;
     }
+    this.xml.addData(this.reply.readAll());
+    this.parseXml();
+}
+
+RSSListing.prototype.finished = function()
+{
+    this.lineEdit.readOnly = false;
+    this.abortButton.enabled = false;
+    this.fetchButton.enabled = true;
 }
 
 RSSListing.prototype.parseXml = function()
@@ -161,8 +162,7 @@ RSSListing.prototype.parseXml = function()
         }
     }
     if (this.xml.hasError() && (this.xml.error() != QXmlStreamReader.PrematureEndOfDocumentError)) {
-        print("XML ERROR:", this.xml.lineNumber() + ":", this.xml.errorString());
-        this.http.abort();
+        this.abort();
     }
 }
 

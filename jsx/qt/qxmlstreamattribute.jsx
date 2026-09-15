@@ -9,6 +9,7 @@
 native class QXmlStreamAttribute
 {
     function constructor ();
+    function constructor (other : QXmlStreamAttribute);
     function constructor (namespaceUri : string, name : string, value : string);
     function constructor (qualifiedName : string, value : string);
     function constructor (arg__1 : QXmlStreamAttribute);

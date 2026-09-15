@@ -191,9 +191,27 @@ int main(int argc, char *argv[])
     }
 
 #if QT_VERSION >= 0x040500
-    QScriptEngineDebugger *dbg = new QScriptEngineDebugger();
-    dbg->attachTo(eng);
+    QScriptEngineDebugger *dbg = 0;
+    // Unattended runs (batch demo testing) set QSEVAL_NO_DEBUGGER to bypass
+    // the interactive debugger, so uncaught exceptions fall through to the
+    // "print + EXIT_FAILURE" handling below instead of suspending the process.
+    if (qEnvironmentVariableIsEmpty("QSEVAL_NO_DEBUGGER")) {
+        dbg = new QScriptEngineDebugger();
+        dbg->attachTo(eng);
+    }
 #endif
+
+    // QSEVAL_FAILFAST: report exceptions thrown inside event-loop-invoked
+    // script functions (signal handlers, animation callbacks) and stop.
+    if (!qEnvironmentVariableIsEmpty("QSEVAL_FAILFAST")) {
+        QObject::connect(eng, &QScriptEngine::signalHandlerException,
+                         app, [app](const QScriptValue &exc) {
+            fprintf(stderr, "JS exception in event handler: %s\n",
+                    qPrintable(exc.toString()));
+            fflush(stderr);
+            app->exit(2);
+        }, Qt::DirectConnection);
+    }
 
     QScriptValue globalObject = eng->globalObject();
     globalObject.setProperty("qApp", eng->newQObject(app));
@@ -255,8 +273,7 @@ int main(int argc, char *argv[])
     delete eng;
 #if QT_VERSION >= 0x040500
     delete dbg;
-#endif
-    delete app;
+#endif    delete app;
 
     return EXIT_SUCCESS;
 }

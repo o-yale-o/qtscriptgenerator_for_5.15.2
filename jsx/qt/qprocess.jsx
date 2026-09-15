@@ -11,13 +11,13 @@ import "qt/qobject.jsx";
 import "qt/qprocessenvironment.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QProcess_ProcessState {}
-
-final native class Qt_QProcess_ProcessChannelMode {}
-
 final native class Qt_QProcess_ExitStatus {}
 
 final native class Qt_QProcess_ProcessError {}
+
+final native class Qt_QProcess_ProcessChannelMode {}
+
+final native class Qt_QProcess_ProcessState {}
 
 final native class Qt_QProcess_ProcessChannel {}
 
@@ -31,18 +31,6 @@ native class QProcess extends QIODevice
     static function startDetached (command : string) : boolean;
     static function systemEnvironment () : string[];
 
-    static const NotRunning : Qt_QProcess_ProcessState;
-    static const Starting : Qt_QProcess_ProcessState;
-    static const Running : Qt_QProcess_ProcessState;
-    static function ProcessState(value : Qt_QProcess_ProcessState) : Qt_QProcess_ProcessState;
-
-    static const SeparateChannels : Qt_QProcess_ProcessChannelMode;
-    static const MergedChannels : Qt_QProcess_ProcessChannelMode;
-    static const ForwardedChannels : Qt_QProcess_ProcessChannelMode;
-    static const ForwardedOutputChannel : Qt_QProcess_ProcessChannelMode;
-    static const ForwardedErrorChannel : Qt_QProcess_ProcessChannelMode;
-    static function ProcessChannelMode(value : Qt_QProcess_ProcessChannelMode) : Qt_QProcess_ProcessChannelMode;
-
     static const NormalExit : Qt_QProcess_ExitStatus;
     static const CrashExit : Qt_QProcess_ExitStatus;
     static function ExitStatus(value : Qt_QProcess_ExitStatus) : Qt_QProcess_ExitStatus;
@@ -54,6 +42,18 @@ native class QProcess extends QIODevice
     static const WriteError : Qt_QProcess_ProcessError;
     static const UnknownError : Qt_QProcess_ProcessError;
     static function ProcessError(value : Qt_QProcess_ProcessError) : Qt_QProcess_ProcessError;
+
+    static const SeparateChannels : Qt_QProcess_ProcessChannelMode;
+    static const MergedChannels : Qt_QProcess_ProcessChannelMode;
+    static const ForwardedChannels : Qt_QProcess_ProcessChannelMode;
+    static const ForwardedOutputChannel : Qt_QProcess_ProcessChannelMode;
+    static const ForwardedErrorChannel : Qt_QProcess_ProcessChannelMode;
+    static function ProcessChannelMode(value : Qt_QProcess_ProcessChannelMode) : Qt_QProcess_ProcessChannelMode;
+
+    static const NotRunning : Qt_QProcess_ProcessState;
+    static const Starting : Qt_QProcess_ProcessState;
+    static const Running : Qt_QProcess_ProcessState;
+    static function ProcessState(value : Qt_QProcess_ProcessState) : Qt_QProcess_ProcessState;
 
     static const StandardOutput : Qt_QProcess_ProcessChannel;
     static const StandardError : Qt_QProcess_ProcessChannel;

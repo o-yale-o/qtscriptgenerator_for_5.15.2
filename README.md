@@ -352,3 +352,92 @@ typesystem 里统一 `remove`（与 gui 模块既有惯例一致）：
 **验证**：AnalogClock.js（时钟走针）、CollidingMice.js（老鼠碰撞）、
 TwoWayButton.qs（状态机按钮）全部无脚本异常、正常交互退出（exit 0）。
 QWidget 绑定函数表从 114 个恢复至 425 个。
+
+---
+
+## 【修改说明 · 四】示例全量自动化回归：18/18 全部通过
+
+本轮把"逐个手动跑 demo"升级为无人值守批量回归，并顺手修掉了最后一批
+Qt4→Qt5 兼容问题。至此 `examples/` 下全部示例在批量测试中 0 脚本异常。
+
+### 1. qs_eval 支持无人值守模式（main.cpp）
+
+`QScriptEngineDebugger` 原本无条件挂载，脚本异常会转入交互式调试器挂住进程，
+错误信息无法被批量脚本捕获。现增加两个环境变量开关：
+
+- `QSEVAL_NO_DEBUGGER=1`：不挂调试器，顶层异常走既有的"stderr 打印 +
+  EXIT_FAILURE"路径（main.cpp 既有逻辑）；
+- `QSEVAL_FAILFAST=1`：事件循环内的 JS 异常（信号槽、动画回调）通过
+  `QScriptEngine::signalHandlerException` 打印到 stderr 并 `exit(2)`。
+
+交互行为完全不变（不设变量时调试器照常挂载）。qs_eval 已用 vcvars64 +
+nmake 重编译。
+
+### 2. 批量回归脚本（examples/）
+
+- `_run_all.ps1`：逐个用 qs_eval 运行示例，6 秒超时后 `taskkill /T` 收割；
+  捕获 stdout/stderr 与退出码后输出 JSON 汇总。
+  判定：EXITED-0 / KILLED@6s 且 stderr 无异常 = 通过。
+  （注意 PowerShell 5.1 的 `Start-Process` 在进程环境同时存在大小写不同的
+  `NO_PROXY`/`no_proxy` 时会抛字典冲突，脚本改用 .NET `Process` + `cmd /c`
+  重定向绕过。）
+- `_probe.js`：绑定 API 可用性探针，结果写临时文件后一次性输出；
+- `_sb_check.js`：QXmlStreamReader/Writer 读写往返的无头验证；
+- `_cc_auto.js`：ConcentricCircles 的 5 秒自动退出变体。
+
+### 3. 示例脚本的 Qt4→Qt5 适配（本轮修复）
+
+- `Wiggly.js`：`QBoxLayout::addWidget(w, stretch)` 两参形式失败——Qt5 头里
+  `Qt::Alignment alignment = Qt::Alignment()` 这类"临时对象默认实参"不被
+  生成器识别（`translateDefaultValue` 只翻译 `0`/`nullptr`），默认值被丢弃
+  后该函数最少需要 3 参。脚本显式补 `addWidget(w, stretch, 0)`。
+  （`QGridLayout::addWidget(w, r, c)` 三参形式不受影响，这也是此前
+  LineEdits 等能通过的原因。）
+- `AnimatedBox.qs`：同一根因，`QGraphicsScene::addWidget(w, flags)` 默认
+  `Qt::WindowFlags()` 被丢弃，补 `addWidget(w, 0)`。
+- `RSSListing.js`：`QHeaderView::setResizeMode` 在 Qt5 已改名
+  `setSectionResizeMode`；`QHttp` 在 Qt5 整个移除，改用
+  `QNetworkAccessManager.get(QNetworkRequest)` + `QNetworkReply` 的
+  `readyRead`/`finished` 信号重写 fetch/abort/readData。
+- `_cc_auto.js`：`QTimer.singleShot` 静态函数未绑定（Qt4 时代示例的已知
+  FIXME），改用 `singleShot` 属性为 true 的 `QTimer` 对象触发 `quit()`；
+  另外原文件把 `singleShot` 写在 `exec()` 之后（永不执行），已调整顺序。
+- `StreamBookmarks.js`：`readXBEL()` 里三处 `name()` 缺 `this.`（JS 下
+  ReferenceError）；把 `open()` 拆出 `loadBookmarks(fileName)`，启动时若
+  存在 `frank.xbel` 则自动加载（无人值守验证），否则保持原有文件对话框
+  交互。
+
+### 4. 绑定层：QFile::open 被 fd 重载遮蔽（typesystem_core.xml）
+
+**现象**：`file.open(QIODevice.OpenMode(...))` 报"could not find a function
+match"，候选只有 `open(int fd, OpenMode, FileHandleFlags)`。
+
+**根因**：`open(OpenMode)` 绑在 `QIODevice` 原型上，而 `QFile` 自身又绑定了
+fd 版 `open(int, OpenMode, FileHandleFlags)`，按属性查找遮蔽了原型链。Qt4
+时代的 typesystem 本就 remove 掉了 fd 版（`open(int,QFlags<OpenModeFlag>)`），
+但 Qt5 给它加了第三个参数 `FileHandleFlags`（canonical 名为
+`QFileDevice::FileHandleFlag` 的 QFlags），旧签名匹配不上、remove 静默失效。
+
+**修复**：签名补全为
+`open(int,QFlags<QIODevice::OpenModeFlag>,QFlags<QFileDevice::FileHandleFlag>)`。
+重新生成 core 模块（generator.exe 输出确认 fd 版 open 已移除）并重编
+`qtscript_core.dll`，`file.open(...)` 现在正确解析到
+`QIODevice.prototype.open`。
+
+### 5. 验证（本轮）
+
+`_run_all.ps1` 全量回归 18 个示例：**0 脚本异常**。其中
+StreamBookmarks 自动加载 frank.xbel 成功（`_sb_check.js` 往返验证：
+读出 1 xbel / 11 folder / 64 bookmark / 75 title，写出 XML 格式正确）。
+
+### 已知限制（更新，经 `_probe.js` 探针证实）
+
+- `qt.xmlpatterns` / `qt.uitools` 插件 import 失败的原因仍未深究（不影响
+  其余 10 个模块）；`qt.webkit`/`qt.webkitwidgets` 本无绑定。
+- `QInputDialog.getInt/getInteger` 均未绑定（`getDouble` 正常；疑似 Qt5
+  签名里的 `bool *ok = nullptr` 输出参数处理问题），StandardDialogs 的
+  对应按钮点击时会失败，窗口及其它按钮正常。
+- `QTimer.singleShot` 静态未绑定、`QHeaderView::setResizeMode`/
+  `QHttp` 已随 Qt5 移除——均已在示例脚本中绕过/重写。
+- Screenshot.js 可正常运行：`QPixmap.grabWindow`、`QApplication.desktop()`、
+  `QDesktopWidget` 在绑定中均存在（探针证实），无人值守回归 0 异常。

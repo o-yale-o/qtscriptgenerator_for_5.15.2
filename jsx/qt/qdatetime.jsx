@@ -12,10 +12,10 @@ import "qt/qtime.jsx";
 native class QDateTime
 {
     function constructor ();
+    function constructor (other : Date);
     function constructor (arg__1 : QDate);
     function constructor (arg__1 : QDate, arg__2 : QTime, spec : Qt_TimeSpec);
     function constructor (date : QDate, time : QTime, spec : Qt_TimeSpec, offsetSeconds : int);
-    function constructor (other : Date);
 
     // Static Members
     static function currentDateTime () : Date;

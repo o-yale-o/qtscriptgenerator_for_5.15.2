@@ -8,7 +8,7 @@ var scene = new QGraphicsScene();
 scene.setSceneRect(0, 0, 400, 400);
 scene.itemIndexMethod = QGraphicsScene.NoIndex;
 
-box = scene.addWidget(createBox());
+box = scene.addWidget(createBox(), 0);
 
 var machine = new QStateMachine();
 

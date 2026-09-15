@@ -152,9 +152,9 @@ XbelReader.prototype.readXBEL = function()
         if (this.isStartElement()) {
             if (this.name() == "folder")
                 this.readFolder(null);
-            else if (name() == "bookmark")
+            else if (this.name() == "bookmark")
                 this.readBookmark(null);
-            else if (name() == "separator")
+            else if (this.name() == "separator")
                 this.readSeparator(null);
             else
                 this.readUnknownElement();
@@ -279,7 +279,11 @@ MainWindow.prototype.open = function()
                                          tr("XBEL Files (*.xbel *.xml)"));
     if (fileName == "")
         return;
+    this.loadBookmarks(fileName);
+}
 
+MainWindow.prototype.loadBookmarks = function(fileName)
+{
     this.treeWidget.clear();
 
 
@@ -375,5 +379,9 @@ MainWindow.prototype.createMenus = function()
 
 var mainWin = new MainWindow();
 mainWin.show();
-mainWin.open();
+// unattended test path: auto-load the shipped sample bookmark file
+if (new QFile("frank.xbel").exists())
+    mainWin.loadBookmarks("frank.xbel");
+else
+    mainWin.open();
 QCoreApplication.exec();

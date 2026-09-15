@@ -7,7 +7,6 @@
  */
 import "qt/qbytearray.jsx";
 import "qt/qfiledevice.jsx";
-import "qt/qiodevice.jsx";
 import "qt/qobject.jsx";
 
 native class QFile extends QFileDevice
@@ -37,7 +36,6 @@ native class QFile extends QFileDevice
     function exists () : boolean;
     function link (newName : string) : boolean;
     function moveToTrash () : boolean;
-    function open (fd : int, ioFlags : Qt_QIODevice_OpenMode, handleFlags : Qt_QFileDevice_FileHandleFlags) : boolean;
     function readLink () : string;
     function remove () : boolean;
     function rename (newName : string) : boolean;

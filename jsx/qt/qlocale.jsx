@@ -9,21 +9,21 @@ import "qt/qdate.jsx";
 import "qt/qt.jsx";
 import "qt/qtime.jsx";
 
-final native class Qt_QLocale_NumberOption {}
-
-final native class Qt_QLocale_NumberOptions {}
-
-final native class Qt_QLocale_Script {}
-
-final native class Qt_QLocale_FormatType {}
+final native class Qt_QLocale_MeasurementSystem {}
 
 final native class Qt_QLocale_CurrencySymbolFormat {}
 
 final native class Qt_QLocale_Country {}
 
-final native class Qt_QLocale_MeasurementSystem {}
+final native class Qt_QLocale_Script {}
+
+final native class Qt_QLocale_FormatType {}
 
 final native class Qt_QLocale_QuotationStyle {}
+
+final native class Qt_QLocale_NumberOption {}
+
+final native class Qt_QLocale_NumberOptions {}
 
 final native class Qt_QLocale_Language {}
 
@@ -45,164 +45,10 @@ native class QLocale
     static function setDefault (locale : QLocale) : void;
     static function system () : QLocale;
 
-    static const DefaultNumberOptions : Qt_QLocale_NumberOption;
-    static const OmitGroupSeparator : Qt_QLocale_NumberOption;
-    static const RejectGroupSeparator : Qt_QLocale_NumberOption;
-    static const OmitLeadingZeroInExponent : Qt_QLocale_NumberOption;
-    static const RejectLeadingZeroInExponent : Qt_QLocale_NumberOption;
-    static const IncludeTrailingZeroesAfterDot : Qt_QLocale_NumberOption;
-    static const RejectTrailingZeroesAfterDot : Qt_QLocale_NumberOption;
-    static function NumberOption(value : Qt_QLocale_NumberOption) : Qt_QLocale_NumberOption;
-    static function NumberOptions(...value : Qt_QLocale_NumberOption) : Qt_QLocale_NumberOptions;
-
-    static const AnyScript : Qt_QLocale_Script;
-    static const ArabicScript : Qt_QLocale_Script;
-    static const CyrillicScript : Qt_QLocale_Script;
-    static const DeseretScript : Qt_QLocale_Script;
-    static const GurmukhiScript : Qt_QLocale_Script;
-    static const SimplifiedHanScript : Qt_QLocale_Script;
-    static const TraditionalHanScript : Qt_QLocale_Script;
-    static const LatinScript : Qt_QLocale_Script;
-    static const MongolianScript : Qt_QLocale_Script;
-    static const TifinaghScript : Qt_QLocale_Script;
-    static const ArmenianScript : Qt_QLocale_Script;
-    static const BengaliScript : Qt_QLocale_Script;
-    static const CherokeeScript : Qt_QLocale_Script;
-    static const DevanagariScript : Qt_QLocale_Script;
-    static const EthiopicScript : Qt_QLocale_Script;
-    static const GeorgianScript : Qt_QLocale_Script;
-    static const GreekScript : Qt_QLocale_Script;
-    static const GujaratiScript : Qt_QLocale_Script;
-    static const HebrewScript : Qt_QLocale_Script;
-    static const JapaneseScript : Qt_QLocale_Script;
-    static const KhmerScript : Qt_QLocale_Script;
-    static const KannadaScript : Qt_QLocale_Script;
-    static const KoreanScript : Qt_QLocale_Script;
-    static const LaoScript : Qt_QLocale_Script;
-    static const MalayalamScript : Qt_QLocale_Script;
-    static const MyanmarScript : Qt_QLocale_Script;
-    static const OriyaScript : Qt_QLocale_Script;
-    static const TamilScript : Qt_QLocale_Script;
-    static const TeluguScript : Qt_QLocale_Script;
-    static const ThaanaScript : Qt_QLocale_Script;
-    static const ThaiScript : Qt_QLocale_Script;
-    static const TibetanScript : Qt_QLocale_Script;
-    static const SinhalaScript : Qt_QLocale_Script;
-    static const SyriacScript : Qt_QLocale_Script;
-    static const YiScript : Qt_QLocale_Script;
-    static const VaiScript : Qt_QLocale_Script;
-    static const AvestanScript : Qt_QLocale_Script;
-    static const BalineseScript : Qt_QLocale_Script;
-    static const BamumScript : Qt_QLocale_Script;
-    static const BatakScript : Qt_QLocale_Script;
-    static const BopomofoScript : Qt_QLocale_Script;
-    static const BrahmiScript : Qt_QLocale_Script;
-    static const BugineseScript : Qt_QLocale_Script;
-    static const BuhidScript : Qt_QLocale_Script;
-    static const CanadianAboriginalScript : Qt_QLocale_Script;
-    static const CarianScript : Qt_QLocale_Script;
-    static const ChakmaScript : Qt_QLocale_Script;
-    static const ChamScript : Qt_QLocale_Script;
-    static const CopticScript : Qt_QLocale_Script;
-    static const CypriotScript : Qt_QLocale_Script;
-    static const EgyptianHieroglyphsScript : Qt_QLocale_Script;
-    static const FraserScript : Qt_QLocale_Script;
-    static const GlagoliticScript : Qt_QLocale_Script;
-    static const GothicScript : Qt_QLocale_Script;
-    static const HanScript : Qt_QLocale_Script;
-    static const HangulScript : Qt_QLocale_Script;
-    static const HanunooScript : Qt_QLocale_Script;
-    static const ImperialAramaicScript : Qt_QLocale_Script;
-    static const InscriptionalPahlaviScript : Qt_QLocale_Script;
-    static const InscriptionalParthianScript : Qt_QLocale_Script;
-    static const JavaneseScript : Qt_QLocale_Script;
-    static const KaithiScript : Qt_QLocale_Script;
-    static const KatakanaScript : Qt_QLocale_Script;
-    static const KayahLiScript : Qt_QLocale_Script;
-    static const KharoshthiScript : Qt_QLocale_Script;
-    static const LannaScript : Qt_QLocale_Script;
-    static const LepchaScript : Qt_QLocale_Script;
-    static const LimbuScript : Qt_QLocale_Script;
-    static const LinearBScript : Qt_QLocale_Script;
-    static const LycianScript : Qt_QLocale_Script;
-    static const LydianScript : Qt_QLocale_Script;
-    static const MandaeanScript : Qt_QLocale_Script;
-    static const MeiteiMayekScript : Qt_QLocale_Script;
-    static const MeroiticScript : Qt_QLocale_Script;
-    static const MeroiticCursiveScript : Qt_QLocale_Script;
-    static const NkoScript : Qt_QLocale_Script;
-    static const NewTaiLueScript : Qt_QLocale_Script;
-    static const OghamScript : Qt_QLocale_Script;
-    static const OlChikiScript : Qt_QLocale_Script;
-    static const OldItalicScript : Qt_QLocale_Script;
-    static const OldPersianScript : Qt_QLocale_Script;
-    static const OldSouthArabianScript : Qt_QLocale_Script;
-    static const OrkhonScript : Qt_QLocale_Script;
-    static const OsmanyaScript : Qt_QLocale_Script;
-    static const PhagsPaScript : Qt_QLocale_Script;
-    static const PhoenicianScript : Qt_QLocale_Script;
-    static const PollardPhoneticScript : Qt_QLocale_Script;
-    static const RejangScript : Qt_QLocale_Script;
-    static const RunicScript : Qt_QLocale_Script;
-    static const SamaritanScript : Qt_QLocale_Script;
-    static const SaurashtraScript : Qt_QLocale_Script;
-    static const SharadaScript : Qt_QLocale_Script;
-    static const ShavianScript : Qt_QLocale_Script;
-    static const SoraSompengScript : Qt_QLocale_Script;
-    static const CuneiformScript : Qt_QLocale_Script;
-    static const SundaneseScript : Qt_QLocale_Script;
-    static const SylotiNagriScript : Qt_QLocale_Script;
-    static const TagalogScript : Qt_QLocale_Script;
-    static const TagbanwaScript : Qt_QLocale_Script;
-    static const TaiLeScript : Qt_QLocale_Script;
-    static const TaiVietScript : Qt_QLocale_Script;
-    static const TakriScript : Qt_QLocale_Script;
-    static const UgariticScript : Qt_QLocale_Script;
-    static const BrailleScript : Qt_QLocale_Script;
-    static const HiraganaScript : Qt_QLocale_Script;
-    static const CaucasianAlbanianScript : Qt_QLocale_Script;
-    static const BassaVahScript : Qt_QLocale_Script;
-    static const DuployanScript : Qt_QLocale_Script;
-    static const ElbasanScript : Qt_QLocale_Script;
-    static const GranthaScript : Qt_QLocale_Script;
-    static const PahawhHmongScript : Qt_QLocale_Script;
-    static const KhojkiScript : Qt_QLocale_Script;
-    static const LinearAScript : Qt_QLocale_Script;
-    static const MahajaniScript : Qt_QLocale_Script;
-    static const ManichaeanScript : Qt_QLocale_Script;
-    static const MendeKikakuiScript : Qt_QLocale_Script;
-    static const ModiScript : Qt_QLocale_Script;
-    static const MroScript : Qt_QLocale_Script;
-    static const OldNorthArabianScript : Qt_QLocale_Script;
-    static const NabataeanScript : Qt_QLocale_Script;
-    static const PalmyreneScript : Qt_QLocale_Script;
-    static const PauCinHauScript : Qt_QLocale_Script;
-    static const OldPermicScript : Qt_QLocale_Script;
-    static const PsalterPahlaviScript : Qt_QLocale_Script;
-    static const SiddhamScript : Qt_QLocale_Script;
-    static const KhudawadiScript : Qt_QLocale_Script;
-    static const TirhutaScript : Qt_QLocale_Script;
-    static const VarangKshitiScript : Qt_QLocale_Script;
-    static const AhomScript : Qt_QLocale_Script;
-    static const AnatolianHieroglyphsScript : Qt_QLocale_Script;
-    static const HatranScript : Qt_QLocale_Script;
-    static const MultaniScript : Qt_QLocale_Script;
-    static const OldHungarianScript : Qt_QLocale_Script;
-    static const SignWritingScript : Qt_QLocale_Script;
-    static const AdlamScript : Qt_QLocale_Script;
-    static const BhaiksukiScript : Qt_QLocale_Script;
-    static const MarchenScript : Qt_QLocale_Script;
-    static const NewaScript : Qt_QLocale_Script;
-    static const OsageScript : Qt_QLocale_Script;
-    static const TangutScript : Qt_QLocale_Script;
-    static const HanWithBopomofoScript : Qt_QLocale_Script;
-    static const JamoScript : Qt_QLocale_Script;
-    static function Script(value : Qt_QLocale_Script) : Qt_QLocale_Script;
-
-    static const LongFormat : Qt_QLocale_FormatType;
-    static const ShortFormat : Qt_QLocale_FormatType;
-    static const NarrowFormat : Qt_QLocale_FormatType;
-    static function FormatType(value : Qt_QLocale_FormatType) : Qt_QLocale_FormatType;
+    static const MetricSystem : Qt_QLocale_MeasurementSystem;
+    static const ImperialUSSystem : Qt_QLocale_MeasurementSystem;
+    static const ImperialUKSystem : Qt_QLocale_MeasurementSystem;
+    static function MeasurementSystem(value : Qt_QLocale_MeasurementSystem) : Qt_QLocale_MeasurementSystem;
 
     static const CurrencyIsoCode : Qt_QLocale_CurrencySymbolFormat;
     static const CurrencySymbol : Qt_QLocale_CurrencySymbolFormat;
@@ -473,14 +319,168 @@ native class QLocale
     static const Europe : Qt_QLocale_Country;
     static function Country(value : Qt_QLocale_Country) : Qt_QLocale_Country;
 
-    static const MetricSystem : Qt_QLocale_MeasurementSystem;
-    static const ImperialUSSystem : Qt_QLocale_MeasurementSystem;
-    static const ImperialUKSystem : Qt_QLocale_MeasurementSystem;
-    static function MeasurementSystem(value : Qt_QLocale_MeasurementSystem) : Qt_QLocale_MeasurementSystem;
+    static const AnyScript : Qt_QLocale_Script;
+    static const ArabicScript : Qt_QLocale_Script;
+    static const CyrillicScript : Qt_QLocale_Script;
+    static const DeseretScript : Qt_QLocale_Script;
+    static const GurmukhiScript : Qt_QLocale_Script;
+    static const SimplifiedHanScript : Qt_QLocale_Script;
+    static const TraditionalHanScript : Qt_QLocale_Script;
+    static const LatinScript : Qt_QLocale_Script;
+    static const MongolianScript : Qt_QLocale_Script;
+    static const TifinaghScript : Qt_QLocale_Script;
+    static const ArmenianScript : Qt_QLocale_Script;
+    static const BengaliScript : Qt_QLocale_Script;
+    static const CherokeeScript : Qt_QLocale_Script;
+    static const DevanagariScript : Qt_QLocale_Script;
+    static const EthiopicScript : Qt_QLocale_Script;
+    static const GeorgianScript : Qt_QLocale_Script;
+    static const GreekScript : Qt_QLocale_Script;
+    static const GujaratiScript : Qt_QLocale_Script;
+    static const HebrewScript : Qt_QLocale_Script;
+    static const JapaneseScript : Qt_QLocale_Script;
+    static const KhmerScript : Qt_QLocale_Script;
+    static const KannadaScript : Qt_QLocale_Script;
+    static const KoreanScript : Qt_QLocale_Script;
+    static const LaoScript : Qt_QLocale_Script;
+    static const MalayalamScript : Qt_QLocale_Script;
+    static const MyanmarScript : Qt_QLocale_Script;
+    static const OriyaScript : Qt_QLocale_Script;
+    static const TamilScript : Qt_QLocale_Script;
+    static const TeluguScript : Qt_QLocale_Script;
+    static const ThaanaScript : Qt_QLocale_Script;
+    static const ThaiScript : Qt_QLocale_Script;
+    static const TibetanScript : Qt_QLocale_Script;
+    static const SinhalaScript : Qt_QLocale_Script;
+    static const SyriacScript : Qt_QLocale_Script;
+    static const YiScript : Qt_QLocale_Script;
+    static const VaiScript : Qt_QLocale_Script;
+    static const AvestanScript : Qt_QLocale_Script;
+    static const BalineseScript : Qt_QLocale_Script;
+    static const BamumScript : Qt_QLocale_Script;
+    static const BatakScript : Qt_QLocale_Script;
+    static const BopomofoScript : Qt_QLocale_Script;
+    static const BrahmiScript : Qt_QLocale_Script;
+    static const BugineseScript : Qt_QLocale_Script;
+    static const BuhidScript : Qt_QLocale_Script;
+    static const CanadianAboriginalScript : Qt_QLocale_Script;
+    static const CarianScript : Qt_QLocale_Script;
+    static const ChakmaScript : Qt_QLocale_Script;
+    static const ChamScript : Qt_QLocale_Script;
+    static const CopticScript : Qt_QLocale_Script;
+    static const CypriotScript : Qt_QLocale_Script;
+    static const EgyptianHieroglyphsScript : Qt_QLocale_Script;
+    static const FraserScript : Qt_QLocale_Script;
+    static const GlagoliticScript : Qt_QLocale_Script;
+    static const GothicScript : Qt_QLocale_Script;
+    static const HanScript : Qt_QLocale_Script;
+    static const HangulScript : Qt_QLocale_Script;
+    static const HanunooScript : Qt_QLocale_Script;
+    static const ImperialAramaicScript : Qt_QLocale_Script;
+    static const InscriptionalPahlaviScript : Qt_QLocale_Script;
+    static const InscriptionalParthianScript : Qt_QLocale_Script;
+    static const JavaneseScript : Qt_QLocale_Script;
+    static const KaithiScript : Qt_QLocale_Script;
+    static const KatakanaScript : Qt_QLocale_Script;
+    static const KayahLiScript : Qt_QLocale_Script;
+    static const KharoshthiScript : Qt_QLocale_Script;
+    static const LannaScript : Qt_QLocale_Script;
+    static const LepchaScript : Qt_QLocale_Script;
+    static const LimbuScript : Qt_QLocale_Script;
+    static const LinearBScript : Qt_QLocale_Script;
+    static const LycianScript : Qt_QLocale_Script;
+    static const LydianScript : Qt_QLocale_Script;
+    static const MandaeanScript : Qt_QLocale_Script;
+    static const MeiteiMayekScript : Qt_QLocale_Script;
+    static const MeroiticScript : Qt_QLocale_Script;
+    static const MeroiticCursiveScript : Qt_QLocale_Script;
+    static const NkoScript : Qt_QLocale_Script;
+    static const NewTaiLueScript : Qt_QLocale_Script;
+    static const OghamScript : Qt_QLocale_Script;
+    static const OlChikiScript : Qt_QLocale_Script;
+    static const OldItalicScript : Qt_QLocale_Script;
+    static const OldPersianScript : Qt_QLocale_Script;
+    static const OldSouthArabianScript : Qt_QLocale_Script;
+    static const OrkhonScript : Qt_QLocale_Script;
+    static const OsmanyaScript : Qt_QLocale_Script;
+    static const PhagsPaScript : Qt_QLocale_Script;
+    static const PhoenicianScript : Qt_QLocale_Script;
+    static const PollardPhoneticScript : Qt_QLocale_Script;
+    static const RejangScript : Qt_QLocale_Script;
+    static const RunicScript : Qt_QLocale_Script;
+    static const SamaritanScript : Qt_QLocale_Script;
+    static const SaurashtraScript : Qt_QLocale_Script;
+    static const SharadaScript : Qt_QLocale_Script;
+    static const ShavianScript : Qt_QLocale_Script;
+    static const SoraSompengScript : Qt_QLocale_Script;
+    static const CuneiformScript : Qt_QLocale_Script;
+    static const SundaneseScript : Qt_QLocale_Script;
+    static const SylotiNagriScript : Qt_QLocale_Script;
+    static const TagalogScript : Qt_QLocale_Script;
+    static const TagbanwaScript : Qt_QLocale_Script;
+    static const TaiLeScript : Qt_QLocale_Script;
+    static const TaiVietScript : Qt_QLocale_Script;
+    static const TakriScript : Qt_QLocale_Script;
+    static const UgariticScript : Qt_QLocale_Script;
+    static const BrailleScript : Qt_QLocale_Script;
+    static const HiraganaScript : Qt_QLocale_Script;
+    static const CaucasianAlbanianScript : Qt_QLocale_Script;
+    static const BassaVahScript : Qt_QLocale_Script;
+    static const DuployanScript : Qt_QLocale_Script;
+    static const ElbasanScript : Qt_QLocale_Script;
+    static const GranthaScript : Qt_QLocale_Script;
+    static const PahawhHmongScript : Qt_QLocale_Script;
+    static const KhojkiScript : Qt_QLocale_Script;
+    static const LinearAScript : Qt_QLocale_Script;
+    static const MahajaniScript : Qt_QLocale_Script;
+    static const ManichaeanScript : Qt_QLocale_Script;
+    static const MendeKikakuiScript : Qt_QLocale_Script;
+    static const ModiScript : Qt_QLocale_Script;
+    static const MroScript : Qt_QLocale_Script;
+    static const OldNorthArabianScript : Qt_QLocale_Script;
+    static const NabataeanScript : Qt_QLocale_Script;
+    static const PalmyreneScript : Qt_QLocale_Script;
+    static const PauCinHauScript : Qt_QLocale_Script;
+    static const OldPermicScript : Qt_QLocale_Script;
+    static const PsalterPahlaviScript : Qt_QLocale_Script;
+    static const SiddhamScript : Qt_QLocale_Script;
+    static const KhudawadiScript : Qt_QLocale_Script;
+    static const TirhutaScript : Qt_QLocale_Script;
+    static const VarangKshitiScript : Qt_QLocale_Script;
+    static const AhomScript : Qt_QLocale_Script;
+    static const AnatolianHieroglyphsScript : Qt_QLocale_Script;
+    static const HatranScript : Qt_QLocale_Script;
+    static const MultaniScript : Qt_QLocale_Script;
+    static const OldHungarianScript : Qt_QLocale_Script;
+    static const SignWritingScript : Qt_QLocale_Script;
+    static const AdlamScript : Qt_QLocale_Script;
+    static const BhaiksukiScript : Qt_QLocale_Script;
+    static const MarchenScript : Qt_QLocale_Script;
+    static const NewaScript : Qt_QLocale_Script;
+    static const OsageScript : Qt_QLocale_Script;
+    static const TangutScript : Qt_QLocale_Script;
+    static const HanWithBopomofoScript : Qt_QLocale_Script;
+    static const JamoScript : Qt_QLocale_Script;
+    static function Script(value : Qt_QLocale_Script) : Qt_QLocale_Script;
+
+    static const LongFormat : Qt_QLocale_FormatType;
+    static const ShortFormat : Qt_QLocale_FormatType;
+    static const NarrowFormat : Qt_QLocale_FormatType;
+    static function FormatType(value : Qt_QLocale_FormatType) : Qt_QLocale_FormatType;
 
     static const StandardQuotation : Qt_QLocale_QuotationStyle;
     static const AlternateQuotation : Qt_QLocale_QuotationStyle;
     static function QuotationStyle(value : Qt_QLocale_QuotationStyle) : Qt_QLocale_QuotationStyle;
+
+    static const DefaultNumberOptions : Qt_QLocale_NumberOption;
+    static const OmitGroupSeparator : Qt_QLocale_NumberOption;
+    static const RejectGroupSeparator : Qt_QLocale_NumberOption;
+    static const OmitLeadingZeroInExponent : Qt_QLocale_NumberOption;
+    static const RejectLeadingZeroInExponent : Qt_QLocale_NumberOption;
+    static const IncludeTrailingZeroesAfterDot : Qt_QLocale_NumberOption;
+    static const RejectTrailingZeroesAfterDot : Qt_QLocale_NumberOption;
+    static function NumberOption(value : Qt_QLocale_NumberOption) : Qt_QLocale_NumberOption;
+    static function NumberOptions(...value : Qt_QLocale_NumberOption) : Qt_QLocale_NumberOptions;
 
     static const AnyLanguage : Qt_QLocale_Language;
     static const C : Qt_QLocale_Language;

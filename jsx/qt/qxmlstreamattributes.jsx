@@ -41,7 +41,6 @@ native class QXmlStreamAttributes
     function move (from : int, to : int) : void;
     function operator_equal (v : QXmlStreamAttribute[]) : boolean;
     function prepend (t : QXmlStreamAttribute) : void;
-    function prepend (arg__1 : QXmlStreamAttribute) : void;
     function remove (i : int) : void;
     function remove (i : int, n : int) : void;
     function removeAll (t : QXmlStreamAttribute) : int;

@@ -1083,7 +1083,9 @@ bool Parser::parsePtrOperator(PtrOperatorAST *&node)
 {
   int tk = token_stream.lookAhead();
 
-  if (tk != '&' && tk != '*'
+  // Token_and covers "&&" (C++11 rvalue reference, e.g. QBasicTimer's
+  // move constructor in Qt 5.15 headers); treat it like "&"
+  if (tk != '&' && tk != Token_and && tk != '*'
       && tk != Token_scope && tk != Token_identifier)
     {
       return false;
@@ -1096,6 +1098,7 @@ bool Parser::parsePtrOperator(PtrOperatorAST *&node)
   switch (token_stream.lookAhead())
     {
     case '&':
+    case Token_and:
     case '*':
       ast->op = token_stream.cursor();
       token_stream.nextToken();

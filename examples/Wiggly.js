@@ -107,9 +107,12 @@ function Dialog(parent)
     var lineEdit = new QLineEdit();
 
     var layout = new QVBoxLayout();
-    // ### workaround
-    layout.addWidget(wigglyWidget, 0, Qt.AlignLeft);
-    layout.addWidget(lineEdit, 0, Qt.AlignLeft);
+    // give the wiggly area stretch; with Qt.AlignLeft the layout honored
+    // the widget's (invalid) default sizeHint and collapsed it to 0 height
+    // trailing 0 = explicit Qt::Alignment: Qt5's `Qt::Alignment()` default
+    // argument is dropped by the binding, so the 2-arg call does not match
+    layout.addWidget(wigglyWidget, 1, 0);
+    layout.addWidget(lineEdit, 0, 0);
     this.setLayout(layout);
 
     lineEdit.textChanged.connect(

@@ -372,7 +372,8 @@ Dialog.prototype.errorMessage = function()
     translatorFileName += QLocale.system().name();
     var translator = new QTranslator(qApp);
     if (translator.load(translatorFileName, QLibraryInfo.location(QLibraryInfo.TranslationsPath)))
-        qApp.installTranslator(translator);
+        // installTranslator is bound as a static function on QCoreApplication
+    QCoreApplication.installTranslator(translator);
 
     var dialog = new Dialog();
     return dialog.exec();

@@ -1656,6 +1656,24 @@ void Lexer::scanKeyword9()
 {
   switch (*cursor)
     {
+    case 'c':
+      // C++11 "constexpr" (Qt 5.15 headers, e.g. QBasicTimer's ctor):
+      // for the legacy parser it acts as a function specifier, so reuse
+      // the inline-token path instead of falling back to identifier
+      if (*(cursor + 1) == 'o' &&
+	  *(cursor + 2) == 'n' &&
+	  *(cursor + 3) == 's' &&
+	  *(cursor + 4) == 't' &&
+	  *(cursor + 5) == 'e' &&
+	  *(cursor + 6) == 'x' &&
+	  *(cursor + 7) == 'p' &&
+	  *(cursor + 8) == 'r')
+	{
+	  token_stream[(int) index++].kind = Token_inline;
+	  return;
+	}
+      break;
+
     case 'p':
       if (*(cursor + 1) == 'r' &&
 	  *(cursor + 2) == 'o' &&

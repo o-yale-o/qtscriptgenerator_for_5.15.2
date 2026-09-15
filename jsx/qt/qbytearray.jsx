@@ -10,6 +10,7 @@ import "qt/qt.jsx";
 native class QByteArray
 {
     function constructor ();
+    function constructor (other : QByteArray);
     function constructor (arg__1 : QByteArray);
     function constructor (size : int, c : string);
 
@@ -61,6 +62,7 @@ native class QByteArray
     function leftJustified (width : int, fill : string, truncate : boolean) : QByteArray;
     function length () : int;
     function mid (index : int, len : int) : QByteArray;
+    function operator_assign (other : QByteArray) : QByteArray;
     function operator_assign (arg__1 : QByteArray) : QByteArray;
     function operator_equal (a2 : QByteArray) : boolean;
     function operator_equal (s2 : string) : boolean;

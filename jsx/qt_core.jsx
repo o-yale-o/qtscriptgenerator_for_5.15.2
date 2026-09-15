@@ -13,6 +13,7 @@ import "qt/qabstracttablemodel.jsx"; // QAbstractTableModel
 import "qt/qabstracttransition.jsx"; // QAbstractTransition
 import "qt/qanimationgroup.jsx"; // QAnimationGroup
 import "qt/qbasicmutex.jsx"; // QBasicMutex
+import "qt/qbasictimer.jsx"; // QBasicTimer
 import "qt/qbitarray.jsx"; // QBitArray
 import "qt/qbuffer.jsx"; // QBuffer
 import "qt/qbytearray.jsx"; // QByteArray
