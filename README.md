@@ -154,3 +154,34 @@ deprecated API 警告，无错误）。
    qmake qtbindings.pro -spec win32-msvc "CONFIG += release"
    nmake
    ```
+
+### 生成脚本解释器 qs_eval
+
+`qtbindings/qs_eval/qs_eval.exe` 是一个简单的脚本解释器/启动器：它会导入全部绑定插件
+（`qt.core`、`qt.gui`、`qt.widgets` 等），因此脚本里可以直接 `new QPushButton()` 使用 Qt 类。
+**无需单独编译**——它已列入 `qtbindings.pro` 的 `SUBDIRS`，上一步编译绑定插件时会一起生成，
+产物位于 `qtbindings/qs_eval/qs_eval.exe`（依赖同目录下的 Qt DLL 及 `plugins/` 下的绑定插件，
+需保证运行时 `QTDIR\...\bin` 在 PATH 中，且插件的搜索路径可达）。
+
+### 跑 Demo（验证脚本能正常引用 Qt 类）
+
+绑定编译完成后，用 qs_eval 运行 `examples/` 下自带的示例脚本做最终验证
+（以 examples 目录为工作目录）：
+
+```
+cd examples
+..\qtbindings\qs_eval\qs_eval CollidingMice.js
+```
+
+窗口弹出、老鼠碰撞动画正常运行，即说明脚本对 Qt 类（QGraphicsScene、QPainter、
+定时器、信号槽等）的引用全部有效。其它示例同理，例如：
+
+```
+..\qtbindings\qs_eval\qs_eval TwoWayButton.qs    :: 20 行的状态机按钮
+..\qtbindings\qs_eval\qs_eval AnalogClock.js     :: 模拟时钟
+..\qtbindings\qs_eval\qs_eval Wiggly.js          :: 文字抖动动画
+```
+
+其中 `TwoWayButton.qs` 最小（完整源码见文件）：用 `QStateMachine` + `QState` +
+`assignProperty` + `clicked()` 信号转移，实现一个 On/Off 切换按钮——
+如果它能正常弹出并响应点击，就证明核心/状态机/控件这条绑定链路是通的。
