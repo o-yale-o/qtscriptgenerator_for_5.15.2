@@ -1,0 +1,1356 @@
+<?xml version="1.0"?>
+<typesystem>
+  <rejection class="*" function-name="d_func"/>
+
+  <rejection class="*" field-name="d_ptr"/>
+  <rejection class="*" field-name="d"/>
+
+  <rejection class="QGenericMatrix" />
+  <rejection class="QPenPrivate" />
+  <rejection class="QPixmapFilterPrivate" />
+  <rejection class="QAbstractUndoItem"/>
+  <rejection class="QAccessibleApplication"/>
+  <rejection class="QBrushData"/>
+  <rejection class="QImageTextKeyLang"/>
+  <rejection class="QLibrary"/>
+  <rejection class="QLinkedList"/>
+  <rejection class="QLinkedListData"/>
+  <rejection class="QLinkedListIterator"/>
+  <rejection class="QLinkedListNode"/>
+  <rejection class="QPainterPathPrivate"/>
+  <rejection class="QRegionData"/>
+  <rejection class="QTextFrameLayoutData"/>
+  <rejection class="QRegion::QRegionData"/>
+  <rejection class="QAccessibleEditableTextInterface"/>
+  <rejection class="QAccessibleSimpleEditableTextInterface"/>
+  <rejection class="QAccessibleTextInterface"/>
+  <rejection class="QAccessibleValueInterface"/>
+  <rejection class="QAccessibleBridge"/>
+  <rejection class="QIconEngineFactoryInterface"/>
+  <rejection class="QIconEnginePlugin"/>
+  <rejection class="QAccessible" function-name="installFactory"/>
+  <rejection class="QAccessible" function-name="installRootObjectHandler"/>
+  <rejection class="QAccessible" function-name="installUpdateHandler"/>
+  <rejection class="QAccessible" function-name="removeFactory"/>
+  <rejection class="QBrush" function-name="cleanUp"/>
+  <rejection class="QPictureIO" function-name="defineIOHandler"/>
+  <rejection class="QPolygon" function-name="putPoints"/>
+  <rejection class="QPolygon" function-name="setPoints"/>
+  <rejection class="QPolygon" function-name="setPoint"/>
+  <rejection class="QPolygon" function-name="points"/>
+  <rejection class="QPolygon" function-name="point"/>
+  <rejection class="QPaintEngine" function-name="fix_neg_rect"/>
+  <rejection class="QAccessible" function-name="cast_helper"/>
+  <rejection class="QAccessible" function-name="updateAccessibility"/>
+  <rejection class="QAccessible2"/>
+  <rejection class="QAccessibleInterface" function-name="backgroundColor"/>
+  <rejection class="QAccessibleInterface" function-name="foregroundColor"/>
+  <rejection class="QAccessibleInterface" function-name="textInterface"/>
+  <rejection class="QAccessibleInterface" function-name="valueInterface"/>
+  <rejection class="QAccessibleInterface" function-name="tableInterface"/>
+  <rejection class="QAccessibleInterface" function-name="editableTextInterface"/>
+  <rejection class="QAccessibleInterface" function-name="cast_helper"/>
+  <rejection class="QAccessibleInterfaceEx" function-name="interface_cast"/>
+  <rejection class="QAccessibleBridgePlugin" />
+  <rejection class="QAccessibleBridgeFactoryInterface" />
+  <rejection class="QTextObjectInterface" />
+  <rejection class="QTabletEvent" field-name="mExtra"/>
+  <rejection class="QFont" enum-name="ResolveProperties" />
+  <rejection class="QGradient" enum-name="InterpolationMode" />
+  <rejection class="QIconEngine::AvailableSizesArgument" />
+  <rejection class="QIconEngine" enum-name="IconEngineHook" />
+  <rejection class="QGradient" enum-name="InterpolationMode" />
+  <rejection class="QGradient" function-name="setInterpolationMode" />
+  <rejection class="QGradient" function-name="interpolationMode" />
+  <rejection class="QAbstractTextDocumentLayout" function-name="handlerForObject" />
+  <rejection class="QDataStream"/>
+  <rejection class="QIconEngine"/>
+
+  <enum-type name="QAccessible::Event"/>
+  <enum-type name="QAccessible::Method"/>
+  <enum-type name="QAccessible::State"/>
+  <enum-type name="QAccessible::RelationFlag" flags="QAccessible::Relation"/>
+  <enum-type name="QAccessible::Role"/>
+  <enum-type name="QAccessible::Text"/>
+  <enum-type name="QDesktopServices::StandardLocation" />
+
+  <enum-type name="QFont::Capitalization" />
+  <enum-type name="QFont::SpacingType" />
+  <enum-type name="QGraphicsItem::CacheMode" />
+  <enum-type name="QColor::Spec"/>
+  <enum-type name="QContextMenuEvent::Reason"/>
+  <enum-type name="QFont::Stretch"/>
+  <enum-type name="QFont::Style"/>
+  <enum-type name="QFont::StyleStrategy"/>
+  <enum-type name="QFont::Weight"/>
+  <enum-type name="QGradient::CoordinateMode"/>
+  <enum-type name="QGradient::Spread" lower-bound="QGradient.PadSpread" upper-bound="QGradient.RepeatSpread"/>
+  <enum-type name="QGradient::Type"/>
+  <enum-type name="QIcon::Mode"/>
+  <enum-type name="QIcon::State"/>
+  <enum-type name="QImage::Format"/>
+  <enum-type name="QImage::InvertMode"/>
+  <enum-type name="QImageIOHandler::ImageOption"/>
+  <enum-type name="QImageReader::ImageReaderError"/>
+  <enum-type name="QImageWriter::ImageWriterError"/>
+  <enum-type name="QInputMethodEvent::AttributeType"/>
+  <enum-type name="QKeySequence::SequenceFormat"/>
+  <enum-type name="QKeySequence::SequenceMatch"/>
+  <enum-type name="QKeySequence::StandardKey"/>
+  <enum-type name="QLineF::IntersectType"/>
+  <enum-type name="QMovie::CacheMode"/>
+  <enum-type name="QMovie::MovieState"/>
+  <enum-type name="QPaintDevice::PaintDeviceMetric"/>
+  <enum-type name="QPaintEngine::DirtyFlag" flags="QPaintEngine::DirtyFlags"/>
+  <enum-type name="QPaintEngine::PaintEngineFeature" flags="QPaintEngine::PaintEngineFeatures"/>
+  <enum-type name="QPaintEngine::PolygonDrawMode"/>
+  <enum-type name="QPaintEngine::Type"/>
+  <enum-type name="QPainter::CompositionMode"/>
+  <enum-type name="QPainter::PixmapFragmentHint"/>
+  <enum-type name="QPainter::RenderHint" flags="QPainter::RenderHints"/>
+  <enum-type name="QPainterPath::ElementType"/>
+  <enum-type name="QRegion::RegionType"/>
+  <enum-type name="QSessionManager::RestartHint"/>
+  <enum-type name="QStandardItem::ItemType"/>
+  <enum-type name="QTabletEvent::PointerType"/>
+  <enum-type name="QTabletEvent::TabletDevice"/>
+  <enum-type name="QTextCursor::MoveMode"/>
+  <enum-type name="QTextCursor::MoveOperation"/>
+  <enum-type name="QTextCursor::SelectionType"/>
+  <enum-type name="QTextDocument::FindFlag" flags="QTextDocument::FindFlags"/>
+  <enum-type name="QTextDocument::MetaInformation"/>
+  <enum-type name="QTextDocument::ResourceType"/>
+  <enum-type name="QTextDocument::Stacks"/>
+  <enum-type name="QTextFormat::ObjectTypes"/>
+  <enum-type name="QTextFormat::PageBreakFlag" flags="QTextFormat::PageBreakFlags"/>
+  <enum-type name="QTextFrameFormat::Position"/>
+  <enum-type name="QTextFrameFormat::BorderStyle"/>
+  <enum-type name="QTextItem::RenderFlag" flags="QTextItem::RenderFlags"/>
+  <enum-type name="QTextLayout::CursorMode"/>
+  <enum-type name="QTextLength::Type"/>
+  <enum-type name="QTextLine::CursorPosition"/>
+  <enum-type name="QTextLine::Edge"/>
+  <enum-type name="QTextListFormat::Style"/>
+  <enum-type name="QTextOption::Flag" flags="QTextOption::Flags"/>
+  <enum-type name="QTextOption::WrapMode"/>
+  <enum-type name="QTextOption::TabType" />
+  <enum-type name="QValidator::State"/>
+  <enum-type name="QDoubleValidator::Notation"/>
+  <enum-type name="QTransform::TransformationType"/>
+  <enum-type name="QImageIOPlugin::Capability" flags="QImageIOPlugin::Capabilities" />
+
+  <enum-type name="QAccessible::Action">
+    <reject-enum-value name="FirstStandardAction"/>
+    <reject-enum-value name="LastStandardAction"/>
+  </enum-type>
+
+  <enum-type name="QClipboard::Mode">
+    <reject-enum-value name="LastMode"/>
+  </enum-type>
+
+  <enum-type name="QFont::StyleHint">
+    <reject-enum-value name="SansSerif"/>
+    <reject-enum-value name="Serif"/>
+    <reject-enum-value name="TypeWriter"/>
+    <reject-enum-value name="Decorative"/>
+  </enum-type>
+
+  <enum-type name="QFontDatabase::WritingSystem">
+    <reject-enum-value name="Other"/>
+  </enum-type>
+
+  <enum-type name="QPalette::ColorGroup">
+    <reject-enum-value name="Normal"/>
+  </enum-type>
+
+  <enum-type name="QPalette::ColorRole">
+    <reject-enum-value name="NColorRoles"/>
+    <reject-enum-value name="Foreground"/>
+    <reject-enum-value name="Background"/>
+  </enum-type>
+
+  <enum-type name="QTextFormat::FormatType"/>
+
+  <enum-type name="QTextFormat::Property">
+    <reject-enum-value name="FontSizeIncrement"/>
+    <reject-enum-value name="FirstFontProperty"/>
+    <reject-enum-value name="LastFontProperty"/>
+  </enum-type>
+
+  <enum-type name="QTouchEvent::DeviceType" />
+
+  <enum-type name="QTextBlockFormat::LineHeightTypes" />
+  
+  <value-type name="QPixmapCache::Key" />
+
+  <value-type name="QTileRules" />
+  <value-type name="QVector2D" />
+  <value-type name="QVector3D" />
+  <value-type name="QVector4D" />
+  <value-type name="QTouchEvent::TouchPoint" />
+
+  <value-type name="QTransform">
+    <modify-function signature="operator=(QTransform)" remove="all"/>
+    <modify-function signature="map(int,int,int*,int*)const" remove="all"/>
+    <modify-function signature="map(qreal,qreal,qreal*,qreal*)const" remove="all"/>
+
+    <modify-function signature="operator*=(qreal)" access="private"/>    
+    <modify-function signature="operator+=(qreal)" access="private"/>
+    <modify-function signature="operator-=(qreal)" access="private"/>
+    <modify-function signature="operator/=(qreal)" access="private"/>
+    <modify-function signature="operator*(QTransform)const" rename="multiplied" />
+    <modify-function signature="operator*=(QTransform)" access="private"/>
+  </value-type>
+
+  <value-type name="QTextFragment" delete-in-main-thread="yes">
+    <modify-function signature="operator=(QTextFragment)" remove="all"/>
+  </value-type>
+
+  <value-type name="QBitmap" delete-in-main-thread="yes">
+    <modify-function signature="operator=(const QPixmap &amp;)" remove="all"/>
+    <modify-function signature="QBitmap(QString,const char*)" access="private">
+        <modify-argument index="2"> <remove-default-expression/> </modify-argument>
+    </modify-function>
+
+    <modify-function signature="fromData(QSize,const uchar*,QImage::Format)">
+        <access modifier="private"/>
+        <modify-argument index="3">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+  </value-type>
+
+  <value-type name="QTextInlineObject" delete-in-main-thread="yes"/>
+
+  <value-type name="QTextDocumentFragment" delete-in-main-thread="yes">
+    <modify-function signature="operator=(QTextDocumentFragment)" remove="all"/>
+  </value-type>
+
+  <value-type name="QTextOption" delete-in-main-thread="yes">
+    <modify-function signature="operator=(const QTextOption &amp;)" remove="all"/>
+  </value-type>
+  <value-type name="QTextLine" delete-in-main-thread="yes">
+    <modify-function signature="cursorToX(int*,QTextLine::Edge)const">
+        <remove/>
+    </modify-function>
+  </value-type>
+
+  <value-type name="QTextTableFormat" delete-in-main-thread="yes"/>
+  <value-type name="QTextImageFormat" delete-in-main-thread="yes"/>
+  <value-type name="QTextFrameFormat" delete-in-main-thread="yes">
+    <modify-function signature="isValid()const" access="non-final"/>
+  </value-type>
+  <value-type name="QTextLength" delete-in-main-thread="yes"/>
+
+  <value-type name="QLine"/>
+  <value-type name="QLineF"/>
+
+  <value-type name="QPainterPath">
+    <modify-function signature="operator=(QPainterPath)" remove="all"/>
+  </value-type>
+
+  <value-type name="QPalette">
+    <modify-function signature="operator=(const QPalette&amp;)" remove="all"/>
+
+      <modify-function signature="QPalette(QColor, QColor, QColor, QColor, QColor, QColor, QColor)" remove="all"/> <!--### Obsolete in 4.3-->
+      <modify-function signature="background()const" remove="all"/> <!--### Obsolete in 4.3-->
+      <modify-function signature="foreground()const" remove="all"/> <!--### Obsolete in 4.3-->
+      <modify-function signature="serialNumber()const" remove="all"/> <!--### Obsolete in 4.3-->
+  </value-type>
+  <value-type name="QKeySequence">
+    <modify-function signature="operator=(QKeySequence)" remove="all"/>
+    <modify-function signature="operator int()const" access="private"/>
+    <modify-function signature="operator[](uint)const" access="private"/>
+  </value-type>
+
+  <value-type name="QPicture" delete-in-main-thread="yes">
+    <modify-function signature="operator=(QPicture)" remove="all"/>
+    <modify-function signature="pictureFormat(QString)">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="inputFormatList()" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="inputFormats()" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="outputFormatList()" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="outputFormats()" remove="all"/> <!--### Obsolete in 4.3-->
+  </value-type>
+
+  <value-type name="QRegion" expense-limit="4096">
+    <modify-function signature="operator=(QRegion)" remove="all"/>
+    <modify-function signature="operator&amp;=(QRegion)" remove="all"/>
+    <modify-function signature="operator+=(QRegion)" remove="all"/>
+    <modify-function signature="operator-=(QRegion)" remove="all"/>
+    <modify-function signature="operator^=(QRegion)" remove="all"/>
+    <modify-function signature="operator|=(QRegion)" remove="all"/>
+    <modify-function signature="operator&amp;(QRegion)const" remove="all"/>
+    <modify-function signature="operator+(QRegion)const" remove="all"/>
+    <modify-function signature="operator-(QRegion)const" remove="all"/>
+    <modify-function signature="operator^(QRegion)const" remove="all"/>
+    <modify-function signature="operator|(QRegion)const" remove="all"/>
+    <modify-function signature="eor(QRegion)const" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="intersect(QRegion)const" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="subtract(QRegion)const" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="unite(QRegion)const" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="operator&amp;=(QRect)" remove="all" />
+    <modify-function signature="operator+=(QRect)" remove="all" />
+  </value-type>
+
+  <value-type name="QTextBlock" delete-in-main-thread="yes">
+    <modify-function signature="operator=(QTextBlock)" remove="all"/>
+    <modify-function signature="setUserData(QTextBlockUserData *)">
+        <modify-argument index="1">
+            <define-ownership class="java" owner="c++"/>
+        </modify-argument>
+     </modify-function>
+  </value-type>
+  <value-type name="QTextBlockFormat" delete-in-main-thread="yes"/>
+  <value-type name="QTextTableCellFormat" delete-in-main-thread="yes" />
+  <value-type name="QTextCharFormat" delete-in-main-thread="yes">
+    <modify-function signature="isValid()const" access="non-final"/>
+    <modify-function signature="anchorName()const" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="setAnchorName(QString)" remove="all"/> <!--### Obsolete in 4.3-->
+  </value-type>
+  <value-type name="QTextFormat" delete-in-main-thread="yes">
+    <modify-function signature="operator=(QTextFormat)" remove="all"/>
+    <modify-function signature="isValid()const" access="non-final"/>
+  </value-type>
+
+  <value-type name="QTextListFormat" delete-in-main-thread="yes"/>
+
+  <value-type name="QPolygon">
+    <modify-function signature="QPolygon(int, const int *)" remove="all"/>
+    <modify-function signature="operator+(QVector&lt;QPoint&gt;)const" remove="all"/>
+    <modify-function signature="operator&lt;&lt;(QPoint)" remove="all"/>
+    <modify-function signature="operator&lt;&lt;(QVector&lt;QPoint&gt;)" remove="all"/>
+  </value-type>
+
+  <value-type name="QPolygonF">
+    <modify-function signature="operator+(QVector&lt;QPointF&gt;)const" remove="all"/>
+    <modify-function signature="operator&lt;&lt;(QPointF)" remove="all"/>
+    <modify-function signature="operator&lt;&lt;(QVector&lt;QPointF&gt;)" remove="all"/>
+  </value-type>
+
+  <value-type name="QIcon" delete-in-main-thread="yes">
+      <!--<include file-name="QIconEngine" location="global"/>-->
+    <modify-function signature="operator=(QIcon)" remove="all"/>
+    <modify-function signature="serialNumber()const" remove="all"/> <!--### Obsolete in 4.3-->
+    <!--modify-function signature="QIcon(QIconEngineV2 *)">
+        <modify-argument index="1">
+            <define-ownership class="java" owner="c++" />
+        </modify-argument>
+    </modify-function-->
+    <modify-function signature="QIcon(QIconEngine *)" remove="all" />
+  </value-type>
+
+  <value-type name="QTextFrame::iterator" delete-in-main-thread="yes">
+    <include file-name="QTextFrame" location="global"/>
+    <modify-function signature="operator++(int)" remove="all"/>
+    <modify-function signature="operator--(int)" remove="all"/>
+    <modify-function signature="operator=(QTextFrame::iterator)" remove="all"/>
+    <modify-function signature="operator++()" access="private"/>
+    <modify-function signature="operator--()" access="private"/>
+  </value-type>
+
+  <value-type name="QTextBlock::iterator" delete-in-main-thread="yes">
+    <include file-name="QTextBlock" location="global"/>
+    <modify-function signature="operator++()" access="private"/>
+    <modify-function signature="operator--()" access="private"/>
+    <modify-function signature="operator++(int)" remove="all"/>
+    <modify-function signature="operator--(int)" remove="all"/>
+   </value-type>
+
+  <value-type name="QAbstractTextDocumentLayout::PaintContext" delete-in-main-thread="yes">
+    <include file-name="QAbstractTextDocumentLayout" location="global"/>
+  </value-type>
+  <value-type name="QAbstractTextDocumentLayout::Selection" delete-in-main-thread="yes"/>
+
+  <value-type name="QPixmap" delete-in-main-thread="yes">
+    <modify-function signature="operator=(QPixmap)" remove="all"/>
+    <modify-function signature="operator!()const" remove="all"/>
+    <modify-function signature="QPixmap(const char **)" access="private"/>
+    <modify-function signature="serialNumber()const" remove="all"/> <!--### Obsolete in 4.3-->
+  </value-type>
+
+  <value-type name="QTextCursor" delete-in-main-thread="yes">
+    <extra-includes>
+        <include file-name="QTextBlock" location="global"/>
+        <include file-name="QTextDocumentFragment" location="global"/>
+    </extra-includes>
+    <modify-function signature="operator=(QTextCursor)" remove="all"/>
+    <modify-function signature="selectedTableCells(int*,int*,int*,int*)const">
+        <access modifier="private"/>
+    </modify-function>
+  </value-type>
+
+  <value-type name="QTextLayout::FormatRange">
+    <include file-name="QTextLayout" location="global"/>
+  </value-type>
+
+  <value-type name="QInputMethodEvent::Attribute">
+    <include file-name="QInputMethodEvent" location="global"/>
+    <custom-constructor>
+    return new QInputMethodEvent::Attribute(copy-&gt;type, copy-&gt;start, copy-&gt;length, copy-&gt;value);
+    </custom-constructor>
+    <custom-destructor>
+    delete copy;
+    </custom-destructor>
+  </value-type>
+
+  <value-type name="QMatrix4x4">
+    <modify-function signature="data()const" remove="all" />
+    <modify-function signature="operator()(int, int)const" remove="all" />
+  </value-type>
+  <value-type name="QMatrix">
+      <extra-includes>
+        <include file-name="QPainterPath" location="global"/>
+      </extra-includes>
+      <modify-function signature="map(int,int,int*,int*)const" remove="all"/>
+      <modify-function signature="map(qreal,qreal,qreal*,qreal*)const" remove="all"/>
+      <modify-function signature="operator=(QMatrix)" remove="all"/>
+      <modify-function signature="operator*(QMatrix)const" access="private"/>
+      <modify-function signature="operator*=(QMatrix)" access="private"/>
+      <modify-function signature="rotate(qreal)" access="private" rename="rotate_private"/>
+      <modify-function signature="scale(qreal,qreal)" access="private" rename="scale_private"/>
+      <modify-function signature="shear(qreal,qreal)" access="private" rename="shear_private"/>
+      <modify-function signature="translate(qreal,qreal)" access="private" rename="translate_private"/>
+      <modify-function signature="inverted(bool*)const">
+        <access modifier="private"/>
+        <modify-argument index="1">
+            <!-- <remove-default-expression/> -->
+        </modify-argument>
+      </modify-function>
+
+    <inject-code>
+      <insert-template name="core.unary_other_type">
+        <replace from="%FUNCTION_NAME" to="rotate"/>
+        <replace from="%OUT_TYPE" to="QMatrix"/>
+        <replace from="%IN_TYPE" to="double"/>
+      </insert-template>
+      <insert-template name="core.private_function_return_self">
+        <replace from="%RETURN_TYPE" to="QMatrix"/>
+        <replace from="%FUNCTION_NAME" to="scale"/>
+        <replace from="%ARGUMENTS" to="double sx, double sy"/>
+        <replace from="%ARGUMENT_NAMES" to="sx, sy"/>
+      </insert-template>
+
+      <insert-template name="core.private_function_return_self">
+        <replace from="%RETURN_TYPE" to="QMatrix"/>
+        <replace from="%FUNCTION_NAME" to="shear"/>
+        <replace from="%ARGUMENTS" to="double sh, double sv"/>
+        <replace from="%ARGUMENT_NAMES" to="sh, sv"/>
+      </insert-template>
+
+      <insert-template name="core.private_function_return_self">
+        <replace from="%RETURN_TYPE" to="QMatrix"/>
+        <replace from="%FUNCTION_NAME" to="translate"/>
+        <replace from="%ARGUMENTS" to="double dx, double dy"/>
+        <replace from="%ARGUMENT_NAMES" to="dx, dy"/>
+      </insert-template>
+    </inject-code>
+  </value-type>
+
+  <value-type name="QConicalGradient" polymorphic-id-expression="%1-&gt;type() == QGradient::ConicalGradient">
+    <custom-constructor>
+    return new QConicalGradient(copy-&gt;center(), copy-&gt;angle());
+    </custom-constructor>
+    <custom-destructor>
+    delete copy;
+    </custom-destructor>
+  </value-type>
+
+  <value-type name="QFontInfo" delete-in-main-thread="yes" expense-cost="1" expense-limit="1000">
+    <custom-constructor>
+    return new QFontInfo(*copy);
+    </custom-constructor>
+    <custom-destructor>
+    delete copy;
+    </custom-destructor>
+    <modify-function signature="operator=(QFontInfo)" remove="all"/>
+
+  </value-type>
+
+  <value-type name="QRadialGradient" polymorphic-id-expression="%1-&gt;type() == QGradient::RadialGradient">
+    <custom-constructor>
+    return new QRadialGradient(copy-&gt;center(), copy-&gt;radius(), copy-&gt;focalPoint());
+    </custom-constructor>
+    <custom-destructor>
+    delete copy;
+    </custom-destructor>
+  </value-type>
+
+  <value-type name="QPainterPath::Element">
+    <modify-field name="x" write="false"/>
+    <modify-field name="y" write="false"/>
+    <modify-field name="type" write="false"/>
+    <include file-name="QPainterPath" location="global"/>
+    <modify-function signature="operator QPointF()const" access="private"/>
+  </value-type>
+
+  <value-type name="QFont" delete-in-main-thread="yes" expense-cost="1" expense-limit="1000">
+    <extra-includes>
+        <include file-name="QStringList" location="global"/>
+    </extra-includes>
+    <modify-function signature="operator=(QFont)" remove="all"/>
+  </value-type>
+
+  <value-type name="QTextTableCell" delete-in-main-thread="yes">
+    <extra-includes>
+        <include file-name="QTextCursor" location="global"/>
+    </extra-includes>
+    <modify-function signature="operator=(QTextTableCell)" remove="all"/>
+  </value-type>
+
+  <value-type name="QImage" expense-limit="67108864" expense-cost="height()*bytesPerLine()">
+    <modify-function signature="QImage(const char *, const char *)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="QImage(const char **)">
+        <access modifier="private"/>
+    </modify-function>
+    <modify-function signature="QImage(const uchar*,int,int,int,QImage::Format)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="bits()const">
+        <remove/>
+    </modify-function>
+    <modify-function signature="scanLine(int)const">
+        <remove/>
+    </modify-function>
+    <modify-function signature="QImage(const uchar *, int, int, QImage::Format)">
+        <remove/>
+    </modify-function>
+
+    <extra-includes>
+        <include file-name="QStringList" location="global"/>
+        <include file-name="QMatrix" location="global"/>
+    </extra-includes>
+
+    <modify-function signature="QImage(uchar*,int,int,QImage::Format)">
+        <access modifier="private"/>
+    </modify-function>
+
+    <!--     
+    <modify-function signature="QImage(QString,const char*)">
+        <access modifier="private"/>
+        <modify-argument index="2">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+    -->
+
+    <modify-function signature="load(QString,const char*)">
+        <access modifier="private"/>
+        <modify-argument index="2">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="load(QIODevice*,const char*)">
+        <access modifier="private"/>
+    </modify-function>
+
+    <modify-function signature="loadFromData(const uchar*,int,const char*)">
+        <access modifier="private"/>
+        <modify-argument index="2">
+            <remove-default-expression/>
+        </modify-argument>
+        <modify-argument index="3">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="loadFromData(QByteArray,const char*)">
+        <access modifier="private"/>
+        <modify-argument index="2">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="operator=(QImage)" remove="all"/>
+
+    <modify-function signature="setText(const char*,const char*,QString)">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="text(const char*,const char*)const">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="fromData(QByteArray,const char*)">
+        <access modifier="private"/>
+        <modify-argument index="2">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="fromData(const uchar*,int,const char*)">
+        <remove/>
+    </modify-function>
+      <modify-function signature="serialNumber()const" remove="all"/> <!--### Obsolete in 4.3-->
+      <modify-function signature="textLanguages()const" remove="all"/> <!--### Obsolete in 4.3-->
+  </value-type>
+
+  <value-type name="QColormap" delete-in-main-thread="yes">
+    <modify-function signature="operator=(QColormap)" remove="all"/>
+    <extra-includes>
+        <include file-name="QColor" location="global"/>
+    </extra-includes>
+    <custom-constructor>
+    return new QColormap(*copy);
+    </custom-constructor>
+    <custom-destructor>
+    delete copy;
+    </custom-destructor>
+  </value-type>
+
+  <value-type name="QCursor" delete-in-main-thread="yes">
+     <extra-includes>
+        <include file-name="QPixmap" location="global"/>
+    </extra-includes>
+    <modify-function signature="operator=(QCursor)" remove="all"/>
+  </value-type>
+
+  <value-type name="QFontDatabase" delete-in-main-thread="yes">
+      <extra-includes>
+        <include file-name="QStringList" location="global"/>
+    </extra-includes>
+  </value-type>
+
+  <value-type name="QPen">
+      <extra-includes>
+        <include file-name="QBrush" location="global"/>
+    </extra-includes>
+
+    <modify-function signature="operator=(QPen)" remove="all"/>
+  </value-type>
+
+  <value-type name="QBrush">
+    <modify-function signature="QBrush(Qt::GlobalColor, Qt::BrushStyle)" remove="all"/>
+    <modify-function signature="operator=(const QBrush &amp;)" remove="all"/>
+
+    <extra-includes>
+        <include file-name="QPixmap" location="global"/>
+    </extra-includes>
+  </value-type>
+
+  <value-type name="QColor">
+    <modify-function signature="QColor(QColor::Spec)" remove="all"/>
+    <modify-function signature="operator=(QColor)" remove="all"/>
+    <modify-function signature="operator=(Qt::GlobalColor)" remove="all"/>
+
+    <modify-function signature="QColor(const char*)">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="getCmyk(int*,int*,int*,int*,int*)">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="getCmykF(qreal*,qreal*,qreal*,qreal*,qreal*)">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="getHsv(int*,int*,int*,int*)const">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="getHsvF(qreal*,qreal*,qreal*,qreal*)const">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="getRgb(int*,int*,int*,int*)const">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="getRgbF(qreal*,qreal*,qreal*,qreal*)const">
+        <remove/>
+    </modify-function>
+
+      <modify-function signature="dark(int)const" remove="all"/> <!--### Obsolete in 4.3-->
+      <modify-function signature="light(int)const" remove="all"/> <!--### Obsolete in 4.3-->
+  </value-type>
+
+  <value-type name="QFontMetricsF" delete-in-main-thread="yes" expense-cost="1" expense-limit="1000">
+    <custom-constructor>
+        return new QFontMetricsF(*copy);
+    </custom-constructor>
+    <custom-destructor>
+        delete copy;
+    </custom-destructor>
+    <modify-function signature="operator!=(const QFontMetricsF &amp;)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="operator==(const QFontMetricsF &amp;)">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="boundingRect(QRectF,int,QString,int,int*)const">
+        <access modifier="private"/>
+        <modify-argument index="4">
+            <remove-default-expression/>
+        </modify-argument>
+        <modify-argument index="5">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="operator=(QFontMetrics)" remove="all"/>
+    <modify-function signature="operator=(QFontMetricsF)" remove="all"/>
+
+    <modify-function signature="size(int,QString,int,int*)const">
+        <access modifier="private"/>
+        <modify-argument index="3">
+            <remove-default-expression/>
+        </modify-argument>
+        <modify-argument index="4">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+   </value-type>
+
+   <value-type name="QTextOption::Tab" />
+
+  <value-type name="QFontMetrics" delete-in-main-thread="yes" expense-cost="1" expense-limit="1000">
+    <custom-constructor>
+        return new QFontMetrics(*copy);
+    </custom-constructor>
+    <custom-destructor>
+        delete copy;
+    </custom-destructor>
+    <modify-function signature="operator!=(const QFontMetrics &amp;)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="operator==(const QFontMetrics &amp;)">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="boundingRect(int,int,int,int,int,QString,int,int*)const">
+        <access modifier="private"/>
+        <modify-argument index="7">
+            <remove-default-expression/>
+        </modify-argument>
+        <modify-argument index="8">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="boundingRect(QRect,int,QString,int,int*)const">
+        <access modifier="private"/>
+        <modify-argument index="4">
+            <remove-default-expression/>
+        </modify-argument>
+        <modify-argument index="5">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="operator=(QFontMetrics)" remove="all"/>
+
+    <modify-function signature="size(int,QString,int,int*)const">
+        <access modifier="private"/>
+        <modify-argument index="3">
+            <remove-default-expression/>
+        </modify-argument>
+        <modify-argument index="4">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+  </value-type>
+
+  <value-type name="QGradient" force-abstract="yes" polymorphic-base="yes" polymorphic-id-expression="%1-&gt;type() == QGradient::NoGradient">
+    <custom-constructor>
+    Q_UNUSED(copy)
+    qWarning("Copying empty QGradient object");
+    return new QGradient();
+    </custom-constructor>
+    <custom-destructor>
+    delete copy;
+    </custom-destructor>
+    <modify-function signature="operator==(const QGradient &amp;)">
+        <remove/>
+    </modify-function>
+  </value-type>
+
+  <value-type name="QLinearGradient" polymorphic-id-expression="%1-&gt;type() == QGradient::LinearGradient">
+    <custom-constructor>
+    QLinearGradient *lg = new QLinearGradient(copy-&gt;start(), copy-&gt;finalStop());
+    lg-&gt;setSpread(copy-&gt;spread());
+    lg-&gt;setStops(copy-&gt;stops());
+    return (void *) lg;
+    </custom-constructor>
+    <custom-destructor>
+    delete copy;
+    </custom-destructor>
+  </value-type>
+
+  <object-type name="QAbstractTextDocumentLayout">
+    <modify-function signature="setPaintDevice(QPaintDevice*)">
+        <modify-argument index="1">
+            <reference-count action="set" variable-name="__rcPaintDevice"/>
+        </modify-argument>        
+    </modify-function>
+    
+    <modify-function signature="draw(QPainter*,QAbstractTextDocumentLayout::PaintContext)">
+        <modify-argument index="1" invalidate-after-use="yes" />
+    </modify-function>
+    <modify-function signature="drawInlineObject(QPainter*,QRectF,QTextInlineObject,int,QTextFormat)">
+        <modify-argument index="1" invalidate-after-use="yes" />
+    </modify-function>
+  </object-type>
+
+  <object-type name="QDesktopServices">
+    <modify-function signature="setUrlHandler(const QString &amp;, QObject *, const char *)" access="private">
+        <modify-argument index="2">
+            <reference-count action="ignore" /> <!-- Handled in injected code -->
+        </modify-argument>
+    </modify-function>
+  </object-type>
+
+  <object-type name="QDoubleValidator"/>
+  <rejection class="QIconEngineV2"/>
+  <object-type name="QIconEngine">
+    <!-- modify-function signature="read(QDataStream&amp;)">
+        <modify-argument index="1">
+            <replace-type modified-type="QDataStream*"/>
+            <conversion-rule class="native">
+                QDataStream &amp; %out% = *qscriptvalue_cast&lt;QDataStream*&gt;(%in%);
+            </conversion-rule>
+        </modify-argument>
+    </modify-function>
+    <modify-function signature="write(QDataStream&amp;)const">
+        <modify-argument index="1">
+            <replace-type modified-type="QDataStream*"/>
+            <conversion-rule class="native">
+                QDataStream &amp; %out% = *qscriptvalue_cast&lt;QDataStream*&gt;(%in%);
+            </conversion-rule>
+        </modify-argument>
+    </modify-function -->
+
+    <modify-function signature="virtual_hook(int,void*)" remove="all"/>
+    <modify-function signature="clone()const">
+        <modify-argument index="return">
+            <define-ownership class="shell" owner="c++"/>
+        </modify-argument>
+    </modify-function>
+  </object-type>
+  <object-type name="QImageWriter">
+  <modify-function signature="setDevice(QIODevice*)">
+    <modify-argument index="1">
+        <reference-count action="set" variable-name="__rcDevice"/>
+    </modify-argument>
+  </modify-function>
+      <modify-function signature="description()const" remove="all"/> <!--### Obsolete in 4.3-->
+      <modify-function signature="setDescription(QString)" remove="all"/> <!--### Obsolete in 4.3-->
+  </object-type>
+  <object-type name="QIntValidator"/>
+  <object-type name="QPainterPathStroker"/>
+
+  <object-type name="QPictureIO">
+      <modify-function signature="QPictureIO(QIODevice*,const char*)">
+        <access modifier="private"/>
+         <modify-argument index="1">
+            <reference-count action="set" variable-name="__rcDevice"/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="setIODevice(QIODevice*)">
+        <modify-argument index="1">
+            <reference-count action="set" variable-name="__rcDevice"/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="QPictureIO(QString,const char*)">
+        <access modifier="private"/>
+    </modify-function>
+
+    <modify-function signature="format()const">
+        <access modifier="private"/>
+        <rename to="format_private"/>
+    </modify-function>
+
+    <modify-function signature="parameters()const">
+        <access modifier="private"/>
+        <rename to="parameters_private"/>
+    </modify-function>
+
+    <modify-function signature="setFormat(const char*)">
+        <access modifier="private"/>
+    </modify-function>
+
+    <modify-function signature="setParameters(const char*)">
+        <access modifier="private"/>
+    </modify-function>
+  </object-type>
+
+  <object-type name="QPixmapCache">
+    <modify-function signature="find(QString)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="find(QString,QPixmap*)" remove="all" />
+
+    <modify-function signature="find(QString,QPixmap&amp;)">
+        <access modifier="private"/>
+    </modify-function>
+  </object-type>
+
+  <object-type name="QRegExpValidator"/>
+
+  <object-type name="QSyntaxHighlighter">
+    <modify-function signature="setCurrentBlockUserData(QTextBlockUserData*)">
+        <modify-argument index="1">
+            <define-ownership class="java" owner="c++"/>
+        </modify-argument>
+    </modify-function>
+    <modify-function signature="setDocument(QTextDocument*)">
+        <modify-argument index="1">
+            <reference-count action="set" variable-name="__rcDocument"/>
+        </modify-argument>
+    </modify-function>
+  </object-type>
+
+  <object-type name="QTextBlockGroup" delete-in-main-thread="yes"/>
+  <object-type name="QTextBlockUserData" delete-in-main-thread="yes"/>
+  <object-type name="QTextItem" delete-in-main-thread="yes"/>
+  <object-type name="QTextList" delete-in-main-thread="yes">
+    <modify-function signature="format()const" rename="textListFormat"/>
+
+      <modify-function signature="isEmpty()const" remove="all"/> <!--### Obsolete in 4.3-->
+  </object-type>
+  <object-type name="QTextObject" delete-in-main-thread="yes"/>
+  <object-type name="QTextObjectInterface" delete-in-main-thread="yes">
+    <modify-function signature="drawObject(QPainter*,QRectF,QTextDocument*,int,QTextFormat)">
+        <modify-argument index="1" invalidate-after-use="yes" />
+    </modify-function>
+  </object-type>
+  <object-type name="QValidator" />
+
+  <object-type name="QActionEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::ActionAdded || %1-&gt;type() == QEvent::ActionRemoved || %1-&gt;type() == QEvent::ActionChanged"/>
+  <object-type name="QCloseEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Close"/>
+  <object-type name="QContextMenuEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::ContextMenu"/>
+  <object-type name="QDragEnterEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::DragEnter"/>
+  <object-type name="QDragLeaveEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::DragLeave"/>
+  <object-type name="QDragMoveEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::DragMove">
+    <modify-function signature="accept()" remove="all"/>
+    <modify-function signature="ignore()" remove="all"/>
+  </object-type>
+  <object-type name="QDropEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Drop">
+    <modify-function signature="encodedData(const char*)const">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="format(int)const">
+        <remove/>
+    </modify-function>
+
+    <modify-function signature="provides(const char*)const">
+        <remove/>
+    </modify-function>
+  </object-type>
+  <object-type name="QFileOpenEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::FileOpen"/>
+  <object-type name="QFocusEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::FocusIn || %1-&gt;type() == QEvent::FocusOut">
+        <modify-function signature="reason()const">
+            <remove/>
+        </modify-function>
+  </object-type>
+  <object-type name="QHelpEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::ToolTip || %1-&gt;type() == QEvent::WhatsThis"/>
+  <object-type name="QHideEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Hide"/>
+  <object-type name="QHoverEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::HoverEnter || %1-&gt;type() == QEvent::HoverLeave || %1-&gt;type() == QEvent::HoverMove"/>
+  <object-type name="QIconDragEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::IconDrag"/>
+  <object-type name="QInputMethodEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::InputMethod"/>
+  <object-type name="QMoveEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Move"/>
+  <object-type name="QResizeEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Resize"/>
+  <object-type name="QShortcutEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Shortcut">
+        <!-- All these have const overloads that are used instead -->
+        <modify-function signature="isAmbiguous()">
+            <remove/>
+        </modify-function>
+        <modify-function signature="shortcutId()">
+            <remove/>
+        </modify-function>
+        <modify-function signature="key()">
+            <remove/>
+        </modify-function>
+  </object-type>
+  <object-type name="QShowEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Show"/>
+  <object-type name="QStatusTipEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::StatusTip"/>
+  <object-type name="QTabletEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::TabletMove || %1-&gt;type() == QEvent::TabletPress || %1-&gt;type() == QEvent::TabletRelease"/>
+  <object-type name="QToolBarChangeEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::ToolBarChange"/>
+  <object-type name="QWhatsThisClickedEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::WhatsThisClicked"/>
+  <object-type name="QWheelEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Wheel"/>
+  <object-type name="QWindowStateChangeEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::WindowStateChange"/>
+  <object-type name="QInputEvent">
+    <modify-function signature="modifiers()const" access="non-final"/>
+  </object-type>
+  <object-type name="QKeyEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::KeyPress || %1-&gt;type() == QEvent::KeyRelease"/>
+  <object-type name="QMouseEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::MouseButtonDblClick || %1-&gt;type() == QEvent::MouseButtonPress || %1-&gt;type() == QEvent::MouseButtonRelease || %1-&gt;type() == QEvent::MouseMove"/>
+  <object-type name="QPaintEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Paint"/>
+  <object-type name="QTextFrame" delete-in-main-thread="yes">
+    <extra-includes>
+        <include file-name="QTextCursor" location="global"/>
+    </extra-includes>
+  </object-type>
+  <object-type name="QImageIOHandler">
+    <extra-includes>
+        <include file-name="QRect" location="global"/>
+    </extra-includes>
+    <modify-function signature="setFormat(const QByteArray &amp;)const">
+        <remove/>
+    </modify-function>
+    <modify-function signature="setDevice(QIODevice*)">
+        <modify-argument index="1">
+            <reference-count action="set" variable-name="__rcDevice"/>
+        </modify-argument>
+    </modify-function>
+    <!--
+    <modify-function signature="read(QImage*)">
+        <modify-argument index="1">
+            <replace-type modified-type="com.trolltech.qt.gui.QImage"/>
+            <conversion-rule class="shell">
+                jobject %out = qtjambi_from_object(__jni_env, %in, "QImage", "com/trolltech/qt/gui/", false);
+
+                QtJambiLink *__link = %out != 0 ? QtJambiLink::findLink(__jni_env, %out) : 0;
+            </conversion-rule>
+            <conversion-rule class="native">
+                QImage *%out = (QImage *) qtjambi_to_object(__jni_env, %in);
+            </conversion-rule>
+        </modify-argument>
+        <modify-argument index="0">
+            <conversion-rule class="shell">
+                // Invalidate object
+                if (__link != 0) __link-&gt;resetObject(__jni_env);
+                bool %out = (bool) %in;
+            </conversion-rule>
+        </modify-argument>
+    </modify-function>
+    -->
+
+      <modify-function signature="name()const" remove="all"/> <!--### Obsolete in 4.3-->
+  </object-type>
+
+  <object-type name="QImageReader">
+    <extra-includes>
+        <include file-name="QColor" location="global"/>
+        <include file-name="QRect" location="global"/>
+        <include file-name="QSize" location="global"/>
+        <include file-name="QStringList" location="global"/>
+        <include file-name="QImage" location="global"/>
+    </extra-includes>
+    <modify-function signature="read(QImage*) ">
+        <remove/>
+    </modify-function>
+    <modify-function signature="setDevice(QIODevice*)">
+        <modify-argument index="1">
+            <reference-count action="set" variable-name="__rcDevice"/>
+        </modify-argument>
+    </modify-function>
+</object-type>
+
+  <object-type name="QMovie">
+    <extra-includes>
+        <include file-name="QColor" location="global"/>
+        <include file-name="QImage" location="global"/>
+        <include file-name="QPixmap" location="global"/>
+        <include file-name="QRect" location="global"/>
+        <include file-name="QSize" location="global"/>
+    </extra-includes>
+    <modify-function signature="cacheMode()">
+        <remove/>
+    </modify-function>
+    <modify-function signature="setDevice(QIODevice*)">
+        <modify-argument index="1">
+            <reference-count action="set" variable-name="__rcDevice"/>
+        </modify-argument>
+    </modify-function>
+  </object-type>
+
+  <object-type name="QDrag">
+    <extra-includes>
+        <include file-name="QPoint" location="global"/>
+        <include file-name="QPixmap" location="global"/>
+    </extra-includes>
+    <modify-function signature="setMimeData(QMimeData*)">
+        <modify-argument index="1">
+            <define-ownership class="java" owner="c++"/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="start(QFlags&lt;Qt::DropAction&gt;)" remove="all"/> <!--### Obsolete in 4.3-->
+  </object-type>
+
+  <object-type name="QClipboard">
+    <extra-includes>
+        <include file-name="QImage" location="global"/>
+        <include file-name="QPixmap" location="global"/>
+    </extra-includes>
+    <modify-function signature="setMimeData(QMimeData *, QClipboard::Mode)">
+        <modify-argument index="1">
+            <define-ownership class="java" owner="c++"/>
+        </modify-argument>
+    </modify-function>
+    <modify-function signature="text(QString&amp;,QClipboard::Mode)const">
+        <access modifier="private"/>
+        <modify-argument index="2">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+  </object-type>
+
+  <object-type name="QPaintEngineState">
+    <extra-includes>
+        <include file-name="QPainterPath" location="global"/>
+    </extra-includes>
+  </object-type>
+
+  <object-type name="QTextLayout">
+    <extra-includes>
+        <include file-name="QTextOption" location="global"/>
+    </extra-includes>
+  </object-type>
+
+  <object-type name="QTextDocument">
+    <extra-includes>
+        <include file-name="QTextBlock" location="global"/>
+        <include file-name="QTextFormat" location="global"/>
+        <include file-name="QTextCursor" location="global"/>
+        <include file-name="qabstracttextdocumentlayout.h" location="global"/>
+    </extra-includes>
+    <modify-function signature="redo(QTextCursor*)">
+        <access modifier="private"/>
+    </modify-function>
+    <modify-function signature="setDocumentLayout(QAbstractTextDocumentLayout*)">
+        <modify-argument index="1">
+            <define-ownership class="java" owner="c++"/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="undo(QTextCursor*)">
+        <access modifier="private"/>
+    </modify-function>
+  </object-type>
+
+  <object-type name="QTextDocumentWriter">
+    <modify-function signature="setCodec(QTextCodec*)">
+        <modify-argument index="1">
+            <reference-count action="set" variable-name="__rcCodec" />
+        </modify-argument>
+    </modify-function>
+    <modify-function signature="setDevice(QIODevice*)">
+        <modify-argument index="1">
+            <reference-count action="set" variable-name="__rcDevice" />
+        </modify-argument>
+    </modify-function>
+  </object-type>
+
+  <object-type name="QTextTable">
+    <modify-function signature="format() const">
+        <rename to="tableFormat"/>
+    </modify-function>
+    <extra-includes>
+        <include file-name="QTextCursor" location="global"/>
+    </extra-includes>
+  </object-type>
+
+  <object-type name="QPaintEngine">
+    <modify-function signature="begin(QPaintDevice*)">
+        <modify-argument index="1" invalidate-after-use="yes" />
+    </modify-function>
+    <modify-function signature="updateState(QPaintEngineState)">
+        <modify-argument index="1" invalidate-after-use="yes" />
+    </modify-function>
+    <modify-function signature="drawTextItem(QPointF,QTextItem)">
+        <modify-argument index="2" invalidate-after-use="yes" />
+    </modify-function>
+    <extra-includes>
+        <include file-name="QVarLengthArray" location="global"/>
+    </extra-includes>
+    <modify-function signature="setPaintDevice(QPaintDevice*)">
+        <remove/>
+    </modify-function>
+    <modify-field name="state" read="false" write="false"/>
+  </object-type>
+
+  <object-type name="QPainter">
+    <extra-includes>
+      <include file-name="QWidget" location="global"/>
+      <include file-name="QPainterPath" location="global"/>
+      <include file-name="QPixmap" location="global"/>
+    </extra-includes>
+
+    <modify-function signature="drawText(const QPointF &amp;, const QString &amp;, int, int)" remove="all" />
+
+    <modify-function signature="drawConvexPolygon(const QPoint *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawConvexPolygon(const QPointF *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawLines(const QLine *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawLines(const QLineF *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawLines(const QPoint *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawLines(const QPointF *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawPoints(const QPoint *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawPoints(const QPointF *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawPolygon(const QPoint *, int, Qt::FillRule)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawPolygon(const QPointF *, int, Qt::FillRule)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawPolyline(const QPoint *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawPolyline(const QPointF *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawRects(const QRect *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawRects(const QRectF *, int)">
+        <remove/>
+    </modify-function>
+    <modify-function signature="drawLines(const QVector&lt;QPoint&gt; &amp;)">
+        <rename to="drawLinesFromPoints"/>
+    </modify-function>
+    <modify-function signature="drawLines(const QVector&lt;QPointF&gt; &amp;)">
+        <rename to="drawLinesFromPointsF"/>
+    </modify-function>
+    <modify-function signature="drawLines(const QVector&lt;QLineF&gt; &amp;)">
+        <rename to="drawLinesF"/>
+    </modify-function>
+    <modify-function signature="drawRects(const QVector&lt;QRectF&gt; &amp;)">
+        <rename to="drawRectsF"/>
+    </modify-function>
+
+    <modify-function signature="QPainter(QPaintDevice *)">
+        <modify-argument index="1">
+            <no-null-pointer/>
+        </modify-argument>
+    </modify-function>
+    <modify-function signature="begin(QPaintDevice *)">
+        <modify-argument index="1">
+            <no-null-pointer/>
+        </modify-argument>
+    </modify-function>
+    <modify-function signature="initFrom(const QWidget *)">
+        <modify-argument index="1">
+            <no-null-pointer/>
+        </modify-argument>
+    </modify-function>
+    <modify-function signature="setRedirected(const QPaintDevice *, QPaintDevice *, const QPoint &amp;)">
+        <modify-argument index="1">
+            <no-null-pointer />
+        </modify-argument>
+    </modify-function>
+    <modify-function signature="restoreRedirected(const QPaintDevice *)">
+        <modify-argument index="1">
+            <no-null-pointer />
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="drawText(QRect,int,QString,QRect*)">
+        <access modifier="private"/>
+        <modify-argument index="4">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="drawText(QRectF,int,QString,QRectF*)">
+        <access modifier="private"/>
+        <modify-argument index="4">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="drawText(int,int,int,int,int,QString,QRect*)">
+        <access modifier="private"/>
+        <modify-argument index="7">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+
+    <modify-function signature="redirected(const QPaintDevice*,QPoint*)">
+        <access modifier="private"/>
+        <modify-argument index="2">
+            <remove-default-expression/>
+        </modify-argument>
+    </modify-function>
+    <modify-function signature="matrix()const" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="matrixEnabled()const" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="setMatrix(QMatrix, bool)" remove="all"/> <!--### Obsolete in 4.3-->
+    <modify-function signature="setMatrixEnabled(bool)" remove="all"/> <!--### Obsolete in 4.3-->
+  </object-type>
+
+  <object-type name="QGuiApplication"/>
+  <value-type name="QQuaternion" />
+  <interface-type name="QIconEngineFactoryInterfaceV2" java-name="QAbstractIconEngineFactoryV2" />
+  <interface-type name="QImageIOHandlerFactoryInterface" java-name="QAbstractImageIOHandlerFactory" />
+  <interface-type name="QPictureFormatInterface" java-name="QAbstractPictureFormat" />
+  <object-type name="QIconEnginePluginV2"/>
+  <object-type name="QImageIOPlugin" />
+
+  <value-type name="QMatrix3x3">
+    <modify-function signature="toGenericMatrix()const" remove="all"/>
+  </value-type>
+
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QTextFrame_iterator' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QTextTableCell' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QTextOption_Tab' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QTextLength' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QTextBlock_iterator' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QTextBlock' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QTextCursor' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QPainterPath_Element' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QPainterPath' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QGenericMatrix' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QMatrix4x4' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QKeySequence' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QTextFragment' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QFontMetrics' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QGradient' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QFontMetricsF' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QTextFormat' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />  
+    <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QPixmapCache_Key' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+    <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QVector4D' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+    <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QQuaternion' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+    <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QVector2D' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+    <suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QVector3D' has equals operators but no qHash() function. Hashcode of objects will consistently be 0." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: class 'QTextObjectInterface' inherits from unknown base class 'QTextObjectInterface'" />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: unknown interface for 'QTextObjectInterface': 'QTextObjectInterfaceInterface'" />
+  <suppress-warning text="WARNING(MetaInfoGenerator) :: class 'QPixmapFilter' inherits from polymorphic class 'QPixmapFilter', but has no polymorphic id set"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping function 'QPixmap::QPixmap', unmatched parameter type 'QPixmapData*'" />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping * unmatched *type '*Private&amp;'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping * unmatched *type '*Private\*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping * unmatched *type '*Private const\*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping * unmatched *type 'QTextEngine\*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping * unmatched *type 'QFontEngine\*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping * unmatched *type 'QPixmap::Type'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping * unmatched *type 'QAbstractUndoItem\*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping * unmatched *type '*QImageTextKeyLang*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping * unmatched *type 'QTextFrameLayoutData\*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: non-public function '*' in interface '*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: visibility of function '*' modified in class '*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: hiding of function '*' in class '*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: unsupported default value 'QVector&lt;FormatRange&gt;()' of argument in function '*', class '*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: unsupported default value 'QVariantList()' of argument in function '*', class '*'"/>
+  <suppress-warning text="WARNING(CppImplGenerator) :: protected function '*' in final class '*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping function 'QTextLayout::QTextLayout', unmatched parameter type 'QTextEngine*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: unsupported default value '0., 0., 1000000000., 1000000000.' of argument in function 'update', class 'QAbstractTextDocumentLayout'"/>
+  <suppress-warning text="WARNING(MetaInfoGenerator) :: class 'QInputEvent' inherits from polymorphic class 'QEvent', but has no polymorphic id set"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: skipping function 'QPixmap::pixmapData', unmatched return type 'QPixmapData*'"/>
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: object type 'QAccessible' extended by interface type 'QAbstractAccessibleFactory'. The resulting API will be less expressive than the original." />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: Rejected enum has no alternative...: QPalette::NColorRoles" />
+  <suppress-warning text="WARNING(MetaJavaBuilder) :: namespace 'QtSharedPointer' does not have a type entry" />
+</typesystem>
