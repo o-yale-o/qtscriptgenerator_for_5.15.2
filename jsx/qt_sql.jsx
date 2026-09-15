@@ -9,11 +9,13 @@ import "qt/qsql.jsx"; // QSql
 import "qt/qsqldatabase.jsx"; // QSqlDatabase
 import "qt/qsqldriver.jsx"; // QSqlDriver
 import "qt/qsqldrivercreatorbase.jsx"; // QSqlDriverCreatorBase
+import "qt/qsqlerror.jsx"; // QSqlError
 import "qt/qsqlfield.jsx"; // QSqlField
 import "qt/qsqlindex.jsx"; // QSqlIndex
 import "qt/qsqlquery.jsx"; // QSqlQuery
 import "qt/qsqlquerymodel.jsx"; // QSqlQueryModel
 import "qt/qsqlrecord.jsx"; // QSqlRecord
+import "qt/qsqlrelation.jsx"; // QSqlRelation
 import "qt/qsqlrelationaltablemodel.jsx"; // QSqlRelationalTableModel
 import "qt/qsqlresult.jsx"; // QSqlResult
 import "qt/qsqltablemodel.jsx"; // QSqlTableModel

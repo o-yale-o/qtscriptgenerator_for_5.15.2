@@ -7,11 +7,15 @@
  */
 import "qt/qabstractnetworkcache.jsx";
 import "qt/qauthenticator.jsx";
+import "qt/qbytearray.jsx";
+import "qt/qiodevice.jsx";
 import "qt/qnetworkcookiejar.jsx";
 import "qt/qnetworkproxy.jsx";
 import "qt/qnetworkproxyfactory.jsx";
 import "qt/qnetworkreply.jsx";
 import "qt/qnetworkrequest.jsx";
+import "qt/qobject.jsx";
+import "qt/qsslconfiguration.jsx";
 import "qt/qsslerror.jsx";
 import "qt/_signals.jsx";
 
@@ -19,8 +23,9 @@ final native class Qt_QNetworkAccessManager_NetworkAccessibility {}
 
 final native class Qt_QNetworkAccessManager_Operation {}
 
-native class QNetworkAccessManager
+native class QNetworkAccessManager extends QObject
 {
+    function constructor (parent : QObject);
 
     static const UnknownAccessibility : Qt_QNetworkAccessManager_NetworkAccessibility;
     static const NotAccessible : Qt_QNetworkAccessManager_NetworkAccessibility;
@@ -37,20 +42,41 @@ native class QNetworkAccessManager
     static function Operation(value : Qt_QNetworkAccessManager_Operation) : Qt_QNetworkAccessManager_Operation;
 
     // Methods
+    function autoDeleteReplies () : boolean;
     function cache () : QAbstractNetworkCache;
     function clearAccessCache () : void;
     function clearConnectionCache () : void;
+    function connectToHost (hostName : string, port : int) : void;
+    function connectToHostEncrypted (hostName : string, port : int, sslConfiguration : QSslConfiguration) : void;
+    function connectToHostEncrypted (hostName : string, port : int, sslConfiguration : QSslConfiguration, peerName : string) : void;
     function cookieJar () : QNetworkCookieJar;
+    function createRequest (op : Qt_QNetworkAccessManager_Operation, request : QNetworkRequest, outgoingData : QIODevice) : QNetworkReply;
     function deleteResource (request : QNetworkRequest) : QNetworkReply;
+    function enableStrictTransportSecurityStore (enabled : boolean, storeDir : string) : void;
     function get (request : QNetworkRequest) : QNetworkReply;
     function head (request : QNetworkRequest) : QNetworkReply;
+    function isStrictTransportSecurityEnabled () : boolean;
+    function isStrictTransportSecurityStoreEnabled () : boolean;
+    function post (request : QNetworkRequest, data : QIODevice) : QNetworkReply;
+    function post (request : QNetworkRequest, data : QByteArray) : QNetworkReply;
     function proxy () : QNetworkProxy;
     function proxyFactory () : QNetworkProxyFactory;
+    function put (request : QNetworkRequest, data : QIODevice) : QNetworkReply;
+    function put (request : QNetworkRequest, data : QByteArray) : QNetworkReply;
+    function sendCustomRequest (request : QNetworkRequest, verb : QByteArray, data : QIODevice) : QNetworkReply;
+    function sendCustomRequest (request : QNetworkRequest, verb : QByteArray, data : QByteArray) : QNetworkReply;
+    function setAutoDeleteReplies (autoDelete : boolean) : void;
     function setCache (cache : QAbstractNetworkCache) : void;
     function setCookieJar (cookieJar : QNetworkCookieJar) : void;
     function setProxy (proxy : QNetworkProxy) : void;
     function setProxyFactory (factory : QNetworkProxyFactory) : void;
+    function setStrictTransportSecurityEnabled (enabled : boolean) : void;
+    function setTransferTimeout (timeout : int) : void;
     function supportedSchemes () : string[];
+    function transferTimeout () : int;
+
+    // Slots
+    function supportedSchemesImplementation () : string[];
 
     // Signals
     var authenticationRequired : QtJSXQNetworkReplyQAuthenticatorSignal;

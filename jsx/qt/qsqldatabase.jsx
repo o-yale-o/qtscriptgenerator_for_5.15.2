@@ -22,12 +22,16 @@ native class QSqlDatabase
     static function addDatabase (driver : QSqlDriver, connectionName : string) : QSqlDatabase;
     static function cloneDatabase (other : QSqlDatabase, connectionName : string) : QSqlDatabase;
     static function connectionNames () : string[];
+    static function contains (connectionName : string) : boolean;
+    static function database (connectionName : string, open : boolean) : QSqlDatabase;
     static function drivers () : string[];
+    static function isDriverAvailable (name : string) : boolean;
     static function registerSqlDriver (name : string, creator : QSqlDriverCreatorBase) : void;
     static function removeDatabase (connectionName : string) : void;
 
     // Methods
     function close () : void;
+    function commit () : boolean;
     function connectOptions () : string;
     function connectionName () : string;
     function databaseName () : string;
@@ -35,17 +39,26 @@ native class QSqlDatabase
     function driverName () : string;
     function exec (query : string) : QSqlQuery;
     function hostName () : string;
+    function isOpen () : boolean;
+    function isOpenError () : boolean;
+    function isValid () : boolean;
     function lastError () : QSqlError;
     function numericalPrecisionPolicy () : Qt_QSql_NumericalPrecisionPolicy;
+    function open () : boolean;
+    function open (user : string, password : string) : boolean;
     function password () : string;
+    function port () : int;
     function primaryIndex (tablename : string) : QSqlIndex;
     function record (tablename : string) : QSqlRecord;
+    function rollback () : boolean;
     function setConnectOptions (options : string) : void;
     function setDatabaseName (name : string) : void;
     function setHostName (host : string) : void;
     function setNumericalPrecisionPolicy (precisionPolicy : Qt_QSql_NumericalPrecisionPolicy) : void;
     function setPassword (password : string) : void;
+    function setPort (p : int) : void;
     function setUserName (name : string) : void;
     function tables (type : Qt_QSql_TableType) : string[];
+    function transaction () : boolean;
     function userName () : string;
 }

@@ -7,9 +7,15 @@
  */
 import "qt/qabstractbutton.jsx";
 import "qt/qdialog.jsx";
+import "qt/qpixmap.jsx";
+import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/qwizardpage.jsx";
 import "qt/_signals.jsx";
+
+final native class Qt_QWizard_WizardOption {}
+
+final native class Qt_QWizard_WizardOptions {}
 
 final native class Qt_QWizard_WizardPixmap {}
 
@@ -19,7 +25,27 @@ final native class Qt_QWizard_WizardStyle {}
 
 native class QWizard extends QDialog
 {
-    function constructor ();
+    function constructor (parent : QWidget, flags : Qt_WindowFlags);
+
+    static const IndependentPages : Qt_QWizard_WizardOption;
+    static const IgnoreSubTitles : Qt_QWizard_WizardOption;
+    static const ExtendedWatermarkPixmap : Qt_QWizard_WizardOption;
+    static const NoDefaultButton : Qt_QWizard_WizardOption;
+    static const NoBackButtonOnStartPage : Qt_QWizard_WizardOption;
+    static const NoBackButtonOnLastPage : Qt_QWizard_WizardOption;
+    static const DisabledBackButtonOnLastPage : Qt_QWizard_WizardOption;
+    static const HaveNextButtonOnLastPage : Qt_QWizard_WizardOption;
+    static const HaveFinishButtonOnEarlyPages : Qt_QWizard_WizardOption;
+    static const NoCancelButton : Qt_QWizard_WizardOption;
+    static const CancelButtonOnLeft : Qt_QWizard_WizardOption;
+    static const HaveHelpButton : Qt_QWizard_WizardOption;
+    static const HelpButtonOnRight : Qt_QWizard_WizardOption;
+    static const HaveCustomButton1 : Qt_QWizard_WizardOption;
+    static const HaveCustomButton2 : Qt_QWizard_WizardOption;
+    static const HaveCustomButton3 : Qt_QWizard_WizardOption;
+    static const NoCancelButtonOnLastPage : Qt_QWizard_WizardOption;
+    static function WizardOption(value : Qt_QWizard_WizardOption) : Qt_QWizard_WizardOption;
+    static function WizardOptions(...value : Qt_QWizard_WizardOption) : Qt_QWizard_WizardOptions;
 
     static const WatermarkPixmap : Qt_QWizard_WizardPixmap;
     static const LogoPixmap : Qt_QWizard_WizardPixmap;
@@ -49,16 +75,32 @@ native class QWizard extends QDialog
     static function WizardStyle(value : Qt_QWizard_WizardStyle) : Qt_QWizard_WizardStyle;
 
     // Methods
+    function addPage (page : QWizardPage) : int;
     function button (which : Qt_QWizard_WizardButton) : QAbstractButton;
     function buttonText (which : Qt_QWizard_WizardButton) : string;
+    function cleanupPage (id : int) : void;
     function currentPage () : QWizardPage;
     function field (name : string) : variant;
+    function hasVisitedPage (id : int) : boolean;
+    function initializePage (id : int) : void;
+    function nextId () : int;
+    function page (id : int) : QWizardPage;
+    function pageIds () : int[];
+    function pixmap (which : Qt_QWizard_WizardPixmap) : QPixmap;
+    function removePage (id : int) : void;
     function setButton (which : Qt_QWizard_WizardButton, button : QAbstractButton) : void;
     function setButtonLayout (layout : Qt_QWizard_WizardButton[]) : void;
     function setButtonText (which : Qt_QWizard_WizardButton, text : string) : void;
     function setField (name : string, value : variant) : void;
+    function setOption (option : Qt_QWizard_WizardOption, on : boolean) : void;
+    function setPage (id : int, page : QWizardPage) : void;
+    function setPixmap (which : Qt_QWizard_WizardPixmap, pixmap : QPixmap) : void;
     function setSideWidget (widget : QWidget) : void;
     function sideWidget () : QWidget;
+    function testOption (option : Qt_QWizard_WizardOption) : boolean;
+    function validateCurrentPage () : boolean;
+    function visitedIds () : int[];
+    function visitedPages () : int[];
 
     // Slots
     function back () : void;
@@ -66,9 +108,17 @@ native class QWizard extends QDialog
     function restart () : void;
 
     // Signals
+    var currentIdChanged : QtJSXintSignal;
+    var customButtonClicked : QtJSXintSignal;
     var helpRequested : QtJSXSignal;
+    var pageAdded : QtJSXintSignal;
+    var pageRemoved : QtJSXintSignal;
 
     // Instance Properties
     var wizardStyle : Qt_QWizard_WizardStyle;
     var options : Qt_QWizard_WizardOptions;
+    var titleFormat : Qt_TextFormat;
+    var subTitleFormat : Qt_TextFormat;
+    var startId : int;
+    var currentId : int;
 }

@@ -10,7 +10,14 @@ native class QTableWidgetSelectionRange
 {
     function constructor ();
     function constructor (other : QTableWidgetSelectionRange);
+    function constructor (top : int, left : int, bottom : int, right : int);
 
     // Methods
+    function bottomRow () : int;
+    function columnCount () : int;
+    function leftColumn () : int;
     function operator_assign (other : QTableWidgetSelectionRange) : QTableWidgetSelectionRange;
+    function rightColumn () : int;
+    function rowCount () : int;
+    function topRow () : int;
 }

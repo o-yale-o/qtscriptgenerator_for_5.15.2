@@ -10,8 +10,6 @@ import "qt/qiodevice.jsx";
 import "qt/qlocale.jsx";
 import "qt/qtextcodec.jsx";
 
-final native class Qt_QTextStream_FieldAlignment {}
-
 final native class Qt_QTextStream_RealNumberNotation {}
 
 final native class Qt_QTextStream_NumberFlag {}
@@ -20,17 +18,13 @@ final native class Qt_QTextStream_NumberFlags {}
 
 final native class Qt_QTextStream_Status {}
 
+final native class Qt_QTextStream_FieldAlignment {}
+
 native class QTextStream
 {
     function constructor ();
     function constructor (device : QIODevice);
     function constructor (array : QByteArray, openMode : Qt_QIODevice_OpenMode);
-
-    static const AlignLeft : Qt_QTextStream_FieldAlignment;
-    static const AlignRight : Qt_QTextStream_FieldAlignment;
-    static const AlignCenter : Qt_QTextStream_FieldAlignment;
-    static const AlignAccountingStyle : Qt_QTextStream_FieldAlignment;
-    static function FieldAlignment(value : Qt_QTextStream_FieldAlignment) : Qt_QTextStream_FieldAlignment;
 
     static const SmartNotation : Qt_QTextStream_RealNumberNotation;
     static const FixedNotation : Qt_QTextStream_RealNumberNotation;
@@ -50,6 +44,12 @@ native class QTextStream
     static const ReadCorruptData : Qt_QTextStream_Status;
     static const WriteFailed : Qt_QTextStream_Status;
     static function Status(value : Qt_QTextStream_Status) : Qt_QTextStream_Status;
+
+    static const AlignLeft : Qt_QTextStream_FieldAlignment;
+    static const AlignRight : Qt_QTextStream_FieldAlignment;
+    static const AlignCenter : Qt_QTextStream_FieldAlignment;
+    static const AlignAccountingStyle : Qt_QTextStream_FieldAlignment;
+    static function FieldAlignment(value : Qt_QTextStream_FieldAlignment) : Qt_QTextStream_FieldAlignment;
 
     // Methods
     function atEnd () : boolean;

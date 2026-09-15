@@ -13,12 +13,24 @@ native class QSpinBox extends QAbstractSpinBox
 {
     function constructor (parent : QWidget);
 
+    // Methods
+    function setRange (min : int, max : int) : void;
+    function textFromValue (val : int) : string;
+    function valueFromText (text : string) : int;
+
     // Signals
     var textChanged : QtJSXQStringSignal;
-    var valueChanged : QtJSXQStringSignal;
+    var valueChanged : QtJSXintSignal;
 
     // Instance Properties
     var suffix : string;
     var prefix : string;
     var cleanText : string;
-}
+    var minimum : int;
+    var maximum : int;
+    var singleStep : int;
+    var value : int;
+    var displayIntegerBase : int;
+} = '''QSpinBox;
+QSpinBox.prototype.valueChanged = QSpinBox.prototype['valueChanged(int)'];
+''';

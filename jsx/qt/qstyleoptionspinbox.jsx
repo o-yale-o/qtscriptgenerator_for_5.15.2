@@ -21,7 +21,4 @@ native class QStyleOptionSpinBox extends QStyleOptionComplex
 
     static const Type : Qt_QStyleOptionSpinBox_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionSpinBox_StyleOptionType) : Qt_QStyleOptionSpinBox_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionSpinBox) : QStyleOptionSpinBox;
 }

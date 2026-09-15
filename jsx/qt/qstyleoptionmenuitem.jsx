@@ -7,9 +7,9 @@
  */
 import "qt/qstyleoption.jsx";
 
-final native class Qt_QStyleOptionMenuItem_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionMenuItem_MenuItemType {}
+
+final native class Qt_QStyleOptionMenuItem_StyleOptionVersion {}
 
 final native class Qt_QStyleOptionMenuItem_CheckType {}
 
@@ -19,9 +19,6 @@ native class QStyleOptionMenuItem extends QStyleOption
 {
     function constructor ();
     function constructor (other : QStyleOptionMenuItem);
-
-    static const Version : Qt_QStyleOptionMenuItem_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionMenuItem_StyleOptionVersion) : Qt_QStyleOptionMenuItem_StyleOptionVersion;
 
     static const Normal : Qt_QStyleOptionMenuItem_MenuItemType;
     static const DefaultItem : Qt_QStyleOptionMenuItem_MenuItemType;
@@ -33,6 +30,9 @@ native class QStyleOptionMenuItem extends QStyleOption
     static const EmptyArea : Qt_QStyleOptionMenuItem_MenuItemType;
     static function MenuItemType(value : Qt_QStyleOptionMenuItem_MenuItemType) : Qt_QStyleOptionMenuItem_MenuItemType;
 
+    static const Version : Qt_QStyleOptionMenuItem_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionMenuItem_StyleOptionVersion) : Qt_QStyleOptionMenuItem_StyleOptionVersion;
+
     static const NotCheckable : Qt_QStyleOptionMenuItem_CheckType;
     static const Exclusive : Qt_QStyleOptionMenuItem_CheckType;
     static const NonExclusive : Qt_QStyleOptionMenuItem_CheckType;
@@ -40,7 +40,4 @@ native class QStyleOptionMenuItem extends QStyleOption
 
     static const Type : Qt_QStyleOptionMenuItem_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionMenuItem_StyleOptionType) : Qt_QStyleOptionMenuItem_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionMenuItem) : QStyleOptionMenuItem;
 }

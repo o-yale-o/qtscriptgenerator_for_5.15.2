@@ -7,6 +7,8 @@
  */
 import "qt/qabstractmessagehandler.jsx";
 import "qt/qabstracturiresolver.jsx";
+import "qt/qiodevice.jsx";
+import "qt/qurl.jsx";
 import "qt/qxmlitem.jsx";
 import "qt/qxmlname.jsx";
 import "qt/qxmlnamepool.jsx";
@@ -29,20 +31,32 @@ native class QXmlQuery
     static function QueryLanguage(value : Qt_QXmlQuery_QueryLanguage) : Qt_QXmlQuery_QueryLanguage;
 
     // Methods
+    function bindVariable (localName : string, arg__2 : QIODevice) : void;
     function bindVariable (localName : string, value : QXmlItem) : void;
     function bindVariable (localName : string, query : QXmlQuery) : void;
+    function bindVariable (name : QXmlName, arg__2 : QIODevice) : void;
     function bindVariable (name : QXmlName, value : QXmlItem) : void;
     function bindVariable (name : QXmlName, query : QXmlQuery) : void;
+    function evaluateTo (target : QIODevice) : boolean;
+    function evaluateTo (output : string) : boolean;
+    function evaluateTo (target : string[]) : boolean;
     function evaluateTo (result : QXmlResultItems) : void;
     function initialTemplateName () : QXmlName;
+    function isValid () : boolean;
     function messageHandler () : QAbstractMessageHandler;
     function namePool () : QXmlNamePool;
     function operator_assign (other : QXmlQuery) : QXmlQuery;
     function queryLanguage () : Qt_QXmlQuery_QueryLanguage;
+    function setFocus (document : QIODevice) : boolean;
+    function setFocus (focus : string) : boolean;
+    function setFocus (documentURI : QUrl) : boolean;
     function setFocus (item : QXmlItem) : void;
     function setInitialTemplateName (name : string) : void;
     function setInitialTemplateName (name : QXmlName) : void;
     function setMessageHandler (messageHandler : QAbstractMessageHandler) : void;
+    function setQuery (sourceCode : QIODevice, documentURI : QUrl) : void;
+    function setQuery (sourceCode : string, documentURI : QUrl) : void;
+    function setQuery (queryURI : QUrl, baseURI : QUrl) : void;
     function setUriResolver (resolver : QAbstractUriResolver) : void;
     function uriResolver () : QAbstractUriResolver;
 }

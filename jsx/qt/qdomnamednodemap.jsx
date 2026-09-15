@@ -13,10 +13,17 @@ native class QDomNamedNodeMap
     function constructor (arg__1 : QDomNamedNodeMap);
 
     // Methods
+    function contains (name : string) : boolean;
+    function count () : int;
+    function isEmpty () : boolean;
+    function item (index : int) : QDomNode;
+    function length () : int;
     function namedItem (name : string) : QDomNode;
     function namedItemNS (nsURI : string, localName : string) : QDomNode;
+    function operator_equal (arg__1 : QDomNamedNodeMap) : boolean;
     function removeNamedItem (name : string) : QDomNode;
     function removeNamedItemNS (nsURI : string, localName : string) : QDomNode;
     function setNamedItem (newNode : QDomNode) : QDomNode;
     function setNamedItemNS (newNode : QDomNode) : QDomNode;
+    function size () : int;
 }

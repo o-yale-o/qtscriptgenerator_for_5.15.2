@@ -22,3 +22,4 @@ import "qt/qdomnodelist.jsx"; // QDomNodeList
 import "qt/qdomnotation.jsx"; // QDomNotation
 import "qt/qdomprocessinginstruction.jsx"; // QDomProcessingInstruction
 import "qt/qdomtext.jsx"; // QDomText
+import "qt/qxmlattributes.jsx"; // QXmlAttributes

@@ -7,6 +7,7 @@
  */
 import "qt/qabstractslider.jsx";
 import "qt/qstyleoptionslider.jsx";
+import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 
 final native class Qt_QSlider_TickPosition {}
@@ -14,6 +15,7 @@ final native class Qt_QSlider_TickPosition {}
 native class QSlider extends QAbstractSlider
 {
     function constructor (parent : QWidget);
+    function constructor (orientation : Qt_Orientation, parent : QWidget);
 
     static const NoTicks : Qt_QSlider_TickPosition;
     static const TicksAbove : Qt_QSlider_TickPosition;
@@ -26,4 +28,5 @@ native class QSlider extends QAbstractSlider
 
     // Instance Properties
     var tickPosition : Qt_QSlider_TickPosition;
+    var tickInterval : int;
 }

@@ -14,6 +14,7 @@ final native class Qt_QStyleHintReturn_StyleOptionType {}
 
 native class QStyleHintReturn
 {
+    function constructor (version : int, type : int);
 
     static const Version : Qt_QStyleHintReturn_StyleOptionVersion;
     static function StyleOptionVersion(value : Qt_QStyleHintReturn_StyleOptionVersion) : Qt_QStyleHintReturn_StyleOptionVersion;

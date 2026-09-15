@@ -7,19 +7,12 @@
  */
 import "qt/qgesture.jsx";
 
-final native class Qt_QSwipeGesture_SwipeDirection {}
-
 native class QSwipeGesture extends QGesture
 {
-
-    static const NoDirection : Qt_QSwipeGesture_SwipeDirection;
-    static const Left : Qt_QSwipeGesture_SwipeDirection;
-    static const Right : Qt_QSwipeGesture_SwipeDirection;
-    static const Up : Qt_QSwipeGesture_SwipeDirection;
-    static const Down : Qt_QSwipeGesture_SwipeDirection;
-    static function SwipeDirection(value : Qt_QSwipeGesture_SwipeDirection) : Qt_QSwipeGesture_SwipeDirection;
+    function constructor ();
 
     // Instance Properties
     var horizontalDirection : Qt_QSwipeGesture_SwipeDirection;
     var verticalDirection : Qt_QSwipeGesture_SwipeDirection;
+    var swipeAngle : number;
 }

@@ -11,7 +11,7 @@ final native class Qt_QEventLoop_ProcessEventsFlag {}
 
 final native class Qt_QEventLoop_ProcessEventsFlags {}
 
-native class QEventLoop
+native class QEventLoop extends QObject
 {
     function constructor (parent : QObject);
 

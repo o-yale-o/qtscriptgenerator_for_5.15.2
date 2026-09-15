@@ -19,6 +19,7 @@ import "qt/qdomnodelist.jsx";
 import "qt/qdomnotation.jsx";
 import "qt/qdomprocessinginstruction.jsx";
 import "qt/qdomtext.jsx";
+import "qt/qtextstream.jsx";
 
 final native class Qt_QDomNode_NodeType {}
 
@@ -53,12 +54,32 @@ native class QDomNode
     function appendChild (newChild : QDomNode) : QDomNode;
     function childNodes () : QDomNodeList;
     function clear () : void;
+    function cloneNode (deep : boolean) : QDomNode;
+    function columnNumber () : int;
     function firstChild () : QDomNode;
     function firstChildElement (tagName : string) : QDomElement;
+    function hasAttributes () : boolean;
+    function hasChildNodes () : boolean;
     function insertAfter (newChild : QDomNode, refChild : QDomNode) : QDomNode;
     function insertBefore (newChild : QDomNode, refChild : QDomNode) : QDomNode;
+    function isAttr () : boolean;
+    function isCDATASection () : boolean;
+    function isCharacterData () : boolean;
+    function isComment () : boolean;
+    function isDocument () : boolean;
+    function isDocumentFragment () : boolean;
+    function isDocumentType () : boolean;
+    function isElement () : boolean;
+    function isEntity () : boolean;
+    function isEntityReference () : boolean;
+    function isNotation () : boolean;
+    function isNull () : boolean;
+    function isProcessingInstruction () : boolean;
+    function isSupported (feature : string, version : string) : boolean;
+    function isText () : boolean;
     function lastChild () : QDomNode;
     function lastChildElement (tagName : string) : QDomElement;
+    function lineNumber () : int;
     function localName () : string;
     function namedItem (name : string) : QDomNode;
     function namespaceURI () : string;
@@ -68,6 +89,7 @@ native class QDomNode
     function nodeType () : Qt_QDomNode_NodeType;
     function nodeValue () : string;
     function normalize () : void;
+    function operator_equal (arg__1 : QDomNode) : boolean;
     function ownerDocument () : QDomDocument;
     function parentNode () : QDomNode;
     function prefix () : string;
@@ -75,6 +97,7 @@ native class QDomNode
     function previousSiblingElement (tagName : string) : QDomElement;
     function removeChild (oldChild : QDomNode) : QDomNode;
     function replaceChild (newChild : QDomNode, oldChild : QDomNode) : QDomNode;
+    function save (arg__1 : QTextStream, arg__2 : int, arg__3 : Qt_QDomNode_EncodingPolicy) : void;
     function setNodeValue (arg__1 : string) : void;
     function setPrefix (pre : string) : void;
     function toAttr () : QDomAttr;
@@ -90,4 +113,5 @@ native class QDomNode
     function toNotation () : QDomNotation;
     function toProcessingInstruction () : QDomProcessingInstruction;
     function toText () : QDomText;
+    function writeTo (arg__1 : QTextStream) : void;
 }

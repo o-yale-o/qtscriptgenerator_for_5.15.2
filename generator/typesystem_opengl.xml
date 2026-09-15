@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<typesystem package="com.trolltech.qt.opengl"><rejection class="QGL"/><rejection class="QGLFormat"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QGLFormat' has equals operators but no qHash() function"/>
+<typesystem package="com.trolltech.qt.opengl"><load-typesystem name="typesystem_core.xml" generate="no"/><load-typesystem name="typesystem_gui.xml" generate="no"/><rejection class="QGL"/><rejection class="QGLFormat"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QGLFormat' has equals operators but no qHash() function"/>
   <rejection class="QGLColormap::QGLColormapData"/>
   <rejection class="QGLWidget" function-name="setMouseTracking"/>
 

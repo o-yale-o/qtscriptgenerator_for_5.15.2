@@ -36,16 +36,32 @@ native class QTextFrameFormat extends QTextFormat
     static function BorderStyle(value : Qt_QTextFrameFormat_BorderStyle) : Qt_QTextFrameFormat_BorderStyle;
 
     // Methods
+    function border () : number;
     function borderBrush () : QBrush;
     function borderStyle () : Qt_QTextFrameFormat_BorderStyle;
+    function bottomMargin () : number;
     function height () : QTextLength;
+    function leftMargin () : number;
+    function margin () : number;
+    function padding () : number;
     function pageBreakPolicy () : Qt_QTextFormat_PageBreakFlags;
     function position () : Qt_QTextFrameFormat_Position;
+    function rightMargin () : number;
+    function setBorder (border : number) : void;
     function setBorderBrush (brush : QBrush) : void;
     function setBorderStyle (style : Qt_QTextFrameFormat_BorderStyle) : void;
+    function setBottomMargin (margin : number) : void;
     function setHeight (height : QTextLength) : void;
+    function setHeight (height : number) : void;
+    function setLeftMargin (margin : number) : void;
+    function setMargin (margin : number) : void;
+    function setPadding (padding : number) : void;
     function setPageBreakPolicy (flags : Qt_QTextFormat_PageBreakFlags) : void;
     function setPosition (f : Qt_QTextFrameFormat_Position) : void;
+    function setRightMargin (margin : number) : void;
+    function setTopMargin (margin : number) : void;
     function setWidth (length : QTextLength) : void;
+    function setWidth (width : number) : void;
+    function topMargin () : number;
     function width () : QTextLength;
 }

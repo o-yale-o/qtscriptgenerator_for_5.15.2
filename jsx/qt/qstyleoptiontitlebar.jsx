@@ -21,7 +21,4 @@ native class QStyleOptionTitleBar extends QStyleOptionComplex
 
     static const Type : Qt_QStyleOptionTitleBar_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionTitleBar_StyleOptionType) : Qt_QStyleOptionTitleBar_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionTitleBar) : QStyleOptionTitleBar;
 }

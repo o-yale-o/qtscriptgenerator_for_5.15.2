@@ -1059,7 +1059,16 @@ void maybeDeclareMetaType(QTextStream &stream, const QString &typeName,
         (nameFootPrint == QLatin1String("QItemSelection"))       ||
         (nameFootPrint == QLatin1String("QItemSelectionRange"))  ||
         (nameFootPrint == QLatin1String("QList<QModelIndex>"))   ||
-        (nameFootPrint == QLatin1String("QModelIndexList")))
+        (nameFootPrint == QLatin1String("QModelIndexList"))      ||
+        // provided by the hand-written __package_shared.h headers
+        (nameFootPrint == QLatin1String("QFontInfo"))            ||
+        (nameFootPrint == QLatin1String("QFontMetrics"))         ||
+        (nameFootPrint == QLatin1String("QFontMetricsF"))       ||
+        // provided by the hand-written __package_shared.h headers
+        (nameFootPrint == QLatin1String("QEvent"))              ||
+        // Qt 5: copy constructor is deleted; Q_DECLARE_METATYPE(QTextStream)
+        // would not compile
+        (nameFootPrint == QLatin1String("QTextStream")))
     {
         return;
     }
@@ -1693,10 +1702,16 @@ void ClassGenerator::write(QTextStream &stream, const AbstractMetaClass *meta_cl
         QSet<QString> registeredTypeNames = m_qmetatype_declared_typenames;
 
         if (!meta_class->isNamespace()) {
-            if (meta_class->typeEntry()->isValue() && hasDefaultCtor)
+            // Qt 5 note: emit the metatype declaration for value types even
+            // when they have no default constructor. The generated copy
+            // constructors still do qscriptvalue_cast<T>() on the value,
+            // which requires the QMetaTypeId<T> specialization in this
+            // translation unit. Types that must not be re-declared here
+            // (Qt builtins like QFileInfo, or QItemSelectionRange whose
+            // Qt header already calls Q_DECLARE_METATYPE) are filtered by
+            // maybeDeclareMetaType().
+            if (meta_class->typeEntry()->isValue())
                 maybeDeclareMetaType(stream, meta_class->qualifiedCppName(), registeredTypeNames);
-            else
-                registeredTypeNames << meta_class->qualifiedCppName();
             maybeDeclareMetaType(stream, meta_class->qualifiedCppName() + "*", registeredTypeNames);
         }
         if (meta_class->generateShellClass()) {

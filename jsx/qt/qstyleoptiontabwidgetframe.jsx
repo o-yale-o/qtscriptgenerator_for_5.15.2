@@ -21,7 +21,4 @@ native class QStyleOptionTabWidgetFrame extends QStyleOption
 
     static const Type : Qt_QStyleOptionTabWidgetFrame_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionTabWidgetFrame_StyleOptionType) : Qt_QStyleOptionTabWidgetFrame_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionTabWidgetFrame) : QStyleOptionTabWidgetFrame;
 }

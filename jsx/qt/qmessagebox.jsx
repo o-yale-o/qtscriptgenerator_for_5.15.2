@@ -8,11 +8,16 @@
 import "qt/qabstractbutton.jsx";
 import "qt/qcheckbox.jsx";
 import "qt/qdialog.jsx";
+import "qt/qobject.jsx";
+import "qt/qpixmap.jsx";
 import "qt/qpushbutton.jsx";
+import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
 final native class Qt_QMessageBox_Icon {}
+
+final native class Qt_QMessageBox_ButtonRole {}
 
 final native class Qt_QMessageBox_StandardButton {}
 
@@ -20,6 +25,7 @@ final native class Qt_QMessageBox_StandardButtons {}
 
 native class QMessageBox extends QDialog
 {
+    function constructor (icon : Qt_QMessageBox_Icon, title : string, text : string, buttons : Qt_QMessageBox_StandardButtons, parent : QWidget, flags : Qt_WindowFlags);
     function constructor (parent : QWidget);
 
     // Static Members
@@ -36,6 +42,19 @@ native class QMessageBox extends QDialog
     static const Critical : Qt_QMessageBox_Icon;
     static const Question : Qt_QMessageBox_Icon;
     static function Icon(value : Qt_QMessageBox_Icon) : Qt_QMessageBox_Icon;
+
+    static const InvalidRole : Qt_QMessageBox_ButtonRole;
+    static const AcceptRole : Qt_QMessageBox_ButtonRole;
+    static const RejectRole : Qt_QMessageBox_ButtonRole;
+    static const DestructiveRole : Qt_QMessageBox_ButtonRole;
+    static const ActionRole : Qt_QMessageBox_ButtonRole;
+    static const HelpRole : Qt_QMessageBox_ButtonRole;
+    static const YesRole : Qt_QMessageBox_ButtonRole;
+    static const NoRole : Qt_QMessageBox_ButtonRole;
+    static const ResetRole : Qt_QMessageBox_ButtonRole;
+    static const ApplyRole : Qt_QMessageBox_ButtonRole;
+    static const NRoles : Qt_QMessageBox_ButtonRole;
+    static function ButtonRole(value : Qt_QMessageBox_ButtonRole) : Qt_QMessageBox_ButtonRole;
 
     static const NoButton : Qt_QMessageBox_StandardButton;
     static const Default : Qt_QMessageBox_StandardButton;
@@ -74,6 +93,7 @@ native class QMessageBox extends QDialog
     function clickedButton () : QAbstractButton;
     function defaultButton () : QPushButton;
     function escapeButton () : QAbstractButton;
+    function open (receiver : QObject, member : string) : void;
     function removeButton (button : QAbstractButton) : void;
     function setCheckBox (cb : QCheckBox) : void;
     function setDefaultButton (button : Qt_QMessageBox_StandardButton) : void;
@@ -88,7 +108,10 @@ native class QMessageBox extends QDialog
     // Instance Properties
     var text : string;
     var icon : Qt_QMessageBox_Icon;
+    var iconPixmap : QPixmap;
+    var textFormat : Qt_TextFormat;
     var standardButtons : Qt_QMessageBox_StandardButtons;
     var detailedText : string;
     var informativeText : string;
+    var textInteractionFlags : Qt_TextInteractionFlags;
 }

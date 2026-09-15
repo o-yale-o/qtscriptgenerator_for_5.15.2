@@ -7,8 +7,17 @@
  */
 import "qt/qabstractgraphicsshapeitem.jsx";
 import "qt/qgraphicsitem.jsx";
+import "qt/qpolygonf.jsx";
+import "qt/qt.jsx";
 
 native class QGraphicsPolygonItem extends QAbstractGraphicsShapeItem
 {
     function constructor (parent : QGraphicsItem);
+    function constructor (polygon : QPolygonF, parent : QGraphicsItem);
+
+    // Methods
+    function fillRule () : Qt_FillRule;
+    function polygon () : QPolygonF;
+    function setFillRule (rule : Qt_FillRule) : void;
+    function setPolygon (polygon : QPolygonF) : void;
 }

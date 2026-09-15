@@ -7,6 +7,9 @@
  */
 import "qt/qabstractmessagehandler.jsx";
 import "qt/qabstracturiresolver.jsx";
+import "qt/qbytearray.jsx";
+import "qt/qiodevice.jsx";
+import "qt/qurl.jsx";
 import "qt/qxmlnamepool.jsx";
 import "qt/qxmlschema.jsx";
 
@@ -23,4 +26,7 @@ native class QXmlSchemaValidator
     function setSchema (schema : QXmlSchema) : void;
     function setUriResolver (resolver : QAbstractUriResolver) : void;
     function uriResolver () : QAbstractUriResolver;
+    function validate (source : QIODevice, documentUri : QUrl) : boolean;
+    function validate (data : QByteArray, documentUri : QUrl) : boolean;
+    function validate (source : QUrl) : boolean;
 }

@@ -682,6 +682,11 @@ void Binder::visitClassSpecifier(ClassSpecifierAST *node)
 
   scope->addClass(_M_current_class);
 
+  if (getenv("QTSG_TRACE")) {
+    fprintf(stderr, "[MODEL-CLASS] %s\n",
+            _M_current_class->qualifiedName().join("::").toLocal8Bit().constData());
+  }
+
   name_cc.run(node->name->unqualified_name);
   _M_context.append(name_cc.name());
   visitNodes(this, node->member_specs);

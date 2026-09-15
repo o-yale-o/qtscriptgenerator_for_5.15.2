@@ -24,7 +24,10 @@ native class QTextItem
     static function RenderFlags(...value : Qt_QTextItem_RenderFlag) : Qt_QTextItem_RenderFlags;
 
     // Methods
+    function ascent () : number;
+    function descent () : number;
     function font () : QFont;
     function renderFlags () : Qt_QTextItem_RenderFlags;
     function text () : string;
+    function width () : number;
 }

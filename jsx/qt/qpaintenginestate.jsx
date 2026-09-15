@@ -12,7 +12,9 @@ import "qt/qpaintengine.jsx";
 import "qt/qpainter.jsx";
 import "qt/qpainterpath.jsx";
 import "qt/qpen.jsx";
+import "qt/qpointf.jsx";
 import "qt/qregion.jsx";
+import "qt/qt.jsx";
 import "qt/qtransform.jsx";
 
 native class QPaintEngineState
@@ -21,14 +23,21 @@ native class QPaintEngineState
 
     // Methods
     function backgroundBrush () : QBrush;
+    function backgroundMode () : Qt_BGMode;
     function brush () : QBrush;
+    function brushNeedsResolving () : boolean;
+    function brushOrigin () : QPointF;
+    function clipOperation () : Qt_ClipOperation;
     function clipPath () : QPainterPath;
     function clipRegion () : QRegion;
     function compositionMode () : Qt_QPainter_CompositionMode;
     function font () : QFont;
+    function isClipEnabled () : boolean;
     function matrix () : QMatrix;
+    function opacity () : number;
     function painter () : QPainter;
     function pen () : QPen;
+    function penNeedsResolving () : boolean;
     function renderHints () : Qt_QPainter_RenderHints;
     function state () : Qt_QPaintEngine_DirtyFlags;
     function transform () : QTransform;

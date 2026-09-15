@@ -7,6 +7,9 @@
  */
 import "qt/qdialog.jsx";
 import "qt/qlineedit.jsx";
+import "qt/qobject.jsx";
+import "qt/qt.jsx";
+import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
 final native class Qt_QInputDialog_InputDialogOption {}
@@ -17,7 +20,14 @@ final native class Qt_QInputDialog_InputMode {}
 
 native class QInputDialog extends QDialog
 {
-    function constructor ();
+    function constructor (parent : QWidget, flags : Qt_WindowFlags);
+
+    // Static Members
+    static function getDouble (parent : QWidget, title : string, label : string, value : number, minValue : number, maxValue : number, decimals : int, flags : Qt_WindowFlags) : number;
+    static function getInt_private (parent : QWidget, title : string, label : string, value : int, minValue : int, maxValue : int, step : int, ok : boolean, flags : Qt_WindowFlags) : int;
+    static function getItem (parent : QWidget, title : string, label : string, items : string[], current : int, editable : boolean, ok : boolean, flags : Qt_WindowFlags, inputMethodHints : Qt_InputMethodHints) : string;
+    static function getMultiLineText (parent : QWidget, title : string, label : string, text : string, ok : boolean, flags : Qt_WindowFlags, inputMethodHints : Qt_InputMethodHints) : string;
+    static function getText (parent : QWidget, title : string, label : string, echo : Qt_QLineEdit_EchoMode, text : string, ok : boolean, flags : Qt_WindowFlags, inputMethodHints : Qt_InputMethodHints) : string;
 
     static const NoButtons : Qt_QInputDialog_InputDialogOption;
     static const UseListViewForComboBoxItems : Qt_QInputDialog_InputDialogOption;
@@ -33,22 +43,51 @@ native class QInputDialog extends QDialog
     // Methods
     function cancelButtonText () : string;
     function comboBoxItems () : string[];
+    function doubleDecimals () : int;
+    function doubleMaximum () : number;
+    function doubleMinimum () : number;
+    function doubleStep () : number;
+    function doubleValue () : number;
     function inputMode () : Qt_QInputDialog_InputMode;
+    function intMaximum () : int;
+    function intMinimum () : int;
+    function intStep () : int;
+    function intValue () : int;
+    function isComboBoxEditable () : boolean;
     function labelText () : string;
     function okButtonText () : string;
+    function open (receiver : QObject, member : string) : void;
     function options () : Qt_QInputDialog_InputDialogOptions;
     function setCancelButtonText (text : string) : void;
+    function setComboBoxEditable (editable : boolean) : void;
     function setComboBoxItems (items : string[]) : void;
+    function setDoubleDecimals (decimals : int) : void;
+    function setDoubleMaximum (max : number) : void;
+    function setDoubleMinimum (min : number) : void;
+    function setDoubleRange (min : number, max : number) : void;
+    function setDoubleStep (step : number) : void;
+    function setDoubleValue (value : number) : void;
     function setInputMode (mode : Qt_QInputDialog_InputMode) : void;
+    function setIntMaximum (max : int) : void;
+    function setIntMinimum (min : int) : void;
+    function setIntRange (min : int, max : int) : void;
+    function setIntStep (step : int) : void;
+    function setIntValue (value : int) : void;
     function setLabelText (text : string) : void;
     function setOkButtonText (text : string) : void;
+    function setOption (option : Qt_QInputDialog_InputDialogOption, on : boolean) : void;
     function setOptions (options : Qt_QInputDialog_InputDialogOptions) : void;
     function setTextEchoMode (mode : Qt_QLineEdit_EchoMode) : void;
     function setTextValue (text : string) : void;
+    function testOption (option : Qt_QInputDialog_InputDialogOption) : boolean;
     function textEchoMode () : Qt_QLineEdit_EchoMode;
     function textValue () : string;
 
     // Signals
+    var doubleValueChanged : QtJSXdoubleSignal;
+    var doubleValueSelected : QtJSXdoubleSignal;
+    var intValueChanged : QtJSXintSignal;
+    var intValueSelected : QtJSXintSignal;
     var textValueChanged : QtJSXQStringSignal;
     var textValueSelected : QtJSXQStringSignal;
 }

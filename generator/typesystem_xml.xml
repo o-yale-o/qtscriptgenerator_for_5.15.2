@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<typesystem package="com.trolltech.qt.xml"><rejection class="QXmlNamespaceSupport"/>
+<typesystem package="com.trolltech.qt.xml"><load-typesystem name="typesystem_core.xml" generate="no"/><rejection class="QXmlNamespaceSupport"/>
     <rejection class="QXmlAttributes::Attribute"/>
     <rejection class="QDomNode" field-name="impl"/>
 
@@ -34,6 +34,13 @@
     <value-type name="QDomDocument">
         <modify-function signature="nodeType()const" remove="all"/>
         <modify-function signature="operator=(QDomDocument)" remove="all"/>
+        <!-- Qt 5: Q_DECLARE_METATYPE(T*) requires T to be fully defined;
+             setContent() exposes QXmlInputSource*/QXmlReader* which qdom.h
+             only forward-declares -->
+        <extra-includes>
+            <include file-name="QtXml/QXmlInputSource" location="global"/>
+            <include file-name="QtXml/QXmlReader" location="global"/>
+        </extra-includes>
 
         <!--bool setContent(QIODevice* dev, bool namespaceProcessing, QString *errorMsg=0, int *errorLine=0, int *errorColumn=0 ); -->
         <modify-function signature="setContent(QIODevice*, bool, QString*, int*, int*)">
@@ -176,6 +183,9 @@
 -->
 
     <value-type name="QXmlAttributes">
+      <!-- Qt 5: the shell's operator= override returns T& via
+           qscriptvalue_cast<T&>, which Qt 5's QtScript cannot compile -->
+      <modify-function signature="operator=(const QXmlAttributes&amp;)" remove="all"/>
       <modify-function signature="index(const QLatin1String&amp;) const">
         <remove/>
       </modify-function>

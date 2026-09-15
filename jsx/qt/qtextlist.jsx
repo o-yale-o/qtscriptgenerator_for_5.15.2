@@ -16,8 +16,12 @@ native class QTextList extends QTextBlockGroup
 
     // Methods
     function add (block : QTextBlock) : void;
+    function count () : int;
+    function item (i : int) : QTextBlock;
+    function itemNumber (arg__1 : QTextBlock) : int;
     function itemText (arg__1 : QTextBlock) : string;
     function remove (arg__1 : QTextBlock) : void;
+    function removeItem (i : int) : void;
     function setFormat (format : QTextListFormat) : void;
     function textListFormat () : QTextListFormat;
 }

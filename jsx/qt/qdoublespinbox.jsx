@@ -13,12 +13,24 @@ native class QDoubleSpinBox extends QAbstractSpinBox
 {
     function constructor (parent : QWidget);
 
+    // Methods
+    function setRange (min : number, max : number) : void;
+    function textFromValue (val : number) : string;
+    function valueFromText (text : string) : number;
+
     // Signals
     var textChanged : QtJSXQStringSignal;
-    var valueChanged : QtJSXQStringSignal;
+    var valueChanged : QtJSXdoubleSignal;
 
     // Instance Properties
     var prefix : string;
     var suffix : string;
     var cleanText : string;
-}
+    var decimals : int;
+    var minimum : number;
+    var maximum : number;
+    var singleStep : number;
+    var value : number;
+} = '''QDoubleSpinBox;
+QDoubleSpinBox.prototype.valueChanged = QDoubleSpinBox.prototype['valueChanged(double)'];
+''';

@@ -14,6 +14,15 @@ native class QGLFramebufferObjectFormat
 
     // Methods
     function attachment () : Qt_QGLFramebufferObject_Attachment;
+    function internalTextureFormat () : int;
+    function mipmap () : boolean;
     function operator_assign (other : QGLFramebufferObjectFormat) : QGLFramebufferObjectFormat;
+    function operator_equal (other : QGLFramebufferObjectFormat) : boolean;
+    function samples () : int;
     function setAttachment (attachment : Qt_QGLFramebufferObject_Attachment) : void;
+    function setInternalTextureFormat (internalTextureFormat : int) : void;
+    function setMipmap (enabled : boolean) : void;
+    function setSamples (samples : int) : void;
+    function setTextureTarget (target : int) : void;
+    function textureTarget () : int;
 }

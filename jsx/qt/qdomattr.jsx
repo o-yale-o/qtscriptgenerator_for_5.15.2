@@ -17,5 +17,6 @@ native class QDomAttr extends QDomNode
     function name () : string;
     function ownerElement () : QDomElement;
     function setValue (arg__1 : string) : void;
+    function specified () : boolean;
     function value () : string;
 }

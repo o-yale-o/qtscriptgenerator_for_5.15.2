@@ -10,7 +10,9 @@ import "qt/qsizepolicy.jsx";
 
 native class QSpacerItem extends QLayoutItem
 {
+    function constructor (w : int, h : int, hData : Qt_QSizePolicy_Policy, vData : Qt_QSizePolicy_Policy);
 
     // Methods
+    function changeSize (w : int, h : int, hData : Qt_QSizePolicy_Policy, vData : Qt_QSizePolicy_Policy) : void;
     function sizePolicy () : QSizePolicy;
 }

@@ -10,4 +10,7 @@ import "qt/qwidget.jsx";
 native class QSizeGrip extends QWidget
 {
     function constructor (parent : QWidget);
+
+    // Methods
+    function setVisible (arg__1 : boolean) : void;
 }

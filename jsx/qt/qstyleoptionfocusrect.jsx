@@ -21,7 +21,4 @@ native class QStyleOptionFocusRect extends QStyleOption
 
     static const Type : Qt_QStyleOptionFocusRect_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionFocusRect_StyleOptionType) : Qt_QStyleOptionFocusRect_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionFocusRect) : QStyleOptionFocusRect;
 }

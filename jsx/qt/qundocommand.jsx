@@ -13,7 +13,13 @@ native class QUndoCommand
 
     // Methods
     function actionText () : string;
+    function child (index : int) : QUndoCommand;
+    function childCount () : int;
+    function id () : int;
+    function isObsolete () : boolean;
+    function mergeWith (other : QUndoCommand) : boolean;
     function redo () : void;
+    function setObsolete (obsolete : boolean) : void;
     function setText (text : string) : void;
     function text () : string;
     function undo () : void;

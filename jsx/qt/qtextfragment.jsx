@@ -14,5 +14,12 @@ native class QTextFragment
 
     // Methods
     function charFormat () : QTextCharFormat;
+    function charFormatIndex () : int;
+    function contains (position : int) : boolean;
+    function isValid () : boolean;
+    function length () : int;
+    function operator_equal (o : QTextFragment) : boolean;
+    function operator_less (o : QTextFragment) : boolean;
+    function position () : int;
     function text () : string;
 }

@@ -2024,7 +2024,8 @@ QString AbstractMetaBuilder::translateDefaultValue(ArgumentModelItem item, Abstr
                 return "new " + typeEntry->qualifiedTargetLangName() + expr.right(expr.length() - pos);
             else
                 return expr;
-        } else if (expr == "0") {
+        } else if (expr == "0" || expr == "nullptr") {
+            // "nullptr" is the Qt 5 spelling of a null default argument
             return "null";
         } else if (type != 0 && (type->isObject() || type->isValue() || expr.contains("::"))) { // like Qt::black passed to a QColor
             TypeEntry *typeEntry = TypeDatabase::instance()->findType(expr.left(expr.indexOf("::")));

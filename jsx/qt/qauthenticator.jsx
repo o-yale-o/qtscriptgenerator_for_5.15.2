@@ -12,7 +12,8 @@ native class QAuthenticator
     function constructor (other : QAuthenticator);
 
     // Methods
-    function detach () : void;
+    function isNull () : boolean;
+    function operator_equal (other : QAuthenticator) : boolean;
     function option (opt : string) : variant;
     function password () : string;
     function realm () : string;

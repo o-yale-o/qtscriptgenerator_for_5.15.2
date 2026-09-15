@@ -7,7 +7,7 @@
  */
 import "qt/qobject.jsx";
 
-native class QFileSystemWatcher
+native class QFileSystemWatcher extends QObject
 {
     function constructor (parent : QObject);
     function constructor (paths : string[], parent : QObject);

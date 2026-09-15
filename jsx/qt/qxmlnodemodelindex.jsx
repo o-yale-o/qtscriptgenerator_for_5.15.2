@@ -31,6 +31,9 @@ native class QXmlNodeModelIndex
     static function DocumentOrder(value : Qt_QXmlNodeModelIndex_DocumentOrder) : Qt_QXmlNodeModelIndex_DocumentOrder;
 
     // Methods
+    function additionalData () : number;
+    function data () : number;
+    function isNull () : boolean;
     function model () : QAbstractXmlNodeModel;
-    function operator_assign (arg__1 : QXmlNodeModelIndex) : QXmlNodeModelIndex;
+    function operator_equal (other : QXmlNodeModelIndex) : boolean;
 }

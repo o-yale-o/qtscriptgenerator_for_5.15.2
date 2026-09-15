@@ -499,6 +499,12 @@ bool Parser::parseDeclaration(DeclarationAST *&node)
             UPDATE_POS(ast, start, token_stream.cursor());
             node = ast;
 
+            if (getenv("QTSG_TRACE") && spec->kind == AST::Kind_ClassSpecifier) {
+              ClassSpecifierAST *cs = static_cast<ClassSpecifierAST *>(spec);
+              fprintf(stderr, "[DECL-CLASS] %s\n",
+                      cs && cs->name ? tokenText(cs->name).toLocal8Bit().constData() : "<anon>");
+            }
+
             return true;
           }
       }
@@ -644,6 +650,46 @@ bool Parser::parseUsing(DeclarationAST *&node)
 
   if (token_stream.lookAhead() == Token_namespace)
     return parseUsingDirective(node);
+
+  // C++11 type alias:  using Name = Type;   (Qt 5 headers use these a lot)
+  // Treat it like a typedef so the code model registers the alias and the
+  // parser does not desync.
+  if (token_stream.lookAhead() == Token_identifier
+      && token_stream.lookAhead(1) == '=')
+    {
+      NameAST *aliasName = 0;
+      if (!parseName(aliasName))
+        return false;
+
+      ADVANCE('=', "=");
+
+      TypeSpecifierAST *spec = 0;
+      if (!parseTypeSpecifierOrClassSpec(spec))
+        {
+          reportError(("Need a type specifier to declare"));
+          return false;
+        }
+
+      ADVANCE(';', ";");
+
+      DeclaratorAST *decl = CreateNode<DeclaratorAST>(_M_pool);
+      decl->id = aliasName;
+      UPDATE_POS(decl, aliasName->start_token, aliasName->end_token);
+
+      InitDeclaratorAST *initDecl = CreateNode<InitDeclaratorAST>(_M_pool);
+      initDecl->declarator = decl;
+      initDecl->initializer = 0;
+
+      TypedefAST *ast = CreateNode<TypedefAST>(_M_pool);
+      ast->type_specifier = spec;
+      ast->init_declarators =
+        snoc((const ListNode<InitDeclaratorAST*> *) 0, initDecl, _M_pool);
+
+      UPDATE_POS(ast, start, token_stream.cursor());
+      node = ast;
+
+      return true;
+    }
 
   UsingAST *ast = CreateNode<UsingAST>(_M_pool);
 
@@ -1851,6 +1897,15 @@ bool Parser::parseClassSpecifier(TypeSpecifierAST *&node)
   NameAST *name = 0;
   parseName(name, true);
 
+  // diagnostic trace (enabled via QTSG_TRACE env var)
+  if (getenv("QTSG_TRACE")) {
+    int line = 0, col = 0; QString file;
+    _M_location.positionAt(token_stream.position(start), &line, &col, &file);
+    fprintf(stderr, "[CLASS] %s (%s:%d)\n",
+            name ? tokenText(name).toLocal8Bit().constData() : "<anon>",
+            qPrintable(file), line);
+  }
+
   BaseClauseAST *bases = 0;
 
   if (token_stream.lookAhead() == ':')
@@ -1886,15 +1941,68 @@ bool Parser::parseClassSpecifier(TypeSpecifierAST *&node)
       DeclarationAST *memSpec = 0;
       if (!parseMemberSpecification(memSpec))
         {
+          if (getenv("QTSG_TRACE")) {
+            int line = 0, col = 0; QString file;
+            _M_location.positionAt(token_stream.position(startDecl), &line, &col, &file);
+            QByteArray tba; const char *txt = "";
+            if (token_stream.kind(startDecl) == Token_identifier
+                && token_stream.symbol(startDecl)) {
+              tba = token_stream.symbol(startDecl)->as_string().toLocal8Bit();
+              txt = tba.constData();
+            }
+            fprintf(stderr, "[MEM-FAIL] %s:%d kind=%d txt=%s\n",
+                    qPrintable(file), line,
+                    token_stream.kind(startDecl), txt);
+          }
           if (startDecl == token_stream.cursor())
             token_stream.nextToken(); // skip at least one token
-          skipUntilDeclaration();
+          // depth-aware bounded skip: consume whole {...} blocks, but never
+          // step past the class's own closing brace (a '}' at relative
+          // depth 0). The old unbounded skipUntilDeclaration() used to
+          // swallow the rest of the translation unit here, silently
+          // dropping whole classes from the code model.
+          int depth = 0;
+          while (token_stream.lookAhead())
+            {
+              int tk = token_stream.lookAhead();
+              if (tk == '{')
+                {
+                  ++depth;
+                  token_stream.nextToken();
+                }
+              else if (tk == '}')
+                {
+                  if (depth == 0)
+                    break;  // class-closing (or enclosing) brace: stop here
+                  --depth;
+                  token_stream.nextToken();
+                }
+              else
+                {
+                  if (depth == 0
+                      && (tk == ';'
+                          || tk == '~' || tk == Token_scope || tk == Token_identifier
+                          || tk == Token_operator || tk == Token_char || tk == Token_wchar_t
+                          || tk == Token_bool || tk == Token_short || tk == Token_int
+                          || tk == Token_long || tk == Token_signed || tk == Token_unsigned
+                          || tk == Token_float || tk == Token_double || tk == Token_void
+                          || tk == Token_extern || tk == Token_namespace || tk == Token_using
+                          || tk == Token_typedef))
+                    break;
+                  token_stream.nextToken();
+                }
+            }
         }
       else
         ast->member_specs = snoc(ast->member_specs, memSpec, _M_pool);
     }
 
   ADVANCE_NR('}', "}");
+
+  if (getenv("QTSG_TRACE")) {
+    fprintf(stderr, "[CLASS-OK] %s\n",
+            name ? tokenText(name).toLocal8Bit().constData() : "<anon>");
+  }
 
   UPDATE_POS(ast, start, token_stream.cursor());
   node = ast;
@@ -2072,6 +2180,54 @@ bool Parser::parseElaboratedTypeSpecifier(TypeSpecifierAST *&node)
 bool Parser::parseExceptionSpecification(ExceptionSpecificationAST *&node)
 {
   std::size_t start = token_stream.cursor();
+
+  // C++11 support (Qt 5 headers): the legacy lexer emits these as plain
+  // identifiers. If we don't consume them here, member declarations like
+  //     QObject(QObjectPrivate&) noexcept;
+  //     void f() override;
+  // fail in parseMemberSpecification(), and the error recovery skips past
+  // the closing brace of the enclosing class, silently dropping it (and
+  // everything declared after it) from the code model.
+  bool consumed = false;
+  while (token_stream.lookAhead() == Token_identifier
+         && token_stream.symbol(token_stream.cursor()))
+    {
+      QString id = token_stream.symbol(token_stream.cursor())->as_string();
+      if (id == QLatin1String("noexcept"))
+        {
+          token_stream.nextToken();
+          if (token_stream.lookAhead() == '(')
+            {
+              // noexcept(expression) / noexcept(...) - just skip the parens
+              token_stream.nextToken();
+              int depth = 1;
+              while (token_stream.lookAhead() && depth > 0)
+                {
+                  if (token_stream.lookAhead() == '(')
+                    ++depth;
+                  else if (token_stream.lookAhead() == ')')
+                    --depth;
+                  token_stream.nextToken();
+                }
+            }
+          consumed = true;
+        }
+      else if (id == QLatin1String("override") || id == QLatin1String("final"))
+        {
+          token_stream.nextToken();
+          consumed = true;
+        }
+      else if (id == QLatin1String("throw") && !consumed)
+        {
+          break;  // let the legacy throw(...) path below handle it
+        }
+      else
+        {
+          break;
+        }
+    }
+  if (consumed)
+    return true;
 
   CHECK(Token_throw);
   ADVANCE('(', "(");
@@ -2260,6 +2416,29 @@ bool Parser::parseMemInitializer(MemInitializerAST *&node)
     {
       reportError(("Identifier expected"));
       return false;
+    }
+
+  // C++11 brace initializer:  : member{a, b, c}
+  // (Qt 5 headers use these; the legacy parser only knew '(' ... ')')
+  if (token_stream.lookAhead() == '{')
+    {
+      int depth = 0;
+      do
+        {
+          if (token_stream.lookAhead() == '{')
+            ++depth;
+          else if (token_stream.lookAhead() == '}')
+            --depth;
+          token_stream.nextToken();
+        }
+      while (token_stream.lookAhead() && depth > 0);
+
+      MemInitializerAST *ast = CreateNode<MemInitializerAST>(_M_pool);
+      ast->initializer_id = initId;
+      ast->expression = 0;
+      UPDATE_POS(ast, start, token_stream.cursor());
+      node = ast;
+      return true;
     }
 
   ADVANCE('(', "(");
@@ -4388,6 +4567,27 @@ bool Parser::parseThrowExpression(ExpressionAST *&node)
 
 bool Parser::parseQ_ENUMS(DeclarationAST *&node)
 {
+  // Qt 5 macros (lexed as plain identifiers): Q_ENUM(...), Q_ENUM_NS(...),
+  // Q_FLAG(...), Q_FLAG_NS(...). Skip their parenthesized payload; failing
+  // to do so used to corrupt the following member declarations.
+  if (token_stream.lookAhead() == Token_identifier
+      && token_stream.symbol(token_stream.cursor())
+      && token_stream.lookAhead(1) == '(')
+    {
+      QString id = token_stream.symbol(token_stream.cursor())->as_string();
+      if (id == QLatin1String("Q_ENUM") || id == QLatin1String("Q_ENUM_NS")
+          || id == QLatin1String("Q_FLAG") || id == QLatin1String("Q_FLAG_NS"))
+        {
+          token_stream.nextToken();  // macro name
+          token_stream.nextToken();  // (
+          while (token_stream.lookAhead() && token_stream.lookAhead() != ')')
+            token_stream.nextToken();
+          if (token_stream.lookAhead() == ')')
+            token_stream.nextToken();
+          return true;
+        }
+    }
+
   if (token_stream.lookAhead() != Token_Q_ENUMS)
     return false;
 
@@ -4412,6 +4612,23 @@ bool Parser::parseQ_ENUMS(DeclarationAST *&node)
 
 bool Parser::parseQ_PROPERTY(DeclarationAST *&node)
 {
+  // Qt 5: QDOC_PROPERTY(...) appears in headers (e.g. qwidget.h) when the
+  // preprocessor keeps the Q_QDOC branch. It's a plain identifier to the
+  // lexer; skip its parenthesized payload like a Q_PROPERTY.
+  if (token_stream.lookAhead() == Token_identifier
+      && token_stream.symbol(token_stream.cursor())
+      && token_stream.symbol(token_stream.cursor())->as_string() == QLatin1String("QDOC_PROPERTY")
+      && token_stream.lookAhead(1) == '(')
+    {
+      token_stream.nextToken();  // QDOC_PROPERTY
+      token_stream.nextToken();  // (
+      while (token_stream.lookAhead() && token_stream.lookAhead() != ')')
+        token_stream.nextToken();
+      if (token_stream.lookAhead() == ')')
+        token_stream.nextToken();
+      return true;
+    }
+
   if (token_stream.lookAhead() != Token_Q_PROPERTY)
     return false;
 

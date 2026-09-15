@@ -15,4 +15,11 @@ native class QDial extends QAbstractSlider
 
     // Methods
     function initStyleOption (option : QStyleOptionSlider) : void;
+    function setNotchTarget (target : number) : void;
+
+    // Instance Properties
+    var wrapping : boolean;
+    var notchSize : int;
+    var notchTarget : number;
+    var notchesVisible : boolean;
 }

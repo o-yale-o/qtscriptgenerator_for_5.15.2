@@ -7,11 +7,13 @@
  */
 import "qt/qabstractslider.jsx";
 import "qt/qstyleoptionslider.jsx";
+import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 
 native class QScrollBar extends QAbstractSlider
 {
     function constructor (parent : QWidget);
+    function constructor (arg__1 : Qt_Orientation, parent : QWidget);
 
     // Methods
     function initStyleOption (option : QStyleOptionSlider) : void;

@@ -7,25 +7,37 @@
  */
 import "qt/qabstractsocket.jsx";
 import "qt/qhostaddress.jsx";
+import "qt/qintptr.jsx";
 import "qt/qnetworkproxy.jsx";
+import "qt/qobject.jsx";
 import "qt/qtcpsocket.jsx";
 import "qt/_signals.jsx";
 
-native class QTcpServer
+native class QTcpServer extends QObject
 {
-    function constructor ();
+    function constructor (parent : QObject);
 
     // Methods
     function addPendingConnection (socket : QTcpSocket) : void;
     function close () : void;
     function errorString () : string;
+    function hasPendingConnections () : boolean;
+    function incomingConnection (handle : qintptr) : void;
+    function isListening () : boolean;
+    function listen (address : QHostAddress, port : int) : boolean;
+    function maxPendingConnections () : int;
     function nextPendingConnection () : QTcpSocket;
     function pauseAccepting () : void;
     function proxy () : QNetworkProxy;
     function resumeAccepting () : void;
     function serverAddress () : QHostAddress;
     function serverError () : Qt_QAbstractSocket_SocketError;
+    function serverPort () : int;
+    function setMaxPendingConnections (numConnections : int) : void;
     function setProxy (networkProxy : QNetworkProxy) : void;
+    function setSocketDescriptor (socketDescriptor : qintptr) : boolean;
+    function socketDescriptor () : qintptr;
+    function waitForNewConnection (msec : int) : boolean;
 
     // Signals
     var acceptError : QtJSXQt_QAbstractSocket_SocketErrorSignal;

@@ -38,7 +38,4 @@ native class QStyleOptionToolBar extends QStyleOption
 
     static const Type : Qt_QStyleOptionToolBar_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionToolBar_StyleOptionType) : Qt_QStyleOptionToolBar_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionToolBar) : QStyleOptionToolBar;
 }

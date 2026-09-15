@@ -13,6 +13,7 @@ native class QLibraryInfo
 {
 
     // Static Members
+    static function build () : string;
     static function buildDate () : QDate;
     static function isDebugBuild () : boolean;
     static function licensedProducts () : string;

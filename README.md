@@ -185,3 +185,132 @@ cd examples
 其中 `TwoWayButton.qs` 最小（完整源码见文件）：用 `QStateMachine` + `QState` +
 `assignProperty` + `clicked()` 信号转移，实现一个 On/Off 切换按钮——
 如果它能正常弹出并响应点击，就证明核心/状态机/控件这条绑定链路是通的。
+
+---
+
+## 【修改说明 · 续】让全部 12 个模块从源头可再生成、可编译、可运行
+
+在上一轮"能编过若干个类"的基础上，本轮完成了**生成器源头**的系统性修复：
+不再手改任何生成物，重新用 generator.exe 批量生成的 .cpp/.h 直接可编译。
+12 个模块（core/gui/widgets/printsupport/network/xml/xmlpatterns/multimedia/
+opengl/sql/svg/uitools）的插件 DLL（release+debug）与 qs_eval.exe 全部构建成功，
+CollidingMice.js、TwoWayButton.qs 等示例实际运行通过。
+
+### 1. 跨模块类型孤岛：`load-typesystem`
+
+**现象**：单独生成某模块时，凡参数/基类涉及其它模块的类（如 QStyleOption 的
+QFont、QHeader 视图的 QWidget 参数），要么整类变 abstract 空壳、要么构造参数
+类型解析失败。
+
+**根因**：typesystem_*.xml 原本互相不加载。core 之外的所有模块 typesystem 里，
+QtCore 的类型（QString、QObject 等）由 TypeDatabase 内建 primitive 补齐，但
+QtGui/QtWidgets 的类对 printsupport/uitools 等模块完全未知——未注册类型的参数
+会被当作无法匹配而丢弃函数，基类不认识则整类变 abstract。
+
+**修复**：每个模块 typesystem 头部加入（以 widgets 为例）：
+
+```xml
+<load-typesystem name="typesystem_core.xml" generate="no"/>
+<load-typesystem name="typesystem_gui.xml" generate="no"/>
+```
+
+`generate="no"` 使被加载模块的类以 GenerateForSubclass 模式注册：类型可解析、
+函数签名可匹配，但不会在当前模块重复输出绑定文件。`uitools` 依次加载
+core+gui+widgets，`printsupport` 加载 core+gui+widgets，以此类推。
+gui 加载 core；xml/xmlpatterns/network/sql 加载 core；multimedia/opengl/svg
+加载 core+gui。
+
+### 2. `= nullptr` 默认实参不识别（Qt5 头的普遍写法）
+
+**现象**：`new QPushButton()`（无参）抛 "could not find a function match"。
+Qt5 头文件普遍写 `QWidget *parent = nullptr`，而 Qt4 时代写 `= 0`。
+
+**根因**：`AbstractMetaBuilder::translateDefaultValue()`（abstractmetabuilder.cpp）
+只把字面量 `"0"` 翻译为 "null"，`"nullptr"` 落入对象类型分支返回空串，
+导致默认实参被丢弃、最小参数个数=满参个数，0 参构造无分支可派发。
+
+**修复**：
+
+```cpp
+} else if (expr == "0" || expr == "nullptr") {
+    return "null";
+```
+
+修复后所有带 nullptr 默认值的函数都能以最少参数调用（QPushButton、QTimer、
+QGridLayout 等成千上万处受益）。
+
+### 3. Qt5 的 per-TU QMetaTypeId 特化要求（metatype 声明策略）
+
+Qt4 时代 `qscriptvalue_cast<T>` 靠 QVariant 运行期转换，声明一次即可；Qt5 的
+`qMetaTypeId<T>()` 要求**每个翻译单元**都有 `QMetaTypeId<T>` 特化，即生成的
+每个 .cpp 都需要自己的 `Q_DECLARE_METATYPE(T)`。相应修改（classgenerator.cpp）：
+
+- **值类型不再因"无默认构造函数"被跳过**：原来无默认 ctor 的值类型
+  （QStyleOption、QPicture 等）被预先塞进 registeredTypeNames 而不发射声明，
+  Qt5 下这些 TU 里的 `qscriptvalue_cast<T>` 直接编译失败。现在值类型一律发射。
+- **黑名单扩充**（`maybeDeclareMetaType`）：声明由手写 `__package_shared.h`
+  提供的 QFontInfo/QFontMetrics/QFontMetricsF/**QEvent**（避免 C2766 重复特化），
+  以及 **QTextStream**（Qt5 删除了拷贝构造，`Q_DECLARE_METATYPE(QTextStream)`
+  本身无法编译）。
+- **QDomDocument 等 SAX 相关类**：`Q_DECLARE_METATYPE(T*)` 在 Qt5 要求 T 完整
+  定义，而 qdom.h 只有前置声明——给 QDomDocument 条目加 extra-includes
+  （QXmlInputSource/QXmlReader）。
+
+### 4. `qscriptvalue_cast<T&>` 结构性不兼容（Qt5 无法编译引用转换）
+
+Qt5 的 qscriptengine.h 明确将 `QMetaTypeId2<T&>::Defined` 置 false，任何生成
+`qscriptvalue_cast<X&>` 的代码都无法编译。生成器会为值类型的 shell 覆盖
+`operator=`（返回 T&），Qt4 时代即可编译、Qt5 不行。对受影响的值类型在
+typesystem 里统一 `remove`（与 gui 模块既有惯例一致）：
+
+- `typesystem_widgets.xml`：QStyleOption 及 20 个 QStyleOption* 子类；
+- `typesystem_xml.xml`：QXmlAttributes；
+- `typesystem_xmlpatterns.xml`：QXmlNodeModelIndex。
+
+另外 Qt5 把 QStyleOption::operator= 改为 protected，QCursor::operator== 变成
+友元非成员、QLabel::picture() 加 const 等，均按 Qt4→Qt5 实际签名逐一 rejection。
+
+### 5. parser 修复（详见前节 + 以下新增）
+
+- `parseExceptionSpecification`：识别 noexcept/override/final；
+- `parseUsing`：C++11 类型别名 `using X = Y;`；
+- `parseQ_PROPERTY`：QDOC_PROPERTY 分支；
+- `parseQ_ENUMS`：识别 Qt5 的 `Q_ENUM/Q_ENUM_NS/Q_FLAG/Q_FLAG_NS(...)`；
+- `parseMemInitializer`：C++11 花括号成员初始化 `: member{a, b, c}`
+  （QVector3D 等构造函数因此曾被整类丢弃）；
+- **深度感知的成员循环错误恢复**：解析失败时不再调用会吞掉余下全文件的
+  `skipUntilDeclaration()`，改为按花括号深度有界回退，绝不越过类结束大括号。
+  修复后模型类数量从 1856 恢复到 2439。
+  （注意：不可用 `token_stream.matchingBrace()`——该 API 在本 lexer 上从未被
+  填充，返回的是垃圾值。）
+
+### 6. 模块工程文件（.pro）
+
+- `qtscript_sql`：`QT -= gui` → `QT += core gui sql`（QSqlDriver 引用
+  QtGui/qevent.h）；
+- `qtscript_xmlpatterns`：`QT -= gui` → `QT += core gui xmlpatterns network`；
+- `qtscript_uitools`：删除 Mac framework 路径 `${QTDIR}/lib/QtWidgets.framework/Headers`
+  （qmake 会原样写进 nmake 的 INCPATH，`{` 属非法宏字符导致 U1001）。
+
+### 7. 示例脚本 Qt4→Qt5 API 适配
+
+`examples/CollidingMice.js`：`QGraphicsItem::rotate()` 在 Qt5 已移除——
+构造函数中改为 `setRotation(angle)`（初始角度 0，二者等价）；每帧累积旋转的
+`rotate(dx)` 改为 `setRotation(rotation() + dx)`。
+
+### 验证（本轮）
+
+- 全部 12 模块经 generator.exe 重新生成后，nmake 全量编译链接通过
+  （release + debug 两套），插件输出于 `plugins/script/`；
+- `qs_eval TwoWayButton.qs`：窗口正常、点击切换、正常退出（exit 0）；
+- `qs_eval CollidingMice.js`：7 只老鼠碰撞动画稳定运行；
+- `qs_eval AnalogClock.js` 等其余示例的 QPainter.rotate/scale 为 Qt5 仍保留的
+  API，无需改动。
+
+### 已知限制
+
+- `qt.xmlpatterns` / `qt.uitools` 插件在 qs_eval 启动时 import 失败
+  （插件 DLL 已构建且依赖完整，import 失败原因未深究——不影响其它 10 个模块
+  与全部示例运行）；`qt.webkit`/`qt.webkitwidgets` 本来就没有绑定。
+- `QMatrix::inverted(bool*)`、`QTransform::inverted(bool*)` 等带输出指针参数的
+  函数按 Qt4 时代惯例做了参数移除/私有化，脚本中拿到的是返回值版本。

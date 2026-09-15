@@ -15,10 +15,13 @@ native class QXmlName
 
     // Static Members
     static function fromClarkName (clarkName : string, namePool : QXmlNamePool) : QXmlName;
+    static function isNCName (candidate : string) : boolean;
 
     // Methods
+    function isNull () : boolean;
     function localName (query : QXmlNamePool) : string;
     function namespaceUri (query : QXmlNamePool) : string;
+    function operator_equal (other : QXmlName) : boolean;
     function prefix (query : QXmlNamePool) : string;
     function toClarkName (query : QXmlNamePool) : string;
 }

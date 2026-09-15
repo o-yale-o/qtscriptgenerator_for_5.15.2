@@ -8,7 +8,7 @@
 import "qt/qobject.jsx";
 import "qt/qrunnable.jsx";
 
-native class QThreadPool
+native class QThreadPool extends QObject
 {
     function constructor (parent : QObject);
 

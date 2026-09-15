@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
-<typesystem package="com.trolltech.qt.printsupport"><rejection class="QPrinterInfo"/><rejection class="QPrinterInfo"/>
+<typesystem package="com.trolltech.qt.printsupport"><load-typesystem name="typesystem_core.xml" generate="no"/><load-typesystem name="typesystem_gui.xml" generate="no"/><load-typesystem name="typesystem_widgets.xml" generate="no"/><rejection class="QPrinterInfo"/><rejection class="QPrinterInfo"/>
   <rejection class="QPrinter" function-name="printerSelectionOption"/>
   <rejection class="QPrinter" function-name="setPrinterSelectionOption"/>
+  <!-- Qt 5: protected constructor, so the generator would fabricate a
+       broken default constructor in the shell -->
+  <rejection class="QAbstractPrintDialog"/>
 
   <enum-type name="QPageSetupDialog::PageSetupDialogOption" flags="QPageSetupDialog::PageSetupDialogOptions"/>
   <enum-type name="QPrinter::ColorMode"/>

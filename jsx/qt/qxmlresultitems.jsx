@@ -13,5 +13,6 @@ native class QXmlResultItems
 
     // Methods
     function current () : QXmlItem;
+    function hasError () : boolean;
     function next () : QXmlItem;
 }

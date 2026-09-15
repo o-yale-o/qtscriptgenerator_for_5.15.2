@@ -1,7 +1,6 @@
 TARGET = qtscript_xmlpatterns
 include(../qtbindingsbase.pri)
-QT -= gui
-QT += xmlpatterns network
+QT += core gui xmlpatterns network
 SOURCES += plugin.cpp
 HEADERS += plugin.h
 INCLUDEPATH += ./include/

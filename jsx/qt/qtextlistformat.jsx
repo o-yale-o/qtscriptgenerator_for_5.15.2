@@ -25,8 +25,10 @@ native class QTextListFormat extends QTextFormat
     static function Style(value : Qt_QTextListFormat_Style) : Qt_QTextListFormat_Style;
 
     // Methods
+    function indent () : int;
     function numberPrefix () : string;
     function numberSuffix () : string;
+    function setIndent (indent : int) : void;
     function setNumberPrefix (numberPrefix : string) : void;
     function setNumberSuffix (numberSuffix : string) : void;
     function setStyle (style : Qt_QTextListFormat_Style) : void;

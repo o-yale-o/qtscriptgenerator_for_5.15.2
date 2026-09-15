@@ -13,28 +13,53 @@ native class QQuaternion
 {
     function constructor ();
     function constructor (vector : QVector4D);
+    function constructor (scalar : number, vector : QVector3D);
+    function constructor (scalar : number, xpos : number, ypos : number, zpos : number);
 
     // Static Members
+    static function dotProduct (q1 : QQuaternion, q2 : QQuaternion) : number;
     static function fromAxes (xAxis : QVector3D, yAxis : QVector3D, zAxis : QVector3D) : QQuaternion;
+    static function fromAxisAndAngle (axis : QVector3D, angle : number) : QQuaternion;
     static function fromDirection (direction : QVector3D, up : QVector3D) : QQuaternion;
     static function fromEulerAngles (eulerAngles : QVector3D) : QQuaternion;
     static function fromRotationMatrix (rot3x3 : QMatrix3x3) : QQuaternion;
+    static function nlerp (q1 : QQuaternion, q2 : QQuaternion, t : number) : QQuaternion;
     static function rotationTo (from : QVector3D, to : QVector3D) : QQuaternion;
+    static function slerp (q1 : QQuaternion, q2 : QQuaternion, t : number) : QQuaternion;
 
     // Methods
     function conjugate () : QQuaternion;
     function conjugated () : QQuaternion;
     function getAxes (xAxis : QVector3D, yAxis : QVector3D, zAxis : QVector3D) : void;
+    function getAxisAndAngle (axis : QVector3D, angle : number) : void;
+    function getAxisAndAngle (x : number, y : number, z : number, angle : number) : void;
+    function getEulerAngles (pitch : number, yaw : number, roll : number) : void;
     function inverted () : QQuaternion;
+    function isIdentity () : boolean;
+    function isNull () : boolean;
+    function length () : number;
+    function lengthSquared () : number;
     function normalize () : void;
     function normalized () : QQuaternion;
     function operator_add_assign (quaternion : QQuaternion) : QQuaternion;
+    function operator_divide_assign (divisor : number) : QQuaternion;
+    function operator_equal (q2 : QQuaternion) : boolean;
     function operator_multiply_assign (quaternion : QQuaternion) : QQuaternion;
+    function operator_multiply_assign (factor : number) : QQuaternion;
     function operator_subtract_assign (quaternion : QQuaternion) : QQuaternion;
     function rotatedVector (vector : QVector3D) : QVector3D;
+    function scalar () : number;
+    function setScalar (scalar : number) : void;
     function setVector (vector : QVector3D) : void;
+    function setVector (x : number, y : number, z : number) : void;
+    function setX (x : number) : void;
+    function setY (y : number) : void;
+    function setZ (z : number) : void;
     function toEulerAngles () : QVector3D;
     function toRotationMatrix () : QMatrix3x3;
     function toVector4D () : QVector4D;
     function vector () : QVector3D;
+    function x () : number;
+    function y () : number;
+    function z () : number;
 }

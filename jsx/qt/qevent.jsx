@@ -13,6 +13,9 @@ native class QEvent
     function constructor (type : Qt_QEvent_Type);
     function constructor (other : QEvent);
 
+    // Static Members
+    static function registerEventType (hint : int) : int;
+
     static const None : Qt_QEvent_Type;
     static const Timer : Qt_QEvent_Type;
     static const MouseButtonPress : Qt_QEvent_Type;

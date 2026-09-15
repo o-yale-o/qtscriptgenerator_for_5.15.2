@@ -12,7 +12,7 @@ import "qt/qsize.jsx";
 import "qt/qt.jsx";
 import "qt/_signals.jsx";
 
-native class QAbstractItemModel
+native class QAbstractItemModel extends QObject
 {
     function constructor (parent : QObject);
 
@@ -42,7 +42,6 @@ native class QAbstractItemModel
     function endResetModel () : void;
     function fetchMore (parent : QModelIndex) : void;
     function flags (index : QModelIndex) : Qt_ItemFlags;
-    function hasChildren (parent : QModelIndex) : boolean;
     function hasIndex (row : int, column : int, parent : QModelIndex) : boolean;
     function headerData (section : int, orientation : Qt_Orientation, role : int) : variant;
     function index (row : int, column : int, parent : QModelIndex) : QModelIndex;

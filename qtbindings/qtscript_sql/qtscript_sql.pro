@@ -1,7 +1,6 @@
 TARGET = qtscript_sql
 include(../qtbindingsbase.pri)
-QT -= gui
-QT += sql
+QT += core gui sql
 SOURCES += plugin.cpp
 HEADERS += plugin.h
 INCLUDEPATH += ./include/

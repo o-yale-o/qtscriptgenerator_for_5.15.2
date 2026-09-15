@@ -21,7 +21,4 @@ native class QStyleOptionTabBarBase extends QStyleOption
 
     static const Type : Qt_QStyleOptionTabBarBase_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionTabBarBase_StyleOptionType) : Qt_QStyleOptionTabBarBase_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionTabBarBase) : QStyleOptionTabBarBase;
 }

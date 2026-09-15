@@ -7,6 +7,9 @@
  */
 import "qt/qglcolormap.jsx"; // QGLColormap
 import "qt/qglcontext.jsx"; // QGLContext
+import "qt/qglframebufferobject.jsx"; // QGLFramebufferObject
 import "qt/qglframebufferobjectformat.jsx"; // QGLFramebufferObjectFormat
+import "qt/qglpixelbuffer.jsx"; // QGLPixelBuffer
 import "qt/qglshader.jsx"; // QGLShader
 import "qt/qglshaderprogram.jsx"; // QGLShaderProgram
+import "qt/qglwidget.jsx"; // QGLWidget

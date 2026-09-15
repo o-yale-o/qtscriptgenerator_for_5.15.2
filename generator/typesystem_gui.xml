@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<typesystem package="com.trolltech.qt.gui"><rejection class="QAbstractTextDocumentLayout"/><rejection class="QFontDatabase"/><rejection class="QIconEngineV2"/><rejection class="QInputMethodEvent"/><rejection class="QPainterPath::Element"/><rejection class="QTextBlock::iterator"/><rejection class="QTextFrame::iterator"/><rejection class="QTextLayout::FormatRange"/><rejection class="QAccessibleFactoryInterface"/><rejection class="QIconEngineFactoryInterfaceV2"/><rejection class="QImageIOHandlerFactoryInterface"/><rejection class="QPictureFormatInterface"/><rejection class="QTextOption"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Rejected enum has no alternative...: QPalette::NColorRoles"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Cannot find enum constant for value 'DragMove' in 'QDragMoveEvent' or any of its super classes"/><suppress-warning text="WARNING() :: Unknown attribute for 'modify-function': 'allow-as-slot'"/>
+<typesystem package="com.trolltech.qt.gui"><load-typesystem name="typesystem_core.xml" generate="no"/><rejection class="QAbstractTextDocumentLayout"/><rejection class="QFontDatabase"/><rejection class="QIconEngineV2"/><rejection class="QInputMethodEvent"/><rejection class="QPainterPath::Element"/><rejection class="QTextBlock::iterator"/><rejection class="QTextFrame::iterator"/><rejection class="QTextLayout::FormatRange"/><rejection class="QAccessibleFactoryInterface"/><rejection class="QIconEngineFactoryInterfaceV2"/><rejection class="QImageIOHandlerFactoryInterface"/><rejection class="QPictureFormatInterface"/><rejection class="QTextOption"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Rejected enum has no alternative...: QPalette::NColorRoles"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Cannot find enum constant for value 'DragMove' in 'QDragMoveEvent' or any of its super classes"/><suppress-warning text="WARNING() :: Unknown attribute for 'modify-function': 'allow-as-slot'"/>
   <rejection class="*" function-name="d_func"/>
 
   <rejection class="*" field-name="d_ptr"/>
@@ -40,6 +40,23 @@
   <rejection class="QPolygon" function-name="points"/>
   <rejection class="QPolygon" function-name="point"/>
   <rejection class="QPaintEngine" function-name="fix_neg_rect"/>
+
+  <!-- Qt 5: these classes reference types the legacy generator cannot bind
+       (int& out-params, private constructors, Qt5-removed default ctors or
+       copy ctors), so their generated shells would not compile. -->
+  <rejection class="QValidator"/>
+  <rejection class="QImageIOHandler"/>
+  <rejection class="QPaintEngine"/>
+  <rejection class="QColormap"/>
+  <rejection class="QClipboard"/>
+  <rejection class="QDrag"/>
+  <rejection class="QGuiApplication"/>
+  <!-- Qt 5: QCursor::bitmap()/mask() return const QBitmap* -->
+  <rejection class="QCursor" function-name="bitmap"/>
+  <rejection class="QCursor" function-name="mask"/>
+  <!-- Qt 5: operator== is a non-member friend; the generator emits it as a
+       member call which does not compile -->
+  <rejection class="QCursor" function-name="operator=="/>
   <rejection class="QAccessible" function-name="cast_helper"/>
   <rejection class="QAccessible" function-name="updateAccessibility"/>
   <rejection class="QAccessible2"/>
@@ -526,9 +543,6 @@
       <modify-function signature="translate(qreal,qreal)" access="private" rename="translate_private"/>
       <modify-function signature="inverted(bool*)const">
         <access modifier="private"/>
-        <modify-argument index="1">
-            <!-- <remove-default-expression/> -->
-        </modify-argument>
       </modify-function>
 
     <inject-code>

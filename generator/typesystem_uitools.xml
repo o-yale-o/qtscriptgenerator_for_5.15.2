@@ -1,4 +1,4 @@
-<typesystem package="com.trolltech.qt.uitools">
+<typesystem package="com.trolltech.qt.uitools"><load-typesystem name="typesystem_core.xml" generate="no"/><load-typesystem name="typesystem_gui.xml" generate="no"/><load-typesystem name="typesystem_widgets.xml" generate="no"/>
 
   <object-type name="QUiLoader">
     <extra-includes>

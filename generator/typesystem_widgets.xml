@@ -1,7 +1,40 @@
 <?xml version="1.0"?>
-<typesystem package="com.trolltech.qt.widgets"><rejection class="QColormap"/><rejection class="QTreeWidgetItemIterator"/><rejection class="QInputContextFactoryInterface"/><rejection class="QStyleFactoryInterface"/><rejection class="QAbstractProxyModel"/><rejection class="QSortFilterProxyModel"/><rejection class="QDirModel"/><rejection class="QFileSystemModel"/><rejection class="QProxyModel"/><suppress-warning text="WARNING() :: Unknown attribute for 'modify-function': 'allow-as-slot'"/>
+<typesystem package="com.trolltech.qt.widgets"><load-typesystem name="typesystem_core.xml" generate="no"/><load-typesystem name="typesystem_gui.xml" generate="no"/><rejection class="QColormap"/><rejection class="QTreeWidgetItemIterator"/><rejection class="QInputContextFactoryInterface"/><rejection class="QStyleFactoryInterface"/><rejection class="QAbstractProxyModel"/><rejection class="QSortFilterProxyModel"/><rejection class="QDirModel"/><rejection class="QFileSystemModel"/><rejection class="QProxyModel"/><suppress-warning text="WARNING() :: Unknown attribute for 'modify-function': 'allow-as-slot'"/>
 
   <rejection class="*" function-name="d_func"/>
+
+  <!-- Qt 5: QLabel::picture() returns const QPicture* -->
+  <rejection class="QLabel" function-name="picture"/>
+  <!-- Qt 5: no public constructors / private destructors, so the generated
+       shells with a fabricated default constructor do not compile -->
+  <rejection class="QGraphicsAnchor"/>
+  <rejection class="QSessionManager"/>
+  <!-- Qt 5: QStyleOption::operator= is protected; the generated shells wrap
+       it with qscriptvalue_cast<T&>, which Qt 5's QtScript cannot compile. -->
+  <rejection class="QStyleOption" function-name="operator="/>
+  <rejection class="QStyleOptionButton" function-name="operator="/>
+  <rejection class="QStyleOptionComboBox" function-name="operator="/>
+  <rejection class="QStyleOptionComplex" function-name="operator="/>
+  <rejection class="QStyleOptionDockWidget" function-name="operator="/>
+  <rejection class="QStyleOptionFocusRect" function-name="operator="/>
+  <rejection class="QStyleOptionFrame" function-name="operator="/>
+  <rejection class="QStyleOptionGraphicsItem" function-name="operator="/>
+  <rejection class="QStyleOptionGroupBox" function-name="operator="/>
+  <rejection class="QStyleOptionHeader" function-name="operator="/>
+  <rejection class="QStyleOptionMenuItem" function-name="operator="/>
+  <rejection class="QStyleOptionProgressBar" function-name="operator="/>
+  <rejection class="QStyleOptionRubberBand" function-name="operator="/>
+  <rejection class="QStyleOptionSizeGrip" function-name="operator="/>
+  <rejection class="QStyleOptionSlider" function-name="operator="/>
+  <rejection class="QStyleOptionSpinBox" function-name="operator="/>
+  <rejection class="QStyleOptionTab" function-name="operator="/>
+  <rejection class="QStyleOptionTabBarBase" function-name="operator="/>
+  <rejection class="QStyleOptionTabWidgetFrame" function-name="operator="/>
+  <rejection class="QStyleOptionTitleBar" function-name="operator="/>
+  <rejection class="QStyleOptionToolBar" function-name="operator="/>
+  <rejection class="QStyleOptionToolBox" function-name="operator="/>
+  <rejection class="QStyleOptionToolButton" function-name="operator="/>
+  <rejection class="QStyleOptionViewItem" function-name="operator="/>
 
   <rejection class="*" field-name="d_ptr"/>
   <rejection class="*" field-name="d"/>

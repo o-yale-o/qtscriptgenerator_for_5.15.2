@@ -12,6 +12,7 @@
 
 *.log
 *.o
+*.pdb
 qtbindings/*/moc_*.cpp
 
 /generator/generator

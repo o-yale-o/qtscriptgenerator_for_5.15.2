@@ -7,6 +7,9 @@
  */
 import "qt/qabstractmessagehandler.jsx";
 import "qt/qabstracturiresolver.jsx";
+import "qt/qbytearray.jsx";
+import "qt/qiodevice.jsx";
+import "qt/qurl.jsx";
 import "qt/qxmlnamepool.jsx";
 
 native class QXmlSchema
@@ -15,6 +18,11 @@ native class QXmlSchema
     function constructor (other : QXmlSchema);
 
     // Methods
+    function documentUri () : QUrl;
+    function isValid () : boolean;
+    function load (source : QIODevice, documentUri : QUrl) : boolean;
+    function load (data : QByteArray, documentUri : QUrl) : boolean;
+    function load (source : QUrl) : boolean;
     function messageHandler () : QAbstractMessageHandler;
     function namePool () : QXmlNamePool;
     function operator_assign (other : QXmlSchema) : QXmlSchema;

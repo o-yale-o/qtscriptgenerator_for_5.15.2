@@ -12,7 +12,7 @@ import "qt/qt.jsx";
 import "qt/qtranslator.jsx";
 import "qt/_signals.jsx";
 
-native class QCoreApplication
+native class QCoreApplication extends QObject
 {
     function constructor (argc : int, argv : string, arg__3 : int);
 

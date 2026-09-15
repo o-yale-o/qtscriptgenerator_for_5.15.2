@@ -7,6 +7,7 @@
  */
 import "qt/qmdiarea.jsx";
 import "qt/qmenu.jsx";
+import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
@@ -16,7 +17,7 @@ final native class Qt_QMdiSubWindow_SubWindowOptions {}
 
 native class QMdiSubWindow extends QWidget
 {
-    function constructor ();
+    function constructor (parent : QWidget, flags : Qt_WindowFlags);
 
     static const AllowOutsideAreaHorizontally : Qt_QMdiSubWindow_SubWindowOption;
     static const AllowOutsideAreaVertically : Qt_QMdiSubWindow_SubWindowOption;
@@ -26,12 +27,15 @@ native class QMdiSubWindow extends QWidget
     static function SubWindowOptions(...value : Qt_QMdiSubWindow_SubWindowOption) : Qt_QMdiSubWindow_SubWindowOptions;
 
     // Methods
+    function isShaded () : boolean;
     function maximizedButtonsWidget () : QWidget;
     function maximizedSystemMenuIconWidget () : QWidget;
     function mdiArea () : QMdiArea;
+    function setOption (option : Qt_QMdiSubWindow_SubWindowOption, on : boolean) : void;
     function setSystemMenu (systemMenu : QMenu) : void;
     function setWidget (widget : QWidget) : void;
     function systemMenu () : QMenu;
+    function testOption (arg__1 : Qt_QMdiSubWindow_SubWindowOption) : boolean;
     function widget () : QWidget;
 
     // Slots
@@ -40,4 +44,9 @@ native class QMdiSubWindow extends QWidget
 
     // Signals
     var aboutToActivate : QtJSXSignal;
+    var windowStateChanged : QtJSXQt_WindowStatesQt_WindowStatesSignal;
+
+    // Instance Properties
+    var keyboardSingleStep : int;
+    var keyboardPageStep : int;
 }

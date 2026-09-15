@@ -8,10 +8,11 @@
 import "qt/qabstractanimation.jsx";
 import "qt/qabstractstate.jsx";
 import "qt/qevent.jsx";
+import "qt/qobject.jsx";
 import "qt/qstate.jsx";
 import "qt/qstatemachine.jsx";
 
-native class QAbstractTransition
+native class QAbstractTransition extends QObject
 {
     function constructor (sourceState : QState);
 

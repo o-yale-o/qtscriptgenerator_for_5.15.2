@@ -15,5 +15,10 @@ native class QDomCharacterData extends QDomNode
     // Methods
     function appendData (arg : string) : void;
     function data () : string;
+    function deleteData (offset : int, count : int) : void;
+    function insertData (offset : int, arg : string) : void;
+    function length () : int;
+    function replaceData (offset : int, count : int, arg : string) : void;
     function setData (arg__1 : string) : void;
+    function substringData (offset : int, count : int) : string;
 }

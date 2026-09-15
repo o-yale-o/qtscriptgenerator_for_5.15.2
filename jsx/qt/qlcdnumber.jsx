@@ -11,9 +11,12 @@ import "qt/_signals.jsx";
 
 final native class Qt_QLCDNumber_Mode {}
 
+final native class Qt_QLCDNumber_SegmentStyle {}
+
 native class QLCDNumber extends QFrame
 {
     function constructor (parent : QWidget);
+    function constructor (numDigits : int, parent : QWidget);
 
     static const Hex : Qt_QLCDNumber_Mode;
     static const Dec : Qt_QLCDNumber_Mode;
@@ -21,8 +24,18 @@ native class QLCDNumber extends QFrame
     static const Bin : Qt_QLCDNumber_Mode;
     static function Mode(value : Qt_QLCDNumber_Mode) : Qt_QLCDNumber_Mode;
 
+    static const Outline : Qt_QLCDNumber_SegmentStyle;
+    static const Filled : Qt_QLCDNumber_SegmentStyle;
+    static const Flat : Qt_QLCDNumber_SegmentStyle;
+    static function SegmentStyle(value : Qt_QLCDNumber_SegmentStyle) : Qt_QLCDNumber_SegmentStyle;
+
+    // Methods
+    function checkOverflow (num : number) : boolean;
+    function checkOverflow (num : int) : boolean;
+
     // Slots
     function display (str : string) : void;
+    function display (num : int) : void;
     function setBinMode () : void;
     function setDecMode () : void;
     function setHexMode () : void;
@@ -32,6 +45,10 @@ native class QLCDNumber extends QFrame
     var overflow : QtJSXSignal;
 
     // Instance Properties
+    var smallDecimalPoint : boolean;
+    var digitCount : int;
     var mode : Qt_QLCDNumber_Mode;
     var segmentStyle : Qt_QLCDNumber_SegmentStyle;
+    var value : number;
+    var intValue : int;
 }

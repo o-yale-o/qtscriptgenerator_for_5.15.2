@@ -7,6 +7,17 @@
  */
 import "qt/qabstractscrollarea.jsx";
 import "qt/qmenu.jsx";
+import "qt/qmimedata.jsx";
+import "qt/qpoint.jsx";
+import "qt/qpointf.jsx";
+import "qt/qrect.jsx";
+import "qt/qrectf.jsx";
+import "qt/qt.jsx";
+import "qt/qtextblock.jsx";
+import "qt/qtextcharformat.jsx";
+import "qt/qtextcursor.jsx";
+import "qt/qtextdocument.jsx";
+import "qt/qurl.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
@@ -22,11 +33,35 @@ native class QPlainTextEdit extends QAbstractScrollArea
     static function LineWrapMode(value : Qt_QPlainTextEdit_LineWrapMode) : Qt_QPlainTextEdit_LineWrapMode;
 
     // Methods
+    function anchorAt (pos : QPoint) : string;
+    function blockBoundingGeometry (block : QTextBlock) : QRectF;
+    function blockBoundingRect (block : QTextBlock) : QRectF;
+    function canInsertFromMimeData (source : QMimeData) : boolean;
+    function canPaste () : boolean;
+    function contentOffset () : QPointF;
+    function createMimeDataFromSelection () : QMimeData;
     function createStandardContextMenu () : QMenu;
+    function createStandardContextMenu (position : QPoint) : QMenu;
+    function currentCharFormat () : QTextCharFormat;
+    function cursorForPosition (pos : QPoint) : QTextCursor;
+    function cursorRect () : QRect;
+    function cursorRect (cursor : QTextCursor) : QRect;
+    function doSetTextCursor (cursor : QTextCursor) : void;
+    function document () : QTextDocument;
     function ensureCursorVisible () : void;
-    function placeholderText () : string;
-    function setPlaceholderText (placeholderText : string) : void;
-    function toPlainText () : string;
+    function find (exp : RegExp, options : Qt_QTextDocument_FindFlags) : boolean;
+    function find (exp : string, options : Qt_QTextDocument_FindFlags) : boolean;
+    function firstVisibleBlock () : QTextBlock;
+    function inputMethodQuery (query : Qt_InputMethodQuery, argument : variant) : variant;
+    function insertFromMimeData (source : QMimeData) : void;
+    function loadResource (type : int, name : QUrl) : variant;
+    function mergeCurrentCharFormat (modifier : QTextCharFormat) : void;
+    function moveCursor (operation : Qt_QTextCursor_MoveOperation, mode : Qt_QTextCursor_MoveMode) : void;
+    function setCurrentCharFormat (format : QTextCharFormat) : void;
+    function setDocument (document : QTextDocument) : void;
+    function setTextCursor (cursor : QTextCursor) : void;
+    function textCursor () : QTextCursor;
+    function zoomInF (range : number) : void;
 
     // Slots
     function appendHtml (html : string) : void;
@@ -39,15 +74,36 @@ native class QPlainTextEdit extends QAbstractScrollArea
     function paste () : void;
     function redo () : void;
     function selectAll () : void;
-    function setPlainText (text : string) : void;
     function undo () : void;
+    function zoomIn (range : int) : void;
+    function zoomOut (range : int) : void;
 
     // Signals
+    var blockCountChanged : QtJSXintSignal;
+    var copyAvailable : QtJSXboolSignal;
     var cursorPositionChanged : QtJSXSignal;
+    var modificationChanged : QtJSXboolSignal;
+    var redoAvailable : QtJSXboolSignal;
     var selectionChanged : QtJSXSignal;
     var textChanged : QtJSXSignal;
+    var undoAvailable : QtJSXboolSignal;
+    var updateRequest : QtJSXQRectintSignal;
 
     // Instance Properties
+    var tabChangesFocus : boolean;
     var documentTitle : string;
+    var undoRedoEnabled : boolean;
     var lineWrapMode : Qt_QPlainTextEdit_LineWrapMode;
+    var readOnly : boolean;
+    var plainText : string;
+    var overwriteMode : boolean;
+    var tabStopWidth : int;
+    var tabStopDistance : number;
+    var cursorWidth : int;
+    var textInteractionFlags : Qt_TextInteractionFlags;
+    var blockCount : int;
+    var maximumBlockCount : int;
+    var backgroundVisible : boolean;
+    var centerOnScroll : boolean;
+    var placeholderText : string;
 }

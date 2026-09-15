@@ -7,18 +7,16 @@
  */
 import "qt/qwidget.jsx";
 
-final native class Qt_QStyleOption_StyleOptionVersion {}
-
 final native class Qt_QStyleOption_OptionType {}
+
+final native class Qt_QStyleOption_StyleOptionVersion {}
 
 final native class Qt_QStyleOption_StyleOptionType {}
 
 native class QStyleOption
 {
     function constructor (other : QStyleOption);
-
-    static const Version : Qt_QStyleOption_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOption_StyleOptionVersion) : Qt_QStyleOption_StyleOptionVersion;
+    function constructor (version : int, type : int);
 
     static const SO_Default : Qt_QStyleOption_OptionType;
     static const SO_FocusRect : Qt_QStyleOption_OptionType;
@@ -47,6 +45,9 @@ native class QStyleOption
     static const SO_SizeGrip : Qt_QStyleOption_OptionType;
     static const SO_ComplexCustomBase : Qt_QStyleOption_OptionType;
     static function OptionType(value : Qt_QStyleOption_OptionType) : Qt_QStyleOption_OptionType;
+
+    static const Version : Qt_QStyleOption_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOption_StyleOptionVersion) : Qt_QStyleOption_StyleOptionVersion;
 
     static const Type : Qt_QStyleOption_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOption_StyleOptionType) : Qt_QStyleOption_StyleOptionType;

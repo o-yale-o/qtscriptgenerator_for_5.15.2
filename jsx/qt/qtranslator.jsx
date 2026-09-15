@@ -8,7 +8,7 @@
 import "qt/qlocale.jsx";
 import "qt/qobject.jsx";
 
-native class QTranslator
+native class QTranslator extends QObject
 {
     function constructor (parent : QObject);
 

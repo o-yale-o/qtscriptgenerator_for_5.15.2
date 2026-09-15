@@ -11,6 +11,7 @@ final native class Qt_QTextLength_Type {}
 native class QTextLength
 {
     function constructor ();
+    function constructor (type : Qt_QTextLength_Type, value : number);
 
     static const VariableLength : Qt_QTextLength_Type;
     static const FixedLength : Qt_QTextLength_Type;
@@ -18,5 +19,8 @@ native class QTextLength
     static function Type(value : Qt_QTextLength_Type) : Qt_QTextLength_Type;
 
     // Methods
+    function operator_equal (other : QTextLength) : boolean;
+    function rawValue () : number;
     function type () : Qt_QTextLength_Type;
+    function value (maximumLength : number) : number;
 }

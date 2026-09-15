@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<typesystem package="com.trolltech.qt.sql"><suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QSqlField' has equals operators but no qHash() function"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QSqlRecord' has equals operators but no qHash() function"/>
+<typesystem package="com.trolltech.qt.sql"><load-typesystem name="typesystem_core.xml" generate="no"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QSqlField' has equals operators but no qHash() function"/><suppress-warning text="WARNING(MetaJavaBuilder) :: Class 'QSqlRecord' has equals operators but no qHash() function"/>
   <rejection class="QSqlDriverCreator"/>
   <rejection class="QSqlDriverPlugin"/>
   <rejection class="QSqlDriverFactoryInterface"/>

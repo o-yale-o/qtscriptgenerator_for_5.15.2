@@ -21,7 +21,4 @@ native class QStyleOptionSizeGrip extends QStyleOptionComplex
 
     static const Type : Qt_QStyleOptionSizeGrip_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionSizeGrip_StyleOptionType) : Qt_QStyleOptionSizeGrip_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionSizeGrip) : QStyleOptionSizeGrip;
 }

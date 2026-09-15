@@ -8,7 +8,7 @@
 import "qt/qobject.jsx";
 import "qt/_signals.jsx";
 
-native class QSignalMapper
+native class QSignalMapper extends QObject
 {
     function constructor (parent : QObject);
 

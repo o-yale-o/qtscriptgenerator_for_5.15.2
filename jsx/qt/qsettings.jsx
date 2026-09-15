@@ -8,14 +8,43 @@
 import "qt/qobject.jsx";
 import "qt/qtextcodec.jsx";
 
+final native class Qt_QSettings_Format {}
+
+final native class Qt_QSettings_Scope {}
+
 final native class Qt_QSettings_Status {}
 
-native class QSettings
+native class QSettings extends QObject
 {
     function constructor (parent : QObject);
     function constructor (organization : string, application : string, parent : QObject);
 
     // Static Members
+
+    static const NativeFormat : Qt_QSettings_Format;
+    static const IniFormat : Qt_QSettings_Format;
+    static const InvalidFormat : Qt_QSettings_Format;
+    static const CustomFormat1 : Qt_QSettings_Format;
+    static const CustomFormat2 : Qt_QSettings_Format;
+    static const CustomFormat3 : Qt_QSettings_Format;
+    static const CustomFormat4 : Qt_QSettings_Format;
+    static const CustomFormat5 : Qt_QSettings_Format;
+    static const CustomFormat6 : Qt_QSettings_Format;
+    static const CustomFormat7 : Qt_QSettings_Format;
+    static const CustomFormat8 : Qt_QSettings_Format;
+    static const CustomFormat9 : Qt_QSettings_Format;
+    static const CustomFormat10 : Qt_QSettings_Format;
+    static const CustomFormat11 : Qt_QSettings_Format;
+    static const CustomFormat12 : Qt_QSettings_Format;
+    static const CustomFormat13 : Qt_QSettings_Format;
+    static const CustomFormat14 : Qt_QSettings_Format;
+    static const CustomFormat15 : Qt_QSettings_Format;
+    static const CustomFormat16 : Qt_QSettings_Format;
+    static function Format(value : Qt_QSettings_Format) : Qt_QSettings_Format;
+
+    static const UserScope : Qt_QSettings_Scope;
+    static const SystemScope : Qt_QSettings_Scope;
+    static function Scope(value : Qt_QSettings_Scope) : Qt_QSettings_Scope;
 
     static const NoError : Qt_QSettings_Status;
     static const AccessError : Qt_QSettings_Status;

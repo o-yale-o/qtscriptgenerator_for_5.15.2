@@ -7,13 +7,17 @@
  */
 import "qt/qabstractnetworkcache.jsx";
 import "qt/qnetworkcachemetadata.jsx";
+import "qt/qobject.jsx";
 
 native class QNetworkDiskCache extends QAbstractNetworkCache
 {
-    function constructor ();
+    function constructor (parent : QObject);
 
     // Methods
     function cacheDirectory () : string;
+    function expire () : number;
     function fileMetaData (fileName : string) : QNetworkCacheMetaData;
+    function maximumCacheSize () : number;
     function setCacheDirectory (cacheDir : string) : void;
+    function setMaximumCacheSize (size : number) : void;
 }

@@ -25,4 +25,5 @@ native class QTemporaryFile extends QFile
     function open () : boolean;
     function setAutoRemove (b : boolean) : void;
     function setFileTemplate (name : string) : void;
+    function uniqueFilename () : string;
 }

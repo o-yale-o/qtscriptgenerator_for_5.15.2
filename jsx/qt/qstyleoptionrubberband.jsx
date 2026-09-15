@@ -21,7 +21,4 @@ native class QStyleOptionRubberBand extends QStyleOption
 
     static const Type : Qt_QStyleOptionRubberBand_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionRubberBand_StyleOptionType) : Qt_QStyleOptionRubberBand_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionRubberBand) : QStyleOptionRubberBand;
 }

@@ -21,7 +21,4 @@ native class QStyleOptionSlider extends QStyleOptionComplex
 
     static const Type : Qt_QStyleOptionSlider_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionSlider_StyleOptionType) : Qt_QStyleOptionSlider_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionSlider) : QStyleOptionSlider;
 }

@@ -9,6 +9,7 @@ import "qt/qabstractbutton.jsx";
 import "qt/qaction.jsx";
 import "qt/qmenu.jsx";
 import "qt/qstyleoptiontoolbutton.jsx";
+import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
@@ -38,4 +39,7 @@ native class QToolButton extends QAbstractButton
 
     // Instance Properties
     var popupMode : Qt_QToolButton_ToolButtonPopupMode;
+    var toolButtonStyle : Qt_ToolButtonStyle;
+    var autoRaise : boolean;
+    var arrowType : Qt_ArrowType;
 }

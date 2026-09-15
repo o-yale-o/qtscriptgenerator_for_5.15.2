@@ -11,4 +11,7 @@ native class QDomText extends QDomCharacterData
 {
     function constructor ();
     function constructor (x : QDomText);
+
+    // Methods
+    function splitText (offset : int) : QDomText;
 }

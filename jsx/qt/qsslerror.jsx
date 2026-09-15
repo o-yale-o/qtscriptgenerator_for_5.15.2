@@ -55,4 +55,12 @@ native class QSslError
     static const OcspResponseExpired : Qt_QSslError_SslError;
     static const OcspStatusUnknown : Qt_QSslError_SslError;
     static function SslError(value : Qt_QSslError_SslError) : Qt_QSslError_SslError;
+
+    // Methods
+    function certificate () : QSslCertificate;
+    function error () : Qt_QSslError_SslError;
+    function errorString () : string;
+    function operator_assign (other : QSslError) : QSslError;
+    function operator_equal (other : QSslError) : boolean;
+    function swap (other : QSslError) : void;
 }

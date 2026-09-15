@@ -43,7 +43,6 @@ import "qt/qfontdialog.jsx"; // QFontDialog
 import "qt/qformlayout.jsx"; // QFormLayout
 import "qt/qframe.jsx"; // QFrame
 import "qt/qgesture.jsx"; // QGesture
-import "qt/qgraphicsanchor.jsx"; // QGraphicsAnchor
 import "qt/qgraphicsanchorlayout.jsx"; // QGraphicsAnchorLayout
 import "qt/qgraphicsblureffect.jsx"; // QGraphicsBlurEffect
 import "qt/qgraphicscolorizeeffect.jsx"; // QGraphicsColorizeEffect
@@ -92,6 +91,7 @@ import "qt/qitemeditorcreatorbase.jsx"; // QItemEditorCreatorBase
 import "qt/qitemeditorfactory.jsx"; // QItemEditorFactory
 import "qt/qitemselection.jsx"; // QItemSelection
 import "qt/qitemselectionmodel.jsx"; // QItemSelectionModel
+import "qt/qitemselectionrange.jsx"; // QItemSelectionRange
 import "qt/qkeyeventtransition.jsx"; // QKeyEventTransition
 import "qt/qlcdnumber.jsx"; // QLCDNumber
 import "qt/qlabel.jsx"; // QLabel
@@ -120,9 +120,9 @@ import "qt/qradiobutton.jsx"; // QRadioButton
 import "qt/qrubberband.jsx"; // QRubberBand
 import "qt/qscrollarea.jsx"; // QScrollArea
 import "qt/qscrollbar.jsx"; // QScrollBar
-import "qt/qsessionmanager.jsx"; // QSessionManager
 import "qt/qshortcut.jsx"; // QShortcut
 import "qt/qsizegrip.jsx"; // QSizeGrip
+import "qt/qsizepolicy.jsx"; // QSizePolicy
 import "qt/qslider.jsx"; // QSlider
 import "qt/qspaceritem.jsx"; // QSpacerItem
 import "qt/qspinbox.jsx"; // QSpinBox
@@ -142,6 +142,7 @@ import "qt/qstylehintreturnmask.jsx"; // QStyleHintReturnMask
 import "qt/qstylehintreturnvariant.jsx"; // QStyleHintReturnVariant
 import "qt/qstyleoption.jsx"; // QStyleOption
 import "qt/qstyleoptionbutton.jsx"; // QStyleOptionButton
+import "qt/qstyleoptioncombobox.jsx"; // QStyleOptionComboBox
 import "qt/qstyleoptioncomplex.jsx"; // QStyleOptionComplex
 import "qt/qstyleoptiondockwidget.jsx"; // QStyleOptionDockWidget
 import "qt/qstyleoptionfocusrect.jsx"; // QStyleOptionFocusRect
@@ -150,10 +151,12 @@ import "qt/qstyleoptiongraphicsitem.jsx"; // QStyleOptionGraphicsItem
 import "qt/qstyleoptiongroupbox.jsx"; // QStyleOptionGroupBox
 import "qt/qstyleoptionheader.jsx"; // QStyleOptionHeader
 import "qt/qstyleoptionmenuitem.jsx"; // QStyleOptionMenuItem
+import "qt/qstyleoptionprogressbar.jsx"; // QStyleOptionProgressBar
 import "qt/qstyleoptionrubberband.jsx"; // QStyleOptionRubberBand
 import "qt/qstyleoptionsizegrip.jsx"; // QStyleOptionSizeGrip
 import "qt/qstyleoptionslider.jsx"; // QStyleOptionSlider
 import "qt/qstyleoptionspinbox.jsx"; // QStyleOptionSpinBox
+import "qt/qstyleoptiontab.jsx"; // QStyleOptionTab
 import "qt/qstyleoptiontabbarbase.jsx"; // QStyleOptionTabBarBase
 import "qt/qstyleoptiontabwidgetframe.jsx"; // QStyleOptionTabWidgetFrame
 import "qt/qstyleoptiontitlebar.jsx"; // QStyleOptionTitleBar
@@ -180,6 +183,7 @@ import "qt/qtoolbar.jsx"; // QToolBar
 import "qt/qtoolbox.jsx"; // QToolBox
 import "qt/qtoolbutton.jsx"; // QToolButton
 import "qt/qtooltip.jsx"; // QToolTip
+import "qt/qtouchevent.jsx"; // QTouchEvent
 import "qt/qtreeview.jsx"; // QTreeView
 import "qt/qtreewidget.jsx"; // QTreeWidget
 import "qt/qtreewidgetitem.jsx"; // QTreeWidgetItem

@@ -13,7 +13,7 @@ final native class Qt_QIODevice_OpenModeFlag {}
 
 final native class Qt_QIODevice_OpenMode {}
 
-native class QIODevice
+native class QIODevice extends QObject
 {
     function constructor ();
     function constructor (parent : QObject);

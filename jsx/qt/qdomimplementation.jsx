@@ -27,4 +27,7 @@ native class QDomImplementation
     // Methods
     function createDocument (nsURI : string, qName : string, doctype : QDomDocumentType) : QDomDocument;
     function createDocumentType (qName : string, publicId : string, systemId : string) : QDomDocumentType;
+    function hasFeature (feature : string, version : string) : boolean;
+    function isNull () : boolean;
+    function operator_equal (arg__1 : QDomImplementation) : boolean;
 }

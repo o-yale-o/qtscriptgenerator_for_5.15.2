@@ -13,9 +13,21 @@ native class QFontInfo
     function constructor (arg__1 : QFontInfo);
 
     // Methods
+    function bold () : boolean;
+    function exactMatch () : boolean;
     function family () : string;
+    function fixedPitch () : boolean;
+    function italic () : boolean;
+    function overline () : boolean;
+    function pixelSize () : int;
+    function pointSize () : int;
+    function pointSizeF () : number;
+    function rawMode () : boolean;
+    function strikeOut () : boolean;
     function style () : Qt_QFont_Style;
     function styleHint () : Qt_QFont_StyleHint;
     function styleName () : string;
     function swap (other : QFontInfo) : void;
+    function underline () : boolean;
+    function weight () : int;
 }

@@ -10,21 +10,38 @@ import "qt/qpainter.jsx";
 import "qt/qpainterpath.jsx";
 import "qt/qregion.jsx";
 
-final native class Qt_QPaintEngine_PaintEngineFeature {}
-
-final native class Qt_QPaintEngine_PaintEngineFeatures {}
-
-final native class Qt_QPaintEngine_Type {}
-
 final native class Qt_QPaintEngine_DirtyFlag {}
 
 final native class Qt_QPaintEngine_DirtyFlags {}
 
+final native class Qt_QPaintEngine_PaintEngineFeature {}
+
+final native class Qt_QPaintEngine_PaintEngineFeatures {}
+
 final native class Qt_QPaintEngine_PolygonDrawMode {}
+
+final native class Qt_QPaintEngine_Type {}
 
 native class QPaintEngine
 {
     function constructor (features : Qt_QPaintEngine_PaintEngineFeatures);
+
+    static const DirtyPen : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyBrush : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyBrushOrigin : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyFont : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyBackground : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyBackgroundMode : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyTransform : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyClipRegion : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyClipPath : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyHints : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyCompositionMode : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyClipEnabled : Qt_QPaintEngine_DirtyFlag;
+    static const DirtyOpacity : Qt_QPaintEngine_DirtyFlag;
+    static const AllDirty : Qt_QPaintEngine_DirtyFlag;
+    static function DirtyFlag(value : Qt_QPaintEngine_DirtyFlag) : Qt_QPaintEngine_DirtyFlag;
+    static function DirtyFlags(...value : Qt_QPaintEngine_DirtyFlag) : Qt_QPaintEngine_DirtyFlags;
 
     static const AllFeatures : Qt_QPaintEngine_PaintEngineFeature;
     static const PrimitiveTransform : Qt_QPaintEngine_PaintEngineFeature;
@@ -49,6 +66,12 @@ native class QPaintEngine
     static function PaintEngineFeature(value : Qt_QPaintEngine_PaintEngineFeature) : Qt_QPaintEngine_PaintEngineFeature;
     static function PaintEngineFeatures(...value : Qt_QPaintEngine_PaintEngineFeature) : Qt_QPaintEngine_PaintEngineFeatures;
 
+    static const OddEvenMode : Qt_QPaintEngine_PolygonDrawMode;
+    static const WindingMode : Qt_QPaintEngine_PolygonDrawMode;
+    static const ConvexMode : Qt_QPaintEngine_PolygonDrawMode;
+    static const PolylineMode : Qt_QPaintEngine_PolygonDrawMode;
+    static function PolygonDrawMode(value : Qt_QPaintEngine_PolygonDrawMode) : Qt_QPaintEngine_PolygonDrawMode;
+
     static const X11 : Qt_QPaintEngine_Type;
     static const Windows : Qt_QPaintEngine_Type;
     static const QuickDraw : Qt_QPaintEngine_Type;
@@ -70,29 +93,6 @@ native class QPaintEngine
     static const User : Qt_QPaintEngine_Type;
     static const MaxUser : Qt_QPaintEngine_Type;
     static function Type(value : Qt_QPaintEngine_Type) : Qt_QPaintEngine_Type;
-
-    static const DirtyPen : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyBrush : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyBrushOrigin : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyFont : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyBackground : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyBackgroundMode : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyTransform : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyClipRegion : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyClipPath : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyHints : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyCompositionMode : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyClipEnabled : Qt_QPaintEngine_DirtyFlag;
-    static const DirtyOpacity : Qt_QPaintEngine_DirtyFlag;
-    static const AllDirty : Qt_QPaintEngine_DirtyFlag;
-    static function DirtyFlag(value : Qt_QPaintEngine_DirtyFlag) : Qt_QPaintEngine_DirtyFlag;
-    static function DirtyFlags(...value : Qt_QPaintEngine_DirtyFlag) : Qt_QPaintEngine_DirtyFlags;
-
-    static const OddEvenMode : Qt_QPaintEngine_PolygonDrawMode;
-    static const WindingMode : Qt_QPaintEngine_PolygonDrawMode;
-    static const ConvexMode : Qt_QPaintEngine_PolygonDrawMode;
-    static const PolylineMode : Qt_QPaintEngine_PolygonDrawMode;
-    static function PolygonDrawMode(value : Qt_QPaintEngine_PolygonDrawMode) : Qt_QPaintEngine_PolygonDrawMode;
 
     // Methods
     function clearDirty (df : Qt_QPaintEngine_DirtyFlags) : void;

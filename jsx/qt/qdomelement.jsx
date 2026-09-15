@@ -23,11 +23,17 @@ native class QDomElement extends QDomNode
     function attributes () : QDomNamedNodeMap;
     function elementsByTagName (tagname : string) : QDomNodeList;
     function elementsByTagNameNS (nsURI : string, localName : string) : QDomNodeList;
+    function hasAttribute (name : string) : boolean;
+    function hasAttributeNS (nsURI : string, localName : string) : boolean;
     function removeAttribute (name : string) : void;
     function removeAttributeNS (nsURI : string, localName : string) : void;
     function removeAttributeNode (oldAttr : QDomAttr) : QDomAttr;
     function setAttribute (name : string, value : string) : void;
+    function setAttribute (name : string, value : number) : void;
+    function setAttribute (name : string, value : int) : void;
     function setAttributeNS (nsURI : string, qName : string, value : string) : void;
+    function setAttributeNS (nsURI : string, qName : string, value : number) : void;
+    function setAttributeNS (nsURI : string, qName : string, value : int) : void;
     function setAttributeNode (newAttr : QDomAttr) : QDomAttr;
     function setAttributeNodeNS (newAttr : QDomAttr) : QDomAttr;
     function setTagName (name : string) : void;

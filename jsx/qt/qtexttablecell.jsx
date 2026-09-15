@@ -14,8 +14,17 @@ native class QTextTableCell
     function constructor (o : QTextTableCell);
 
     // Methods
+    function column () : int;
+    function columnSpan () : int;
     function firstCursorPosition () : QTextCursor;
+    function firstPosition () : int;
     function format () : QTextCharFormat;
+    function isValid () : boolean;
     function lastCursorPosition () : QTextCursor;
+    function lastPosition () : int;
+    function operator_equal (other : QTextTableCell) : boolean;
+    function row () : int;
+    function rowSpan () : int;
     function setFormat (format : QTextCharFormat) : void;
+    function tableCellFormatIndex () : int;
 }

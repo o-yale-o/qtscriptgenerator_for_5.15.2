@@ -7,16 +7,90 @@
  */
 import "qt/qauthenticator.jsx";
 import "qt/qhostaddress.jsx";
+import "qt/qintptr.jsx";
+import "qt/qiodevice.jsx";
 import "qt/qnetworkproxy.jsx";
+import "qt/qobject.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QAbstractSocket_SocketType {}
+final native class Qt_QAbstractSocket_SocketOption {}
+
+final native class Qt_QAbstractSocket_NetworkLayerProtocol {}
+
+final native class Qt_QAbstractSocket_SocketError {}
+
+final native class Qt_QAbstractSocket_BindFlag {}
+
+final native class Qt_QAbstractSocket_SocketState {}
 
 final native class Qt_QAbstractSocket_PauseMode {}
 
-native class QAbstractSocket
+final native class Qt_QAbstractSocket_SocketType {}
+
+native class QAbstractSocket extends QIODevice
 {
-    function constructor ();
+    function constructor (socketType : Qt_QAbstractSocket_SocketType, parent : QObject);
+
+    static const LowDelayOption : Qt_QAbstractSocket_SocketOption;
+    static const KeepAliveOption : Qt_QAbstractSocket_SocketOption;
+    static const MulticastTtlOption : Qt_QAbstractSocket_SocketOption;
+    static const MulticastLoopbackOption : Qt_QAbstractSocket_SocketOption;
+    static const TypeOfServiceOption : Qt_QAbstractSocket_SocketOption;
+    static const SendBufferSizeSocketOption : Qt_QAbstractSocket_SocketOption;
+    static const ReceiveBufferSizeSocketOption : Qt_QAbstractSocket_SocketOption;
+    static const PathMtuSocketOption : Qt_QAbstractSocket_SocketOption;
+    static function SocketOption(value : Qt_QAbstractSocket_SocketOption) : Qt_QAbstractSocket_SocketOption;
+
+    static const UnknownNetworkLayerProtocol : Qt_QAbstractSocket_NetworkLayerProtocol;
+    static const IPv4Protocol : Qt_QAbstractSocket_NetworkLayerProtocol;
+    static const IPv6Protocol : Qt_QAbstractSocket_NetworkLayerProtocol;
+    static const AnyIPProtocol : Qt_QAbstractSocket_NetworkLayerProtocol;
+    static function NetworkLayerProtocol(value : Qt_QAbstractSocket_NetworkLayerProtocol) : Qt_QAbstractSocket_NetworkLayerProtocol;
+
+    static const UnknownSocketError : Qt_QAbstractSocket_SocketError;
+    static const ConnectionRefusedError : Qt_QAbstractSocket_SocketError;
+    static const RemoteHostClosedError : Qt_QAbstractSocket_SocketError;
+    static const HostNotFoundError : Qt_QAbstractSocket_SocketError;
+    static const SocketAccessError : Qt_QAbstractSocket_SocketError;
+    static const SocketResourceError : Qt_QAbstractSocket_SocketError;
+    static const SocketTimeoutError : Qt_QAbstractSocket_SocketError;
+    static const DatagramTooLargeError : Qt_QAbstractSocket_SocketError;
+    static const NetworkError : Qt_QAbstractSocket_SocketError;
+    static const AddressInUseError : Qt_QAbstractSocket_SocketError;
+    static const SocketAddressNotAvailableError : Qt_QAbstractSocket_SocketError;
+    static const UnsupportedSocketOperationError : Qt_QAbstractSocket_SocketError;
+    static const UnfinishedSocketOperationError : Qt_QAbstractSocket_SocketError;
+    static const ProxyAuthenticationRequiredError : Qt_QAbstractSocket_SocketError;
+    static const SslHandshakeFailedError : Qt_QAbstractSocket_SocketError;
+    static const ProxyConnectionRefusedError : Qt_QAbstractSocket_SocketError;
+    static const ProxyConnectionClosedError : Qt_QAbstractSocket_SocketError;
+    static const ProxyConnectionTimeoutError : Qt_QAbstractSocket_SocketError;
+    static const ProxyNotFoundError : Qt_QAbstractSocket_SocketError;
+    static const ProxyProtocolError : Qt_QAbstractSocket_SocketError;
+    static const OperationError : Qt_QAbstractSocket_SocketError;
+    static const SslInternalError : Qt_QAbstractSocket_SocketError;
+    static const SslInvalidUserDataError : Qt_QAbstractSocket_SocketError;
+    static const TemporaryError : Qt_QAbstractSocket_SocketError;
+    static function SocketError(value : Qt_QAbstractSocket_SocketError) : Qt_QAbstractSocket_SocketError;
+
+    static const DefaultForPlatform : Qt_QAbstractSocket_BindFlag;
+    static const ShareAddress : Qt_QAbstractSocket_BindFlag;
+    static const DontShareAddress : Qt_QAbstractSocket_BindFlag;
+    static const ReuseAddressHint : Qt_QAbstractSocket_BindFlag;
+    static function BindFlag(value : Qt_QAbstractSocket_BindFlag) : Qt_QAbstractSocket_BindFlag;
+
+    static const UnconnectedState : Qt_QAbstractSocket_SocketState;
+    static const HostLookupState : Qt_QAbstractSocket_SocketState;
+    static const ConnectingState : Qt_QAbstractSocket_SocketState;
+    static const ConnectedState : Qt_QAbstractSocket_SocketState;
+    static const BoundState : Qt_QAbstractSocket_SocketState;
+    static const ListeningState : Qt_QAbstractSocket_SocketState;
+    static const ClosingState : Qt_QAbstractSocket_SocketState;
+    static function SocketState(value : Qt_QAbstractSocket_SocketState) : Qt_QAbstractSocket_SocketState;
+
+    static const PauseNever : Qt_QAbstractSocket_PauseMode;
+    static const PauseOnSslErrors : Qt_QAbstractSocket_PauseMode;
+    static function PauseMode(value : Qt_QAbstractSocket_PauseMode) : Qt_QAbstractSocket_PauseMode;
 
     static const UnknownSocketType : Qt_QAbstractSocket_SocketType;
     static const TcpSocket : Qt_QAbstractSocket_SocketType;
@@ -24,30 +98,40 @@ native class QAbstractSocket
     static const SctpSocket : Qt_QAbstractSocket_SocketType;
     static function SocketType(value : Qt_QAbstractSocket_SocketType) : Qt_QAbstractSocket_SocketType;
 
-    static const PauseNever : Qt_QAbstractSocket_PauseMode;
-    static const PauseOnSslErrors : Qt_QAbstractSocket_PauseMode;
-    static function PauseMode(value : Qt_QAbstractSocket_PauseMode) : Qt_QAbstractSocket_PauseMode;
-
     // Methods
     function abort () : void;
+    function connectToHost (address : QHostAddress, port : int, mode : Qt_QIODevice_OpenMode) : void;
+    function connectToHost (hostName : string, port : int, mode : Qt_QIODevice_OpenMode, protocol : Qt_QAbstractSocket_NetworkLayerProtocol) : void;
     function disconnectFromHost () : void;
+    function flush () : boolean;
+    function isValid () : boolean;
     function localAddress () : QHostAddress;
+    function localPort () : int;
     function peerAddress () : QHostAddress;
     function peerName () : string;
+    function peerPort () : int;
     function protocolTag () : string;
     function proxy () : QNetworkProxy;
+    function readBufferSize () : number;
     function resume () : void;
     function setLocalAddress (address : QHostAddress) : void;
+    function setLocalPort (port : int) : void;
     function setPeerAddress (address : QHostAddress) : void;
     function setPeerName (name : string) : void;
+    function setPeerPort (port : int) : void;
     function setProtocolTag (tag : string) : void;
     function setProxy (networkProxy : QNetworkProxy) : void;
+    function setReadBufferSize (size : number) : void;
+    function setSocketDescriptor (socketDescriptor : qintptr, state : Qt_QAbstractSocket_SocketState, openMode : Qt_QIODevice_OpenMode) : boolean;
     function setSocketError (socketError : Qt_QAbstractSocket_SocketError) : void;
     function setSocketOption (option : Qt_QAbstractSocket_SocketOption, value : variant) : void;
     function setSocketState (state : Qt_QAbstractSocket_SocketState) : void;
+    function socketDescriptor () : qintptr;
     function socketOption (option : Qt_QAbstractSocket_SocketOption) : variant;
     function socketType () : Qt_QAbstractSocket_SocketType;
     function state () : Qt_QAbstractSocket_SocketState;
+    function waitForConnected (msecs : int) : boolean;
+    function waitForDisconnected (msecs : int) : boolean;
 
     // Signals
     var connected : QtJSXSignal;

@@ -21,7 +21,4 @@ native class QStyleOptionGroupBox extends QStyleOptionComplex
 
     static const Type : Qt_QStyleOptionGroupBox_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionGroupBox_StyleOptionType) : Qt_QStyleOptionGroupBox_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionGroupBox) : QStyleOptionGroupBox;
 }

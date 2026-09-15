@@ -15,6 +15,9 @@ native class QXmlItem
     function constructor (node : QXmlNodeModelIndex);
 
     // Methods
+    function isAtomicValue () : boolean;
+    function isNode () : boolean;
+    function isNull () : boolean;
     function toAtomicValue () : variant;
     function toNodeModelIndex () : QXmlNodeModelIndex;
 }

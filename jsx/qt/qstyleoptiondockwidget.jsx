@@ -21,7 +21,4 @@ native class QStyleOptionDockWidget extends QStyleOption
 
     static const Type : Qt_QStyleOptionDockWidget_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionDockWidget_StyleOptionType) : Qt_QStyleOptionDockWidget_StyleOptionType;
-
-    // Methods
-    function operator_assign (arg__1 : QStyleOptionDockWidget) : QStyleOptionDockWidget;
 }
