@@ -32,6 +32,7 @@ native class QCoreApplication extends QObject
     static function libraryPaths () : string[];
     static function postEvent (receiver : QObject, event : QEvent, priority : int) : void;
     static function processEvents (flags : Qt_QEventLoop_ProcessEventsFlags) : void;
+    static function quit () : void;
     static function removeLibraryPath (arg__1 : string) : void;
     static function removePostedEvents (receiver : QObject, eventType : int) : void;
     static function removeTranslator (messageFile : QTranslator) : boolean;
@@ -46,9 +47,6 @@ native class QCoreApplication extends QObject
 
     // Methods
     function notify (arg__1 : QObject, arg__2 : QEvent) : boolean;
-
-    // Slots
-    function quit () : void;
 
     // Signals
     var applicationNameChanged : QtJSXSignal;

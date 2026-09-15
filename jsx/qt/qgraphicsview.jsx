@@ -28,15 +28,15 @@ final native class Qt_QGraphicsView_CacheModeFlag {}
 
 final native class Qt_QGraphicsView_CacheMode {}
 
-final native class Qt_QGraphicsView_ViewportUpdateMode {}
-
-final native class Qt_QGraphicsView_ViewportAnchor {}
-
 final native class Qt_QGraphicsView_OptimizationFlag {}
 
 final native class Qt_QGraphicsView_OptimizationFlags {}
 
 final native class Qt_QGraphicsView_DragMode {}
+
+final native class Qt_QGraphicsView_ViewportAnchor {}
+
+final native class Qt_QGraphicsView_ViewportUpdateMode {}
 
 native class QGraphicsView extends QAbstractScrollArea
 {
@@ -47,18 +47,6 @@ native class QGraphicsView extends QAbstractScrollArea
     static const CacheBackground : Qt_QGraphicsView_CacheModeFlag;
     static function CacheModeFlag(value : Qt_QGraphicsView_CacheModeFlag) : Qt_QGraphicsView_CacheModeFlag;
     static function CacheMode(...value : Qt_QGraphicsView_CacheModeFlag) : Qt_QGraphicsView_CacheMode;
-
-    static const FullViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
-    static const MinimalViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
-    static const SmartViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
-    static const NoViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
-    static const BoundingRectViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
-    static function ViewportUpdateMode(value : Qt_QGraphicsView_ViewportUpdateMode) : Qt_QGraphicsView_ViewportUpdateMode;
-
-    static const NoAnchor : Qt_QGraphicsView_ViewportAnchor;
-    static const AnchorViewCenter : Qt_QGraphicsView_ViewportAnchor;
-    static const AnchorUnderMouse : Qt_QGraphicsView_ViewportAnchor;
-    static function ViewportAnchor(value : Qt_QGraphicsView_ViewportAnchor) : Qt_QGraphicsView_ViewportAnchor;
 
     static const DontClipPainter : Qt_QGraphicsView_OptimizationFlag;
     static const DontSavePainterState : Qt_QGraphicsView_OptimizationFlag;
@@ -71,6 +59,18 @@ native class QGraphicsView extends QAbstractScrollArea
     static const ScrollHandDrag : Qt_QGraphicsView_DragMode;
     static const RubberBandDrag : Qt_QGraphicsView_DragMode;
     static function DragMode(value : Qt_QGraphicsView_DragMode) : Qt_QGraphicsView_DragMode;
+
+    static const NoAnchor : Qt_QGraphicsView_ViewportAnchor;
+    static const AnchorViewCenter : Qt_QGraphicsView_ViewportAnchor;
+    static const AnchorUnderMouse : Qt_QGraphicsView_ViewportAnchor;
+    static function ViewportAnchor(value : Qt_QGraphicsView_ViewportAnchor) : Qt_QGraphicsView_ViewportAnchor;
+
+    static const FullViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
+    static const MinimalViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
+    static const SmartViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
+    static const NoViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
+    static const BoundingRectViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
+    static function ViewportUpdateMode(value : Qt_QGraphicsView_ViewportUpdateMode) : Qt_QGraphicsView_ViewportUpdateMode;
 
     // Methods
     function centerOn (item : QGraphicsItem) : void;
@@ -85,6 +85,7 @@ native class QGraphicsView extends QAbstractScrollArea
     function fitInView (item : QGraphicsItem, aspectRadioMode : Qt_AspectRatioMode) : void;
     function fitInView (rect : QRectF, aspectRadioMode : Qt_AspectRatioMode) : void;
     function fitInView (x : number, y : number, w : number, h : number, aspectRadioMode : Qt_AspectRatioMode) : void;
+    function invalidateScene (rect : QRectF, layers : Qt_QGraphicsScene_SceneLayers) : void;
     function isTransformed () : boolean;
     function itemAt (pos : QPoint) : QGraphicsItem;
     function itemAt (x : int, y : int) : QGraphicsItem;
@@ -125,12 +126,9 @@ native class QGraphicsView extends QAbstractScrollArea
     function shear (sh : number, sv : number) : void;
     function transform () : QTransform;
     function translate (dx : number, dy : number) : void;
-    function viewportTransform () : QTransform;
-
-    // Slots
-    function invalidateScene (rect : QRectF, layers : Qt_QGraphicsScene_SceneLayers) : void;
     function updateScene (rects : QRectF[]) : void;
     function updateSceneRect (rect : QRectF) : void;
+    function viewportTransform () : QTransform;
 
     // Signals
     var rubberBandChanged : QtJSXQRectQPointFQPointFSignal;

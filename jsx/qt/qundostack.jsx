@@ -25,13 +25,11 @@ native class QUndoStack extends QObject
     function endMacro () : void;
     function index () : int;
     function push (cmd : QUndoCommand) : void;
-    function text (idx : int) : string;
-
-    // Slots
     function redo () : void;
     function resetClean () : void;
     function setClean () : void;
     function setIndex (idx : int) : void;
+    function text (idx : int) : string;
     function undo () : void;
 
     // Signals

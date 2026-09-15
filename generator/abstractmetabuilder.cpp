@@ -632,8 +632,9 @@ AbstractMetaClass *AbstractMetaBuilder::traverseNamespace(NamespaceModelItem nam
     popScope();
     m_namespace_prefix = currentScope()->qualifiedName().join("::");
 
-    if (!type->include().isValid()) {
+    if (!type->include().isValid() && !type->isContainer()) {
         QFileInfo info(namespace_item->fileName());
+
         type->setInclude(Include(Include::IncludePath, info.fileName()));
     }
 
@@ -1046,8 +1047,9 @@ AbstractMetaClass *AbstractMetaBuilder::traverseTypeAlias(TypeAliasModelItem typ
     *meta_class += AbstractMetaAttributes::Public;
 
     // Set the default include file name
-    if (!type->include().isValid()) {
+    if (!type->include().isValid() && !type->isContainer()) {
         QFileInfo info(typeAlias->fileName());
+
         type->setInclude(Include(Include::IncludePath, info.fileName()));
     }
 
@@ -1158,8 +1160,9 @@ AbstractMetaClass *AbstractMetaBuilder::traverseClass(ClassModelItem class_item)
     m_current_class = old_current_class;
 
     // Set the default include file name
-    if (!type->include().isValid()) {
+    if (!type->include().isValid() && !type->isContainer()) {
         QFileInfo info(class_item->fileName());
+
         type->setInclude(Include(Include::IncludePath, info.fileName()));
     }
 

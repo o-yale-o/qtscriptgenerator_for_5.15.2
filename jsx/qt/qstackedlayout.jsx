@@ -25,10 +25,8 @@ native class QStackedLayout extends QLayout
     function addStackedWidget (w : QWidget) : int;
     function currentWidget () : QWidget;
     function insertWidget (index : int, w : QWidget) : int;
-    function widget (arg__1 : int) : QWidget;
-
-    // Slots
     function setCurrentWidget (w : QWidget) : void;
+    function widget (arg__1 : int) : QWidget;
 
     // Signals
     var currentChanged : QtJSXintSignal;

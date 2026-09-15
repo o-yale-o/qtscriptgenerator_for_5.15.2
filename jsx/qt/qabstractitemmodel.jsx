@@ -62,19 +62,17 @@ native class QAbstractItemModel extends QObject
     function removeColumns (column : int, count : int, parent : QModelIndex) : boolean;
     function removeRow (row : int, parent : QModelIndex) : boolean;
     function removeRows (row : int, count : int, parent : QModelIndex) : boolean;
+    function resetInternalData () : void;
+    function revert () : void;
     function rowCount (parent : QModelIndex) : int;
     function setData (index : QModelIndex, value : variant, role : int) : boolean;
     function setHeaderData (section : int, orientation : Qt_Orientation, value : variant, role : int) : boolean;
     function sibling (row : int, column : int, idx : QModelIndex) : QModelIndex;
     function sort (column : int, order : Qt_SortOrder) : void;
     function span (index : QModelIndex) : QSize;
+    function submit () : boolean;
     function supportedDragActions () : Qt_DropActions;
     function supportedDropActions () : Qt_DropActions;
-
-    // Slots
-    function resetInternalData () : void;
-    function revert () : void;
-    function submit () : boolean;
 
     // Signals
     var dataChanged : QtJSXQModelIndexQModelIndexintListSignal;

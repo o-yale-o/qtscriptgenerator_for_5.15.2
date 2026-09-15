@@ -18,14 +18,12 @@ native class QSplashScreen extends QWidget
     function constructor (pixmap : QPixmap, f : Qt_WindowFlags);
 
     // Methods
+    function clearMessage () : void;
     function drawContents (painter : QPainter) : void;
     function finish (w : QWidget) : void;
     function message () : string;
     function pixmap () : QPixmap;
     function setPixmap (pixmap : QPixmap) : void;
-
-    // Slots
-    function clearMessage () : void;
     function showMessage (message : string, alignment : int, color : QColor) : void;
 
     // Signals

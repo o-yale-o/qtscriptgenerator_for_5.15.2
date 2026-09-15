@@ -22,8 +22,6 @@ native class QActionGroup extends QObject
     function checkedAction () : QAction;
     function isExclusive () : boolean;
     function removeAction (a : QAction) : void;
-
-    // Slots
     function setDisabled (b : boolean) : void;
     function setExclusive (arg__1 : boolean) : void;
 

@@ -24,12 +24,14 @@ native class QApplication
 {
 
     // Static Members
+    static function aboutQt () : void;
     static function activeModalWidget () : QWidget;
     static function activePopupWidget () : QWidget;
     static function activeWindow () : QWidget;
     static function alert (widget : QWidget, duration : int) : void;
     static function allWidgets () : QWidget[];
     static function beep () : void;
+    static function closeAllWindows () : void;
     static function colorSpec () : int;
     static function desktop () : QDesktopWidget;
     static function exec () : int;
@@ -56,10 +58,6 @@ native class QApplication
     // Methods
     function event (arg__1 : QEvent) : boolean;
     function notify (arg__1 : QObject, arg__2 : QEvent) : boolean;
-
-    // Slots
-    function aboutQt () : void;
-    function closeAllWindows () : void;
 
     // Signals
     var focusChanged : QtJSXQWidgetQWidgetSignal;

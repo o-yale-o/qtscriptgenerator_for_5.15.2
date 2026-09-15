@@ -17,16 +17,30 @@ native class QTableView extends QAbstractItemView
     // Methods
     function clearSpans () : void;
     function columnAt (x : int) : int;
+    function columnCountChanged (oldCount : int, newCount : int) : void;
+    function columnMoved (column : int, oldIndex : int, newIndex : int) : void;
+    function columnResized (column : int, oldWidth : int, newWidth : int) : void;
     function columnSpan (row : int, column : int) : int;
     function columnViewportPosition (column : int) : int;
     function columnWidth (column : int) : int;
+    function hideColumn (column : int) : void;
+    function hideRow (row : int) : void;
     function horizontalHeader () : QHeaderView;
     function isColumnHidden (column : int) : boolean;
     function isRowHidden (row : int) : boolean;
+    function resizeColumnToContents (column : int) : void;
+    function resizeColumnsToContents () : void;
+    function resizeRowToContents (row : int) : void;
+    function resizeRowsToContents () : void;
     function rowAt (y : int) : int;
+    function rowCountChanged (oldCount : int, newCount : int) : void;
     function rowHeight (row : int) : int;
+    function rowMoved (row : int, oldIndex : int, newIndex : int) : void;
+    function rowResized (row : int, oldHeight : int, newHeight : int) : void;
     function rowSpan (row : int, column : int) : int;
     function rowViewportPosition (row : int) : int;
+    function selectColumn (column : int) : void;
+    function selectRow (row : int) : void;
     function setColumnHidden (column : int, hide : boolean) : void;
     function setColumnWidth (column : int, width : int) : void;
     function setHorizontalHeader (header : QHeaderView) : void;
@@ -34,26 +48,10 @@ native class QTableView extends QAbstractItemView
     function setRowHidden (row : int, hide : boolean) : void;
     function setSpan (row : int, column : int, rowSpan : int, columnSpan : int) : void;
     function setVerticalHeader (header : QHeaderView) : void;
-    function verticalHeader () : QHeaderView;
-
-    // Slots
-    function columnCountChanged (oldCount : int, newCount : int) : void;
-    function columnMoved (column : int, oldIndex : int, newIndex : int) : void;
-    function columnResized (column : int, oldWidth : int, newWidth : int) : void;
-    function hideColumn (column : int) : void;
-    function hideRow (row : int) : void;
-    function resizeColumnToContents (column : int) : void;
-    function resizeColumnsToContents () : void;
-    function resizeRowToContents (row : int) : void;
-    function resizeRowsToContents () : void;
-    function rowCountChanged (oldCount : int, newCount : int) : void;
-    function rowMoved (row : int, oldIndex : int, newIndex : int) : void;
-    function rowResized (row : int, oldHeight : int, newHeight : int) : void;
-    function selectColumn (column : int) : void;
-    function selectRow (row : int) : void;
     function showColumn (column : int) : void;
     function showRow (row : int) : void;
     function sortByColumn (column : int, order : Qt_SortOrder) : void;
+    function verticalHeader () : QHeaderView;
 
     // Instance Properties
     var showGrid : boolean;

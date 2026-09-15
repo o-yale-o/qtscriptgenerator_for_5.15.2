@@ -7,17 +7,14 @@
  */
 import "qt/qiodevice.jsx";
 import "qt/qpaintdevice.jsx";
-import "qt/qpaintengine.jsx";
 import "qt/qrectf.jsx";
 import "qt/qsize.jsx";
 
-native class QSvgGenerator
+native class QSvgGenerator extends QPaintDevice
 {
     function constructor ();
 
     // Methods
-    function metric (metric : Qt_QPaintDevice_PaintDeviceMetric) : int;
-    function paintEngine () : QPaintEngine;
 
     // Instance Properties
     var size : QSize;

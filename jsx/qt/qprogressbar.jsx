@@ -22,10 +22,8 @@ native class QProgressBar extends QWidget
 
     // Methods
     function initStyleOption (option : QStyleOptionProgressBar) : void;
-    function resetFormat () : void;
-
-    // Slots
     function reset () : void;
+    function resetFormat () : void;
     function setRange (minimum : int, maximum : int) : void;
 
     // Signals

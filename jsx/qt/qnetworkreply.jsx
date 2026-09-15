@@ -56,10 +56,12 @@ native class QNetworkReply extends QIODevice
     static function NetworkError(value : Qt_QNetworkReply_NetworkError) : Qt_QNetworkReply_NetworkError;
 
     // Methods
+    function abort () : void;
     function attribute (code : Qt_QNetworkRequest_Attribute) : variant;
     function hasRawHeader (headerName : QByteArray) : boolean;
     function header (header : Qt_QNetworkRequest_KnownHeaders) : variant;
     function ignoreSslErrors (errors : QSslError[]) : void;
+    function ignoreSslErrors () : void;
     function ignoreSslErrorsImplementation (arg__1 : QSslError[]) : void;
     function isFinished () : boolean;
     function isRunning () : boolean;
@@ -83,10 +85,6 @@ native class QNetworkReply extends QIODevice
     function sslConfiguration () : QSslConfiguration;
     function sslConfigurationImplementation (arg__1 : QSslConfiguration) : void;
     function url () : QUrl;
-
-    // Slots
-    function abort () : void;
-    function ignoreSslErrors () : void;
 
     // Signals
     var downloadProgress : QtJSXqint64qint64Signal;

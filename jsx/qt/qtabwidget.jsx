@@ -45,6 +45,7 @@ native class QTabWidget extends QWidget
     function isTabVisible (index : int) : boolean;
     function removeTab (index : int) : void;
     function setCornerWidget (w : QWidget, corner : Qt_Corner) : void;
+    function setCurrentWidget (widget : QWidget) : void;
     function setTabBar (arg__1 : QTabBar) : void;
     function setTabEnabled (index : int, enabled : boolean) : void;
     function setTabIcon (index : int, icon : QIcon) : void;
@@ -60,9 +61,6 @@ native class QTabWidget extends QWidget
     function tabToolTip (index : int) : string;
     function tabWhatsThis (index : int) : string;
     function widget (index : int) : QWidget;
-
-    // Slots
-    function setCurrentWidget (widget : QWidget) : void;
 
     // Signals
     var currentChanged : QtJSXintSignal;

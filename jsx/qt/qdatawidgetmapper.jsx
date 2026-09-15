@@ -34,14 +34,12 @@ native class QDataWidgetMapper extends QObject
     function mappedWidgetAt (section : int) : QWidget;
     function model () : QAbstractItemModel;
     function removeMapping (widget : QWidget) : void;
+    function revert () : void;
     function rootIndex () : QModelIndex;
+    function setCurrentModelIndex (index : QModelIndex) : void;
     function setItemDelegate (delegate : QAbstractItemDelegate) : void;
     function setModel (model : QAbstractItemModel) : void;
     function setRootIndex (index : QModelIndex) : void;
-
-    // Slots
-    function revert () : void;
-    function setCurrentModelIndex (index : QModelIndex) : void;
     function submit () : boolean;
     function toFirst () : void;
     function toLast () : void;

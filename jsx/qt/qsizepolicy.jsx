@@ -7,18 +7,33 @@
  */
 import "qt/qt.jsx";
 
-final native class Qt_QSizePolicy_ControlType {}
-
-final native class Qt_QSizePolicy_ControlTypes {}
+final native class Qt_QSizePolicy_PolicyFlag {}
 
 final native class Qt_QSizePolicy_Policy {}
 
-final native class Qt_QSizePolicy_PolicyFlag {}
+final native class Qt_QSizePolicy_ControlType {}
+
+final native class Qt_QSizePolicy_ControlTypes {}
 
 native class QSizePolicy
 {
     function constructor ();
     function constructor (horizontal : Qt_QSizePolicy_Policy, vertical : Qt_QSizePolicy_Policy, type : Qt_QSizePolicy_ControlType);
+
+    static const GrowFlag : Qt_QSizePolicy_PolicyFlag;
+    static const ExpandFlag : Qt_QSizePolicy_PolicyFlag;
+    static const ShrinkFlag : Qt_QSizePolicy_PolicyFlag;
+    static const IgnoreFlag : Qt_QSizePolicy_PolicyFlag;
+    static function PolicyFlag(value : Qt_QSizePolicy_PolicyFlag) : Qt_QSizePolicy_PolicyFlag;
+
+    static const Fixed : Qt_QSizePolicy_Policy;
+    static const Minimum : Qt_QSizePolicy_Policy;
+    static const MinimumExpanding : Qt_QSizePolicy_Policy;
+    static const Maximum : Qt_QSizePolicy_Policy;
+    static const Preferred : Qt_QSizePolicy_Policy;
+    static const Expanding : Qt_QSizePolicy_Policy;
+    static const Ignored : Qt_QSizePolicy_Policy;
+    static function Policy(value : Qt_QSizePolicy_Policy) : Qt_QSizePolicy_Policy;
 
     static const DefaultType : Qt_QSizePolicy_ControlType;
     static const ButtonBox : Qt_QSizePolicy_ControlType;
@@ -37,15 +52,6 @@ native class QSizePolicy
     static const ToolButton : Qt_QSizePolicy_ControlType;
     static function ControlType(value : Qt_QSizePolicy_ControlType) : Qt_QSizePolicy_ControlType;
     static function ControlTypes(...value : Qt_QSizePolicy_ControlType) : Qt_QSizePolicy_ControlTypes;
-
-    static const Fixed : Qt_QSizePolicy_Policy;
-    static function Policy(value : Qt_QSizePolicy_Policy) : Qt_QSizePolicy_Policy;
-
-    static const GrowFlag : Qt_QSizePolicy_PolicyFlag;
-    static const ExpandFlag : Qt_QSizePolicy_PolicyFlag;
-    static const ShrinkFlag : Qt_QSizePolicy_PolicyFlag;
-    static const IgnoreFlag : Qt_QSizePolicy_PolicyFlag;
-    static function PolicyFlag(value : Qt_QSizePolicy_PolicyFlag) : Qt_QSizePolicy_PolicyFlag;
 
     // Methods
     function controlType () : Qt_QSizePolicy_ControlType;

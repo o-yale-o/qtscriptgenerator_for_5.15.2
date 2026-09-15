@@ -14,10 +14,8 @@ native class QSvgWidget
     function constructor ();
 
     // Methods
-    function paintEvent (event : QPaintEvent) : void;
-    function renderer () : QSvgRenderer;
-
-    // Slots
     function load (contents : QByteArray) : void;
     function load (file : string) : void;
+    function paintEvent (event : QPaintEvent) : void;
+    function renderer () : QSvgRenderer;
 }

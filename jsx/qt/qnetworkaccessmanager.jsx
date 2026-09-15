@@ -73,10 +73,8 @@ native class QNetworkAccessManager extends QObject
     function setStrictTransportSecurityEnabled (enabled : boolean) : void;
     function setTransferTimeout (timeout : int) : void;
     function supportedSchemes () : string[];
-    function transferTimeout () : int;
-
-    // Slots
     function supportedSchemesImplementation () : string[];
+    function transferTimeout () : int;
 
     // Signals
     var authenticationRequired : QtJSXQNetworkReplyQAuthenticatorSignal;

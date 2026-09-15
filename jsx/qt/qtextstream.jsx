@@ -12,13 +12,13 @@ import "qt/qtextcodec.jsx";
 
 final native class Qt_QTextStream_RealNumberNotation {}
 
-final native class Qt_QTextStream_NumberFlag {}
-
-final native class Qt_QTextStream_NumberFlags {}
-
 final native class Qt_QTextStream_Status {}
 
 final native class Qt_QTextStream_FieldAlignment {}
+
+final native class Qt_QTextStream_NumberFlag {}
+
+final native class Qt_QTextStream_NumberFlags {}
 
 native class QTextStream
 {
@@ -31,14 +31,6 @@ native class QTextStream
     static const ScientificNotation : Qt_QTextStream_RealNumberNotation;
     static function RealNumberNotation(value : Qt_QTextStream_RealNumberNotation) : Qt_QTextStream_RealNumberNotation;
 
-    static const ShowBase : Qt_QTextStream_NumberFlag;
-    static const ForcePoint : Qt_QTextStream_NumberFlag;
-    static const ForceSign : Qt_QTextStream_NumberFlag;
-    static const UppercaseBase : Qt_QTextStream_NumberFlag;
-    static const UppercaseDigits : Qt_QTextStream_NumberFlag;
-    static function NumberFlag(value : Qt_QTextStream_NumberFlag) : Qt_QTextStream_NumberFlag;
-    static function NumberFlags(...value : Qt_QTextStream_NumberFlag) : Qt_QTextStream_NumberFlags;
-
     static const Ok : Qt_QTextStream_Status;
     static const ReadPastEnd : Qt_QTextStream_Status;
     static const ReadCorruptData : Qt_QTextStream_Status;
@@ -50,6 +42,14 @@ native class QTextStream
     static const AlignCenter : Qt_QTextStream_FieldAlignment;
     static const AlignAccountingStyle : Qt_QTextStream_FieldAlignment;
     static function FieldAlignment(value : Qt_QTextStream_FieldAlignment) : Qt_QTextStream_FieldAlignment;
+
+    static const ShowBase : Qt_QTextStream_NumberFlag;
+    static const ForcePoint : Qt_QTextStream_NumberFlag;
+    static const ForceSign : Qt_QTextStream_NumberFlag;
+    static const UppercaseBase : Qt_QTextStream_NumberFlag;
+    static const UppercaseDigits : Qt_QTextStream_NumberFlag;
+    static function NumberFlag(value : Qt_QTextStream_NumberFlag) : Qt_QTextStream_NumberFlag;
+    static function NumberFlags(...value : Qt_QTextStream_NumberFlag) : Qt_QTextStream_NumberFlags;
 
     // Methods
     function atEnd () : boolean;

@@ -10,37 +10,31 @@ import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QPrintPreviewWidget_ViewMode {}
-
 final native class Qt_QPrintPreviewWidget_ZoomMode {}
+
+final native class Qt_QPrintPreviewWidget_ViewMode {}
 
 native class QPrintPreviewWidget extends QWidget
 {
     function constructor (printer : QPrinter, parent : QWidget, flags : Qt_WindowFlags);
     function constructor (parent : QWidget, flags : Qt_WindowFlags);
 
-    static const SinglePageView : Qt_QPrintPreviewWidget_ViewMode;
-    static const FacingPagesView : Qt_QPrintPreviewWidget_ViewMode;
-    static const AllPagesView : Qt_QPrintPreviewWidget_ViewMode;
-    static function ViewMode(value : Qt_QPrintPreviewWidget_ViewMode) : Qt_QPrintPreviewWidget_ViewMode;
-
     static const CustomZoom : Qt_QPrintPreviewWidget_ZoomMode;
     static const FitToWidth : Qt_QPrintPreviewWidget_ZoomMode;
     static const FitInView : Qt_QPrintPreviewWidget_ZoomMode;
     static function ZoomMode(value : Qt_QPrintPreviewWidget_ZoomMode) : Qt_QPrintPreviewWidget_ZoomMode;
 
+    static const SinglePageView : Qt_QPrintPreviewWidget_ViewMode;
+    static const FacingPagesView : Qt_QPrintPreviewWidget_ViewMode;
+    static const AllPagesView : Qt_QPrintPreviewWidget_ViewMode;
+    static function ViewMode(value : Qt_QPrintPreviewWidget_ViewMode) : Qt_QPrintPreviewWidget_ViewMode;
+
     // Methods
     function currentPage () : int;
-    function orientation () : Qt_QPrinter_Orientation;
-    function pageCount () : int;
-    function setVisible (visible : boolean) : void;
-    function viewMode () : Qt_QPrintPreviewWidget_ViewMode;
-    function zoomFactor () : number;
-    function zoomMode () : Qt_QPrintPreviewWidget_ZoomMode;
-
-    // Slots
     function fitInView () : void;
     function fitToWidth () : void;
+    function orientation () : Qt_QPrinter_Orientation;
+    function pageCount () : int;
     function print () : void;
     function setAllPagesViewMode () : void;
     function setCurrentPage (pageNumber : int) : void;
@@ -50,10 +44,14 @@ native class QPrintPreviewWidget extends QWidget
     function setPortraitOrientation () : void;
     function setSinglePageViewMode () : void;
     function setViewMode (viewMode : Qt_QPrintPreviewWidget_ViewMode) : void;
+    function setVisible (visible : boolean) : void;
     function setZoomFactor (zoomFactor : number) : void;
     function setZoomMode (zoomMode : Qt_QPrintPreviewWidget_ZoomMode) : void;
     function updatePreview () : void;
+    function viewMode () : Qt_QPrintPreviewWidget_ViewMode;
+    function zoomFactor () : number;
     function zoomIn (zoom : number) : void;
+    function zoomMode () : Qt_QPrintPreviewWidget_ZoomMode;
     function zoomOut (zoom : number) : void;
 
     // Signals

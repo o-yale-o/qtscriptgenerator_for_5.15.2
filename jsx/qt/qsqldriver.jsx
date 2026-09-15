@@ -14,19 +14,15 @@ import "qt/qsqlrecord.jsx";
 import "qt/qsqlresult.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QSqlDriver_IdentifierType {}
-
 final native class Qt_QSqlDriver_DriverFeature {}
+
+final native class Qt_QSqlDriver_IdentifierType {}
 
 final native class Qt_QSqlDriver_StatementType {}
 
 native class QSqlDriver extends QObject
 {
     function constructor (parent : QObject);
-
-    static const FieldName : Qt_QSqlDriver_IdentifierType;
-    static const TableName : Qt_QSqlDriver_IdentifierType;
-    static function IdentifierType(value : Qt_QSqlDriver_IdentifierType) : Qt_QSqlDriver_IdentifierType;
 
     static const Transactions : Qt_QSqlDriver_DriverFeature;
     static const QuerySize : Qt_QSqlDriver_DriverFeature;
@@ -45,6 +41,10 @@ native class QSqlDriver extends QObject
     static const CancelQuery : Qt_QSqlDriver_DriverFeature;
     static function DriverFeature(value : Qt_QSqlDriver_DriverFeature) : Qt_QSqlDriver_DriverFeature;
 
+    static const FieldName : Qt_QSqlDriver_IdentifierType;
+    static const TableName : Qt_QSqlDriver_IdentifierType;
+    static function IdentifierType(value : Qt_QSqlDriver_IdentifierType) : Qt_QSqlDriver_IdentifierType;
+
     static const WhereStatement : Qt_QSqlDriver_StatementType;
     static const SelectStatement : Qt_QSqlDriver_StatementType;
     static const UpdateStatement : Qt_QSqlDriver_StatementType;
@@ -54,6 +54,7 @@ native class QSqlDriver extends QObject
 
     // Methods
     function beginTransaction () : boolean;
+    function cancelQuery () : boolean;
     function close () : void;
     function commitTransaction () : boolean;
     function createResult () : QSqlResult;
@@ -80,9 +81,6 @@ native class QSqlDriver extends QObject
     function subscribedToNotifications () : string[];
     function tables (tableType : Qt_QSql_TableType) : string[];
     function unsubscribeFromNotification (name : string) : boolean;
-
-    // Slots
-    function cancelQuery () : boolean;
 
     // Signals
     var notification : QtJSXQStringSignal;

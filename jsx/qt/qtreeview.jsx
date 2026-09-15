@@ -21,13 +21,23 @@ native class QTreeView extends QAbstractItemView
     function constructor (parent : QWidget);
 
     // Methods
+    function collapse (index : QModelIndex) : void;
+    function collapseAll () : void;
     function columnAt (x : int) : int;
+    function columnCountChanged (oldCount : int, newCount : int) : void;
+    function columnMoved () : void;
+    function columnResized (column : int, oldSize : int, newSize : int) : void;
     function columnViewportPosition (column : int) : int;
     function columnWidth (column : int) : int;
     function drawBranches (painter : QPainter, rect : QRect, index : QModelIndex) : void;
     function drawRow (painter : QPainter, options : QStyleOptionViewItem, index : QModelIndex) : void;
     function drawTree (painter : QPainter, region : QRegion) : void;
+    function expand (index : QModelIndex) : void;
+    function expandAll () : void;
+    function expandRecursively (index : QModelIndex, depth : int) : void;
+    function expandToDepth (depth : int) : void;
     function header () : QHeaderView;
+    function hideColumn (column : int) : void;
     function indexAbove (index : QModelIndex) : QModelIndex;
     function indexBelow (index : QModelIndex) : QModelIndex;
     function indexRowSizeHint (index : QModelIndex) : int;
@@ -35,8 +45,11 @@ native class QTreeView extends QAbstractItemView
     function isExpanded (index : QModelIndex) : boolean;
     function isFirstColumnSpanned (row : int, parent : QModelIndex) : boolean;
     function isRowHidden (row : int, parent : QModelIndex) : boolean;
+    function reexpand () : void;
     function resetIndentation () : void;
+    function resizeColumnToContents (column : int) : void;
     function rowHeight (index : QModelIndex) : int;
+    function rowsRemoved (parent : QModelIndex, first : int, last : int) : void;
     function setColumnHidden (column : int, hide : boolean) : void;
     function setColumnWidth (column : int, width : int) : void;
     function setExpanded (index : QModelIndex, expand : boolean) : void;
@@ -44,24 +57,9 @@ native class QTreeView extends QAbstractItemView
     function setHeader (header : QHeaderView) : void;
     function setRowHidden (row : int, parent : QModelIndex, hide : boolean) : void;
     function setTreePosition (logicalIndex : int) : void;
-    function treePosition () : int;
-
-    // Slots
-    function collapse (index : QModelIndex) : void;
-    function collapseAll () : void;
-    function columnCountChanged (oldCount : int, newCount : int) : void;
-    function columnMoved () : void;
-    function columnResized (column : int, oldSize : int, newSize : int) : void;
-    function expand (index : QModelIndex) : void;
-    function expandAll () : void;
-    function expandRecursively (index : QModelIndex, depth : int) : void;
-    function expandToDepth (depth : int) : void;
-    function hideColumn (column : int) : void;
-    function reexpand () : void;
-    function resizeColumnToContents (column : int) : void;
-    function rowsRemoved (parent : QModelIndex, first : int, last : int) : void;
     function showColumn (column : int) : void;
     function sortByColumn (column : int, order : Qt_SortOrder) : void;
+    function treePosition () : int;
 
     // Signals
     var collapsed : QtJSXQModelIndexSignal;

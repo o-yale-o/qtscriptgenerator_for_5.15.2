@@ -24,9 +24,7 @@ native class QSound extends QObject
     function isFinished () : boolean;
     function loops () : int;
     function loopsRemaining () : int;
-    function setLoops (arg__1 : int) : void;
-
-    // Slots
     function play () : void;
+    function setLoops (arg__1 : int) : void;
     function stop () : void;
 }

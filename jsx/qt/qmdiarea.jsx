@@ -7,9 +7,11 @@
  */
 import "qt/qabstractscrollarea.jsx";
 import "qt/qbrush.jsx";
+import "qt/qchildevent.jsx";
 import "qt/qmdisubwindow.jsx";
 import "qt/qt.jsx";
 import "qt/qtabwidget.jsx";
+import "qt/qtimerevent.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
@@ -39,22 +41,22 @@ native class QMdiArea extends QAbstractScrollArea
     static function AreaOptions(...value : Qt_QMdiArea_AreaOption) : Qt_QMdiArea_AreaOptions;
 
     // Methods
+    function activateNextSubWindow () : void;
+    function activatePreviousSubWindow () : void;
     function activeSubWindow () : QMdiSubWindow;
     function addSubWindow (widget : QWidget, flags : Qt_WindowFlags) : QMdiSubWindow;
+    function cascadeSubWindows () : void;
+    function childEvent (childEvent : QChildEvent) : void;
+    function closeActiveSubWindow () : void;
+    function closeAllSubWindows () : void;
     function currentSubWindow () : QMdiSubWindow;
     function removeSubWindow (widget : QWidget) : void;
+    function setActiveSubWindow (window : QMdiSubWindow) : void;
     function setOption (option : Qt_QMdiArea_AreaOption, on : boolean) : void;
     function subWindowList (order : Qt_QMdiArea_WindowOrder) : QMdiSubWindow[];
     function testOption (opton : Qt_QMdiArea_AreaOption) : boolean;
-
-    // Slots
-    function activateNextSubWindow () : void;
-    function activatePreviousSubWindow () : void;
-    function cascadeSubWindows () : void;
-    function closeActiveSubWindow () : void;
-    function closeAllSubWindows () : void;
-    function setActiveSubWindow (window : QMdiSubWindow) : void;
     function tileSubWindows () : void;
+    function timerEvent (timerEvent : QTimerEvent) : void;
 
     // Signals
     var subWindowActivated : QtJSXQMdiSubWindowSignal;

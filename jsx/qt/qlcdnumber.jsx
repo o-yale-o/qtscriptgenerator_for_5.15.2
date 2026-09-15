@@ -32,8 +32,6 @@ native class QLCDNumber extends QFrame
     // Methods
     function checkOverflow (num : number) : boolean;
     function checkOverflow (num : int) : boolean;
-
-    // Slots
     function display (str : string) : void;
     function display (num : int) : void;
     function setBinMode () : void;

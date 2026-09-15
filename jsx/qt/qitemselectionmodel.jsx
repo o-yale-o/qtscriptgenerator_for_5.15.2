@@ -35,22 +35,20 @@ native class QItemSelectionModel extends QObject
     static function SelectionFlags(...value : Qt_QItemSelectionModel_SelectionFlag) : Qt_QItemSelectionModel_SelectionFlags;
 
     // Methods
+    function clear () : void;
+    function clearCurrentIndex () : void;
+    function clearSelection () : void;
     function columnIntersectsSelection (column : int, parent : QModelIndex) : boolean;
     function emitSelectionChanged (newSelection : QItemSelection, oldSelection : QItemSelection) : void;
     function isColumnSelected (column : int, parent : QModelIndex) : boolean;
     function isRowSelected (row : int, parent : QModelIndex) : boolean;
     function isSelected (index : QModelIndex) : boolean;
-    function rowIntersectsSelection (row : int, parent : QModelIndex) : boolean;
-    function selectedColumns (row : int) : QModelIndex[];
-    function selectedRows (column : int) : QModelIndex[];
-
-    // Slots
-    function clear () : void;
-    function clearCurrentIndex () : void;
-    function clearSelection () : void;
     function reset () : void;
+    function rowIntersectsSelection (row : int, parent : QModelIndex) : boolean;
     function select (selection : QItemSelection, command : Qt_QItemSelectionModel_SelectionFlags) : void;
     function select (index : QModelIndex, command : Qt_QItemSelectionModel_SelectionFlags) : void;
+    function selectedColumns (row : int) : QModelIndex[];
+    function selectedRows (column : int) : QModelIndex[];
     function setCurrentIndex (index : QModelIndex, command : Qt_QItemSelectionModel_SelectionFlags) : void;
 
     // Signals

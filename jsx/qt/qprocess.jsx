@@ -11,15 +11,15 @@ import "qt/qobject.jsx";
 import "qt/qprocessenvironment.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QProcess_ProcessChannel {}
+final native class Qt_QProcess_ProcessChannelMode {}
+
+final native class Qt_QProcess_ExitStatus {}
 
 final native class Qt_QProcess_ProcessError {}
 
 final native class Qt_QProcess_ProcessState {}
 
-final native class Qt_QProcess_ProcessChannelMode {}
-
-final native class Qt_QProcess_ExitStatus {}
+final native class Qt_QProcess_ProcessChannel {}
 
 native class QProcess extends QIODevice
 {
@@ -31,9 +31,16 @@ native class QProcess extends QIODevice
     static function startDetached (command : string) : boolean;
     static function systemEnvironment () : string[];
 
-    static const StandardOutput : Qt_QProcess_ProcessChannel;
-    static const StandardError : Qt_QProcess_ProcessChannel;
-    static function ProcessChannel(value : Qt_QProcess_ProcessChannel) : Qt_QProcess_ProcessChannel;
+    static const SeparateChannels : Qt_QProcess_ProcessChannelMode;
+    static const MergedChannels : Qt_QProcess_ProcessChannelMode;
+    static const ForwardedChannels : Qt_QProcess_ProcessChannelMode;
+    static const ForwardedOutputChannel : Qt_QProcess_ProcessChannelMode;
+    static const ForwardedErrorChannel : Qt_QProcess_ProcessChannelMode;
+    static function ProcessChannelMode(value : Qt_QProcess_ProcessChannelMode) : Qt_QProcess_ProcessChannelMode;
+
+    static const NormalExit : Qt_QProcess_ExitStatus;
+    static const CrashExit : Qt_QProcess_ExitStatus;
+    static function ExitStatus(value : Qt_QProcess_ExitStatus) : Qt_QProcess_ExitStatus;
 
     static const FailedToStart : Qt_QProcess_ProcessError;
     static const Crashed : Qt_QProcess_ProcessError;
@@ -48,16 +55,9 @@ native class QProcess extends QIODevice
     static const Running : Qt_QProcess_ProcessState;
     static function ProcessState(value : Qt_QProcess_ProcessState) : Qt_QProcess_ProcessState;
 
-    static const SeparateChannels : Qt_QProcess_ProcessChannelMode;
-    static const MergedChannels : Qt_QProcess_ProcessChannelMode;
-    static const ForwardedChannels : Qt_QProcess_ProcessChannelMode;
-    static const ForwardedOutputChannel : Qt_QProcess_ProcessChannelMode;
-    static const ForwardedErrorChannel : Qt_QProcess_ProcessChannelMode;
-    static function ProcessChannelMode(value : Qt_QProcess_ProcessChannelMode) : Qt_QProcess_ProcessChannelMode;
-
-    static const NormalExit : Qt_QProcess_ExitStatus;
-    static const CrashExit : Qt_QProcess_ExitStatus;
-    static function ExitStatus(value : Qt_QProcess_ExitStatus) : Qt_QProcess_ExitStatus;
+    static const StandardOutput : Qt_QProcess_ProcessChannel;
+    static const StandardError : Qt_QProcess_ProcessChannel;
+    static function ProcessChannel(value : Qt_QProcess_ProcessChannel) : Qt_QProcess_ProcessChannel;
 
     // Methods
     function arguments () : string[];
@@ -66,6 +66,7 @@ native class QProcess extends QIODevice
     function environment () : string[];
     function exitCode () : int;
     function exitStatus () : Qt_QProcess_ExitStatus;
+    function kill () : void;
     function processChannelMode () : Qt_QProcess_ProcessChannelMode;
     function processEnvironment () : QProcessEnvironment;
     function processId () : number;
@@ -91,13 +92,10 @@ native class QProcess extends QIODevice
     function start (program : string, arguments : string[], mode : Qt_QIODevice_OpenMode) : void;
     function startDetached (pid : number) : boolean;
     function state () : Qt_QProcess_ProcessState;
+    function terminate () : void;
     function waitForFinished (msecs : int) : boolean;
     function waitForStarted (msecs : int) : boolean;
     function workingDirectory () : string;
-
-    // Slots
-    function kill () : void;
-    function terminate () : void;
 
     // Signals
     var error : QtJSXQt_QProcess_ProcessErrorSignal;

@@ -13,19 +13,26 @@ import "qt/qwidget.jsx";
 import "qt/qwizardpage.jsx";
 import "qt/_signals.jsx";
 
+final native class Qt_QWizard_WizardPixmap {}
+
 final native class Qt_QWizard_WizardOption {}
 
 final native class Qt_QWizard_WizardOptions {}
 
-final native class Qt_QWizard_WizardPixmap {}
+final native class Qt_QWizard_WizardStyle {}
 
 final native class Qt_QWizard_WizardButton {}
-
-final native class Qt_QWizard_WizardStyle {}
 
 native class QWizard extends QDialog
 {
     function constructor (parent : QWidget, flags : Qt_WindowFlags);
+
+    static const WatermarkPixmap : Qt_QWizard_WizardPixmap;
+    static const LogoPixmap : Qt_QWizard_WizardPixmap;
+    static const BannerPixmap : Qt_QWizard_WizardPixmap;
+    static const BackgroundPixmap : Qt_QWizard_WizardPixmap;
+    static const NPixmaps : Qt_QWizard_WizardPixmap;
+    static function WizardPixmap(value : Qt_QWizard_WizardPixmap) : Qt_QWizard_WizardPixmap;
 
     static const IndependentPages : Qt_QWizard_WizardOption;
     static const IgnoreSubTitles : Qt_QWizard_WizardOption;
@@ -47,12 +54,12 @@ native class QWizard extends QDialog
     static function WizardOption(value : Qt_QWizard_WizardOption) : Qt_QWizard_WizardOption;
     static function WizardOptions(...value : Qt_QWizard_WizardOption) : Qt_QWizard_WizardOptions;
 
-    static const WatermarkPixmap : Qt_QWizard_WizardPixmap;
-    static const LogoPixmap : Qt_QWizard_WizardPixmap;
-    static const BannerPixmap : Qt_QWizard_WizardPixmap;
-    static const BackgroundPixmap : Qt_QWizard_WizardPixmap;
-    static const NPixmaps : Qt_QWizard_WizardPixmap;
-    static function WizardPixmap(value : Qt_QWizard_WizardPixmap) : Qt_QWizard_WizardPixmap;
+    static const ClassicStyle : Qt_QWizard_WizardStyle;
+    static const ModernStyle : Qt_QWizard_WizardStyle;
+    static const MacStyle : Qt_QWizard_WizardStyle;
+    static const AeroStyle : Qt_QWizard_WizardStyle;
+    static const NStyles : Qt_QWizard_WizardStyle;
+    static function WizardStyle(value : Qt_QWizard_WizardStyle) : Qt_QWizard_WizardStyle;
 
     static const NoButton : Qt_QWizard_WizardButton;
     static const BackButton : Qt_QWizard_WizardButton;
@@ -67,15 +74,9 @@ native class QWizard extends QDialog
     static const Stretch : Qt_QWizard_WizardButton;
     static function WizardButton(value : Qt_QWizard_WizardButton) : Qt_QWizard_WizardButton;
 
-    static const ClassicStyle : Qt_QWizard_WizardStyle;
-    static const ModernStyle : Qt_QWizard_WizardStyle;
-    static const MacStyle : Qt_QWizard_WizardStyle;
-    static const AeroStyle : Qt_QWizard_WizardStyle;
-    static const NStyles : Qt_QWizard_WizardStyle;
-    static function WizardStyle(value : Qt_QWizard_WizardStyle) : Qt_QWizard_WizardStyle;
-
     // Methods
     function addPage (page : QWizardPage) : int;
+    function back () : void;
     function button (which : Qt_QWizard_WizardButton) : QAbstractButton;
     function buttonText (which : Qt_QWizard_WizardButton) : string;
     function cleanupPage (id : int) : void;
@@ -83,11 +84,13 @@ native class QWizard extends QDialog
     function field (name : string) : variant;
     function hasVisitedPage (id : int) : boolean;
     function initializePage (id : int) : void;
+    function next () : void;
     function nextId () : int;
     function page (id : int) : QWizardPage;
     function pageIds () : int[];
     function pixmap (which : Qt_QWizard_WizardPixmap) : QPixmap;
     function removePage (id : int) : void;
+    function restart () : void;
     function setButton (which : Qt_QWizard_WizardButton, button : QAbstractButton) : void;
     function setButtonLayout (layout : Qt_QWizard_WizardButton[]) : void;
     function setButtonText (which : Qt_QWizard_WizardButton, text : string) : void;
@@ -101,11 +104,6 @@ native class QWizard extends QDialog
     function validateCurrentPage () : boolean;
     function visitedIds () : int[];
     function visitedPages () : int[];
-
-    // Slots
-    function back () : void;
-    function next () : void;
-    function restart () : void;
 
     // Signals
     var currentIdChanged : QtJSXintSignal;

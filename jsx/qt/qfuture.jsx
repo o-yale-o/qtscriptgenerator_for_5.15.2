@@ -9,13 +9,13 @@
 native class QFuture
 {
     function constructor ();
+    function constructor (other : QFuture);
 
     // Methods
     function cancel () : void;
     function isCanceled () : boolean;
     function isFinished () : boolean;
     function isPaused () : boolean;
-    function isResultReadyAt (resultIndex : int) : boolean;
     function isRunning () : boolean;
     function isStarted () : boolean;
     function operator_equal (other : QFuture) : boolean;

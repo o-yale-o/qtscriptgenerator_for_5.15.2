@@ -7,14 +7,19 @@
  */
 import "qt/qabstractxmlnodemodel.jsx";
 
-final native class Qt_QXmlNodeModelIndex_NodeKind {}
-
 final native class Qt_QXmlNodeModelIndex_DocumentOrder {}
+
+final native class Qt_QXmlNodeModelIndex_NodeKind {}
 
 native class QXmlNodeModelIndex
 {
     function constructor ();
     function constructor (other : QXmlNodeModelIndex);
+
+    static const Precedes : Qt_QXmlNodeModelIndex_DocumentOrder;
+    static const Is : Qt_QXmlNodeModelIndex_DocumentOrder;
+    static const Follows : Qt_QXmlNodeModelIndex_DocumentOrder;
+    static function DocumentOrder(value : Qt_QXmlNodeModelIndex_DocumentOrder) : Qt_QXmlNodeModelIndex_DocumentOrder;
 
     static const Attribute : Qt_QXmlNodeModelIndex_NodeKind;
     static const Comment : Qt_QXmlNodeModelIndex_NodeKind;
@@ -24,11 +29,6 @@ native class QXmlNodeModelIndex
     static const ProcessingInstruction : Qt_QXmlNodeModelIndex_NodeKind;
     static const Text : Qt_QXmlNodeModelIndex_NodeKind;
     static function NodeKind(value : Qt_QXmlNodeModelIndex_NodeKind) : Qt_QXmlNodeModelIndex_NodeKind;
-
-    static const Precedes : Qt_QXmlNodeModelIndex_DocumentOrder;
-    static const Is : Qt_QXmlNodeModelIndex_DocumentOrder;
-    static const Follows : Qt_QXmlNodeModelIndex_DocumentOrder;
-    static function DocumentOrder(value : Qt_QXmlNodeModelIndex_DocumentOrder) : Qt_QXmlNodeModelIndex_DocumentOrder;
 
     // Methods
     function additionalData () : number;

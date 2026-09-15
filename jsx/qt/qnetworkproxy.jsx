@@ -8,11 +8,11 @@
 import "qt/qbytearray.jsx";
 import "qt/qnetworkrequest.jsx";
 
-final native class Qt_QNetworkProxy_ProxyType {}
-
 final native class Qt_QNetworkProxy_Capability {}
 
 final native class Qt_QNetworkProxy_Capabilities {}
+
+final native class Qt_QNetworkProxy_ProxyType {}
 
 native class QNetworkProxy
 {
@@ -24,14 +24,6 @@ native class QNetworkProxy
     static function applicationProxy () : QNetworkProxy;
     static function setApplicationProxy (proxy : QNetworkProxy) : void;
 
-    static const DefaultProxy : Qt_QNetworkProxy_ProxyType;
-    static const Socks5Proxy : Qt_QNetworkProxy_ProxyType;
-    static const NoProxy : Qt_QNetworkProxy_ProxyType;
-    static const HttpProxy : Qt_QNetworkProxy_ProxyType;
-    static const HttpCachingProxy : Qt_QNetworkProxy_ProxyType;
-    static const FtpCachingProxy : Qt_QNetworkProxy_ProxyType;
-    static function ProxyType(value : Qt_QNetworkProxy_ProxyType) : Qt_QNetworkProxy_ProxyType;
-
     static const TunnelingCapability : Qt_QNetworkProxy_Capability;
     static const ListeningCapability : Qt_QNetworkProxy_Capability;
     static const UdpTunnelingCapability : Qt_QNetworkProxy_Capability;
@@ -41,6 +33,14 @@ native class QNetworkProxy
     static const SctpListeningCapability : Qt_QNetworkProxy_Capability;
     static function Capability(value : Qt_QNetworkProxy_Capability) : Qt_QNetworkProxy_Capability;
     static function Capabilities(...value : Qt_QNetworkProxy_Capability) : Qt_QNetworkProxy_Capabilities;
+
+    static const DefaultProxy : Qt_QNetworkProxy_ProxyType;
+    static const Socks5Proxy : Qt_QNetworkProxy_ProxyType;
+    static const NoProxy : Qt_QNetworkProxy_ProxyType;
+    static const HttpProxy : Qt_QNetworkProxy_ProxyType;
+    static const HttpCachingProxy : Qt_QNetworkProxy_ProxyType;
+    static const FtpCachingProxy : Qt_QNetworkProxy_ProxyType;
+    static function ProxyType(value : Qt_QNetworkProxy_ProxyType) : Qt_QNetworkProxy_ProxyType;
 
     // Methods
     function capabilities () : Qt_QNetworkProxy_Capabilities;

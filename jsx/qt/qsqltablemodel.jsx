@@ -38,7 +38,10 @@ native class QSqlTableModel extends QSqlQueryModel
     function orderByClause () : string;
     function primaryKey () : QSqlIndex;
     function primaryValues (row : int) : QSqlRecord;
+    function revertAll () : void;
     function revertRow (row : int) : void;
+    function select () : boolean;
+    function selectRow (row : int) : boolean;
     function selectStatement () : string;
     function setEditStrategy (strategy : Qt_QSqlTableModel_EditStrategy) : void;
     function setFilter (filter : string) : void;
@@ -46,14 +49,9 @@ native class QSqlTableModel extends QSqlQueryModel
     function setRecord (row : int, record : QSqlRecord) : boolean;
     function setSort (column : int, order : Qt_SortOrder) : void;
     function setTable (tableName : string) : void;
+    function submitAll () : boolean;
     function tableName () : string;
     function updateRowInTable (row : int, values : QSqlRecord) : boolean;
-
-    // Slots
-    function revertAll () : void;
-    function select () : boolean;
-    function selectRow (row : int) : boolean;
-    function submitAll () : boolean;
 
     // Signals
     var beforeDelete : QtJSXintSignal;

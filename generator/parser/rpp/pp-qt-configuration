@@ -7,6 +7,11 @@
 
 // not yet supported
 #define Q_SLOTS slots
+// Expand away the slots keyword as well; leaving it as an identifier makes
+// the legacy parser choke on 'public slots:' sections (Qt 5 headers use
+// Q_SLOTS everywhere, which the line above turns into the word 'slots').
+// Qt itself defines 'slots' to nothing for the same reason.
+#define slots
 #define Q_SIGNALS signals
 #define Q_FLAGS(a)
 #define Q_PRIVATE_SLOT(a, b)

@@ -7,6 +7,7 @@
  */
 import "qt/qcolor.jsx";
 import "qt/qimage.jsx";
+import "qt/qpaintdevice.jsx";
 import "qt/qpixmap.jsx";
 import "qt/qpointf.jsx";
 import "qt/qrectf.jsx";
@@ -47,6 +48,7 @@ native class QGLContext
     function colorIndex (c : QColor) : int;
     function create (shareContext : QGLContext) : boolean;
     function deleteTexture (tx_id : int) : void;
+    function device () : QPaintDevice;
     function deviceIsPixmap () : boolean;
     function doneCurrent () : void;
     function drawTexture (point : QPointF, textureId : int, textureTarget : int) : void;

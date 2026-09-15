@@ -8,13 +8,14 @@
 import "qt/qlineedit.jsx";
 import "qt/qstyleoptionspinbox.jsx";
 import "qt/qt.jsx";
+import "qt/qtimerevent.jsx";
 import "qt/qvalidator.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QAbstractSpinBox_ButtonSymbols {}
-
 final native class Qt_QAbstractSpinBox_CorrectionMode {}
+
+final native class Qt_QAbstractSpinBox_ButtonSymbols {}
 
 final native class Qt_QAbstractSpinBox_StepEnabledFlag {}
 
@@ -24,14 +25,14 @@ native class QAbstractSpinBox extends QWidget
 {
     function constructor (parent : QWidget);
 
+    static const CorrectToPreviousValue : Qt_QAbstractSpinBox_CorrectionMode;
+    static const CorrectToNearestValue : Qt_QAbstractSpinBox_CorrectionMode;
+    static function CorrectionMode(value : Qt_QAbstractSpinBox_CorrectionMode) : Qt_QAbstractSpinBox_CorrectionMode;
+
     static const UpDownArrows : Qt_QAbstractSpinBox_ButtonSymbols;
     static const PlusMinus : Qt_QAbstractSpinBox_ButtonSymbols;
     static const NoButtons : Qt_QAbstractSpinBox_ButtonSymbols;
     static function ButtonSymbols(value : Qt_QAbstractSpinBox_ButtonSymbols) : Qt_QAbstractSpinBox_ButtonSymbols;
-
-    static const CorrectToPreviousValue : Qt_QAbstractSpinBox_CorrectionMode;
-    static const CorrectToNearestValue : Qt_QAbstractSpinBox_CorrectionMode;
-    static function CorrectionMode(value : Qt_QAbstractSpinBox_CorrectionMode) : Qt_QAbstractSpinBox_CorrectionMode;
 
     static const StepNone : Qt_QAbstractSpinBox_StepEnabledFlag;
     static const StepUpEnabled : Qt_QAbstractSpinBox_StepEnabledFlag;
@@ -40,20 +41,19 @@ native class QAbstractSpinBox extends QWidget
     static function StepEnabled(...value : Qt_QAbstractSpinBox_StepEnabledFlag) : Qt_QAbstractSpinBox_StepEnabled;
 
     // Methods
+    function clear () : void;
     function fixup (input : string) : void;
     function initStyleOption (option : QStyleOptionSpinBox) : void;
     function interpretText () : void;
     function lineEdit () : QLineEdit;
+    function selectAll () : void;
     function setLineEdit (edit : QLineEdit) : void;
     function stepBy (steps : int) : void;
-    function stepEnabled () : Qt_QAbstractSpinBox_StepEnabled;
-    function validate (input : string, pos : int) : Qt_QValidator_State;
-
-    // Slots
-    function clear () : void;
-    function selectAll () : void;
     function stepDown () : void;
+    function stepEnabled () : Qt_QAbstractSpinBox_StepEnabled;
     function stepUp () : void;
+    function timerEvent (event : QTimerEvent) : void;
+    function validate (input : string, pos : int) : Qt_QValidator_State;
 
     // Signals
     var editingFinished : QtJSXSignal;

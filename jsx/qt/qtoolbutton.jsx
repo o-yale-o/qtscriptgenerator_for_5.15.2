@@ -28,10 +28,8 @@ native class QToolButton extends QAbstractButton
     function defaultAction () : QAction;
     function initStyleOption (option : QStyleOptionToolButton) : void;
     function menu () : QMenu;
-    function setMenu (menu : QMenu) : void;
-
-    // Slots
     function setDefaultAction (arg__1 : QAction) : void;
+    function setMenu (menu : QMenu) : void;
     function showMenu () : void;
 
     // Signals

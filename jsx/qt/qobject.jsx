@@ -20,6 +20,7 @@ native class QObject
     function childEvent (event : QChildEvent) : void;
     function children () : QObject[];
     function customEvent (event : QEvent) : void;
+    function disposeLater () : void;
     function dumpObjectInfo () : void;
     function dumpObjectTree () : void;
     function dynamicPropertyNames () : QByteArray[];
@@ -39,9 +40,6 @@ native class QObject
     function signalsBlocked () : boolean;
     function startTimer (interval : int, timerType : Qt_TimerType) : int;
     function timerEvent (event : QTimerEvent) : void;
-
-    // Slots
-    function disposeLater () : void;
 
     // Instance Properties
     var objectName : string;

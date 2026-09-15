@@ -48,6 +48,7 @@ import "qt/qmatrix4x4.jsx"; // QMatrix4x4
 import "qt/qmouseevent.jsx"; // QMouseEvent
 import "qt/qmoveevent.jsx"; // QMoveEvent
 import "qt/qmovie.jsx"; // QMovie
+import "qt/qpaintdevice.jsx"; // QPaintDevice
 import "qt/qpaintenginestate.jsx"; // QPaintEngineState
 import "qt/qpaintevent.jsx"; // QPaintEvent
 import "qt/qpainter.jsx"; // QPainter

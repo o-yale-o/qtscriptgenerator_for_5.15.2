@@ -22,15 +22,13 @@ native class QUndoGroup extends QObject
     function createRedoAction (parent : QObject, prefix : string) : QAction;
     function createUndoAction (parent : QObject, prefix : string) : QAction;
     function isClean () : boolean;
+    function redo () : void;
     function redoText () : string;
     function removeStack (stack : QUndoStack) : void;
-    function stacks () : QUndoStack[];
-    function undoText () : string;
-
-    // Slots
-    function redo () : void;
     function setActiveStack (stack : QUndoStack) : void;
+    function stacks () : QUndoStack[];
     function undo () : void;
+    function undoText () : string;
 
     // Signals
     var activeStackChanged : QtJSXQUndoStackSignal;

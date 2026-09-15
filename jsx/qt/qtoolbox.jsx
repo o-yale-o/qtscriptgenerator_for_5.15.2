@@ -29,14 +29,12 @@ native class QToolBox extends QFrame
     function itemText (index : int) : string;
     function itemToolTip (index : int) : string;
     function removeItem (index : int) : void;
+    function setCurrentWidget (widget : QWidget) : void;
     function setItemEnabled (index : int, enabled : boolean) : void;
     function setItemIcon (index : int, icon : QIcon) : void;
     function setItemText (index : int, text : string) : void;
     function setItemToolTip (index : int, toolTip : string) : void;
     function widget (index : int) : QWidget;
-
-    // Slots
-    function setCurrentWidget (widget : QWidget) : void;
 
     // Signals
     var currentChanged : QtJSXintSignal;

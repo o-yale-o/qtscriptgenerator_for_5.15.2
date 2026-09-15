@@ -25,6 +25,8 @@ native class QTableWidget extends QTableView
 
     // Methods
     function cellWidget (row : int, column : int) : QWidget;
+    function clear () : void;
+    function clearContents () : void;
     function closePersistentEditor (item : QTableWidgetItem) : void;
     function column (item : QTableWidgetItem) : int;
     function currentColumn () : int;
@@ -35,6 +37,8 @@ native class QTableWidget extends QTableView
     function findItems (text : string, flags : Qt_MatchFlags) : QTableWidgetItem[];
     function horizontalHeaderItem (column : int) : QTableWidgetItem;
     function indexFromItem (item : QTableWidgetItem) : QModelIndex;
+    function insertColumn (column : int) : void;
+    function insertRow (row : int) : void;
     function isPersistentEditorOpen (item : QTableWidgetItem) : boolean;
     function item (row : int, column : int) : QTableWidgetItem;
     function itemAt (p : QPoint) : QTableWidgetItem;
@@ -45,7 +49,10 @@ native class QTableWidget extends QTableView
     function mimeTypes () : string[];
     function openPersistentEditor (item : QTableWidgetItem) : void;
     function removeCellWidget (row : int, column : int) : void;
+    function removeColumn (column : int) : void;
+    function removeRow (row : int) : void;
     function row (item : QTableWidgetItem) : int;
+    function scrollToItem (item : QTableWidgetItem, hint : Qt_QAbstractItemView_ScrollHint) : void;
     function selectedItems () : QTableWidgetItem[];
     function selectedRanges () : QTableWidgetSelectionRange[];
     function setCellWidget (row : int, column : int, widget : QWidget) : void;
@@ -69,15 +76,6 @@ native class QTableWidget extends QTableView
     function visualColumn (logicalColumn : int) : int;
     function visualItemRect (item : QTableWidgetItem) : QRect;
     function visualRow (logicalRow : int) : int;
-
-    // Slots
-    function clear () : void;
-    function clearContents () : void;
-    function insertColumn (column : int) : void;
-    function insertRow (row : int) : void;
-    function removeColumn (column : int) : void;
-    function removeRow (row : int) : void;
-    function scrollToItem (item : QTableWidgetItem, hint : Qt_QAbstractItemView_ScrollHint) : void;
 
     // Signals
     var cellActivated : QtJSXintintSignal;

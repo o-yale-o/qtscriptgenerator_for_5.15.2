@@ -52,21 +52,19 @@ native class QAction extends QObject
     function associatedGraphicsWidgets () : QGraphicsWidget[];
     function associatedWidgets () : QWidget[];
     function data () : variant;
+    function hover () : void;
     function isSeparator () : boolean;
     function menu () : QMenu;
     function parentWidget () : QWidget;
     function setActionGroup (group : QActionGroup) : void;
     function setData (var_ : variant) : void;
+    function setDisabled (b : boolean) : void;
     function setMenu (menu : QMenu) : void;
     function setSeparator (b : boolean) : void;
     function setShortcuts (arg__1 : Qt_QKeySequence_StandardKey) : void;
     function setShortcuts (shortcuts : QKeySequence[]) : void;
     function shortcuts () : QKeySequence[];
     function showStatusText (widget : QWidget) : boolean;
-
-    // Slots
-    function hover () : void;
-    function setDisabled (b : boolean) : void;
     function toggle () : void;
     function trigger () : void;
 

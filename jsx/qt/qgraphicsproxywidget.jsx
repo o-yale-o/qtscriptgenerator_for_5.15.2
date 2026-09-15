@@ -17,10 +17,8 @@ native class QGraphicsProxyWidget extends QGraphicsWidget
 
     // Methods
     function createProxyForChildWidget (child : QWidget) : QGraphicsProxyWidget;
+    function newProxyWidget (arg__1 : QWidget) : QGraphicsProxyWidget;
     function setWidget (widget : QWidget) : void;
     function subWidgetRect (widget : QWidget) : QRectF;
     function widget () : QWidget;
-
-    // Slots
-    function newProxyWidget (arg__1 : QWidget) : QGraphicsProxyWidget;
 }

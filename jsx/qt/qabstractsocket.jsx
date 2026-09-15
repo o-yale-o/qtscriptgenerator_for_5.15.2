@@ -13,23 +13,35 @@ import "qt/qnetworkproxy.jsx";
 import "qt/qobject.jsx";
 import "qt/_signals.jsx";
 
+final native class Qt_QAbstractSocket_BindFlag {}
+
+final native class Qt_QAbstractSocket_SocketType {}
+
 final native class Qt_QAbstractSocket_SocketOption {}
+
+final native class Qt_QAbstractSocket_PauseMode {}
 
 final native class Qt_QAbstractSocket_NetworkLayerProtocol {}
 
 final native class Qt_QAbstractSocket_SocketError {}
 
-final native class Qt_QAbstractSocket_BindFlag {}
-
 final native class Qt_QAbstractSocket_SocketState {}
-
-final native class Qt_QAbstractSocket_PauseMode {}
-
-final native class Qt_QAbstractSocket_SocketType {}
 
 native class QAbstractSocket extends QIODevice
 {
     function constructor (socketType : Qt_QAbstractSocket_SocketType, parent : QObject);
+
+    static const DefaultForPlatform : Qt_QAbstractSocket_BindFlag;
+    static const ShareAddress : Qt_QAbstractSocket_BindFlag;
+    static const DontShareAddress : Qt_QAbstractSocket_BindFlag;
+    static const ReuseAddressHint : Qt_QAbstractSocket_BindFlag;
+    static function BindFlag(value : Qt_QAbstractSocket_BindFlag) : Qt_QAbstractSocket_BindFlag;
+
+    static const UnknownSocketType : Qt_QAbstractSocket_SocketType;
+    static const TcpSocket : Qt_QAbstractSocket_SocketType;
+    static const UdpSocket : Qt_QAbstractSocket_SocketType;
+    static const SctpSocket : Qt_QAbstractSocket_SocketType;
+    static function SocketType(value : Qt_QAbstractSocket_SocketType) : Qt_QAbstractSocket_SocketType;
 
     static const LowDelayOption : Qt_QAbstractSocket_SocketOption;
     static const KeepAliveOption : Qt_QAbstractSocket_SocketOption;
@@ -40,6 +52,10 @@ native class QAbstractSocket extends QIODevice
     static const ReceiveBufferSizeSocketOption : Qt_QAbstractSocket_SocketOption;
     static const PathMtuSocketOption : Qt_QAbstractSocket_SocketOption;
     static function SocketOption(value : Qt_QAbstractSocket_SocketOption) : Qt_QAbstractSocket_SocketOption;
+
+    static const PauseNever : Qt_QAbstractSocket_PauseMode;
+    static const PauseOnSslErrors : Qt_QAbstractSocket_PauseMode;
+    static function PauseMode(value : Qt_QAbstractSocket_PauseMode) : Qt_QAbstractSocket_PauseMode;
 
     static const UnknownNetworkLayerProtocol : Qt_QAbstractSocket_NetworkLayerProtocol;
     static const IPv4Protocol : Qt_QAbstractSocket_NetworkLayerProtocol;
@@ -73,12 +89,6 @@ native class QAbstractSocket extends QIODevice
     static const TemporaryError : Qt_QAbstractSocket_SocketError;
     static function SocketError(value : Qt_QAbstractSocket_SocketError) : Qt_QAbstractSocket_SocketError;
 
-    static const DefaultForPlatform : Qt_QAbstractSocket_BindFlag;
-    static const ShareAddress : Qt_QAbstractSocket_BindFlag;
-    static const DontShareAddress : Qt_QAbstractSocket_BindFlag;
-    static const ReuseAddressHint : Qt_QAbstractSocket_BindFlag;
-    static function BindFlag(value : Qt_QAbstractSocket_BindFlag) : Qt_QAbstractSocket_BindFlag;
-
     static const UnconnectedState : Qt_QAbstractSocket_SocketState;
     static const HostLookupState : Qt_QAbstractSocket_SocketState;
     static const ConnectingState : Qt_QAbstractSocket_SocketState;
@@ -87,16 +97,6 @@ native class QAbstractSocket extends QIODevice
     static const ListeningState : Qt_QAbstractSocket_SocketState;
     static const ClosingState : Qt_QAbstractSocket_SocketState;
     static function SocketState(value : Qt_QAbstractSocket_SocketState) : Qt_QAbstractSocket_SocketState;
-
-    static const PauseNever : Qt_QAbstractSocket_PauseMode;
-    static const PauseOnSslErrors : Qt_QAbstractSocket_PauseMode;
-    static function PauseMode(value : Qt_QAbstractSocket_PauseMode) : Qt_QAbstractSocket_PauseMode;
-
-    static const UnknownSocketType : Qt_QAbstractSocket_SocketType;
-    static const TcpSocket : Qt_QAbstractSocket_SocketType;
-    static const UdpSocket : Qt_QAbstractSocket_SocketType;
-    static const SctpSocket : Qt_QAbstractSocket_SocketType;
-    static function SocketType(value : Qt_QAbstractSocket_SocketType) : Qt_QAbstractSocket_SocketType;
 
     // Methods
     function abort () : void;

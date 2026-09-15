@@ -14,7 +14,5 @@ native class QGraphicsTransform extends QObject
 
     // Methods
     function applyTo (matrix : QMatrix4x4) : void;
-
-    // Slots
     function update () : void;
 }

@@ -19,11 +19,9 @@ native class QUndoView extends QListView
 
     // Methods
     function group () : QUndoGroup;
-    function stack () : QUndoStack;
-
-    // Slots
     function setGroup (group : QUndoGroup) : void;
     function setStack (stack : QUndoStack) : void;
+    function stack () : QUndoStack;
 
     // Instance Properties
     var emptyLabel : string;

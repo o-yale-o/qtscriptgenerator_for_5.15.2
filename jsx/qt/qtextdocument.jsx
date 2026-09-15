@@ -20,13 +20,13 @@ import "qt/qtextobject.jsx";
 import "qt/qurl.jsx";
 import "qt/_signals.jsx";
 
+final native class Qt_QTextDocument_ResourceType {}
+
 final native class Qt_QTextDocument_FindFlag {}
 
 final native class Qt_QTextDocument_FindFlags {}
 
 final native class Qt_QTextDocument_MetaInformation {}
-
-final native class Qt_QTextDocument_ResourceType {}
 
 final native class Qt_QTextDocument_Stacks {}
 
@@ -34,6 +34,14 @@ native class QTextDocument extends QObject
 {
     function constructor (parent : QObject);
     function constructor (text : string, parent : QObject);
+
+    static const UnknownResource : Qt_QTextDocument_ResourceType;
+    static const HtmlResource : Qt_QTextDocument_ResourceType;
+    static const ImageResource : Qt_QTextDocument_ResourceType;
+    static const StyleSheetResource : Qt_QTextDocument_ResourceType;
+    static const MarkdownResource : Qt_QTextDocument_ResourceType;
+    static const UserResource : Qt_QTextDocument_ResourceType;
+    static function ResourceType(value : Qt_QTextDocument_ResourceType) : Qt_QTextDocument_ResourceType;
 
     static const FindBackward : Qt_QTextDocument_FindFlag;
     static const FindCaseSensitively : Qt_QTextDocument_FindFlag;
@@ -44,14 +52,6 @@ native class QTextDocument extends QObject
     static const DocumentTitle : Qt_QTextDocument_MetaInformation;
     static const DocumentUrl : Qt_QTextDocument_MetaInformation;
     static function MetaInformation(value : Qt_QTextDocument_MetaInformation) : Qt_QTextDocument_MetaInformation;
-
-    static const UnknownResource : Qt_QTextDocument_ResourceType;
-    static const HtmlResource : Qt_QTextDocument_ResourceType;
-    static const ImageResource : Qt_QTextDocument_ResourceType;
-    static const StyleSheetResource : Qt_QTextDocument_ResourceType;
-    static const MarkdownResource : Qt_QTextDocument_ResourceType;
-    static const UserResource : Qt_QTextDocument_ResourceType;
-    static function ResourceType(value : Qt_QTextDocument_ResourceType) : Qt_QTextDocument_ResourceType;
 
     static const UndoStack : Qt_QTextDocument_Stacks;
     static const RedoStack : Qt_QTextDocument_Stacks;
@@ -95,6 +95,7 @@ native class QTextDocument extends QObject
     function object (objectIndex : int) : QTextObject;
     function objectForFormat (arg__1 : QTextFormat) : QTextObject;
     function pageCount () : int;
+    function redo () : void;
     function redo (cursor : QTextCursor) : void;
     function resource (type : int, name : QUrl) : variant;
     function revision () : int;
@@ -106,11 +107,8 @@ native class QTextDocument extends QObject
     function toHtml (encoding : QByteArray) : string;
     function toPlainText () : string;
     function toRawText () : string;
-    function undo (cursor : QTextCursor) : void;
-
-    // Slots
-    function redo () : void;
     function undo () : void;
+    function undo (cursor : QTextCursor) : void;
 
     // Signals
     var baseUrlChanged : QtJSXQUrlSignal;

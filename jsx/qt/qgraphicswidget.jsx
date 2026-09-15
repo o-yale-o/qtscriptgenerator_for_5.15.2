@@ -43,6 +43,7 @@ native class QGraphicsWidget extends QGraphicsObject
     function addActions (actions : QAction[]) : void;
     function adjustSize () : void;
     function changeEvent (event : QEvent) : void;
+    function close () : boolean;
     function closeEvent (event : QCloseEvent) : void;
     function focusNextPrevChild (next : boolean) : boolean;
     function focusWidget () : QGraphicsWidget;
@@ -83,9 +84,6 @@ native class QGraphicsWidget extends QGraphicsObject
     function windowFrameRect () : QRectF;
     function windowFrameSectionAt (pos : QPointF) : Qt_WindowFrameSection;
     function windowType () : Qt_WindowType;
-
-    // Slots
-    function close () : boolean;
 
     // Signals
     var geometryChanged : QtJSXSignal;

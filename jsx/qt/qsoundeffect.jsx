@@ -12,7 +12,7 @@ native class QSoundEffect extends QObject
 {
     function constructor ();
 
-    // Slots
+    // Methods
     function play () : void;
     function stop () : void;
 

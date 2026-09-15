@@ -21,9 +21,7 @@ native class QSocketNotifier extends QObject
 
     // Methods
     function isEnabled () : boolean;
+    function setEnabled (arg__1 : boolean) : void;
     function socket () : qintptr;
     function type () : Qt_QSocketNotifier_Type;
-
-    // Slots
-    function setEnabled (arg__1 : boolean) : void;
 }

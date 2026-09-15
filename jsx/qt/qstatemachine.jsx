@@ -12,18 +12,14 @@ import "qt/qobject.jsx";
 import "qt/qstate.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QStateMachine_EventPriority {}
-
 final native class Qt_QStateMachine_Error {}
+
+final native class Qt_QStateMachine_EventPriority {}
 
 native class QStateMachine extends QState
 {
     function constructor (parent : QObject);
     function constructor (childMode : Qt_QState_ChildMode, parent : QObject);
-
-    static const NormalPriority : Qt_QStateMachine_EventPriority;
-    static const HighPriority : Qt_QStateMachine_EventPriority;
-    static function EventPriority(value : Qt_QStateMachine_EventPriority) : Qt_QStateMachine_EventPriority;
 
     static const NoError : Qt_QStateMachine_Error;
     static const NoInitialStateError : Qt_QStateMachine_Error;
@@ -31,6 +27,10 @@ native class QStateMachine extends QState
     static const NoCommonAncestorForTransitionError : Qt_QStateMachine_Error;
     static const StateMachineChildModeSetToParallelError : Qt_QStateMachine_Error;
     static function Error(value : Qt_QStateMachine_Error) : Qt_QStateMachine_Error;
+
+    static const NormalPriority : Qt_QStateMachine_EventPriority;
+    static const HighPriority : Qt_QStateMachine_EventPriority;
+    static function EventPriority(value : Qt_QStateMachine_EventPriority) : Qt_QStateMachine_EventPriority;
 
     // Methods
     function addDefaultAnimation (animation : QAbstractAnimation) : void;
@@ -47,8 +47,6 @@ native class QStateMachine extends QState
     function postEvent (event : QEvent, priority : Qt_QStateMachine_EventPriority) : void;
     function removeDefaultAnimation (animation : QAbstractAnimation) : void;
     function removeState (state : QAbstractState) : void;
-
-    // Slots
     function start () : void;
     function stop () : void;
 

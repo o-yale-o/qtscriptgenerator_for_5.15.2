@@ -16,19 +16,17 @@ native class QTextBrowser extends QTextEdit
     function constructor (parent : QWidget);
 
     // Methods
+    function backward () : void;
     function backwardHistoryCount () : int;
     function clearHistory () : void;
     function doSetSource (name : QUrl, type : Qt_QTextDocument_ResourceType) : void;
+    function forward () : void;
     function forwardHistoryCount () : int;
     function historyTitle (arg__1 : int) : string;
     function historyUrl (arg__1 : int) : QUrl;
+    function home () : void;
     function isBackwardAvailable () : boolean;
     function isForwardAvailable () : boolean;
-
-    // Slots
-    function backward () : void;
-    function forward () : void;
-    function home () : void;
     function reload () : void;
 
     // Signals

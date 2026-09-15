@@ -1443,6 +1443,12 @@
     </extra-includes>
   </object-type>
 
+  <!-- Qt 5 fix: without this entry QPaintDevice is an unknown type and
+       QPainter::begin(QPaintDevice*) / QPainter(QPaintDevice*) get silently
+       dropped, breaking painter.begin(this) in scripts (e.g. AnalogClock.js).
+       All ctors are protected, so `new QPaintDevice()` stays impossible. -->
+  <object-type name="QPaintDevice"/>
+
   <object-type name="QPaintEngine">
     <modify-function signature="begin(QPaintDevice*)">
         <modify-argument index="1" invalidate-after-use="yes"/>

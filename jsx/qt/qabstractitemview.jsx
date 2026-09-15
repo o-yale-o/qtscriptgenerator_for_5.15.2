@@ -19,32 +19,27 @@ import "qt/qregion.jsx";
 import "qt/qsize.jsx";
 import "qt/qstyleoptionviewitem.jsx";
 import "qt/qt.jsx";
+import "qt/qtimerevent.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
-
-final native class Qt_QAbstractItemView_ScrollHint {}
 
 final native class Qt_QAbstractItemView_EditTrigger {}
 
 final native class Qt_QAbstractItemView_EditTriggers {}
 
+final native class Qt_QAbstractItemView_DragDropMode {}
+
 final native class Qt_QAbstractItemView_ScrollMode {}
 
 final native class Qt_QAbstractItemView_SelectionBehavior {}
 
-final native class Qt_QAbstractItemView_DragDropMode {}
-
 final native class Qt_QAbstractItemView_SelectionMode {}
+
+final native class Qt_QAbstractItemView_ScrollHint {}
 
 native class QAbstractItemView extends QAbstractScrollArea
 {
     function constructor (parent : QWidget);
-
-    static const EnsureVisible : Qt_QAbstractItemView_ScrollHint;
-    static const PositionAtTop : Qt_QAbstractItemView_ScrollHint;
-    static const PositionAtBottom : Qt_QAbstractItemView_ScrollHint;
-    static const PositionAtCenter : Qt_QAbstractItemView_ScrollHint;
-    static function ScrollHint(value : Qt_QAbstractItemView_ScrollHint) : Qt_QAbstractItemView_ScrollHint;
 
     static const NoEditTriggers : Qt_QAbstractItemView_EditTrigger;
     static const CurrentChanged : Qt_QAbstractItemView_EditTrigger;
@@ -56,6 +51,13 @@ native class QAbstractItemView extends QAbstractScrollArea
     static function EditTrigger(value : Qt_QAbstractItemView_EditTrigger) : Qt_QAbstractItemView_EditTrigger;
     static function EditTriggers(...value : Qt_QAbstractItemView_EditTrigger) : Qt_QAbstractItemView_EditTriggers;
 
+    static const NoDragDrop : Qt_QAbstractItemView_DragDropMode;
+    static const DragOnly : Qt_QAbstractItemView_DragDropMode;
+    static const DropOnly : Qt_QAbstractItemView_DragDropMode;
+    static const DragDrop : Qt_QAbstractItemView_DragDropMode;
+    static const InternalMove : Qt_QAbstractItemView_DragDropMode;
+    static function DragDropMode(value : Qt_QAbstractItemView_DragDropMode) : Qt_QAbstractItemView_DragDropMode;
+
     static const ScrollPerItem : Qt_QAbstractItemView_ScrollMode;
     static const ScrollPerPixel : Qt_QAbstractItemView_ScrollMode;
     static function ScrollMode(value : Qt_QAbstractItemView_ScrollMode) : Qt_QAbstractItemView_ScrollMode;
@@ -65,13 +67,6 @@ native class QAbstractItemView extends QAbstractScrollArea
     static const SelectColumns : Qt_QAbstractItemView_SelectionBehavior;
     static function SelectionBehavior(value : Qt_QAbstractItemView_SelectionBehavior) : Qt_QAbstractItemView_SelectionBehavior;
 
-    static const NoDragDrop : Qt_QAbstractItemView_DragDropMode;
-    static const DragOnly : Qt_QAbstractItemView_DragDropMode;
-    static const DropOnly : Qt_QAbstractItemView_DragDropMode;
-    static const DragDrop : Qt_QAbstractItemView_DragDropMode;
-    static const InternalMove : Qt_QAbstractItemView_DragDropMode;
-    static function DragDropMode(value : Qt_QAbstractItemView_DragDropMode) : Qt_QAbstractItemView_DragDropMode;
-
     static const NoSelection : Qt_QAbstractItemView_SelectionMode;
     static const SingleSelection : Qt_QAbstractItemView_SelectionMode;
     static const MultiSelection : Qt_QAbstractItemView_SelectionMode;
@@ -79,14 +74,30 @@ native class QAbstractItemView extends QAbstractScrollArea
     static const ContiguousSelection : Qt_QAbstractItemView_SelectionMode;
     static function SelectionMode(value : Qt_QAbstractItemView_SelectionMode) : Qt_QAbstractItemView_SelectionMode;
 
+    static const EnsureVisible : Qt_QAbstractItemView_ScrollHint;
+    static const PositionAtTop : Qt_QAbstractItemView_ScrollHint;
+    static const PositionAtBottom : Qt_QAbstractItemView_ScrollHint;
+    static const PositionAtCenter : Qt_QAbstractItemView_ScrollHint;
+    static function ScrollHint(value : Qt_QAbstractItemView_ScrollHint) : Qt_QAbstractItemView_ScrollHint;
+
     // Methods
+    function clearSelection () : void;
+    function closeEditor (editor : QWidget, hint : Qt_QAbstractItemDelegate_EndEditHint) : void;
     function closePersistentEditor (index : QModelIndex) : void;
+    function commitData (editor : QWidget) : void;
+    function currentChanged (current : QModelIndex, previous : QModelIndex) : void;
     function currentIndex () : QModelIndex;
+    function dataChanged (topLeft : QModelIndex, bottomRight : QModelIndex, roles : int[]) : void;
     function dirtyRegionOffset () : QPoint;
     function doAutoScroll () : void;
+    function doItemsLayout () : void;
+    function edit (index : QModelIndex) : void;
     function edit (index : QModelIndex, trigger : Qt_QAbstractItemView_EditTrigger, event : QEvent) : boolean;
+    function editorDestroyed (editor : QObject) : void;
     function executeDelayedItemsLayout () : void;
     function horizontalOffset () : int;
+    function horizontalScrollbarAction (action : int) : void;
+    function horizontalScrollbarValueChanged (value : int) : void;
     function indexAt (point : QPoint) : QModelIndex;
     function indexWidget (index : QModelIndex) : QWidget;
     function isIndexHidden (index : QModelIndex) : boolean;
@@ -98,21 +109,30 @@ native class QAbstractItemView extends QAbstractScrollArea
     function keyboardSearch (search : string) : void;
     function model () : QAbstractItemModel;
     function openPersistentEditor (index : QModelIndex) : void;
+    function reset () : void;
     function resetHorizontalScrollMode () : void;
     function resetVerticalScrollMode () : void;
     function rootIndex () : QModelIndex;
+    function rowsAboutToBeRemoved (parent : QModelIndex, start : int, end : int) : void;
+    function rowsInserted (parent : QModelIndex, start : int, end : int) : void;
     function scheduleDelayedItemsLayout () : void;
     function scrollDirtyRegion (dx : int, dy : int) : void;
     function scrollTo (index : QModelIndex, hint : Qt_QAbstractItemView_ScrollHint) : void;
+    function scrollToBottom () : void;
+    function scrollToTop () : void;
+    function selectAll () : void;
     function selectedIndexes () : QModelIndex[];
+    function selectionChanged (selected : QItemSelection, deselected : QItemSelection) : void;
     function selectionCommand (index : QModelIndex, event : QEvent) : Qt_QItemSelectionModel_SelectionFlags;
     function selectionModel () : QItemSelectionModel;
+    function setCurrentIndex (index : QModelIndex) : void;
     function setDirtyRegion (region : QRegion) : void;
     function setIndexWidget (index : QModelIndex, widget : QWidget) : void;
     function setItemDelegate (delegate : QAbstractItemDelegate) : void;
     function setItemDelegateForColumn (column : int, delegate : QAbstractItemDelegate) : void;
     function setItemDelegateForRow (row : int, delegate : QAbstractItemDelegate) : void;
     function setModel (model : QAbstractItemModel) : void;
+    function setRootIndex (index : QModelIndex) : void;
     function setSelection (rect : QRect, command : Qt_QItemSelectionModel_SelectionFlags) : void;
     function setSelectionModel (selectionModel : QItemSelectionModel) : void;
     function sizeHintForColumn (column : int) : int;
@@ -121,37 +141,17 @@ native class QAbstractItemView extends QAbstractScrollArea
     function startAutoScroll () : void;
     function startDrag (supportedActions : Qt_DropActions) : void;
     function stopAutoScroll () : void;
-    function verticalOffset () : int;
-    function viewOptions () : QStyleOptionViewItem;
-    function visualRect (index : QModelIndex) : QRect;
-    function visualRegionForSelection (selection : QItemSelection) : QRegion;
-
-    // Slots
-    function clearSelection () : void;
-    function closeEditor (editor : QWidget, hint : Qt_QAbstractItemDelegate_EndEditHint) : void;
-    function commitData (editor : QWidget) : void;
-    function currentChanged (current : QModelIndex, previous : QModelIndex) : void;
-    function dataChanged (topLeft : QModelIndex, bottomRight : QModelIndex, roles : int[]) : void;
-    function doItemsLayout () : void;
-    function edit (index : QModelIndex) : void;
-    function editorDestroyed (editor : QObject) : void;
-    function horizontalScrollbarAction (action : int) : void;
-    function horizontalScrollbarValueChanged (value : int) : void;
-    function reset () : void;
-    function rowsAboutToBeRemoved (parent : QModelIndex, start : int, end : int) : void;
-    function rowsInserted (parent : QModelIndex, start : int, end : int) : void;
-    function scrollToBottom () : void;
-    function scrollToTop () : void;
-    function selectAll () : void;
-    function selectionChanged (selected : QItemSelection, deselected : QItemSelection) : void;
-    function setCurrentIndex (index : QModelIndex) : void;
-    function setRootIndex (index : QModelIndex) : void;
+    function timerEvent (event : QTimerEvent) : void;
     function update (index : QModelIndex) : void;
     function updateEditorData () : void;
     function updateEditorGeometries () : void;
     function updateGeometries () : void;
+    function verticalOffset () : int;
     function verticalScrollbarAction (action : int) : void;
     function verticalScrollbarValueChanged (value : int) : void;
+    function viewOptions () : QStyleOptionViewItem;
+    function visualRect (index : QModelIndex) : QRect;
+    function visualRegionForSelection (selection : QItemSelection) : QRegion;
 
     // Signals
     var activated : QtJSXQModelIndexSignal;

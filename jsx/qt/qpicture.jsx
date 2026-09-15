@@ -7,11 +7,10 @@
  */
 import "qt/qiodevice.jsx";
 import "qt/qpaintdevice.jsx";
-import "qt/qpaintengine.jsx";
 import "qt/qpainter.jsx";
 import "qt/qrect.jsx";
 
-native class QPicture
+native class QPicture extends QPaintDevice
 {
     function constructor (arg__1 : QPicture);
     function constructor (formatVersion : int);
@@ -19,12 +18,9 @@ native class QPicture
     // Methods
     function boundingRect () : QRect;
     function data () : string;
-    function devType () : int;
     function isNull () : boolean;
     function load (dev : QIODevice, format : string) : boolean;
     function load (fileName : string, format : string) : boolean;
-    function metric (m : Qt_QPaintDevice_PaintDeviceMetric) : int;
-    function paintEngine () : QPaintEngine;
     function play (p : QPainter) : boolean;
     function save (dev : QIODevice, format : string) : boolean;
     function save (fileName : string, format : string) : boolean;

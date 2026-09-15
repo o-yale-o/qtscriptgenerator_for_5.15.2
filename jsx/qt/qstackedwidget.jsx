@@ -19,10 +19,8 @@ native class QStackedWidget extends QFrame
     function indexOf (arg__1 : QWidget) : int;
     function insertWidget (index : int, w : QWidget) : int;
     function removeWidget (w : QWidget) : void;
-    function widget (arg__1 : int) : QWidget;
-
-    // Slots
     function setCurrentWidget (w : QWidget) : void;
+    function widget (arg__1 : int) : QWidget;
 
     // Signals
     var currentChanged : QtJSXintSignal;

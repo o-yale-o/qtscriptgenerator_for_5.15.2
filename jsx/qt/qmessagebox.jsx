@@ -15,13 +15,13 @@ import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QMessageBox_Icon {}
-
 final native class Qt_QMessageBox_ButtonRole {}
 
 final native class Qt_QMessageBox_StandardButton {}
 
 final native class Qt_QMessageBox_StandardButtons {}
+
+final native class Qt_QMessageBox_Icon {}
 
 native class QMessageBox extends QDialog
 {
@@ -35,13 +35,6 @@ native class QMessageBox extends QDialog
     static function information (parent : QWidget, title : string, text : string, buttons : Qt_QMessageBox_StandardButtons, defaultButton : Qt_QMessageBox_StandardButton) : Qt_QMessageBox_StandardButton;
     static function question (parent : QWidget, title : string, text : string, buttons : Qt_QMessageBox_StandardButtons, defaultButton : Qt_QMessageBox_StandardButton) : Qt_QMessageBox_StandardButton;
     static function warning (parent : QWidget, title : string, text : string, buttons : Qt_QMessageBox_StandardButtons, defaultButton : Qt_QMessageBox_StandardButton) : Qt_QMessageBox_StandardButton;
-
-    static const NoIcon : Qt_QMessageBox_Icon;
-    static const Information : Qt_QMessageBox_Icon;
-    static const Warning : Qt_QMessageBox_Icon;
-    static const Critical : Qt_QMessageBox_Icon;
-    static const Question : Qt_QMessageBox_Icon;
-    static function Icon(value : Qt_QMessageBox_Icon) : Qt_QMessageBox_Icon;
 
     static const InvalidRole : Qt_QMessageBox_ButtonRole;
     static const AcceptRole : Qt_QMessageBox_ButtonRole;
@@ -81,6 +74,13 @@ native class QMessageBox extends QDialog
     static const RestoreDefaults : Qt_QMessageBox_StandardButton;
     static function StandardButton(value : Qt_QMessageBox_StandardButton) : Qt_QMessageBox_StandardButton;
     static function StandardButtons(...value : Qt_QMessageBox_StandardButton) : Qt_QMessageBox_StandardButtons;
+
+    static const NoIcon : Qt_QMessageBox_Icon;
+    static const Information : Qt_QMessageBox_Icon;
+    static const Warning : Qt_QMessageBox_Icon;
+    static const Critical : Qt_QMessageBox_Icon;
+    static const Question : Qt_QMessageBox_Icon;
+    static function Icon(value : Qt_QMessageBox_Icon) : Qt_QMessageBox_Icon;
 
     // Methods
     function addButton (button : QAbstractButton, role : Qt_QMessageBox_ButtonRole) : void;

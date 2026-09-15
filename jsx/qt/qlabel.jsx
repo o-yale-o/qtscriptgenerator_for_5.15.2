@@ -20,17 +20,15 @@ native class QLabel extends QFrame
 
     // Methods
     function buddy () : QWidget;
+    function clear () : void;
     function movie () : QMovie;
     function selectionStart () : int;
     function setBuddy (arg__1 : QWidget) : void;
-    function setSelection (arg__1 : int, arg__2 : int) : void;
-
-    // Slots
-    function clear () : void;
     function setMovie (movie : QMovie) : void;
     function setNum (arg__1 : number) : void;
     function setNum (arg__1 : int) : void;
     function setPicture (arg__1 : QPicture) : void;
+    function setSelection (arg__1 : int, arg__2 : int) : void;
 
     // Signals
     var linkActivated : QtJSXQStringSignal;

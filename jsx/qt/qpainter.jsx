@@ -12,6 +12,7 @@ import "qt/qimage.jsx";
 import "qt/qline.jsx";
 import "qt/qlinef.jsx";
 import "qt/qmatrix.jsx";
+import "qt/qpaintdevice.jsx";
 import "qt/qpaintengine.jsx";
 import "qt/qpainterpath.jsx";
 import "qt/qpen.jsx";
@@ -29,20 +30,22 @@ import "qt/qtextitem.jsx";
 import "qt/qtransform.jsx";
 import "qt/qwidget.jsx";
 
-final native class Qt_QPainter_PixmapFragmentHint {}
-
 final native class Qt_QPainter_RenderHint {}
 
 final native class Qt_QPainter_RenderHints {}
 
 final native class Qt_QPainter_CompositionMode {}
 
+final native class Qt_QPainter_PixmapFragmentHint {}
+
 native class QPainter
 {
     function constructor ();
 
-    static const OpaqueHint : Qt_QPainter_PixmapFragmentHint;
-    static function PixmapFragmentHint(value : Qt_QPainter_PixmapFragmentHint) : Qt_QPainter_PixmapFragmentHint;
+    // Static Members
+    static function redirected (device : QPaintDevice, offset : QPoint) : QPaintDevice;
+    static function restoreRedirected (device : QPaintDevice) : void;
+    static function setRedirected (device : QPaintDevice, replacement : QPaintDevice, offset : QPoint) : void;
 
     static const Antialiasing : Qt_QPainter_RenderHint;
     static const TextAntialiasing : Qt_QPainter_RenderHint;
@@ -94,9 +97,13 @@ native class QPainter
     static const RasterOp_NotDestination : Qt_QPainter_CompositionMode;
     static function CompositionMode(value : Qt_QPainter_CompositionMode) : Qt_QPainter_CompositionMode;
 
+    static const OpaqueHint : Qt_QPainter_PixmapFragmentHint;
+    static function PixmapFragmentHint(value : Qt_QPainter_PixmapFragmentHint) : Qt_QPainter_PixmapFragmentHint;
+
     // Methods
     function background () : QBrush;
     function backgroundMode () : Qt_BGMode;
+    function begin (arg__1 : QPaintDevice) : boolean;
     function beginNativePainting () : void;
     function boundingRect (rect : QRect, flags : int, text : string) : QRect;
     function boundingRect (rect : QRectF, flags : int, text : string) : QRectF;
@@ -109,6 +116,7 @@ native class QPainter
     function combinedMatrix () : QMatrix;
     function combinedTransform () : QTransform;
     function compositionMode () : Qt_QPainter_CompositionMode;
+    function device () : QPaintDevice;
     function deviceMatrix () : QMatrix;
     function deviceTransform () : QTransform;
     function drawArc (arg__1 : QRect, a : int, alen : int) : void;
@@ -212,6 +220,7 @@ native class QPainter
     function fillRect (x : int, y : int, w : int, h : int, color : QColor) : void;
     function font () : QFont;
     function hasClipping () : boolean;
+    function initFrom (device : QPaintDevice) : void;
     function isActive () : boolean;
     function layoutDirection () : Qt_LayoutDirection;
     function opacity () : number;

@@ -5,6 +5,8 @@
 
   <!-- Qt 5: QLabel::picture() returns const QPicture* -->
   <rejection class="QLabel" function-name="picture"/>
+  <!-- Qt 5: pixmap() returns const QPixmap*, the generated binding would not compile -->
+  <rejection class="QLabel" function-name="pixmap"/>
   <!-- Qt 5: no public constructors / private destructors, so the generated
        shells with a fabricated default constructor do not compile -->
   <rejection class="QGraphicsAnchor"/>

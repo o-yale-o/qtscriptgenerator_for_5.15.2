@@ -20,16 +20,14 @@ native class QProgressDialog extends QDialog
     function constructor (labelText : string, cancelButtonText : string, minimum : int, maximum : int, parent : QWidget, flags : Qt_WindowFlags);
 
     // Methods
-    function open (receiver : QObject, member : string) : void;
-    function setBar (bar : QProgressBar) : void;
-    function setCancelButton (button : QPushButton) : void;
-    function setLabel (label : QLabel) : void;
-
-    // Slots
     function cancel () : void;
     function forceShow () : void;
+    function open (receiver : QObject, member : string) : void;
     function reset () : void;
+    function setBar (bar : QProgressBar) : void;
+    function setCancelButton (button : QPushButton) : void;
     function setCancelButtonText (text : string) : void;
+    function setLabel (label : QLabel) : void;
     function setRange (minimum : int, maximum : int) : void;
 
     // Signals

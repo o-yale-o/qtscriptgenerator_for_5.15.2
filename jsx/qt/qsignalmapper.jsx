@@ -13,6 +13,8 @@ native class QSignalMapper extends QObject
     function constructor (parent : QObject);
 
     // Methods
+    function map () : void;
+    function map (sender : QObject) : void;
     function mappingById (id : int) : QObject;
     function mappingByObject (object : QObject) : QObject;
     function mappingByString (text : string) : QObject;
@@ -20,10 +22,6 @@ native class QSignalMapper extends QObject
     function setMappingById (sender : QObject, id : int) : void;
     function setMappingByObject (sender : QObject, object : QObject) : void;
     function setMappingByString (sender : QObject, text : string) : void;
-
-    // Slots
-    function map () : void;
-    function map (sender : QObject) : void;
 
     // Signals
     var mapped : QtJSXintSignal;

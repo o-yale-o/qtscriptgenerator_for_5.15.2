@@ -31,7 +31,9 @@ native class QLineEdit extends QWidget
 
     // Methods
     function backspace () : void;
+    function clear () : void;
     function completer () : QCompleter;
+    function copy () : void;
     function createStandardContextMenu () : QMenu;
     function cursorBackward (mark : boolean, steps : int) : void;
     function cursorForward (mark : boolean, steps : int) : void;
@@ -39,6 +41,7 @@ native class QLineEdit extends QWidget
     function cursorRect () : QRect;
     function cursorWordBackward (mark : boolean) : void;
     function cursorWordForward (mark : boolean) : void;
+    function cut () : void;
     function del () : void;
     function deselect () : void;
     function end (mark : boolean) : void;
@@ -47,6 +50,9 @@ native class QLineEdit extends QWidget
     function initStyleOption (option : QStyleOptionFrame) : void;
     function inputMethodQuery (property : Qt_InputMethodQuery, argument : variant) : variant;
     function insert (arg__1 : string) : void;
+    function paste () : void;
+    function redo () : void;
+    function selectAll () : void;
     function selectionEnd () : int;
     function selectionLength () : int;
     function selectionStart () : int;
@@ -56,16 +62,8 @@ native class QLineEdit extends QWidget
     function setTextMargins (left : int, top : int, right : int, bottom : int) : void;
     function setValidator (arg__1 : QValidator) : void;
     function textMargins () : QMargins;
-    function validator () : QValidator;
-
-    // Slots
-    function clear () : void;
-    function copy () : void;
-    function cut () : void;
-    function paste () : void;
-    function redo () : void;
-    function selectAll () : void;
     function undo () : void;
+    function validator () : QValidator;
 
     // Signals
     var cursorPositionChanged : QtJSXintintSignal;

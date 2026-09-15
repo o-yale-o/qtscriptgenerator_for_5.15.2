@@ -24,11 +24,14 @@ native class QTreeWidget extends QTreeView
     // Methods
     function addTopLevelItem (item : QTreeWidgetItem) : void;
     function addTopLevelItems (items : QTreeWidgetItem[]) : void;
+    function clear () : void;
     function closePersistentEditor (item : QTreeWidgetItem, column : int) : void;
+    function collapseItem (item : QTreeWidgetItem) : void;
     function currentColumn () : int;
     function currentItem () : QTreeWidgetItem;
     function dropMimeData (parent : QTreeWidgetItem, index : int, data : QMimeData, action : Qt_DropAction) : boolean;
     function editItem (item : QTreeWidgetItem, column : int) : void;
+    function expandItem (item : QTreeWidgetItem) : void;
     function findItems (text : string, flags : Qt_MatchFlags, column : int) : QTreeWidgetItem[];
     function headerItem () : QTreeWidgetItem;
     function indexFromItem (item : QTreeWidgetItem, column : int) : QModelIndex;
@@ -47,6 +50,7 @@ native class QTreeWidget extends QTreeView
     function mimeTypes () : string[];
     function openPersistentEditor (item : QTreeWidgetItem, column : int) : void;
     function removeItemWidget (item : QTreeWidgetItem, column : int) : void;
+    function scrollToItem (item : QTreeWidgetItem, hint : Qt_QAbstractItemView_ScrollHint) : void;
     function selectedItems () : QTreeWidgetItem[];
     function setCurrentItem (item : QTreeWidgetItem) : void;
     function setCurrentItem (item : QTreeWidgetItem, column : int) : void;
@@ -62,12 +66,6 @@ native class QTreeWidget extends QTreeView
     function takeTopLevelItem (index : int) : QTreeWidgetItem;
     function topLevelItem (index : int) : QTreeWidgetItem;
     function visualItemRect (item : QTreeWidgetItem) : QRect;
-
-    // Slots
-    function clear () : void;
-    function collapseItem (item : QTreeWidgetItem) : void;
-    function expandItem (item : QTreeWidgetItem) : void;
-    function scrollToItem (item : QTreeWidgetItem, hint : Qt_QAbstractItemView_ScrollHint) : void;
 
     // Signals
     var currentItemChanged : QtJSXQTreeWidgetItemQTreeWidgetItemSignal;

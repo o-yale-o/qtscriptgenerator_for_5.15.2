@@ -15,7 +15,7 @@ native class QGraphicsDropShadowEffect extends QGraphicsEffect
 {
     function constructor (parent : QObject);
 
-    // Slots
+    // Methods
     function setOffset (d : number) : void;
     function setOffset (dx : number, dy : number) : void;
 

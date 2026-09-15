@@ -46,6 +46,8 @@ native class QComboBox extends QWidget
     function addItem (icon : QIcon, text : string, userData : variant) : void;
     function addItem (text : string, userData : variant) : void;
     function addItems (texts : string[]) : void;
+    function clear () : void;
+    function clearEditText () : void;
     function completer () : QCompleter;
     function findData (data : variant, role : int, flags : Qt_MatchFlags) : int;
     function findText (text : string, flags : Qt_MatchFlags) : int;
@@ -65,6 +67,7 @@ native class QComboBox extends QWidget
     function removeItem (index : int) : void;
     function rootModelIndex () : QModelIndex;
     function setCompleter (c : QCompleter) : void;
+    function setEditText (text : string) : void;
     function setItemData (index : int, value : variant, role : int) : void;
     function setItemDelegate (delegate : QAbstractItemDelegate) : void;
     function setItemIcon (index : int, icon : QIcon) : void;
@@ -77,11 +80,6 @@ native class QComboBox extends QWidget
     function showPopup () : void;
     function validator () : QValidator;
     function view () : QAbstractItemView;
-
-    // Slots
-    function clear () : void;
-    function clearEditText () : void;
-    function setEditText (text : string) : void;
 
     // Signals
     var activated : QtJSXintSignal;

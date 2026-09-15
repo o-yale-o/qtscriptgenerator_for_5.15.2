@@ -8,7 +8,6 @@
 import "qt/qglframebufferobjectformat.jsx";
 import "qt/qimage.jsx";
 import "qt/qpaintdevice.jsx";
-import "qt/qpaintengine.jsx";
 import "qt/qpointf.jsx";
 import "qt/qrect.jsx";
 import "qt/qrectf.jsx";
@@ -16,7 +15,7 @@ import "qt/qsize.jsx";
 
 final native class Qt_QGLFramebufferObject_Attachment {}
 
-native class QGLFramebufferObject
+native class QGLFramebufferObject extends QPaintDevice
 {
     function constructor (size : QSize, attachment : Qt_QGLFramebufferObject_Attachment, target : int, internal_format : int);
     function constructor (size : QSize, format : QGLFramebufferObjectFormat);
@@ -39,15 +38,12 @@ native class QGLFramebufferObject
     // Methods
     function attachment () : Qt_QGLFramebufferObject_Attachment;
     function bind () : boolean;
-    function devType () : int;
     function drawTexture (point : QPointF, textureId : int, textureTarget : int) : void;
     function drawTexture (target : QRectF, textureId : int, textureTarget : int) : void;
     function format () : QGLFramebufferObjectFormat;
     function handle () : int;
     function isBound () : boolean;
     function isValid () : boolean;
-    function metric (metric : Qt_QPaintDevice_PaintDeviceMetric) : int;
-    function paintEngine () : QPaintEngine;
     function release () : boolean;
     function size () : QSize;
     function texture () : int;

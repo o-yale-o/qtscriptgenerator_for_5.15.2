@@ -25,12 +25,14 @@ native class QGraphicsItemAnimation extends QObject
     function item () : QGraphicsItem;
     function matrixAt (step : number) : QMatrix;
     function posAt (step : number) : QPointF;
+    function reset () : void;
     function rotationAt (step : number) : number;
     function setItem (item : QGraphicsItem) : void;
     function setPosAt (step : number, pos : QPointF) : void;
     function setRotationAt (step : number, angle : number) : void;
     function setScaleAt (step : number, sx : number, sy : number) : void;
     function setShearAt (step : number, sh : number, sv : number) : void;
+    function setStep (x : number) : void;
     function setTimeLine (timeLine : QTimeLine) : void;
     function setTranslationAt (step : number, dx : number, dy : number) : void;
     function timeLine () : QTimeLine;
@@ -39,8 +41,4 @@ native class QGraphicsItemAnimation extends QObject
     function verticalShearAt (step : number) : number;
     function xTranslationAt (step : number) : number;
     function yTranslationAt (step : number) : number;
-
-    // Slots
-    function reset () : void;
-    function setStep (x : number) : void;
 }

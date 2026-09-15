@@ -63,6 +63,7 @@ native class QSslSocket extends QTcpSocket
     function connectToHostEncrypted (hostName : string, port : int, sslPeerName : string, mode : Qt_QIODevice_OpenMode, protocol : Qt_QAbstractSocket_NetworkLayerProtocol) : void;
     function encryptedBytesAvailable () : number;
     function encryptedBytesToWrite () : number;
+    function ignoreSslErrors () : void;
     function ignoreSslErrors (errors : QSslError[]) : void;
     function isEncrypted () : boolean;
     function localCertificate () : QSslCertificate;
@@ -92,12 +93,9 @@ native class QSslSocket extends QTcpSocket
     function setSslConfiguration (config : QSslConfiguration) : void;
     function sslConfiguration () : QSslConfiguration;
     function sslHandshakeErrors () : QSslError[];
-    function waitForEncrypted (msecs : int) : boolean;
-
-    // Slots
-    function ignoreSslErrors () : void;
     function startClientEncryption () : void;
     function startServerEncryption () : void;
+    function waitForEncrypted (msecs : int) : boolean;
 
     // Signals
     var encrypted : QtJSXSignal;

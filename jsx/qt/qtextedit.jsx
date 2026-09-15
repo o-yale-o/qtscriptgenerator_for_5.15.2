@@ -16,26 +16,21 @@ import "qt/qt.jsx";
 import "qt/qtextcharformat.jsx";
 import "qt/qtextcursor.jsx";
 import "qt/qtextdocument.jsx";
+import "qt/qtimerevent.jsx";
 import "qt/qurl.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
+
+final native class Qt_QTextEdit_LineWrapMode {}
 
 final native class Qt_QTextEdit_AutoFormattingFlag {}
 
 final native class Qt_QTextEdit_AutoFormatting {}
 
-final native class Qt_QTextEdit_LineWrapMode {}
-
 native class QTextEdit extends QAbstractScrollArea
 {
     function constructor (parent : QWidget);
     function constructor (text : string, parent : QWidget);
-
-    static const AutoAll : Qt_QTextEdit_AutoFormattingFlag;
-    static const AutoNone : Qt_QTextEdit_AutoFormattingFlag;
-    static const AutoBulletList : Qt_QTextEdit_AutoFormattingFlag;
-    static function AutoFormattingFlag(value : Qt_QTextEdit_AutoFormattingFlag) : Qt_QTextEdit_AutoFormattingFlag;
-    static function AutoFormatting(...value : Qt_QTextEdit_AutoFormattingFlag) : Qt_QTextEdit_AutoFormatting;
 
     static const NoWrap : Qt_QTextEdit_LineWrapMode;
     static const WidgetWidth : Qt_QTextEdit_LineWrapMode;
@@ -43,11 +38,20 @@ native class QTextEdit extends QAbstractScrollArea
     static const FixedColumnWidth : Qt_QTextEdit_LineWrapMode;
     static function LineWrapMode(value : Qt_QTextEdit_LineWrapMode) : Qt_QTextEdit_LineWrapMode;
 
+    static const AutoAll : Qt_QTextEdit_AutoFormattingFlag;
+    static const AutoNone : Qt_QTextEdit_AutoFormattingFlag;
+    static const AutoBulletList : Qt_QTextEdit_AutoFormattingFlag;
+    static function AutoFormattingFlag(value : Qt_QTextEdit_AutoFormattingFlag) : Qt_QTextEdit_AutoFormattingFlag;
+    static function AutoFormatting(...value : Qt_QTextEdit_AutoFormattingFlag) : Qt_QTextEdit_AutoFormatting;
+
     // Methods
     function alignment () : Qt_Alignment;
     function anchorAt (pos : QPoint) : string;
+    function append (text : string) : void;
     function canInsertFromMimeData (source : QMimeData) : boolean;
     function canPaste () : boolean;
+    function clear () : void;
+    function copy () : void;
     function createMimeDataFromSelection () : QMimeData;
     function createStandardContextMenu () : QMenu;
     function createStandardContextMenu (position : QPoint) : QMenu;
@@ -56,6 +60,7 @@ native class QTextEdit extends QAbstractScrollArea
     function cursorForPosition (pos : QPoint) : QTextCursor;
     function cursorRect () : QRect;
     function cursorRect (cursor : QTextCursor) : QRect;
+    function cut () : void;
     function doSetTextCursor (cursor : QTextCursor) : void;
     function ensureCursorVisible () : void;
     function find (exp : RegExp, options : Qt_QTextDocument_FindFlags) : boolean;
@@ -67,28 +72,17 @@ native class QTextEdit extends QAbstractScrollArea
     function fontWeight () : int;
     function inputMethodQuery (query : Qt_InputMethodQuery, argument : variant) : variant;
     function insertFromMimeData (source : QMimeData) : void;
+    function insertHtml (text : string) : void;
+    function insertPlainText (text : string) : void;
     function loadResource (type : int, name : QUrl) : variant;
     function mergeCurrentCharFormat (modifier : QTextCharFormat) : void;
     function moveCursor (operation : Qt_QTextCursor_MoveOperation, mode : Qt_QTextCursor_MoveMode) : void;
-    function setCurrentCharFormat (format : QTextCharFormat) : void;
-    function setTextCursor (cursor : QTextCursor) : void;
-    function textBackgroundColor () : QColor;
-    function textColor () : QColor;
-    function textCursor () : QTextCursor;
-    function zoomInF (range : number) : void;
-
-    // Slots
-    function append (text : string) : void;
-    function clear () : void;
-    function copy () : void;
-    function cut () : void;
-    function insertHtml (text : string) : void;
-    function insertPlainText (text : string) : void;
     function paste () : void;
     function redo () : void;
     function scrollToAnchor (name : string) : void;
     function selectAll () : void;
     function setAlignment (a : Qt_Alignment) : void;
+    function setCurrentCharFormat (format : QTextCharFormat) : void;
     function setCurrentFont (f : QFont) : void;
     function setFontFamily (fontFamily : string) : void;
     function setFontItalic (b : boolean) : void;
@@ -98,8 +92,14 @@ native class QTextEdit extends QAbstractScrollArea
     function setText (text : string) : void;
     function setTextBackgroundColor (c : QColor) : void;
     function setTextColor (c : QColor) : void;
+    function setTextCursor (cursor : QTextCursor) : void;
+    function textBackgroundColor () : QColor;
+    function textColor () : QColor;
+    function textCursor () : QTextCursor;
+    function timerEvent (e : QTimerEvent) : void;
     function undo () : void;
     function zoomIn (range : int) : void;
+    function zoomInF (range : number) : void;
     function zoomOut (range : int) : void;
 
     // Signals

@@ -10,18 +10,17 @@ import "qt/qcolor.jsx";
 import "qt/qiodevice.jsx";
 import "qt/qmatrix.jsx";
 import "qt/qpaintdevice.jsx";
-import "qt/qpaintengine.jsx";
 import "qt/qpoint.jsx";
 import "qt/qrect.jsx";
 import "qt/qsize.jsx";
 import "qt/qt.jsx";
 import "qt/qtransform.jsx";
 
-final native class Qt_QImage_Format {}
-
 final native class Qt_QImage_InvertMode {}
 
-native class QImage
+final native class Qt_QImage_Format {}
+
+native class QImage extends QPaintDevice
 {
     function constructor ();
     function constructor (arg__1 : QImage);
@@ -32,6 +31,10 @@ native class QImage
     // Static Members
     static function fromData (data : QByteArray, format : string) : QImage;
     static function trueMatrix (arg__1 : QMatrix, w : int, h : int) : QMatrix;
+
+    static const InvertRgb : Qt_QImage_InvertMode;
+    static const InvertRgba : Qt_QImage_InvertMode;
+    static function InvertMode(value : Qt_QImage_InvertMode) : Qt_QImage_InvertMode;
 
     static const Format_Invalid : Qt_QImage_Format;
     static const Format_Mono : Qt_QImage_Format;
@@ -66,10 +69,6 @@ native class QImage
     static const NImageFormats : Qt_QImage_Format;
     static function Format(value : Qt_QImage_Format) : Qt_QImage_Format;
 
-    static const InvertRgb : Qt_QImage_InvertMode;
-    static const InvertRgba : Qt_QImage_InvertMode;
-    static function InvertMode(value : Qt_QImage_InvertMode) : Qt_QImage_InvertMode;
-
     // Methods
     function allGray () : boolean;
     function alphaChannel () : QImage;
@@ -78,7 +77,6 @@ native class QImage
     function bytesPerLine () : int;
     function cacheKey () : number;
     function color (i : int) : int;
-    function colorCount () : int;
     function colorTable () : int[];
     function constBits () : string;
     function constScanLine (arg__1 : int) : string;
@@ -92,9 +90,6 @@ native class QImage
     function createAlphaMask (flags : Qt_ImageConversionFlags) : QImage;
     function createHeuristicMask (clipTight : boolean) : QImage;
     function createMaskFromColor (color : int, mode : Qt_MaskMode) : QImage;
-    function depth () : int;
-    function devType () : int;
-    function devicePixelRatio () : number;
     function dotsPerMeterX () : int;
     function dotsPerMeterY () : int;
     function fill (color : Qt_GlobalColor) : void;
@@ -102,20 +97,17 @@ native class QImage
     function fill (pixel : int) : void;
     function format () : Qt_QImage_Format;
     function hasAlphaChannel () : boolean;
-    function height () : int;
     function invertPixels (arg__1 : Qt_QImage_InvertMode) : void;
     function isGrayscale () : boolean;
     function isNull () : boolean;
     function load (device : QIODevice, format : string) : boolean;
     function load (fileName : string, format : string) : boolean;
     function loadFromData (data : QByteArray, aformat : string) : boolean;
-    function metric (metric : Qt_QPaintDevice_PaintDeviceMetric) : int;
     function mirrored (horizontally : boolean, vertically : boolean) : QImage;
     function mirrored_helper (horizontal : boolean, vertical : boolean) : QImage;
     function mirrored_inplace (horizontal : boolean, vertical : boolean) : void;
     function offset () : QPoint;
     function operator_equal (arg__1 : QImage) : boolean;
-    function paintEngine () : QPaintEngine;
     function pixel (pt : QPoint) : int;
     function pixel (x : int, y : int) : int;
     function pixelColor (pt : QPoint) : QColor;
@@ -154,5 +146,4 @@ native class QImage
     function transformed (matrix : QTransform, mode : Qt_TransformationMode) : QImage;
     function valid (pt : QPoint) : boolean;
     function valid (x : int, y : int) : boolean;
-    function width () : int;
 }

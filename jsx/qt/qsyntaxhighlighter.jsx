@@ -26,14 +26,12 @@ native class QSyntaxHighlighter extends QObject
     function format (pos : int) : QTextCharFormat;
     function highlightBlock (text : string) : void;
     function previousBlockState () : int;
+    function rehighlight () : void;
+    function rehighlightBlock (block : QTextBlock) : void;
     function setCurrentBlockState (newState : int) : void;
     function setCurrentBlockUserData (data : QTextBlockUserData) : void;
     function setDocument (doc : QTextDocument) : void;
     function setFormat (start : int, count : int, color : QColor) : void;
     function setFormat (start : int, count : int, font : QFont) : void;
     function setFormat (start : int, count : int, format : QTextCharFormat) : void;
-
-    // Slots
-    function rehighlight () : void;
-    function rehighlightBlock (block : QTextBlock) : void;
 }

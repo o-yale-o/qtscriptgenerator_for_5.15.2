@@ -31,6 +31,7 @@ native class QHeaderView extends QAbstractItemView
 
     // Methods
     function count () : int;
+    function headerDataChanged (orientation : Qt_Orientation, logicalFirst : int, logicalLast : int) : void;
     function hiddenSectionCount () : int;
     function hideSection (logicalIndex : int) : void;
     function initStyleOption (option : QStyleOptionHeader) : void;
@@ -50,6 +51,7 @@ native class QHeaderView extends QAbstractItemView
     function resetDefaultSectionSize () : void;
     function resizeContentsPrecision () : int;
     function resizeSection (logicalIndex : int, size : int) : void;
+    function resizeSections () : void;
     function resizeSections (mode : Qt_QHeaderView_ResizeMode) : void;
     function restoreState (state : QByteArray) : boolean;
     function saveState () : QByteArray;
@@ -59,10 +61,15 @@ native class QHeaderView extends QAbstractItemView
     function sectionSizeFromContents (logicalIndex : int) : QSize;
     function sectionSizeHint (logicalIndex : int) : int;
     function sectionViewportPosition (logicalIndex : int) : int;
+    function sectionsAboutToBeRemoved (parent : QModelIndex, logicalFirst : int, logicalLast : int) : void;
     function sectionsClickable () : boolean;
     function sectionsHidden () : boolean;
+    function sectionsInserted (parent : QModelIndex, logicalFirst : int, logicalLast : int) : void;
     function sectionsMovable () : boolean;
     function sectionsMoved () : boolean;
+    function setOffset (offset : int) : void;
+    function setOffsetToLastSection () : void;
+    function setOffsetToSectionPosition (visualIndex : int) : void;
     function setResizeContentsPrecision (precision : int) : void;
     function setSectionHidden (logicalIndex : int, hide : boolean) : void;
     function setSectionResizeMode (mode : Qt_QHeaderView_ResizeMode) : void;
@@ -76,18 +83,9 @@ native class QHeaderView extends QAbstractItemView
     function sortIndicatorSection () : int;
     function stretchSectionCount () : int;
     function swapSections (first : int, second : int) : void;
+    function updateSection (logicalIndex : int) : void;
     function visualIndex (logicalIndex : int) : int;
     function visualIndexAt (position : int) : int;
-
-    // Slots
-    function headerDataChanged (orientation : Qt_Orientation, logicalFirst : int, logicalLast : int) : void;
-    function resizeSections () : void;
-    function sectionsAboutToBeRemoved (parent : QModelIndex, logicalFirst : int, logicalLast : int) : void;
-    function sectionsInserted (parent : QModelIndex, logicalFirst : int, logicalLast : int) : void;
-    function setOffset (offset : int) : void;
-    function setOffsetToLastSection () : void;
-    function setOffsetToSectionPosition (visualIndex : int) : void;
-    function updateSection (logicalIndex : int) : void;
 
     // Signals
     var geometriesChanged : QtJSXSignal;

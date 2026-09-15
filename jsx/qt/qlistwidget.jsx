@@ -25,6 +25,7 @@ native class QListWidget extends QListView
     function addItem (item : QListWidgetItem) : void;
     function addItem (label : string) : void;
     function addItems (labels : string[]) : void;
+    function clear () : void;
     function closePersistentEditor (item : QListWidgetItem) : void;
     function currentItem () : QListWidgetItem;
     function dropMimeData (index : int, data : QMimeData, action : Qt_DropAction) : boolean;
@@ -45,6 +46,7 @@ native class QListWidget extends QListView
     function openPersistentEditor (item : QListWidgetItem) : void;
     function removeItemWidget (item : QListWidgetItem) : void;
     function row (item : QListWidgetItem) : int;
+    function scrollToItem (item : QListWidgetItem, hint : Qt_QAbstractItemView_ScrollHint) : void;
     function selectedItems () : QListWidgetItem[];
     function setCurrentItem (item : QListWidgetItem) : void;
     function setCurrentItem (item : QListWidgetItem, command : Qt_QItemSelectionModel_SelectionFlags) : void;
@@ -53,10 +55,6 @@ native class QListWidget extends QListView
     function supportedDropActions () : Qt_DropActions;
     function takeItem (row : int) : QListWidgetItem;
     function visualItemRect (item : QListWidgetItem) : QRect;
-
-    // Slots
-    function clear () : void;
-    function scrollToItem (item : QListWidgetItem, hint : Qt_QAbstractItemView_ScrollHint) : void;
 
     // Signals
     var currentItemChanged : QtJSXQListWidgetItemQListWidgetItemSignal;

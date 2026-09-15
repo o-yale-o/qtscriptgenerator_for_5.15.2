@@ -65,8 +65,6 @@ native class QGLWidget
     function setAutoBufferSwap (on : boolean) : void;
     function setColormap (map : QGLColormap) : void;
     function swapBuffers () : void;
-
-    // Slots
     function updateGL () : void;
     function updateOverlayGL () : void;
 }

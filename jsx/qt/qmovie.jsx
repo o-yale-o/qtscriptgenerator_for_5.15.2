@@ -16,9 +16,9 @@ import "qt/qrect.jsx";
 import "qt/qsize.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QMovie_CacheMode {}
-
 final native class Qt_QMovie_MovieState {}
+
+final native class Qt_QMovie_CacheMode {}
 
 native class QMovie extends QObject
 {
@@ -29,14 +29,14 @@ native class QMovie extends QObject
     // Static Members
     static function supportedFormats () : QByteArray[];
 
-    static const CacheNone : Qt_QMovie_CacheMode;
-    static const CacheAll : Qt_QMovie_CacheMode;
-    static function CacheMode(value : Qt_QMovie_CacheMode) : Qt_QMovie_CacheMode;
-
     static const NotRunning : Qt_QMovie_MovieState;
     static const Paused : Qt_QMovie_MovieState;
     static const Running : Qt_QMovie_MovieState;
     static function MovieState(value : Qt_QMovie_MovieState) : Qt_QMovie_MovieState;
+
+    static const CacheNone : Qt_QMovie_CacheMode;
+    static const CacheAll : Qt_QMovie_CacheMode;
+    static function CacheMode(value : Qt_QMovie_CacheMode) : Qt_QMovie_CacheMode;
 
     // Methods
     function backgroundColor () : QColor;
@@ -50,6 +50,7 @@ native class QMovie extends QObject
     function frameRect () : QRect;
     function isValid () : boolean;
     function jumpToFrame (frameNumber : int) : boolean;
+    function jumpToNextFrame () : boolean;
     function lastError () : Qt_QImageReader_ImageReaderError;
     function lastErrorString () : string;
     function loopCount () : int;
@@ -59,13 +60,10 @@ native class QMovie extends QObject
     function setDevice (device : QIODevice) : void;
     function setFileName (fileName : string) : void;
     function setFormat (format : QByteArray) : void;
-    function setScaledSize (size : QSize) : void;
-    function state () : Qt_QMovie_MovieState;
-
-    // Slots
-    function jumpToNextFrame () : boolean;
     function setPaused (paused : boolean) : void;
+    function setScaledSize (size : QSize) : void;
     function start () : void;
+    function state () : Qt_QMovie_MovieState;
     function stop () : void;
 
     // Signals

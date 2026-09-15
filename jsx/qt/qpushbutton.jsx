@@ -21,8 +21,6 @@ native class QPushButton extends QAbstractButton
     function initStyleOption (option : QStyleOptionButton) : void;
     function menu () : QMenu;
     function setMenu (menu : QMenu) : void;
-
-    // Slots
     function showMenu () : void;
 
     // Instance Properties

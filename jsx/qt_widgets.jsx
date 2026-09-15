@@ -108,7 +108,6 @@ import "qt/qmenu.jsx"; // QMenu
 import "qt/qmenubar.jsx"; // QMenuBar
 import "qt/qmessagebox.jsx"; // QMessageBox
 import "qt/qmouseeventtransition.jsx"; // QMouseEventTransition
-import "qt/qpaintdevice.jsx"; // QPaintDevice
 import "qt/qpangesture.jsx"; // QPanGesture
 import "qt/qpictureformatplugin.jsx"; // QPictureFormatPlugin
 import "qt/qplaintextdocumentlayout.jsx"; // QPlainTextDocumentLayout

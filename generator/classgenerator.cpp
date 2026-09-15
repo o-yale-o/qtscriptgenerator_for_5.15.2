@@ -94,6 +94,12 @@ static bool isQObjectBased(const AbstractMetaClass *meta_class)
     while (meta_class) {
         if (meta_class->name() == QLatin1String("QObject"))
             return true;
+        // Qt 5 fix: with multiple inheritance (QWidget : QObject,
+        // QPaintDevice) baseClass() may point at the non-QObject chain.
+        // The type entry's QObject flag is computed from the complete
+        // base-class list in the builder, so prefer it.
+        if (meta_class->isQObject())
+            return true;
         meta_class = meta_class->baseClass();
     }
     return false;
@@ -1472,8 +1478,11 @@ void findPrototypeAndStaticFunctions(
 
         if (func->declaringClass() != meta_class)
             continue; // function inherited through prototype
-        if (func->isPropertyReader() || func->isPropertyWriter())
-            continue; // no point in including property accessors
+        // NOTE: do NOT skip property readers/writers here. Script subclasses
+        // ("this" is a plain JS object whose prototype chain carries the
+        // binding) can only reach these functions through the generated
+        // prototype tables; without them this.setWindowTitle() etc. fail
+        // with "is not a function" inside subclass constructors.
         if (func->isSlot() || func->isSignal() || func->isInvokable())
             continue; // no point in including signals and slots
         QMap<QString, AbstractMetaFunctionList> &map =

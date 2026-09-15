@@ -774,6 +774,7 @@ public:
     ComplexTypeEntry *copy() const
     {
         ComplexTypeEntry *centry = new ComplexTypeEntry(name(), type());
+
         centry->setInclude(include());
         centry->setExtraIncludes(extraIncludes());
         centry->setFunctionModifications(functionModifications());

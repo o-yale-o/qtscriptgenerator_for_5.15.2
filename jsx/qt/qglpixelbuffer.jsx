@@ -8,13 +8,12 @@
 import "qt/qglcontext.jsx";
 import "qt/qimage.jsx";
 import "qt/qpaintdevice.jsx";
-import "qt/qpaintengine.jsx";
 import "qt/qpixmap.jsx";
 import "qt/qpointf.jsx";
 import "qt/qrectf.jsx";
 import "qt/qsize.jsx";
 
-native class QGLPixelBuffer
+native class QGLPixelBuffer extends QPaintDevice
 {
 
     // Static Members
@@ -27,15 +26,12 @@ native class QGLPixelBuffer
     function bindToDynamicTexture (texture : int) : boolean;
     function context () : QGLContext;
     function deleteTexture (texture_id : int) : void;
-    function devType () : int;
     function doneCurrent () : boolean;
     function drawTexture (point : QPointF, textureId : int, textureTarget : int) : void;
     function drawTexture (target : QRectF, textureId : int, textureTarget : int) : void;
     function generateDynamicTexture () : int;
     function isValid () : boolean;
     function makeCurrent () : boolean;
-    function metric (metric : Qt_QPaintDevice_PaintDeviceMetric) : int;
-    function paintEngine () : QPaintEngine;
     function releaseFromDynamicTexture () : void;
     function size () : QSize;
     function toImage () : QImage;

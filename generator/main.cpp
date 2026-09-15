@@ -53,12 +53,12 @@ void displayHelp(GeneratorSet *generatorSet);
 #include <QDebug>
 int main(int argc, char *argv[])
 { 
-	 // 必须先创建实例！
+	 // 锟斤拷锟斤拷锟饺达拷锟斤拷实锟斤拷锟斤拷
     QCoreApplication app(argc, argv); 
     
     GeneratorSet *gs = GeneratorSet::getInstance();
 
-    // 修改为从文件系统查找资源 Added at 2025-04-03 by Lusp
+    // 锟睫革拷为锟斤拷锟侥硷拷系统锟斤拷锟斤拷锟斤拷源 Added at 2025-04-03 by Lusp
     //QString default_file = ":/trolltech/generator/qtscript_masterinclude.h";
     //QString default_system = ":/trolltech/generator/build_all.txt";
     
@@ -67,11 +67,11 @@ int main(int argc, char *argv[])
     QString default_file = appDir + "/data/qtscript_masterinclude.h";
     QString default_system = appDir + "/data/build_all.txt";
 
-    // 添加资源文件检查
+    // 锟斤拷锟斤拷锟皆达拷募锟斤拷锟斤拷
     auto checkResourceFile = [](const QString &path) -> QString {
         if (QFile::exists(path)) return path;
         
-        // 尝试回退到嵌入式资源
+        // 锟斤拷锟皆伙拷锟剿碉拷嵌锟斤拷式锟斤拷源
         QString embeddedPath = ":/trolltech/generator/" + QFileInfo(path).fileName();
         if (QFile(embeddedPath).exists()) {
             qWarning() << "Using embedded resource instead of:" << path;

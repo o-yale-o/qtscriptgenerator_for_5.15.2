@@ -15,13 +15,11 @@ native class QAbstractNetworkCache extends QObject
 
     // Methods
     function cacheSize () : number;
+    function clear () : void;
     function data (url : QUrl) : QIODevice;
     function insert (device : QIODevice) : void;
     function metaData (url : QUrl) : QNetworkCacheMetaData;
     function prepare (metaData : QNetworkCacheMetaData) : QIODevice;
     function remove (url : QUrl) : boolean;
     function updateMetaData (metaData : QNetworkCacheMetaData) : void;
-
-    // Slots
-    function clear () : void;
 }

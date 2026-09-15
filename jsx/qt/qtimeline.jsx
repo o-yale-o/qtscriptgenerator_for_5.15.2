@@ -8,15 +8,20 @@
 import "qt/qeasingcurve.jsx";
 import "qt/qobject.jsx";
 
+final native class Qt_QTimeLine_State {}
+
 final native class Qt_QTimeLine_CurveShape {}
 
 final native class Qt_QTimeLine_Direction {}
 
-final native class Qt_QTimeLine_State {}
-
 native class QTimeLine extends QObject
 {
     function constructor (duration : int, parent : QObject);
+
+    static const NotRunning : Qt_QTimeLine_State;
+    static const Paused : Qt_QTimeLine_State;
+    static const Running : Qt_QTimeLine_State;
+    static function State(value : Qt_QTimeLine_State) : Qt_QTimeLine_State;
 
     static const EaseInCurve : Qt_QTimeLine_CurveShape;
     static const EaseOutCurve : Qt_QTimeLine_CurveShape;
@@ -30,29 +35,22 @@ native class QTimeLine extends QObject
     static const Backward : Qt_QTimeLine_Direction;
     static function Direction(value : Qt_QTimeLine_Direction) : Qt_QTimeLine_Direction;
 
-    static const NotRunning : Qt_QTimeLine_State;
-    static const Paused : Qt_QTimeLine_State;
-    static const Running : Qt_QTimeLine_State;
-    static function State(value : Qt_QTimeLine_State) : Qt_QTimeLine_State;
-
     // Methods
     function currentFrame () : int;
     function currentValue () : number;
     function endFrame () : int;
     function frameForTime (msec : int) : int;
+    function resume () : void;
     function setEndFrame (frame : int) : void;
     function setFrameRange (startFrame : int, endFrame : int) : void;
+    function setPaused (paused : boolean) : void;
     function setStartFrame (frame : int) : void;
+    function start () : void;
     function startFrame () : int;
     function state () : Qt_QTimeLine_State;
-    function valueForTime (msec : int) : number;
-
-    // Slots
-    function resume () : void;
-    function setPaused (paused : boolean) : void;
-    function start () : void;
     function stop () : void;
     function toggleDirection () : void;
+    function valueForTime (msec : int) : number;
 
     // Instance Properties
     var duration : int;

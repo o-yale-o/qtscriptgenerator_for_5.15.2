@@ -33,11 +33,9 @@ native class QToolBar extends QWidget
     function insertSeparator (before : QAction) : QAction;
     function insertWidget (before : QAction, widget : QWidget) : QAction;
     function isAreaAllowed (area : Qt_ToolBarArea) : boolean;
+    function setToolButtonStyle (toolButtonStyle : Qt_ToolButtonStyle) : void;
     function toggleViewAction () : QAction;
     function widgetForAction (action : QAction) : QWidget;
-
-    // Slots
-    function setToolButtonStyle (toolButtonStyle : Qt_ToolButtonStyle) : void;
 
     // Signals
     var actionTriggered : QtJSXQActionSignal;

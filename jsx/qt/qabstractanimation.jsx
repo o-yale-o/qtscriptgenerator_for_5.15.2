@@ -9,15 +9,20 @@ import "qt/qanimationgroup.jsx";
 import "qt/qobject.jsx";
 import "qt/_signals.jsx";
 
+final native class Qt_QAbstractAnimation_State {}
+
 final native class Qt_QAbstractAnimation_DeletionPolicy {}
 
 final native class Qt_QAbstractAnimation_Direction {}
 
-final native class Qt_QAbstractAnimation_State {}
-
 native class QAbstractAnimation extends QObject
 {
     function constructor (parent : QObject);
+
+    static const Stopped : Qt_QAbstractAnimation_State;
+    static const Paused : Qt_QAbstractAnimation_State;
+    static const Running : Qt_QAbstractAnimation_State;
+    static function State(value : Qt_QAbstractAnimation_State) : Qt_QAbstractAnimation_State;
 
     static const KeepWhenStopped : Qt_QAbstractAnimation_DeletionPolicy;
     static const DeleteWhenStopped : Qt_QAbstractAnimation_DeletionPolicy;
@@ -27,25 +32,18 @@ native class QAbstractAnimation extends QObject
     static const Backward : Qt_QAbstractAnimation_Direction;
     static function Direction(value : Qt_QAbstractAnimation_Direction) : Qt_QAbstractAnimation_Direction;
 
-    static const Stopped : Qt_QAbstractAnimation_State;
-    static const Paused : Qt_QAbstractAnimation_State;
-    static const Running : Qt_QAbstractAnimation_State;
-    static function State(value : Qt_QAbstractAnimation_State) : Qt_QAbstractAnimation_State;
-
     // Methods
     function currentLoopTime () : int;
     function group () : QAnimationGroup;
-    function totalDuration () : int;
-    function updateCurrentTime (currentTime : int) : void;
-    function updateDirection (direction : Qt_QAbstractAnimation_Direction) : void;
-    function updateState (newState : Qt_QAbstractAnimation_State, oldState : Qt_QAbstractAnimation_State) : void;
-
-    // Slots
     function pause () : void;
     function resume () : void;
     function setPaused (arg__1 : boolean) : void;
     function start (policy : Qt_QAbstractAnimation_DeletionPolicy) : void;
     function stop () : void;
+    function totalDuration () : int;
+    function updateCurrentTime (currentTime : int) : void;
+    function updateDirection (direction : Qt_QAbstractAnimation_Direction) : void;
+    function updateState (newState : Qt_QAbstractAnimation_State, oldState : Qt_QAbstractAnimation_State) : void;
 
     // Signals
     var currentLoopChanged : QtJSXintSignal;

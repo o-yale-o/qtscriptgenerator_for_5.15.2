@@ -18,15 +18,15 @@ import "qt/qtextlistformat.jsx";
 import "qt/qtexttablecellformat.jsx";
 import "qt/qtexttableformat.jsx";
 
-final native class Qt_QTextFormat_ObjectTypes {}
+final native class Qt_QTextFormat_FormatType {}
 
-final native class Qt_QTextFormat_Property {}
+final native class Qt_QTextFormat_ObjectTypes {}
 
 final native class Qt_QTextFormat_PageBreakFlag {}
 
 final native class Qt_QTextFormat_PageBreakFlags {}
 
-final native class Qt_QTextFormat_FormatType {}
+final native class Qt_QTextFormat_Property {}
 
 native class QTextFormat
 {
@@ -34,12 +34,27 @@ native class QTextFormat
     function constructor (rhs : QTextFormat);
     function constructor (type : int);
 
+    static const InvalidFormat : Qt_QTextFormat_FormatType;
+    static const BlockFormat : Qt_QTextFormat_FormatType;
+    static const CharFormat : Qt_QTextFormat_FormatType;
+    static const ListFormat : Qt_QTextFormat_FormatType;
+    static const TableFormat : Qt_QTextFormat_FormatType;
+    static const FrameFormat : Qt_QTextFormat_FormatType;
+    static const UserFormat : Qt_QTextFormat_FormatType;
+    static function FormatType(value : Qt_QTextFormat_FormatType) : Qt_QTextFormat_FormatType;
+
     static const NoObject : Qt_QTextFormat_ObjectTypes;
     static const ImageObject : Qt_QTextFormat_ObjectTypes;
     static const TableObject : Qt_QTextFormat_ObjectTypes;
     static const TableCellObject : Qt_QTextFormat_ObjectTypes;
     static const UserObject : Qt_QTextFormat_ObjectTypes;
     static function ObjectTypes(value : Qt_QTextFormat_ObjectTypes) : Qt_QTextFormat_ObjectTypes;
+
+    static const PageBreak_Auto : Qt_QTextFormat_PageBreakFlag;
+    static const PageBreak_AlwaysBefore : Qt_QTextFormat_PageBreakFlag;
+    static const PageBreak_AlwaysAfter : Qt_QTextFormat_PageBreakFlag;
+    static function PageBreakFlag(value : Qt_QTextFormat_PageBreakFlag) : Qt_QTextFormat_PageBreakFlag;
+    static function PageBreakFlags(...value : Qt_QTextFormat_PageBreakFlag) : Qt_QTextFormat_PageBreakFlags;
 
     static const ObjectIndex : Qt_QTextFormat_Property;
     static const CssFloat : Qt_QTextFormat_Property;
@@ -144,21 +159,6 @@ native class QTextFormat
     static const PageBreakPolicy : Qt_QTextFormat_Property;
     static const UserProperty : Qt_QTextFormat_Property;
     static function Property(value : Qt_QTextFormat_Property) : Qt_QTextFormat_Property;
-
-    static const PageBreak_Auto : Qt_QTextFormat_PageBreakFlag;
-    static const PageBreak_AlwaysBefore : Qt_QTextFormat_PageBreakFlag;
-    static const PageBreak_AlwaysAfter : Qt_QTextFormat_PageBreakFlag;
-    static function PageBreakFlag(value : Qt_QTextFormat_PageBreakFlag) : Qt_QTextFormat_PageBreakFlag;
-    static function PageBreakFlags(...value : Qt_QTextFormat_PageBreakFlag) : Qt_QTextFormat_PageBreakFlags;
-
-    static const InvalidFormat : Qt_QTextFormat_FormatType;
-    static const BlockFormat : Qt_QTextFormat_FormatType;
-    static const CharFormat : Qt_QTextFormat_FormatType;
-    static const ListFormat : Qt_QTextFormat_FormatType;
-    static const TableFormat : Qt_QTextFormat_FormatType;
-    static const FrameFormat : Qt_QTextFormat_FormatType;
-    static const UserFormat : Qt_QTextFormat_FormatType;
-    static function FormatType(value : Qt_QTextFormat_FormatType) : Qt_QTextFormat_FormatType;
 
     // Methods
     function background () : QBrush;

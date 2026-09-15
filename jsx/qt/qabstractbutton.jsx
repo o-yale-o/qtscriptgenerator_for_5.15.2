@@ -10,6 +10,7 @@ import "qt/qicon.jsx";
 import "qt/qkeysequence.jsx";
 import "qt/qpoint.jsx";
 import "qt/qsize.jsx";
+import "qt/qtimerevent.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
@@ -18,14 +19,13 @@ native class QAbstractButton extends QWidget
     function constructor (parent : QWidget);
 
     // Methods
+    function animateClick (msec : int) : void;
     function checkStateSet () : void;
+    function click () : void;
     function group () : QButtonGroup;
     function hitButton (pos : QPoint) : boolean;
     function nextCheckState () : void;
-
-    // Slots
-    function animateClick (msec : int) : void;
-    function click () : void;
+    function timerEvent (e : QTimerEvent) : void;
     function toggle () : void;
 
     // Signals

@@ -7,13 +7,13 @@
  */
 import "qt/qfileinfo.jsx";
 
-final native class Qt_QDir_Filter {}
-
-final native class Qt_QDir_Filters {}
-
 final native class Qt_QDir_SortFlag {}
 
 final native class Qt_QDir_SortFlags {}
+
+final native class Qt_QDir_Filter {}
+
+final native class Qt_QDir_Filters {}
 
 native class QDir
 {
@@ -45,6 +45,20 @@ native class QDir
     static function tempPath () : string;
     static function toNativeSeparators (pathName : string) : string;
 
+    static const NoSort : Qt_QDir_SortFlag;
+    static const Name : Qt_QDir_SortFlag;
+    static const Time : Qt_QDir_SortFlag;
+    static const Size : Qt_QDir_SortFlag;
+    static const Unsorted : Qt_QDir_SortFlag;
+    static const DirsFirst : Qt_QDir_SortFlag;
+    static const Reversed : Qt_QDir_SortFlag;
+    static const IgnoreCase : Qt_QDir_SortFlag;
+    static const DirsLast : Qt_QDir_SortFlag;
+    static const LocaleAware : Qt_QDir_SortFlag;
+    static const Type : Qt_QDir_SortFlag;
+    static function SortFlag(value : Qt_QDir_SortFlag) : Qt_QDir_SortFlag;
+    static function SortFlags(...value : Qt_QDir_SortFlag) : Qt_QDir_SortFlags;
+
     static const NoFilter : Qt_QDir_Filter;
     static const Dirs : Qt_QDir_Filter;
     static const Files : Qt_QDir_Filter;
@@ -67,20 +81,6 @@ native class QDir
     static const NoDotAndDotDot : Qt_QDir_Filter;
     static function Filter(value : Qt_QDir_Filter) : Qt_QDir_Filter;
     static function Filters(...value : Qt_QDir_Filter) : Qt_QDir_Filters;
-
-    static const NoSort : Qt_QDir_SortFlag;
-    static const Name : Qt_QDir_SortFlag;
-    static const Time : Qt_QDir_SortFlag;
-    static const Size : Qt_QDir_SortFlag;
-    static const Unsorted : Qt_QDir_SortFlag;
-    static const DirsFirst : Qt_QDir_SortFlag;
-    static const Reversed : Qt_QDir_SortFlag;
-    static const IgnoreCase : Qt_QDir_SortFlag;
-    static const DirsLast : Qt_QDir_SortFlag;
-    static const LocaleAware : Qt_QDir_SortFlag;
-    static const Type : Qt_QDir_SortFlag;
-    static function SortFlag(value : Qt_QDir_SortFlag) : Qt_QDir_SortFlag;
-    static function SortFlags(...value : Qt_QDir_SortFlag) : Qt_QDir_SortFlags;
 
     // Methods
     function absoluteFilePath (fileName : string) : string;

@@ -15,7 +15,7 @@ native class QErrorMessage extends QDialog
     // Static Members
     static function qtHandler () : QErrorMessage;
 
-    // Slots
+    // Methods
     function showMessage (message : string) : void;
     function showMessage (message : string, type : string) : void;
 }

@@ -45,11 +45,11 @@ import "qt/qtransform.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
+final native class Qt_QGraphicsScene_ItemIndexMethod {}
+
 final native class Qt_QGraphicsScene_SceneLayer {}
 
 final native class Qt_QGraphicsScene_SceneLayers {}
-
-final native class Qt_QGraphicsScene_ItemIndexMethod {}
 
 native class QGraphicsScene extends QObject
 {
@@ -57,16 +57,16 @@ native class QGraphicsScene extends QObject
     function constructor (sceneRect : QRectF, parent : QObject);
     function constructor (x : number, y : number, width : number, height : number, parent : QObject);
 
+    static const NoIndex : Qt_QGraphicsScene_ItemIndexMethod;
+    static const BspTreeIndex : Qt_QGraphicsScene_ItemIndexMethod;
+    static function ItemIndexMethod(value : Qt_QGraphicsScene_ItemIndexMethod) : Qt_QGraphicsScene_ItemIndexMethod;
+
     static const ItemLayer : Qt_QGraphicsScene_SceneLayer;
     static const BackgroundLayer : Qt_QGraphicsScene_SceneLayer;
     static const ForegroundLayer : Qt_QGraphicsScene_SceneLayer;
     static const AllLayers : Qt_QGraphicsScene_SceneLayer;
     static function SceneLayer(value : Qt_QGraphicsScene_SceneLayer) : Qt_QGraphicsScene_SceneLayer;
     static function SceneLayers(...value : Qt_QGraphicsScene_SceneLayer) : Qt_QGraphicsScene_SceneLayers;
-
-    static const NoIndex : Qt_QGraphicsScene_ItemIndexMethod;
-    static const BspTreeIndex : Qt_QGraphicsScene_ItemIndexMethod;
-    static function ItemIndexMethod(value : Qt_QGraphicsScene_ItemIndexMethod) : Qt_QGraphicsScene_ItemIndexMethod;
 
     // Methods
     function activePanel () : QGraphicsItem;
@@ -84,7 +84,10 @@ native class QGraphicsScene extends QObject
     function addSimpleText (text : string, font : QFont) : QGraphicsSimpleTextItem;
     function addText (text : string, font : QFont) : QGraphicsTextItem;
     function addWidget (widget : QWidget, wFlags : Qt_WindowFlags) : QGraphicsProxyWidget;
+    function advance () : void;
+    function clear () : void;
     function clearFocus () : void;
+    function clearSelection () : void;
     function collidingItems (item : QGraphicsItem, mode : Qt_ItemSelectionMode) : QGraphicsItem[];
     function contextMenuEvent (event : QGraphicsSceneContextMenuEvent) : void;
     function createItemGroup (items : QGraphicsItem[]) : QGraphicsItemGroup;
@@ -98,11 +101,13 @@ native class QGraphicsScene extends QObject
     function dropEvent (event : QGraphicsSceneDragDropEvent) : void;
     function focusInEvent (event : QFocusEvent) : void;
     function focusItem () : QGraphicsItem;
+    function focusNextPrevChild (next : boolean) : boolean;
     function focusOutEvent (event : QFocusEvent) : void;
     function hasFocus () : boolean;
     function height () : number;
     function helpEvent (event : QGraphicsSceneHelpEvent) : void;
     function inputMethodQuery (query : Qt_InputMethodQuery) : variant;
+    function invalidate (rect : QRectF, layers : Qt_QGraphicsScene_SceneLayers) : void;
     function invalidate (x : number, y : number, w : number, h : number, layers : Qt_QGraphicsScene_SceneLayers) : void;
     function isActive () : boolean;
     function itemAt (pos : QPointF, deviceTransform : QTransform) : QGraphicsItem;
@@ -135,18 +140,11 @@ native class QGraphicsScene extends QObject
     function setSelectionArea (path : QPainterPath, deviceTransform : QTransform) : void;
     function setStyle (style : QStyle) : void;
     function style () : QStyle;
+    function update (rect : QRectF) : void;
     function update (x : number, y : number, w : number, h : number) : void;
     function views () : QGraphicsView[];
     function wheelEvent (event : QGraphicsSceneWheelEvent) : void;
     function width () : number;
-
-    // Slots
-    function advance () : void;
-    function clear () : void;
-    function clearSelection () : void;
-    function focusNextPrevChild (next : boolean) : boolean;
-    function invalidate (rect : QRectF, layers : Qt_QGraphicsScene_SceneLayers) : void;
-    function update (rect : QRectF) : void;
 
     // Signals
     var changed : QtJSXQRectFListSignal;

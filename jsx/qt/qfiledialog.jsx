@@ -16,15 +16,15 @@ import "qt/qurl.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QFileDialog_AcceptMode {}
-
 final native class Qt_QFileDialog_ViewMode {}
-
-final native class Qt_QFileDialog_FileMode {}
 
 final native class Qt_QFileDialog_Option {}
 
 final native class Qt_QFileDialog_Options {}
+
+final native class Qt_QFileDialog_FileMode {}
+
+final native class Qt_QFileDialog_AcceptMode {}
 
 final native class Qt_QFileDialog_DialogLabel {}
 
@@ -44,20 +44,9 @@ native class QFileDialog extends QDialog
     static function getSaveFileUrl (parent : QWidget, caption : string, dir : QUrl, filter : string, selectedFilter : string, options : Qt_QFileDialog_Options, supportedSchemes : string[]) : QUrl;
     static function saveFileContent (fileContent : QByteArray, fileNameHint : string) : void;
 
-    static const AcceptOpen : Qt_QFileDialog_AcceptMode;
-    static const AcceptSave : Qt_QFileDialog_AcceptMode;
-    static function AcceptMode(value : Qt_QFileDialog_AcceptMode) : Qt_QFileDialog_AcceptMode;
-
     static const Detail : Qt_QFileDialog_ViewMode;
     static const List : Qt_QFileDialog_ViewMode;
     static function ViewMode(value : Qt_QFileDialog_ViewMode) : Qt_QFileDialog_ViewMode;
-
-    static const AnyFile : Qt_QFileDialog_FileMode;
-    static const ExistingFile : Qt_QFileDialog_FileMode;
-    static const Directory : Qt_QFileDialog_FileMode;
-    static const ExistingFiles : Qt_QFileDialog_FileMode;
-    static const DirectoryOnly : Qt_QFileDialog_FileMode;
-    static function FileMode(value : Qt_QFileDialog_FileMode) : Qt_QFileDialog_FileMode;
 
     static const ShowDirsOnly : Qt_QFileDialog_Option;
     static const DontResolveSymlinks : Qt_QFileDialog_Option;
@@ -69,6 +58,17 @@ native class QFileDialog extends QDialog
     static const DontUseCustomDirectoryIcons : Qt_QFileDialog_Option;
     static function Option(value : Qt_QFileDialog_Option) : Qt_QFileDialog_Option;
     static function Options(...value : Qt_QFileDialog_Option) : Qt_QFileDialog_Options;
+
+    static const AnyFile : Qt_QFileDialog_FileMode;
+    static const ExistingFile : Qt_QFileDialog_FileMode;
+    static const Directory : Qt_QFileDialog_FileMode;
+    static const ExistingFiles : Qt_QFileDialog_FileMode;
+    static const DirectoryOnly : Qt_QFileDialog_FileMode;
+    static function FileMode(value : Qt_QFileDialog_FileMode) : Qt_QFileDialog_FileMode;
+
+    static const AcceptOpen : Qt_QFileDialog_AcceptMode;
+    static const AcceptSave : Qt_QFileDialog_AcceptMode;
+    static function AcceptMode(value : Qt_QFileDialog_AcceptMode) : Qt_QFileDialog_AcceptMode;
 
     static const LookIn : Qt_QFileDialog_DialogLabel;
     static const FileName : Qt_QFileDialog_DialogLabel;

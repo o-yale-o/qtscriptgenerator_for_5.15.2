@@ -31,8 +31,6 @@ native class QEventLoop extends QObject
     function isRunning () : boolean;
     function processEvents (flags : Qt_QEventLoop_ProcessEventsFlags) : boolean;
     function processEvents (flags : Qt_QEventLoop_ProcessEventsFlags, maximumTime : int) : void;
-    function wakeUp () : void;
-
-    // Slots
     function quit () : void;
+    function wakeUp () : void;
 }

@@ -314,3 +314,41 @@ typesystem 里统一 `remove`（与 gui 模块既有惯例一致）：
   与全部示例运行）；`qt.webkit`/`qt.webkitwidgets` 本来就没有绑定。
 - `QMatrix::inverted(bool*)`、`QTransform::inverted(bool*)` 等带输出指针参数的
   函数按 Qt4 时代惯例做了参数移除/私有化，脚本中拿到的是返回值版本。
+
+---
+
+## 【修改说明 · 三】槽函数绑定修复（AnalogClock 调通）
+
+第一轮验证时 AnalogClock.js 报 `painter.begin is not a function`，深挖后修掉
+一条完整的因果链：
+
+1. **`pp-qt-configuration` 补 `#define slots`**。配置原本把 `Q_SLOTS` 展开成
+   标识符 `slots`，但自身未定义 `slots`，导致预处理流中残留 `public slots:`，
+   遗留 parser 在此处失败并靠深度恢复吞掉整段槽声明（QWidget 的
+   show/hide/setVisible/setWindowTitle/deleteLater/raise/close… 全部丢失，
+   计 300+ 个函数）。Qt 官方本就默认把 `slots` 定义为空，补上后槽函数按
+   普通成员正常绑定。
+2. **注册 `QPaintDevice`**（typesystem_gui.xml）。该类型缺失使
+   `QPainter::begin(QPaintDevice*)` 与 `QPainter(QPaintDevice*)` 被静默丢弃，
+   `painter.begin(this)` 不可用；所有构造函数均为 protected，
+   `new QPaintDevice()` 依然不可能。
+3. **容器条目 include 污染防护**（abstractmetabuilder.cpp）。Qt 5.15 的
+   qevent.h 含 `template <> class QList<QPointingDeviceUniqueId> {}` 显式
+   特化，解析器将其记录为名为 QList 的"类"（所在文件 qevent.h），绑定顺序
+   一旦先碰到它，QList 容器条目的 include 即被污染 → 网络模块（不含 gui）
+   全部生成文件 include qevent.h 而编译失败。现在容器条目不再从类遍历继承
+   include。
+4. **属性访问器纳入绑定表**（classgenerator.cpp）。原本 Q_PROPERTY 的
+   read/write 函数被跳过，脚本子类（`this` 为普通 JS 对象）无法调用
+   `setWindowTitle` 等。现按普通函数生成。
+5. **`isQObjectBased` 支持多继承**（classgenerator.cpp）。QWidget 同时继承
+   QObject 与 QPaintDevice，`baseClass()` 只沿单链走、可能选中
+   QPaintDevice，导致 QWidget 被误判为非 QObject 系、构造器用 newVariant
+   包装，信号 `connect(this,"slot()")` 全部失效。现优先读取 builder 按
+   完整基类列表计算的 QObject 标志。
+6. `QLabel::pixmap()` 返回 `const QPixmap*`（Qt4 为非 const），生成代码
+   无法编译，按 `QLabel::picture` 先例 rejection。
+
+**验证**：AnalogClock.js（时钟走针）、CollidingMice.js（老鼠碰撞）、
+TwoWayButton.qs（状态机按钮）全部无脚本异常、正常交互退出（exit 0）。
+QWidget 绑定函数表从 114 个恢复至 425 个。

@@ -30,16 +30,14 @@ native class QSvgRenderer extends QObject
     function defaultSize () : QSize;
     function elementExists (id : string) : boolean;
     function isValid () : boolean;
-    function matrixForElement (id : string) : QMatrix;
-    function transformForElement (id : string) : QTransform;
-
-    // Slots
     function load (contents : QXmlStreamReader) : boolean;
     function load (contents : QByteArray) : boolean;
     function load (filename : string) : boolean;
+    function matrixForElement (id : string) : QMatrix;
     function render (p : QPainter) : void;
     function render (p : QPainter, bounds : QRectF) : void;
     function render (p : QPainter, elementId : string, bounds : QRectF) : void;
+    function transformForElement (id : string) : QTransform;
 
     // Signals
     var repaintNeeded : QtJSXSignal;

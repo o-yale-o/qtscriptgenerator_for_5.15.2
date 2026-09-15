@@ -44,10 +44,8 @@ native class QGraphicsEffect extends QObject
     function sourceChanged (flags : Qt_QGraphicsEffect_ChangeFlags) : void;
     function sourceIsPixmap () : boolean;
     function sourcePixmap (system : Qt_CoordinateSystem, offset : QPoint, mode : Qt_QGraphicsEffect_PixmapPadMode) : QPixmap;
-    function updateBoundingRect () : void;
-
-    // Slots
     function update () : void;
+    function updateBoundingRect () : void;
 
     // Signals
     var enabledChanged : QtJSXboolSignal;

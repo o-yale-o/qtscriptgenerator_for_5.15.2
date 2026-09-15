@@ -14,14 +14,14 @@ import "qt/qiodevice.jsx";
 import "qt/qmatrix.jsx";
 import "qt/qobject.jsx";
 import "qt/qpaintdevice.jsx";
-import "qt/qpaintengine.jsx";
+import "qt/qpoint.jsx";
 import "qt/qrect.jsx";
 import "qt/qregion.jsx";
 import "qt/qsize.jsx";
 import "qt/qt.jsx";
 import "qt/qtransform.jsx";
 
-native class QPixmap
+native class QPixmap extends QPaintDevice
 {
     function constructor ();
     function constructor (arg__1 : QPixmap);
@@ -45,20 +45,16 @@ native class QPixmap
     function copy (x : int, y : int, width : int, height : int) : QPixmap;
     function createHeuristicMask (clipTight : boolean) : QBitmap;
     function createMaskFromColor (maskColor : QColor, mode : Qt_MaskMode) : QBitmap;
-    function depth () : int;
-    function devType () : int;
-    function devicePixelRatio () : number;
     function fill (fillColor : QColor) : void;
+    function fill (device : QPaintDevice, ofs : QPoint) : void;
+    function fill (device : QPaintDevice, xofs : int, yofs : int) : void;
     function hasAlpha () : boolean;
     function hasAlphaChannel () : boolean;
-    function height () : int;
     function isNull () : boolean;
     function isQBitmap () : boolean;
     function load (fileName : string, format : string, flags : Qt_ImageConversionFlags) : boolean;
     function loadFromData (data : QByteArray, format : string, flags : Qt_ImageConversionFlags) : boolean;
     function mask () : QBitmap;
-    function metric (arg__1 : Qt_QPaintDevice_PaintDeviceMetric) : int;
-    function paintEngine () : QPaintEngine;
     function rect () : QRect;
     function save (device : QIODevice, format : string, quality : int) : boolean;
     function save (fileName : string, format : string, quality : int) : boolean;
@@ -75,5 +71,4 @@ native class QPixmap
     function toImage () : QImage;
     function transformed (arg__1 : QMatrix, mode : Qt_TransformationMode) : QPixmap;
     function transformed (arg__1 : QTransform, mode : Qt_TransformationMode) : QPixmap;
-    function width () : int;
 }

@@ -35,6 +35,7 @@ native class QCompleter extends QObject
     static function CompletionMode(value : Qt_QCompleter_CompletionMode) : Qt_QCompleter_CompletionMode;
 
     // Methods
+    function complete (rect : QRect) : void;
     function completionCount () : int;
     function completionModel () : QAbstractItemModel;
     function currentCompletion () : string;
@@ -49,9 +50,6 @@ native class QCompleter extends QObject
     function setWidget (widget : QWidget) : void;
     function splitPath (path : string) : string[];
     function widget () : QWidget;
-
-    // Slots
-    function complete (rect : QRect) : void;
 
     // Signals
     var activated : QtJSXQStringSignal;

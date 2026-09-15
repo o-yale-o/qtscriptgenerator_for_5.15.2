@@ -9,13 +9,13 @@ import "qt/qiodevice.jsx";
 
 final native class Qt_QFileDevice_MemoryMapFlags {}
 
-final native class Qt_QFileDevice_FileHandleFlag {}
-
-final native class Qt_QFileDevice_FileHandleFlags {}
-
 final native class Qt_QFileDevice_Permission {}
 
 final native class Qt_QFileDevice_Permissions {}
+
+final native class Qt_QFileDevice_FileHandleFlag {}
+
+final native class Qt_QFileDevice_FileHandleFlags {}
 
 final native class Qt_QFileDevice_FileError {}
 
@@ -25,11 +25,6 @@ native class QFileDevice extends QIODevice
     static const NoOptions : Qt_QFileDevice_MemoryMapFlags;
     static const MapPrivateOption : Qt_QFileDevice_MemoryMapFlags;
     static function MemoryMapFlags(value : Qt_QFileDevice_MemoryMapFlags) : Qt_QFileDevice_MemoryMapFlags;
-
-    static const DontCloseHandle : Qt_QFileDevice_FileHandleFlag;
-    static const AutoCloseHandle : Qt_QFileDevice_FileHandleFlag;
-    static function FileHandleFlag(value : Qt_QFileDevice_FileHandleFlag) : Qt_QFileDevice_FileHandleFlag;
-    static function FileHandleFlags(...value : Qt_QFileDevice_FileHandleFlag) : Qt_QFileDevice_FileHandleFlags;
 
     static const ExeOther : Qt_QFileDevice_Permission;
     static const WriteOther : Qt_QFileDevice_Permission;
@@ -45,6 +40,11 @@ native class QFileDevice extends QIODevice
     static const ReadOwner : Qt_QFileDevice_Permission;
     static function Permission(value : Qt_QFileDevice_Permission) : Qt_QFileDevice_Permission;
     static function Permissions(...value : Qt_QFileDevice_Permission) : Qt_QFileDevice_Permissions;
+
+    static const DontCloseHandle : Qt_QFileDevice_FileHandleFlag;
+    static const AutoCloseHandle : Qt_QFileDevice_FileHandleFlag;
+    static function FileHandleFlag(value : Qt_QFileDevice_FileHandleFlag) : Qt_QFileDevice_FileHandleFlag;
+    static function FileHandleFlags(...value : Qt_QFileDevice_FileHandleFlag) : Qt_QFileDevice_FileHandleFlags;
 
     static const NoError : Qt_QFileDevice_FileError;
     static const ReadError : Qt_QFileDevice_FileError;
