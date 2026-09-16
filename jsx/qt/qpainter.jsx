@@ -30,11 +30,11 @@ import "qt/qtextitem.jsx";
 import "qt/qtransform.jsx";
 import "qt/qwidget.jsx";
 
+final native class Qt_QPainter_CompositionMode {}
+
 final native class Qt_QPainter_RenderHint {}
 
 final native class Qt_QPainter_RenderHints {}
-
-final native class Qt_QPainter_CompositionMode {}
 
 final native class Qt_QPainter_PixmapFragmentHint {}
 
@@ -47,16 +47,6 @@ native class QPainter
     static function redirected (device : QPaintDevice, offset : QPoint) : QPaintDevice;
     static function restoreRedirected (device : QPaintDevice) : void;
     static function setRedirected (device : QPaintDevice, replacement : QPaintDevice, offset : QPoint) : void;
-
-    static const Antialiasing : Qt_QPainter_RenderHint;
-    static const TextAntialiasing : Qt_QPainter_RenderHint;
-    static const SmoothPixmapTransform : Qt_QPainter_RenderHint;
-    static const HighQualityAntialiasing : Qt_QPainter_RenderHint;
-    static const NonCosmeticDefaultPen : Qt_QPainter_RenderHint;
-    static const Qt4CompatiblePainting : Qt_QPainter_RenderHint;
-    static const LosslessImageRendering : Qt_QPainter_RenderHint;
-    static function RenderHint(value : Qt_QPainter_RenderHint) : Qt_QPainter_RenderHint;
-    static function RenderHints(...value : Qt_QPainter_RenderHint) : Qt_QPainter_RenderHints;
 
     static const CompositionMode_SourceOver : Qt_QPainter_CompositionMode;
     static const CompositionMode_DestinationOver : Qt_QPainter_CompositionMode;
@@ -97,6 +87,16 @@ native class QPainter
     static const RasterOp_SetDestination : Qt_QPainter_CompositionMode;
     static const RasterOp_NotDestination : Qt_QPainter_CompositionMode;
     static function CompositionMode(value : Qt_QPainter_CompositionMode) : Qt_QPainter_CompositionMode;
+
+    static const Antialiasing : Qt_QPainter_RenderHint;
+    static const TextAntialiasing : Qt_QPainter_RenderHint;
+    static const SmoothPixmapTransform : Qt_QPainter_RenderHint;
+    static const HighQualityAntialiasing : Qt_QPainter_RenderHint;
+    static const NonCosmeticDefaultPen : Qt_QPainter_RenderHint;
+    static const Qt4CompatiblePainting : Qt_QPainter_RenderHint;
+    static const LosslessImageRendering : Qt_QPainter_RenderHint;
+    static function RenderHint(value : Qt_QPainter_RenderHint) : Qt_QPainter_RenderHint;
+    static function RenderHints(...value : Qt_QPainter_RenderHint) : Qt_QPainter_RenderHints;
 
     static const OpaqueHint : Qt_QPainter_PixmapFragmentHint;
     static function PixmapFragmentHint(value : Qt_QPainter_PixmapFragmentHint) : Qt_QPainter_PixmapFragmentHint;

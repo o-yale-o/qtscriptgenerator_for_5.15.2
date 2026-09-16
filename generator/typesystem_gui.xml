@@ -1215,7 +1215,37 @@
   </object-type>
   <object-type name="QValidator"/>
 
-  <object-type name="QActionEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::ActionAdded || %1-&gt;type() == QEvent::ActionRemoved || %1-&gt;type() == QEvent::ActionChanged"/>
+  <object-type name="QActionEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::ActionAdded || %1-&gt;type() == QEvent::ActionRemoved || %1-&gt;type() == QEvent::ActionChanged">
+    <extra-includes>
+      <include file-name="qevent.h" location="global"/>
+      <include file-name="QAction" location="global"/>
+    </extra-includes>
+    <!-- Qt 5 fix: action()/before() are inline accessors in qevent.h that the
+         parser/model silently drops (cf. TestA/other in the minimal repro);
+         QCAD's tool-matrix actionEvent handler needs event.action() and
+         event.before(). Bind them explicitly on the prototype. -->
+    <inject-code class="native" position="prototype-initialization">
+    // Qt 5 fix: QActionEvent::action/before dropped by the parser - bind manually
+    {
+        QScriptValue funAction = engine->newFunction(
+            [](QScriptContext *ctx, QScriptEngine *) -&gt; QScriptValue {
+                QActionEvent *e = qscriptvalue_cast&lt;QActionEvent*&gt;(ctx-&gt;thisObject());
+                QAction *a = e ? e-&gt;action() : 0;
+                return a ? ctx-&gt;engine()-&gt;newQObject(a, QScriptEngine::QtOwnership, QScriptEngine::PreferExistingWrapperObject)
+                         : QScriptValue();
+            }, 0);
+        proto.setProperty(QString::fromLatin1("action"), funAction, QScriptValue::SkipInEnumeration);
+        QScriptValue funBefore = engine->newFunction(
+            [](QScriptContext *ctx, QScriptEngine *) -&gt; QScriptValue {
+                QActionEvent *e = qscriptvalue_cast&lt;QActionEvent*&gt;(ctx-&gt;thisObject());
+                QAction *b = e ? e-&gt;before() : 0;
+                return b ? ctx-&gt;engine()-&gt;newQObject(b, QScriptEngine::QtOwnership, QScriptEngine::PreferExistingWrapperObject)
+                         : QScriptValue();
+            }, 0);
+        proto.setProperty(QString::fromLatin1("before"), funBefore, QScriptValue::SkipInEnumeration);
+    }
+    </inject-code>
+  </object-type>
   <object-type name="QCloseEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::Close"/>
   <object-type name="QContextMenuEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::ContextMenu"/>
   <object-type name="QDragEnterEvent" polymorphic-id-expression="%1-&gt;type() == QEvent::DragEnter"/>
