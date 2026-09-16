@@ -1,52 +1,81 @@
-# Qt Script Generator (labs package, version 0.2)
+# qtscriptgenerator_for_5.15.2
 
-The Qt Script Generator is a tool that generates Qt bindings for Qt Script. This should work
-with Qt 5.6.0 and MSVC 2015 (Update 1).
+Qt Script Generator（Qt Labs 0.2）的移植分支：把 QtScript 绑定生成器
+从 Qt 4 时代移植到 **Qt 5.15.2（msvc2019_64）+ MSVC 2019**。12 个模块
+（core / gui / widgets / printsupport / multimedia / network / opengl /
+sql / xml / svg / xmlpatterns / uitools）全部**可从源码再生成、可编译、
+可运行**，18 个示例脚本批量回归 0 脚本异常。
 
----
+> 本节已按当前（Qt 5.15.2 + VS2019）形势全面改写。上游原版说明
+> （"works with Qt 5.6.0 and MSVC 2015"、`qmake && make`、"不带参数运行
+> 生成器"等）描述的是旧工作流，与本仓库实际不符，已删除；原版原文可从
+> git 历史找回。
 
-## Instructions
+## 环境要求
 
-1. **Build the generator**
+| 用途 | 需要 |
+|---|---|
+| 只跑示例 | 直接用 [发布包](https://github.com/o-yale-o/qtscriptgenerator_for_5.15.2/releases)（v1.0-qt5.15.2），什么都不用装 |
+| 重生成绑定源码 | Qt 5.15.2 头文件在标准位置 `C:\Qt\5.15.2\msvc2019_64`（用现成 generator.exe，无需 MSVC） |
+| 自行构建 generator.exe / 编译插件 | MSVC 2019 + Qt 5.15.2 (msvc2019_64) |
+
+## 快速上手（当前工作流）
+
+1. **构建生成器**（一次性；或直接用发布包里的）
 
    ```
-   cd path/to/this/project/generator
-   qmake && make
+   cd generator
+   qmake generator.pro -spec win32-msvc "CONFIG += release"
+   nmake /f Makefile.Release
    ```
 
-2. **Run the generator** (without arguments)
-
-   This will generate C++ files in `path/to/this/project/generated_cpp`
-   and documentation in `path/to/this/project/doc`.
-
-3. **Build the bindings plugins**
+2. **重生成绑定源码**（设 QTDIR 并把 Qt bin 加入 PATH；逐模块执行）
 
    ```
-   cd path/to/this/project/qtbindings
-   qmake && make
+   set QTDIR=C:\Qt\5.15.2\msvc2019_64
+   set PATH=%QTDIR%\bin;%PATH%
+   cd generator
+   release\generator.exe qtscript_masterinclude.h typesystem_core.xml
+   release\generator.exe qtscript_masterinclude.h typesystem_gui.xml
    ```
 
-   The plugins will be put under `path/to/this/project/plugins`.
+   其余模块（widgets / printsupport / multimedia / network / opengl /
+   sql / xml / svg / xmlpatterns / uitools）同理。产物：根目录
+   `generated_cpp\`（绑定源码）、`jsx\`（旁路 IDL 快照，构建不用）、
+   `doc\`（文档）。
 
-4. **Use the plugins in your application**
+3. **编译绑定插件与 qs_eval**
 
-   Add the plugins path to the library paths
-   (`QCoreApplication::setLibraryPaths()`), then call `QScriptEngine::importExtension()`
-   (plugin keys are `"qt.core"`, `"qt.gui"`, etc).
+   ```
+   cd qtbindings
+   qmake qtbindings.pro -spec win32-msvc "CONFIG += release"
+   nmake /f Makefile.Release
+   ```
 
-There is a simple script interpreter / launcher in `path/to/this/project/qtbindings/qs_eval`
-that imports all the bindings. You can use it to run the examples found in
-`path/to/this/project/examples`. E.g., with the examples directory being the working directory:
+   产物：`plugins\script\qtscript_<模块>.dll` 与
+   `qtbindings\qs_eval\release\qs_eval.exe`。
 
-```
-../qtbindings/qs_eval/qs_eval CollidingMice.js
-```
+4. **跑示例**
 
-See the generated `doc/index.html` for more information.
+   ```
+   cd examples
+   ..\qtbindings\qs_eval\release\qs_eval.exe CollidingMice.js
+   ```
 
-Have fun!
+   qs_eval 自动导入全部绑定插件（qt.core / qt.gui / …）——插件搜索路径
+   由 qs_eval 按 exe 相对位置注入，无需手工 `setLibraryPaths()`。
+   脚本异常会进入交互式调试器；设 `QSEVAL_NO_DEBUGGER=1` 可改为控制台
+   报错退出（`QSEVAL_FAILFAST=1` 连事件循环内的异常也捕获）。
 
----
+5. **交互式解释器**：`qs_eval` 不带参数，或 `qs_eval -i`。
+
+## 文档地图
+
+- 【架构说明】：xml ⇒ cpp ⇒ dll ⇒ js 全链路、承上启下的桥、jsx 定性
+- 【设计指南】：把自己的 Qt 类导出给脚本（newQObject / 手写绑定 / 走管线）
+- 【发布包】：GitHub Releases 一包三用的设计、自测与打包避坑
+- 【修改说明】系列：修复史（parser C++11、默认实参、槽绑定、
+  QFile::open 遮蔽、无人值守测试基建等）
 
 ## 【修改说明】
 
