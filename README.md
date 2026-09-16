@@ -553,3 +553,85 @@ signals/slots/Q_PROPERTY/Q_INVOKABLE，脚本里 `myObj.someSignal.connect(...)`
 - **JS 里从你的类再派生子类**：只有 B2（shell 机制）自然支持；B1 手写要
   自己复刻 shell 模式（抄 `qtscriptshell_QAbstractButton.cpp` 那套
   "C++ 虚函数 → 查 JS 同名函数"的外壳），工作量不小。
+
+---
+
+## 【发布包】一包三用的设计（v1.0-qt5.15.2）
+
+发布地址：GitHub Releases → `v1.0-qt5.15.2`
+（`qtscriptgenerator_for_5.15.2_win64_qt5.15.2.zip`，约 17.6 MB）。
+
+### 设计初衷
+
+git 仓库只跟踪源码（.gitignore 排除了 exe/dll/generated_cpp），任何"想
+直接体验一下"的人都得先装 Qt、MSVC、跑 qmake/nmake——门槛太高。发布包
+把三类使用场景压缩成"解压即用"：
+
+| 场景 | 人群 | 包内入口 |
+|---|---|---|
+| [1] 免编译跑 js 示例 | 只想看看绑定能不能用 | `run_demo.bat` |
+| [2] 双击重新生成 cpp/h | 改 typesystem 规格的人 | `generator\regenerate_all.bat [模块]` |
+| [3] 用预生成源码直接编 DLL | 改过规格或源码、要出新插件的人 | `build_bindings.bat [模块]` |
+
+关键取舍：**[2] 不需要 MSVC**（generator.exe 是预编译的，重生成只是
+文本处理）；**[1] 不需要 Qt 安装**（运行库直接随包）；只有 [3] 需要完整
+工具链。环境假设与打包机一致：Qt 5.15.2 在 `C:\Qt\5.15.2\msvc2019_64`。
+
+### 结构关键点（骨架为什么不能动）
+
+发布包 = 仓库骨架 + 补回二进制，有三个"相对路径契约"决定了骨架：
+
+1. **qs_eval.exe 找插件**：main.cpp 从 exe 位置向上回溯找 `plugins/`
+   目录（`qtbindings/qs_eval/release/` → 上两级 → `<根>/plugins`）。
+   所以 exe 必须待在 `qtbindings\qs_eval\release\`，插件在根
+   `plugins\script\`。
+2. **Qt 运行库贴着 exe 放**：14 个 Qt5 DLL + `platforms\qwindows.dll`
+   + `styles\qwindowsvistastyle.dll` 全部放 exe 旁边，Windows 的 DLL
+   搜索顺序第一顺位就是 exe 所在目录，用户 PATH 里有没有 Qt 都无所谓。
+   模块清单按 qs_eval + 12 个插件 dll 的运行时依赖取：Core/Gui/Widgets/
+   Script/ScriptTools/Network/Xml/XmlPatterns/Svg/Sql/OpenGL/Multimedia/
+   Concurrent/PrintSupport。
+3. **generator.exe 的输出落点**：在 `generator\` 目录下运行时，输出写
+   到上级根的 `generated_cpp\`、`jsx\`、`doc\`；其运行数据
+   （`build_all.txt`、pp 配置）从 exe 旁 `release\data\` 读取，主包含头
+   与 typesystem 从工作目录取。所以生成器一侧也保持仓库原布局。
+
+补齐的二进制清单：`generator\release\generator.exe(+data\)`、
+`qtbindings\qs_eval\release\qs_eval.exe(+Qt运行库)`、
+`plugins\script\*.dll`（12 个）；其余与仓库同构（examples 全量、
+generated_cpp 全量、jsx、12 个 qtscript_* 工程壳、typesystem 全套含
+-common/-qtscript 分片、qtscript_masterinclude.h、build_all.txt、
+LGPL_EXCEPTION.txt）。
+
+### 三个 bat 的分工
+
+| 脚本 | 作用 | 实现要点 |
+|---|---|---|
+| `run_demo.bat [脚本]` | [1] 跑示例，缺省 CollidingMice.js | pushd 到 examples\ 后调相对路径的 qs_eval.exe；设 `QSEVAL_NO_DEBUGGER=1`，脚本异常直接在控制台报错退出，不进交互式调试器；透传退出码 |
+| `generator\regenerate_all.bat [模块]` | [2] 重生成源码 | 设 QTDIR/PATH 后 cd 到 generator\，对单个或全部 12 个模块执行 `generator.exe qtscript_masterinclude.h typesystem_<模块>.xml`；任一模块失败立即停（`\|\| goto :fail`） |
+| `build_bindings.bat [模块]` | [3] 编译插件 | 四种 VS2019 版本自动定位 vcvars64.bat → qmake + nmake；缺省全量（顶层 SUBDIRS），带模块名则只编该模块（分钟级）；产物直接落到 `plugins\script\` |
+
+三者都不需要先跑 qmake 全量：[3] 单模块路径会在模块目录里就地生成
+Makefile。
+
+### 发布前自测（三关全过）
+
+1. 包内 `qs_eval.exe _cc_auto.js` → 5 秒自动退出 exit 0（目标 [1]；
+   同时验证 Qt 库/插件部署完整）；
+2. 包内 `regenerate_all.bat uitools` → 重生成结果与随包源码**逐字节
+   一致**（目标 [2]；证明生成器可再生产、包内环境自洽）；
+3. 包内 `build_bindings.bat xml` → 从随包源码编出全新
+   `qtscript_xml.dll`（目标 [3]；完整走通 vcvars 定位 → qmake → nmake）。
+
+### 打包避坑（再打包前必读）
+
+- **bat 必须纯 ASCII + CRLF**：cmd 在 GBK 代码页下解析 UTF-8 中文注释会
+  把字节流切碎，出现"'em' 不是内部或外部命令"这类乱码错；
+- **含 `(x86)` 的路径不能写进 for/if 括号块**：`C:\Program Files
+  (x86)\...` 中的括号会提前闭合语句块（"此时不应有 \Microsoft"），
+  vcvars64 的定位要用平铺的独立 `if exist ... set "VCVARS=..."` 行；
+- 测试产生的痕迹要清理后再压缩：模块目录下的 `Makefile*`、`.obj`、
+  `.qmake.stash`、`vc140.pdb`、`debug\`，根目录测试期生成的 `doc\`
+  （重生成单模块只会产出该模块的文档，发布带半套文档会误导）；
+- 打包等价操作 = robocopy 仓库各源目录 → 补二进制 → 清理 → 压缩；
+  暂存树约定在仓库 `_pkg/`（已 gitignore，随包 zip 也放在里面）。
