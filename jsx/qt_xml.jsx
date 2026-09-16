@@ -23,3 +23,13 @@ import "qt/qdomnotation.jsx"; // QDomNotation
 import "qt/qdomprocessinginstruction.jsx"; // QDomProcessingInstruction
 import "qt/qdomtext.jsx"; // QDomText
 import "qt/qxmlattributes.jsx"; // QXmlAttributes
+import "qt/qxmlcontenthandler.jsx"; // QXmlContentHandler
+import "qt/qxmldtdhandler.jsx"; // QXmlDTDHandler
+import "qt/qxmldeclhandler.jsx"; // QXmlDeclHandler
+import "qt/qxmldefaulthandler.jsx"; // QXmlDefaultHandler
+import "qt/qxmlentityresolver.jsx"; // QXmlEntityResolver
+import "qt/qxmlerrorhandler.jsx"; // QXmlErrorHandler
+import "qt/qxmlinputsource.jsx"; // QXmlInputSource
+import "qt/qxmllexicalhandler.jsx"; // QXmlLexicalHandler
+import "qt/qxmllocator.jsx"; // QXmlLocator
+import "qt/qxmlparseexception.jsx"; // QXmlParseException

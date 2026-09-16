@@ -51,6 +51,7 @@
 void displayHelp(GeneratorSet *generatorSet);
 
 #include <QDebug>
+#include <QRegularExpression>
 int main(int argc, char *argv[])
 { 
 	 // �����ȴ���ʵ����
@@ -177,6 +178,31 @@ int main(int argc, char *argv[])
     if (!Preprocess::preprocess(fileName, pp_file, args.value("include-paths"))) {
         fprintf(stderr, "Preprocessor failed on file: '%s'\n", qPrintable(fileName));
         return 1;
+    }
+
+    // Qt 5.15 fix: the legacy rpp preprocessor does not rescan function-like
+    // macros after token pasting, so QT_DEPRECATED_VERSION_X_5(15) etc.
+    // survive as literal invocations inside class heads (e.g. the whole SAX
+    // section of qxml.h), and the parser then silently drops those classes
+    // (e.g. QXmlDefaultHandler, needed by QCAD's SVG importer). Strip the
+    // leftovers from the preprocessed stream before parsing.
+    {
+        QFile pp(pp_file);
+        if (pp.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QString code = QString::fromLatin1(pp.readAll());
+            pp.close();
+            QRegularExpression leftover(
+                "\\bQT_DEPRECATED_VERSION(_X)?_5\\s*\\(\\s*\\d+\\s*\\)\\s*");
+            QString cleaned = code;
+            cleaned.remove(leftover);
+            if (cleaned != code) {
+                QFile::remove(pp_file);
+                QFile out(pp_file);
+                out.open(QIODevice::WriteOnly | QIODevice::Text);
+                out.write(cleaned.toLatin1());
+                out.close();
+            }
+        }
     }
 
     if (args.contains("ast-to-xml")) {
