@@ -11,14 +11,20 @@ import "qt/qpoint.jsx";
 import "qt/qpointf.jsx";
 import "qt/qt.jsx";
 
-final native class Qt_QTabletEvent_TabletDevice {}
-
 final native class Qt_QTabletEvent_PointerType {}
+
+final native class Qt_QTabletEvent_TabletDevice {}
 
 native class QTabletEvent extends QInputEvent
 {
     function constructor (t : Qt_QEvent_Type, pos : QPointF, globalPos : QPointF, device : int, pointerType : int, pressure : number, xTilt : int, yTilt : int, tangentialPressure : number, rotation : number, z : int, keyState : Qt_KeyboardModifiers, uniqueID : number);
     function constructor (t : Qt_QEvent_Type, pos : QPointF, globalPos : QPointF, device : int, pointerType : int, pressure : number, xTilt : int, yTilt : int, tangentialPressure : number, rotation : number, z : int, keyState : Qt_KeyboardModifiers, uniqueID : number, button : Qt_MouseButton, buttons : Qt_MouseButtons);
+
+    static const UnknownPointer : Qt_QTabletEvent_PointerType;
+    static const Pen : Qt_QTabletEvent_PointerType;
+    static const Cursor : Qt_QTabletEvent_PointerType;
+    static const Eraser : Qt_QTabletEvent_PointerType;
+    static function PointerType(value : Qt_QTabletEvent_PointerType) : Qt_QTabletEvent_PointerType;
 
     static const NoDevice : Qt_QTabletEvent_TabletDevice;
     static const Puck : Qt_QTabletEvent_TabletDevice;
@@ -28,12 +34,6 @@ native class QTabletEvent extends QInputEvent
     static const XFreeEraser : Qt_QTabletEvent_TabletDevice;
     static const RotationStylus : Qt_QTabletEvent_TabletDevice;
     static function TabletDevice(value : Qt_QTabletEvent_TabletDevice) : Qt_QTabletEvent_TabletDevice;
-
-    static const UnknownPointer : Qt_QTabletEvent_PointerType;
-    static const Pen : Qt_QTabletEvent_PointerType;
-    static const Cursor : Qt_QTabletEvent_PointerType;
-    static const Eraser : Qt_QTabletEvent_PointerType;
-    static function PointerType(value : Qt_QTabletEvent_PointerType) : Qt_QTabletEvent_PointerType;
 
     // Methods
     function button () : Qt_MouseButton;

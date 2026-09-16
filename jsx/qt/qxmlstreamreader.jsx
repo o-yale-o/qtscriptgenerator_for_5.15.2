@@ -13,9 +13,9 @@ import "qt/qxmlstreamentityresolver.jsx";
 import "qt/qxmlstreamnamespacedeclaration.jsx";
 import "qt/qxmlstreamnotationdeclaration.jsx";
 
-final native class Qt_QXmlStreamReader_TokenType {}
-
 final native class Qt_QXmlStreamReader_Error {}
+
+final native class Qt_QXmlStreamReader_TokenType {}
 
 final native class Qt_QXmlStreamReader_ReadElementTextBehaviour {}
 
@@ -25,6 +25,13 @@ native class QXmlStreamReader
     function constructor (device : QIODevice);
     function constructor (data : QByteArray);
     function constructor (data : string);
+
+    static const NoError : Qt_QXmlStreamReader_Error;
+    static const UnexpectedElementError : Qt_QXmlStreamReader_Error;
+    static const CustomError : Qt_QXmlStreamReader_Error;
+    static const NotWellFormedError : Qt_QXmlStreamReader_Error;
+    static const PrematureEndOfDocumentError : Qt_QXmlStreamReader_Error;
+    static function Error(value : Qt_QXmlStreamReader_Error) : Qt_QXmlStreamReader_Error;
 
     static const NoToken : Qt_QXmlStreamReader_TokenType;
     static const Invalid : Qt_QXmlStreamReader_TokenType;
@@ -38,13 +45,6 @@ native class QXmlStreamReader
     static const EntityReference : Qt_QXmlStreamReader_TokenType;
     static const ProcessingInstruction : Qt_QXmlStreamReader_TokenType;
     static function TokenType(value : Qt_QXmlStreamReader_TokenType) : Qt_QXmlStreamReader_TokenType;
-
-    static const NoError : Qt_QXmlStreamReader_Error;
-    static const UnexpectedElementError : Qt_QXmlStreamReader_Error;
-    static const CustomError : Qt_QXmlStreamReader_Error;
-    static const NotWellFormedError : Qt_QXmlStreamReader_Error;
-    static const PrematureEndOfDocumentError : Qt_QXmlStreamReader_Error;
-    static function Error(value : Qt_QXmlStreamReader_Error) : Qt_QXmlStreamReader_Error;
 
     static const ErrorOnUnexpectedElement : Qt_QXmlStreamReader_ReadElementTextBehaviour;
     static const IncludeChildElements : Qt_QXmlStreamReader_ReadElementTextBehaviour;

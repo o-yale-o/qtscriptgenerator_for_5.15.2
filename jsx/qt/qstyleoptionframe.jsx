@@ -9,11 +9,11 @@ import "qt/qstyleoption.jsx";
 
 final native class Qt_QStyleOptionFrame_StyleOptionType {}
 
+final native class Qt_QStyleOptionFrame_StyleOptionVersion {}
+
 final native class Qt_QStyleOptionFrame_FrameFeature {}
 
 final native class Qt_QStyleOptionFrame_FrameFeatures {}
-
-final native class Qt_QStyleOptionFrame_StyleOptionVersion {}
 
 native class QStyleOptionFrame extends QStyleOption
 {
@@ -23,12 +23,12 @@ native class QStyleOptionFrame extends QStyleOption
     static const Type : Qt_QStyleOptionFrame_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionFrame_StyleOptionType) : Qt_QStyleOptionFrame_StyleOptionType;
 
+    static const Version : Qt_QStyleOptionFrame_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionFrame_StyleOptionVersion) : Qt_QStyleOptionFrame_StyleOptionVersion;
+
     static const None : Qt_QStyleOptionFrame_FrameFeature;
     static const Flat : Qt_QStyleOptionFrame_FrameFeature;
     static const Rounded : Qt_QStyleOptionFrame_FrameFeature;
     static function FrameFeature(value : Qt_QStyleOptionFrame_FrameFeature) : Qt_QStyleOptionFrame_FrameFeature;
     static function FrameFeatures(...value : Qt_QStyleOptionFrame_FrameFeature) : Qt_QStyleOptionFrame_FrameFeatures;
-
-    static const Version : Qt_QStyleOptionFrame_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionFrame_StyleOptionVersion) : Qt_QStyleOptionFrame_StyleOptionVersion;
 }

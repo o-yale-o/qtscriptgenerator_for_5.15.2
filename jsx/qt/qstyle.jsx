@@ -21,29 +21,29 @@ import "qt/qstyleoptioncomplex.jsx";
 import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 
+final native class Qt_QStyle_PrimitiveElement {}
+
+final native class Qt_QStyle_SubElement {}
+
+final native class Qt_QStyle_PixelMetric {}
+
 final native class Qt_QStyle_ContentsType {}
 
-final native class Qt_QStyle_StateFlag {}
-
-final native class Qt_QStyle_State {}
+final native class Qt_QStyle_RequestSoftwareInputPanel {}
 
 final native class Qt_QStyle_StandardPixmap {}
-
-final native class Qt_QStyle_ComplexControl {}
-
-final native class Qt_QStyle_PrimitiveElement {}
 
 final native class Qt_QStyle_SubControl {}
 
 final native class Qt_QStyle_SubControls {}
 
-final native class Qt_QStyle_RequestSoftwareInputPanel {}
-
-final native class Qt_QStyle_PixelMetric {}
-
-final native class Qt_QStyle_SubElement {}
-
 final native class Qt_QStyle_ControlElement {}
+
+final native class Qt_QStyle_ComplexControl {}
+
+final native class Qt_QStyle_StateFlag {}
+
+final native class Qt_QStyle_State {}
 
 final native class Qt_QStyle_StyleHint {}
 
@@ -58,156 +58,6 @@ native class QStyle extends QObject
     static function visualAlignment (direction : Qt_LayoutDirection, alignment : Qt_Alignment) : Qt_Alignment;
     static function visualPos (direction : Qt_LayoutDirection, boundingRect : QRect, logicalPos : QPoint) : QPoint;
     static function visualRect (direction : Qt_LayoutDirection, boundingRect : QRect, logicalRect : QRect) : QRect;
-
-    static const CT_CustomBase : Qt_QStyle_ContentsType;
-    static const CT_PushButton : Qt_QStyle_ContentsType;
-    static const CT_CheckBox : Qt_QStyle_ContentsType;
-    static const CT_RadioButton : Qt_QStyle_ContentsType;
-    static const CT_ToolButton : Qt_QStyle_ContentsType;
-    static const CT_ComboBox : Qt_QStyle_ContentsType;
-    static const CT_Splitter : Qt_QStyle_ContentsType;
-    static const CT_ProgressBar : Qt_QStyle_ContentsType;
-    static const CT_MenuItem : Qt_QStyle_ContentsType;
-    static const CT_MenuBarItem : Qt_QStyle_ContentsType;
-    static const CT_MenuBar : Qt_QStyle_ContentsType;
-    static const CT_Menu : Qt_QStyle_ContentsType;
-    static const CT_TabBarTab : Qt_QStyle_ContentsType;
-    static const CT_Slider : Qt_QStyle_ContentsType;
-    static const CT_ScrollBar : Qt_QStyle_ContentsType;
-    static const CT_LineEdit : Qt_QStyle_ContentsType;
-    static const CT_SpinBox : Qt_QStyle_ContentsType;
-    static const CT_SizeGrip : Qt_QStyle_ContentsType;
-    static const CT_TabWidget : Qt_QStyle_ContentsType;
-    static const CT_DialogButtons : Qt_QStyle_ContentsType;
-    static const CT_HeaderSection : Qt_QStyle_ContentsType;
-    static const CT_GroupBox : Qt_QStyle_ContentsType;
-    static const CT_MdiControls : Qt_QStyle_ContentsType;
-    static const CT_ItemViewItem : Qt_QStyle_ContentsType;
-    static function ContentsType(value : Qt_QStyle_ContentsType) : Qt_QStyle_ContentsType;
-
-    static const State_None : Qt_QStyle_StateFlag;
-    static const State_Enabled : Qt_QStyle_StateFlag;
-    static const State_Raised : Qt_QStyle_StateFlag;
-    static const State_Sunken : Qt_QStyle_StateFlag;
-    static const State_Off : Qt_QStyle_StateFlag;
-    static const State_NoChange : Qt_QStyle_StateFlag;
-    static const State_On : Qt_QStyle_StateFlag;
-    static const State_DownArrow : Qt_QStyle_StateFlag;
-    static const State_Horizontal : Qt_QStyle_StateFlag;
-    static const State_HasFocus : Qt_QStyle_StateFlag;
-    static const State_Top : Qt_QStyle_StateFlag;
-    static const State_Bottom : Qt_QStyle_StateFlag;
-    static const State_FocusAtBorder : Qt_QStyle_StateFlag;
-    static const State_AutoRaise : Qt_QStyle_StateFlag;
-    static const State_MouseOver : Qt_QStyle_StateFlag;
-    static const State_UpArrow : Qt_QStyle_StateFlag;
-    static const State_Selected : Qt_QStyle_StateFlag;
-    static const State_Active : Qt_QStyle_StateFlag;
-    static const State_Window : Qt_QStyle_StateFlag;
-    static const State_Open : Qt_QStyle_StateFlag;
-    static const State_Children : Qt_QStyle_StateFlag;
-    static const State_Item : Qt_QStyle_StateFlag;
-    static const State_Sibling : Qt_QStyle_StateFlag;
-    static const State_Editing : Qt_QStyle_StateFlag;
-    static const State_KeyboardFocusChange : Qt_QStyle_StateFlag;
-    static const State_ReadOnly : Qt_QStyle_StateFlag;
-    static const State_Small : Qt_QStyle_StateFlag;
-    static const State_Mini : Qt_QStyle_StateFlag;
-    static function StateFlag(value : Qt_QStyle_StateFlag) : Qt_QStyle_StateFlag;
-    static function State(...value : Qt_QStyle_StateFlag) : Qt_QStyle_State;
-
-    static const SP_CustomBase : Qt_QStyle_StandardPixmap;
-    static const SP_TitleBarMenuButton : Qt_QStyle_StandardPixmap;
-    static const SP_TitleBarMinButton : Qt_QStyle_StandardPixmap;
-    static const SP_TitleBarMaxButton : Qt_QStyle_StandardPixmap;
-    static const SP_TitleBarCloseButton : Qt_QStyle_StandardPixmap;
-    static const SP_TitleBarNormalButton : Qt_QStyle_StandardPixmap;
-    static const SP_TitleBarShadeButton : Qt_QStyle_StandardPixmap;
-    static const SP_TitleBarUnshadeButton : Qt_QStyle_StandardPixmap;
-    static const SP_TitleBarContextHelpButton : Qt_QStyle_StandardPixmap;
-    static const SP_DockWidgetCloseButton : Qt_QStyle_StandardPixmap;
-    static const SP_MessageBoxInformation : Qt_QStyle_StandardPixmap;
-    static const SP_MessageBoxWarning : Qt_QStyle_StandardPixmap;
-    static const SP_MessageBoxCritical : Qt_QStyle_StandardPixmap;
-    static const SP_MessageBoxQuestion : Qt_QStyle_StandardPixmap;
-    static const SP_DesktopIcon : Qt_QStyle_StandardPixmap;
-    static const SP_TrashIcon : Qt_QStyle_StandardPixmap;
-    static const SP_ComputerIcon : Qt_QStyle_StandardPixmap;
-    static const SP_DriveFDIcon : Qt_QStyle_StandardPixmap;
-    static const SP_DriveHDIcon : Qt_QStyle_StandardPixmap;
-    static const SP_DriveCDIcon : Qt_QStyle_StandardPixmap;
-    static const SP_DriveDVDIcon : Qt_QStyle_StandardPixmap;
-    static const SP_DriveNetIcon : Qt_QStyle_StandardPixmap;
-    static const SP_DirOpenIcon : Qt_QStyle_StandardPixmap;
-    static const SP_DirClosedIcon : Qt_QStyle_StandardPixmap;
-    static const SP_DirLinkIcon : Qt_QStyle_StandardPixmap;
-    static const SP_DirLinkOpenIcon : Qt_QStyle_StandardPixmap;
-    static const SP_FileIcon : Qt_QStyle_StandardPixmap;
-    static const SP_FileLinkIcon : Qt_QStyle_StandardPixmap;
-    static const SP_ToolBarHorizontalExtensionButton : Qt_QStyle_StandardPixmap;
-    static const SP_ToolBarVerticalExtensionButton : Qt_QStyle_StandardPixmap;
-    static const SP_FileDialogStart : Qt_QStyle_StandardPixmap;
-    static const SP_FileDialogEnd : Qt_QStyle_StandardPixmap;
-    static const SP_FileDialogToParent : Qt_QStyle_StandardPixmap;
-    static const SP_FileDialogNewFolder : Qt_QStyle_StandardPixmap;
-    static const SP_FileDialogDetailedView : Qt_QStyle_StandardPixmap;
-    static const SP_FileDialogInfoView : Qt_QStyle_StandardPixmap;
-    static const SP_FileDialogContentsView : Qt_QStyle_StandardPixmap;
-    static const SP_FileDialogListView : Qt_QStyle_StandardPixmap;
-    static const SP_FileDialogBack : Qt_QStyle_StandardPixmap;
-    static const SP_DirIcon : Qt_QStyle_StandardPixmap;
-    static const SP_DialogOkButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogCancelButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogHelpButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogOpenButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogSaveButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogCloseButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogApplyButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogResetButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogDiscardButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogYesButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogNoButton : Qt_QStyle_StandardPixmap;
-    static const SP_ArrowUp : Qt_QStyle_StandardPixmap;
-    static const SP_ArrowDown : Qt_QStyle_StandardPixmap;
-    static const SP_ArrowLeft : Qt_QStyle_StandardPixmap;
-    static const SP_ArrowRight : Qt_QStyle_StandardPixmap;
-    static const SP_ArrowBack : Qt_QStyle_StandardPixmap;
-    static const SP_ArrowForward : Qt_QStyle_StandardPixmap;
-    static const SP_DirHomeIcon : Qt_QStyle_StandardPixmap;
-    static const SP_CommandLink : Qt_QStyle_StandardPixmap;
-    static const SP_VistaShield : Qt_QStyle_StandardPixmap;
-    static const SP_BrowserReload : Qt_QStyle_StandardPixmap;
-    static const SP_BrowserStop : Qt_QStyle_StandardPixmap;
-    static const SP_MediaPlay : Qt_QStyle_StandardPixmap;
-    static const SP_MediaStop : Qt_QStyle_StandardPixmap;
-    static const SP_MediaPause : Qt_QStyle_StandardPixmap;
-    static const SP_MediaSkipForward : Qt_QStyle_StandardPixmap;
-    static const SP_MediaSkipBackward : Qt_QStyle_StandardPixmap;
-    static const SP_MediaSeekForward : Qt_QStyle_StandardPixmap;
-    static const SP_MediaSeekBackward : Qt_QStyle_StandardPixmap;
-    static const SP_MediaVolume : Qt_QStyle_StandardPixmap;
-    static const SP_MediaVolumeMuted : Qt_QStyle_StandardPixmap;
-    static const SP_LineEditClearButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogYesToAllButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogNoToAllButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogSaveAllButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogAbortButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogRetryButton : Qt_QStyle_StandardPixmap;
-    static const SP_DialogIgnoreButton : Qt_QStyle_StandardPixmap;
-    static const SP_RestoreDefaultsButton : Qt_QStyle_StandardPixmap;
-    static function StandardPixmap(value : Qt_QStyle_StandardPixmap) : Qt_QStyle_StandardPixmap;
-
-    static const CC_CustomBase : Qt_QStyle_ComplexControl;
-    static const CC_SpinBox : Qt_QStyle_ComplexControl;
-    static const CC_ComboBox : Qt_QStyle_ComplexControl;
-    static const CC_ScrollBar : Qt_QStyle_ComplexControl;
-    static const CC_Slider : Qt_QStyle_ComplexControl;
-    static const CC_ToolButton : Qt_QStyle_ComplexControl;
-    static const CC_TitleBar : Qt_QStyle_ComplexControl;
-    static const CC_Dial : Qt_QStyle_ComplexControl;
-    static const CC_GroupBox : Qt_QStyle_ComplexControl;
-    static const CC_MdiControls : Qt_QStyle_ComplexControl;
-    static function ComplexControl(value : Qt_QStyle_ComplexControl) : Qt_QStyle_ComplexControl;
 
     static const PE_Frame : Qt_QStyle_PrimitiveElement;
     static const PE_FrameDefaultButton : Qt_QStyle_PrimitiveElement;
@@ -262,24 +112,66 @@ native class QStyle extends QObject
     static const PE_CustomBase : Qt_QStyle_PrimitiveElement;
     static function PrimitiveElement(value : Qt_QStyle_PrimitiveElement) : Qt_QStyle_PrimitiveElement;
 
-    static const SC_CustomBase : Qt_QStyle_SubControl;
-    static const SC_All : Qt_QStyle_SubControl;
-    static const SC_None : Qt_QStyle_SubControl;
-    static const SC_ScrollBarAddLine : Qt_QStyle_SubControl;
-    static const SC_ScrollBarSubLine : Qt_QStyle_SubControl;
-    static const SC_ScrollBarAddPage : Qt_QStyle_SubControl;
-    static const SC_ScrollBarSubPage : Qt_QStyle_SubControl;
-    static const SC_ScrollBarFirst : Qt_QStyle_SubControl;
-    static const SC_ScrollBarLast : Qt_QStyle_SubControl;
-    static const SC_ScrollBarSlider : Qt_QStyle_SubControl;
-    static const SC_ScrollBarGroove : Qt_QStyle_SubControl;
-    static const SC_TitleBarLabel : Qt_QStyle_SubControl;
-    static function SubControl(value : Qt_QStyle_SubControl) : Qt_QStyle_SubControl;
-    static function SubControls(...value : Qt_QStyle_SubControl) : Qt_QStyle_SubControls;
-
-    static const RSIP_OnMouseClickAndAlreadyFocused : Qt_QStyle_RequestSoftwareInputPanel;
-    static const RSIP_OnMouseClick : Qt_QStyle_RequestSoftwareInputPanel;
-    static function RequestSoftwareInputPanel(value : Qt_QStyle_RequestSoftwareInputPanel) : Qt_QStyle_RequestSoftwareInputPanel;
+    static const SE_CustomBase : Qt_QStyle_SubElement;
+    static const SE_PushButtonContents : Qt_QStyle_SubElement;
+    static const SE_PushButtonFocusRect : Qt_QStyle_SubElement;
+    static const SE_CheckBoxIndicator : Qt_QStyle_SubElement;
+    static const SE_CheckBoxContents : Qt_QStyle_SubElement;
+    static const SE_CheckBoxFocusRect : Qt_QStyle_SubElement;
+    static const SE_CheckBoxClickRect : Qt_QStyle_SubElement;
+    static const SE_RadioButtonIndicator : Qt_QStyle_SubElement;
+    static const SE_RadioButtonContents : Qt_QStyle_SubElement;
+    static const SE_RadioButtonFocusRect : Qt_QStyle_SubElement;
+    static const SE_RadioButtonClickRect : Qt_QStyle_SubElement;
+    static const SE_ComboBoxFocusRect : Qt_QStyle_SubElement;
+    static const SE_SliderFocusRect : Qt_QStyle_SubElement;
+    static const SE_ProgressBarGroove : Qt_QStyle_SubElement;
+    static const SE_ProgressBarContents : Qt_QStyle_SubElement;
+    static const SE_ProgressBarLabel : Qt_QStyle_SubElement;
+    static const SE_ToolBoxTabContents : Qt_QStyle_SubElement;
+    static const SE_HeaderLabel : Qt_QStyle_SubElement;
+    static const SE_HeaderArrow : Qt_QStyle_SubElement;
+    static const SE_TabWidgetTabBar : Qt_QStyle_SubElement;
+    static const SE_TabWidgetTabPane : Qt_QStyle_SubElement;
+    static const SE_TabWidgetTabContents : Qt_QStyle_SubElement;
+    static const SE_TabWidgetLeftCorner : Qt_QStyle_SubElement;
+    static const SE_TabWidgetRightCorner : Qt_QStyle_SubElement;
+    static const SE_ItemViewItemCheckIndicator : Qt_QStyle_SubElement;
+    static const SE_TabBarTearIndicator : Qt_QStyle_SubElement;
+    static const SE_TreeViewDisclosureItem : Qt_QStyle_SubElement;
+    static const SE_LineEditContents : Qt_QStyle_SubElement;
+    static const SE_FrameContents : Qt_QStyle_SubElement;
+    static const SE_DockWidgetCloseButton : Qt_QStyle_SubElement;
+    static const SE_DockWidgetFloatButton : Qt_QStyle_SubElement;
+    static const SE_DockWidgetTitleBarText : Qt_QStyle_SubElement;
+    static const SE_DockWidgetIcon : Qt_QStyle_SubElement;
+    static const SE_CheckBoxLayoutItem : Qt_QStyle_SubElement;
+    static const SE_ComboBoxLayoutItem : Qt_QStyle_SubElement;
+    static const SE_DateTimeEditLayoutItem : Qt_QStyle_SubElement;
+    static const SE_DialogButtonBoxLayoutItem : Qt_QStyle_SubElement;
+    static const SE_LabelLayoutItem : Qt_QStyle_SubElement;
+    static const SE_ProgressBarLayoutItem : Qt_QStyle_SubElement;
+    static const SE_PushButtonLayoutItem : Qt_QStyle_SubElement;
+    static const SE_RadioButtonLayoutItem : Qt_QStyle_SubElement;
+    static const SE_SliderLayoutItem : Qt_QStyle_SubElement;
+    static const SE_SpinBoxLayoutItem : Qt_QStyle_SubElement;
+    static const SE_ToolButtonLayoutItem : Qt_QStyle_SubElement;
+    static const SE_FrameLayoutItem : Qt_QStyle_SubElement;
+    static const SE_GroupBoxLayoutItem : Qt_QStyle_SubElement;
+    static const SE_TabWidgetLayoutItem : Qt_QStyle_SubElement;
+    static const SE_ItemViewItemDecoration : Qt_QStyle_SubElement;
+    static const SE_ItemViewItemText : Qt_QStyle_SubElement;
+    static const SE_ItemViewItemFocusRect : Qt_QStyle_SubElement;
+    static const SE_TabBarTabLeftButton : Qt_QStyle_SubElement;
+    static const SE_TabBarTabRightButton : Qt_QStyle_SubElement;
+    static const SE_TabBarTabText : Qt_QStyle_SubElement;
+    static const SE_ShapedFrameContents : Qt_QStyle_SubElement;
+    static const SE_ToolBarHandle : Qt_QStyle_SubElement;
+    static const SE_TabBarScrollLeftButton : Qt_QStyle_SubElement;
+    static const SE_TabBarScrollRightButton : Qt_QStyle_SubElement;
+    static const SE_TabBarTearIndicatorRight : Qt_QStyle_SubElement;
+    static const SE_PushButtonBevel : Qt_QStyle_SubElement;
+    static function SubElement(value : Qt_QStyle_SubElement) : Qt_QStyle_SubElement;
 
     static const PM_CustomBase : Qt_QStyle_PixelMetric;
     static const PM_ButtonMargin : Qt_QStyle_PixelMetric;
@@ -380,66 +272,131 @@ native class QStyle extends QObject
     static const PM_TitleBarButtonSize : Qt_QStyle_PixelMetric;
     static function PixelMetric(value : Qt_QStyle_PixelMetric) : Qt_QStyle_PixelMetric;
 
-    static const SE_CustomBase : Qt_QStyle_SubElement;
-    static const SE_PushButtonContents : Qt_QStyle_SubElement;
-    static const SE_PushButtonFocusRect : Qt_QStyle_SubElement;
-    static const SE_CheckBoxIndicator : Qt_QStyle_SubElement;
-    static const SE_CheckBoxContents : Qt_QStyle_SubElement;
-    static const SE_CheckBoxFocusRect : Qt_QStyle_SubElement;
-    static const SE_CheckBoxClickRect : Qt_QStyle_SubElement;
-    static const SE_RadioButtonIndicator : Qt_QStyle_SubElement;
-    static const SE_RadioButtonContents : Qt_QStyle_SubElement;
-    static const SE_RadioButtonFocusRect : Qt_QStyle_SubElement;
-    static const SE_RadioButtonClickRect : Qt_QStyle_SubElement;
-    static const SE_ComboBoxFocusRect : Qt_QStyle_SubElement;
-    static const SE_SliderFocusRect : Qt_QStyle_SubElement;
-    static const SE_ProgressBarGroove : Qt_QStyle_SubElement;
-    static const SE_ProgressBarContents : Qt_QStyle_SubElement;
-    static const SE_ProgressBarLabel : Qt_QStyle_SubElement;
-    static const SE_ToolBoxTabContents : Qt_QStyle_SubElement;
-    static const SE_HeaderLabel : Qt_QStyle_SubElement;
-    static const SE_HeaderArrow : Qt_QStyle_SubElement;
-    static const SE_TabWidgetTabBar : Qt_QStyle_SubElement;
-    static const SE_TabWidgetTabPane : Qt_QStyle_SubElement;
-    static const SE_TabWidgetTabContents : Qt_QStyle_SubElement;
-    static const SE_TabWidgetLeftCorner : Qt_QStyle_SubElement;
-    static const SE_TabWidgetRightCorner : Qt_QStyle_SubElement;
-    static const SE_ItemViewItemCheckIndicator : Qt_QStyle_SubElement;
-    static const SE_TabBarTearIndicator : Qt_QStyle_SubElement;
-    static const SE_TreeViewDisclosureItem : Qt_QStyle_SubElement;
-    static const SE_LineEditContents : Qt_QStyle_SubElement;
-    static const SE_FrameContents : Qt_QStyle_SubElement;
-    static const SE_DockWidgetCloseButton : Qt_QStyle_SubElement;
-    static const SE_DockWidgetFloatButton : Qt_QStyle_SubElement;
-    static const SE_DockWidgetTitleBarText : Qt_QStyle_SubElement;
-    static const SE_DockWidgetIcon : Qt_QStyle_SubElement;
-    static const SE_CheckBoxLayoutItem : Qt_QStyle_SubElement;
-    static const SE_ComboBoxLayoutItem : Qt_QStyle_SubElement;
-    static const SE_DateTimeEditLayoutItem : Qt_QStyle_SubElement;
-    static const SE_DialogButtonBoxLayoutItem : Qt_QStyle_SubElement;
-    static const SE_LabelLayoutItem : Qt_QStyle_SubElement;
-    static const SE_ProgressBarLayoutItem : Qt_QStyle_SubElement;
-    static const SE_PushButtonLayoutItem : Qt_QStyle_SubElement;
-    static const SE_RadioButtonLayoutItem : Qt_QStyle_SubElement;
-    static const SE_SliderLayoutItem : Qt_QStyle_SubElement;
-    static const SE_SpinBoxLayoutItem : Qt_QStyle_SubElement;
-    static const SE_ToolButtonLayoutItem : Qt_QStyle_SubElement;
-    static const SE_FrameLayoutItem : Qt_QStyle_SubElement;
-    static const SE_GroupBoxLayoutItem : Qt_QStyle_SubElement;
-    static const SE_TabWidgetLayoutItem : Qt_QStyle_SubElement;
-    static const SE_ItemViewItemDecoration : Qt_QStyle_SubElement;
-    static const SE_ItemViewItemText : Qt_QStyle_SubElement;
-    static const SE_ItemViewItemFocusRect : Qt_QStyle_SubElement;
-    static const SE_TabBarTabLeftButton : Qt_QStyle_SubElement;
-    static const SE_TabBarTabRightButton : Qt_QStyle_SubElement;
-    static const SE_TabBarTabText : Qt_QStyle_SubElement;
-    static const SE_ShapedFrameContents : Qt_QStyle_SubElement;
-    static const SE_ToolBarHandle : Qt_QStyle_SubElement;
-    static const SE_TabBarScrollLeftButton : Qt_QStyle_SubElement;
-    static const SE_TabBarScrollRightButton : Qt_QStyle_SubElement;
-    static const SE_TabBarTearIndicatorRight : Qt_QStyle_SubElement;
-    static const SE_PushButtonBevel : Qt_QStyle_SubElement;
-    static function SubElement(value : Qt_QStyle_SubElement) : Qt_QStyle_SubElement;
+    static const CT_CustomBase : Qt_QStyle_ContentsType;
+    static const CT_PushButton : Qt_QStyle_ContentsType;
+    static const CT_CheckBox : Qt_QStyle_ContentsType;
+    static const CT_RadioButton : Qt_QStyle_ContentsType;
+    static const CT_ToolButton : Qt_QStyle_ContentsType;
+    static const CT_ComboBox : Qt_QStyle_ContentsType;
+    static const CT_Splitter : Qt_QStyle_ContentsType;
+    static const CT_ProgressBar : Qt_QStyle_ContentsType;
+    static const CT_MenuItem : Qt_QStyle_ContentsType;
+    static const CT_MenuBarItem : Qt_QStyle_ContentsType;
+    static const CT_MenuBar : Qt_QStyle_ContentsType;
+    static const CT_Menu : Qt_QStyle_ContentsType;
+    static const CT_TabBarTab : Qt_QStyle_ContentsType;
+    static const CT_Slider : Qt_QStyle_ContentsType;
+    static const CT_ScrollBar : Qt_QStyle_ContentsType;
+    static const CT_LineEdit : Qt_QStyle_ContentsType;
+    static const CT_SpinBox : Qt_QStyle_ContentsType;
+    static const CT_SizeGrip : Qt_QStyle_ContentsType;
+    static const CT_TabWidget : Qt_QStyle_ContentsType;
+    static const CT_DialogButtons : Qt_QStyle_ContentsType;
+    static const CT_HeaderSection : Qt_QStyle_ContentsType;
+    static const CT_GroupBox : Qt_QStyle_ContentsType;
+    static const CT_MdiControls : Qt_QStyle_ContentsType;
+    static const CT_ItemViewItem : Qt_QStyle_ContentsType;
+    static function ContentsType(value : Qt_QStyle_ContentsType) : Qt_QStyle_ContentsType;
+
+    static const RSIP_OnMouseClickAndAlreadyFocused : Qt_QStyle_RequestSoftwareInputPanel;
+    static const RSIP_OnMouseClick : Qt_QStyle_RequestSoftwareInputPanel;
+    static function RequestSoftwareInputPanel(value : Qt_QStyle_RequestSoftwareInputPanel) : Qt_QStyle_RequestSoftwareInputPanel;
+
+    static const SP_CustomBase : Qt_QStyle_StandardPixmap;
+    static const SP_TitleBarMenuButton : Qt_QStyle_StandardPixmap;
+    static const SP_TitleBarMinButton : Qt_QStyle_StandardPixmap;
+    static const SP_TitleBarMaxButton : Qt_QStyle_StandardPixmap;
+    static const SP_TitleBarCloseButton : Qt_QStyle_StandardPixmap;
+    static const SP_TitleBarNormalButton : Qt_QStyle_StandardPixmap;
+    static const SP_TitleBarShadeButton : Qt_QStyle_StandardPixmap;
+    static const SP_TitleBarUnshadeButton : Qt_QStyle_StandardPixmap;
+    static const SP_TitleBarContextHelpButton : Qt_QStyle_StandardPixmap;
+    static const SP_DockWidgetCloseButton : Qt_QStyle_StandardPixmap;
+    static const SP_MessageBoxInformation : Qt_QStyle_StandardPixmap;
+    static const SP_MessageBoxWarning : Qt_QStyle_StandardPixmap;
+    static const SP_MessageBoxCritical : Qt_QStyle_StandardPixmap;
+    static const SP_MessageBoxQuestion : Qt_QStyle_StandardPixmap;
+    static const SP_DesktopIcon : Qt_QStyle_StandardPixmap;
+    static const SP_TrashIcon : Qt_QStyle_StandardPixmap;
+    static const SP_ComputerIcon : Qt_QStyle_StandardPixmap;
+    static const SP_DriveFDIcon : Qt_QStyle_StandardPixmap;
+    static const SP_DriveHDIcon : Qt_QStyle_StandardPixmap;
+    static const SP_DriveCDIcon : Qt_QStyle_StandardPixmap;
+    static const SP_DriveDVDIcon : Qt_QStyle_StandardPixmap;
+    static const SP_DriveNetIcon : Qt_QStyle_StandardPixmap;
+    static const SP_DirOpenIcon : Qt_QStyle_StandardPixmap;
+    static const SP_DirClosedIcon : Qt_QStyle_StandardPixmap;
+    static const SP_DirLinkIcon : Qt_QStyle_StandardPixmap;
+    static const SP_DirLinkOpenIcon : Qt_QStyle_StandardPixmap;
+    static const SP_FileIcon : Qt_QStyle_StandardPixmap;
+    static const SP_FileLinkIcon : Qt_QStyle_StandardPixmap;
+    static const SP_ToolBarHorizontalExtensionButton : Qt_QStyle_StandardPixmap;
+    static const SP_ToolBarVerticalExtensionButton : Qt_QStyle_StandardPixmap;
+    static const SP_FileDialogStart : Qt_QStyle_StandardPixmap;
+    static const SP_FileDialogEnd : Qt_QStyle_StandardPixmap;
+    static const SP_FileDialogToParent : Qt_QStyle_StandardPixmap;
+    static const SP_FileDialogNewFolder : Qt_QStyle_StandardPixmap;
+    static const SP_FileDialogDetailedView : Qt_QStyle_StandardPixmap;
+    static const SP_FileDialogInfoView : Qt_QStyle_StandardPixmap;
+    static const SP_FileDialogContentsView : Qt_QStyle_StandardPixmap;
+    static const SP_FileDialogListView : Qt_QStyle_StandardPixmap;
+    static const SP_FileDialogBack : Qt_QStyle_StandardPixmap;
+    static const SP_DirIcon : Qt_QStyle_StandardPixmap;
+    static const SP_DialogOkButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogCancelButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogHelpButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogOpenButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogSaveButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogCloseButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogApplyButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogResetButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogDiscardButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogYesButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogNoButton : Qt_QStyle_StandardPixmap;
+    static const SP_ArrowUp : Qt_QStyle_StandardPixmap;
+    static const SP_ArrowDown : Qt_QStyle_StandardPixmap;
+    static const SP_ArrowLeft : Qt_QStyle_StandardPixmap;
+    static const SP_ArrowRight : Qt_QStyle_StandardPixmap;
+    static const SP_ArrowBack : Qt_QStyle_StandardPixmap;
+    static const SP_ArrowForward : Qt_QStyle_StandardPixmap;
+    static const SP_DirHomeIcon : Qt_QStyle_StandardPixmap;
+    static const SP_CommandLink : Qt_QStyle_StandardPixmap;
+    static const SP_VistaShield : Qt_QStyle_StandardPixmap;
+    static const SP_BrowserReload : Qt_QStyle_StandardPixmap;
+    static const SP_BrowserStop : Qt_QStyle_StandardPixmap;
+    static const SP_MediaPlay : Qt_QStyle_StandardPixmap;
+    static const SP_MediaStop : Qt_QStyle_StandardPixmap;
+    static const SP_MediaPause : Qt_QStyle_StandardPixmap;
+    static const SP_MediaSkipForward : Qt_QStyle_StandardPixmap;
+    static const SP_MediaSkipBackward : Qt_QStyle_StandardPixmap;
+    static const SP_MediaSeekForward : Qt_QStyle_StandardPixmap;
+    static const SP_MediaSeekBackward : Qt_QStyle_StandardPixmap;
+    static const SP_MediaVolume : Qt_QStyle_StandardPixmap;
+    static const SP_MediaVolumeMuted : Qt_QStyle_StandardPixmap;
+    static const SP_LineEditClearButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogYesToAllButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogNoToAllButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogSaveAllButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogAbortButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogRetryButton : Qt_QStyle_StandardPixmap;
+    static const SP_DialogIgnoreButton : Qt_QStyle_StandardPixmap;
+    static const SP_RestoreDefaultsButton : Qt_QStyle_StandardPixmap;
+    static function StandardPixmap(value : Qt_QStyle_StandardPixmap) : Qt_QStyle_StandardPixmap;
+
+    static const SC_CustomBase : Qt_QStyle_SubControl;
+    static const SC_All : Qt_QStyle_SubControl;
+    static const SC_None : Qt_QStyle_SubControl;
+    static const SC_ScrollBarAddLine : Qt_QStyle_SubControl;
+    static const SC_ScrollBarSubLine : Qt_QStyle_SubControl;
+    static const SC_ScrollBarAddPage : Qt_QStyle_SubControl;
+    static const SC_ScrollBarSubPage : Qt_QStyle_SubControl;
+    static const SC_ScrollBarFirst : Qt_QStyle_SubControl;
+    static const SC_ScrollBarLast : Qt_QStyle_SubControl;
+    static const SC_ScrollBarSlider : Qt_QStyle_SubControl;
+    static const SC_ScrollBarGroove : Qt_QStyle_SubControl;
+    static const SC_TitleBarLabel : Qt_QStyle_SubControl;
+    static function SubControl(value : Qt_QStyle_SubControl) : Qt_QStyle_SubControl;
+    static function SubControls(...value : Qt_QStyle_SubControl) : Qt_QStyle_SubControls;
 
     static const CE_CustomBase : Qt_QStyle_ControlElement;
     static const CE_PushButton : Qt_QStyle_ControlElement;
@@ -490,6 +447,49 @@ native class QStyle extends QObject
     static const CE_ItemViewItem : Qt_QStyle_ControlElement;
     static const CE_ShapedFrame : Qt_QStyle_ControlElement;
     static function ControlElement(value : Qt_QStyle_ControlElement) : Qt_QStyle_ControlElement;
+
+    static const CC_CustomBase : Qt_QStyle_ComplexControl;
+    static const CC_SpinBox : Qt_QStyle_ComplexControl;
+    static const CC_ComboBox : Qt_QStyle_ComplexControl;
+    static const CC_ScrollBar : Qt_QStyle_ComplexControl;
+    static const CC_Slider : Qt_QStyle_ComplexControl;
+    static const CC_ToolButton : Qt_QStyle_ComplexControl;
+    static const CC_TitleBar : Qt_QStyle_ComplexControl;
+    static const CC_Dial : Qt_QStyle_ComplexControl;
+    static const CC_GroupBox : Qt_QStyle_ComplexControl;
+    static const CC_MdiControls : Qt_QStyle_ComplexControl;
+    static function ComplexControl(value : Qt_QStyle_ComplexControl) : Qt_QStyle_ComplexControl;
+
+    static const State_None : Qt_QStyle_StateFlag;
+    static const State_Enabled : Qt_QStyle_StateFlag;
+    static const State_Raised : Qt_QStyle_StateFlag;
+    static const State_Sunken : Qt_QStyle_StateFlag;
+    static const State_Off : Qt_QStyle_StateFlag;
+    static const State_NoChange : Qt_QStyle_StateFlag;
+    static const State_On : Qt_QStyle_StateFlag;
+    static const State_DownArrow : Qt_QStyle_StateFlag;
+    static const State_Horizontal : Qt_QStyle_StateFlag;
+    static const State_HasFocus : Qt_QStyle_StateFlag;
+    static const State_Top : Qt_QStyle_StateFlag;
+    static const State_Bottom : Qt_QStyle_StateFlag;
+    static const State_FocusAtBorder : Qt_QStyle_StateFlag;
+    static const State_AutoRaise : Qt_QStyle_StateFlag;
+    static const State_MouseOver : Qt_QStyle_StateFlag;
+    static const State_UpArrow : Qt_QStyle_StateFlag;
+    static const State_Selected : Qt_QStyle_StateFlag;
+    static const State_Active : Qt_QStyle_StateFlag;
+    static const State_Window : Qt_QStyle_StateFlag;
+    static const State_Open : Qt_QStyle_StateFlag;
+    static const State_Children : Qt_QStyle_StateFlag;
+    static const State_Item : Qt_QStyle_StateFlag;
+    static const State_Sibling : Qt_QStyle_StateFlag;
+    static const State_Editing : Qt_QStyle_StateFlag;
+    static const State_KeyboardFocusChange : Qt_QStyle_StateFlag;
+    static const State_ReadOnly : Qt_QStyle_StateFlag;
+    static const State_Small : Qt_QStyle_StateFlag;
+    static const State_Mini : Qt_QStyle_StateFlag;
+    static function StateFlag(value : Qt_QStyle_StateFlag) : Qt_QStyle_StateFlag;
+    static function State(...value : Qt_QStyle_StateFlag) : Qt_QStyle_State;
 
     static const SH_CustomBase : Qt_QStyle_StyleHint;
     static const SH_EtchDisabledText : Qt_QStyle_StyleHint;

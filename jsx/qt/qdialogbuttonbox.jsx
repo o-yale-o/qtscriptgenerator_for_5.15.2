@@ -11,13 +11,13 @@ import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
+final native class Qt_QDialogButtonBox_ButtonLayout {}
+
 final native class Qt_QDialogButtonBox_ButtonRole {}
 
 final native class Qt_QDialogButtonBox_StandardButton {}
 
 final native class Qt_QDialogButtonBox_StandardButtons {}
-
-final native class Qt_QDialogButtonBox_ButtonLayout {}
 
 native class QDialogButtonBox extends QWidget
 {
@@ -25,6 +25,13 @@ native class QDialogButtonBox extends QWidget
     function constructor (buttons : Qt_QDialogButtonBox_StandardButtons, orientation : Qt_Orientation, parent : QWidget);
     function constructor (parent : QWidget);
     function constructor (orientation : Qt_Orientation, parent : QWidget);
+
+    static const WinLayout : Qt_QDialogButtonBox_ButtonLayout;
+    static const MacLayout : Qt_QDialogButtonBox_ButtonLayout;
+    static const KdeLayout : Qt_QDialogButtonBox_ButtonLayout;
+    static const GnomeLayout : Qt_QDialogButtonBox_ButtonLayout;
+    static const AndroidLayout : Qt_QDialogButtonBox_ButtonLayout;
+    static function ButtonLayout(value : Qt_QDialogButtonBox_ButtonLayout) : Qt_QDialogButtonBox_ButtonLayout;
 
     static const InvalidRole : Qt_QDialogButtonBox_ButtonRole;
     static const AcceptRole : Qt_QDialogButtonBox_ButtonRole;
@@ -60,13 +67,6 @@ native class QDialogButtonBox extends QWidget
     static const RestoreDefaults : Qt_QDialogButtonBox_StandardButton;
     static function StandardButton(value : Qt_QDialogButtonBox_StandardButton) : Qt_QDialogButtonBox_StandardButton;
     static function StandardButtons(...value : Qt_QDialogButtonBox_StandardButton) : Qt_QDialogButtonBox_StandardButtons;
-
-    static const WinLayout : Qt_QDialogButtonBox_ButtonLayout;
-    static const MacLayout : Qt_QDialogButtonBox_ButtonLayout;
-    static const KdeLayout : Qt_QDialogButtonBox_ButtonLayout;
-    static const GnomeLayout : Qt_QDialogButtonBox_ButtonLayout;
-    static const AndroidLayout : Qt_QDialogButtonBox_ButtonLayout;
-    static function ButtonLayout(value : Qt_QDialogButtonBox_ButtonLayout) : Qt_QDialogButtonBox_ButtonLayout;
 
     // Methods
     function addButton (button : QAbstractButton, role : Qt_QDialogButtonBox_ButtonRole) : void;

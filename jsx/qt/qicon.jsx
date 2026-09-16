@@ -11,9 +11,9 @@ import "qt/qrect.jsx";
 import "qt/qsize.jsx";
 import "qt/qt.jsx";
 
-final native class Qt_QIcon_Mode {}
-
 final native class Qt_QIcon_State {}
+
+final native class Qt_QIcon_Mode {}
 
 native class QIcon
 {
@@ -34,15 +34,15 @@ native class QIcon
     static function themeName () : string;
     static function themeSearchPaths () : string[];
 
+    static const On : Qt_QIcon_State;
+    static const Off : Qt_QIcon_State;
+    static function State(value : Qt_QIcon_State) : Qt_QIcon_State;
+
     static const Normal : Qt_QIcon_Mode;
     static const Disabled : Qt_QIcon_Mode;
     static const Active : Qt_QIcon_Mode;
     static const Selected : Qt_QIcon_Mode;
     static function Mode(value : Qt_QIcon_Mode) : Qt_QIcon_Mode;
-
-    static const On : Qt_QIcon_State;
-    static const Off : Qt_QIcon_State;
-    static function State(value : Qt_QIcon_State) : Qt_QIcon_State;
 
     // Methods
     function actualSize (size : QSize, mode : Qt_QIcon_Mode, state : Qt_QIcon_State) : QSize;

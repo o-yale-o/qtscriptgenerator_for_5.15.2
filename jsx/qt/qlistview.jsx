@@ -14,6 +14,8 @@ import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
+final native class Qt_QListView_LayoutMode {}
+
 final native class Qt_QListView_Flow {}
 
 final native class Qt_QListView_ResizeMode {}
@@ -22,11 +24,13 @@ final native class Qt_QListView_ViewMode {}
 
 final native class Qt_QListView_Movement {}
 
-final native class Qt_QListView_LayoutMode {}
-
 native class QListView extends QAbstractItemView
 {
     function constructor (parent : QWidget);
+
+    static const SinglePass : Qt_QListView_LayoutMode;
+    static const Batched : Qt_QListView_LayoutMode;
+    static function LayoutMode(value : Qt_QListView_LayoutMode) : Qt_QListView_LayoutMode;
 
     static const LeftToRight : Qt_QListView_Flow;
     static const TopToBottom : Qt_QListView_Flow;
@@ -44,10 +48,6 @@ native class QListView extends QAbstractItemView
     static const Free : Qt_QListView_Movement;
     static const Snap : Qt_QListView_Movement;
     static function Movement(value : Qt_QListView_Movement) : Qt_QListView_Movement;
-
-    static const SinglePass : Qt_QListView_LayoutMode;
-    static const Batched : Qt_QListView_LayoutMode;
-    static function LayoutMode(value : Qt_QListView_LayoutMode) : Qt_QListView_LayoutMode;
 
     // Methods
     function clearPropertyFlags () : void;

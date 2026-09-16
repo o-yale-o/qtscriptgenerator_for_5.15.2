@@ -13,23 +13,23 @@ import "qt/qtabbar.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QTabWidget_TabShape {}
-
 final native class Qt_QTabWidget_TabPosition {}
+
+final native class Qt_QTabWidget_TabShape {}
 
 native class QTabWidget extends QWidget
 {
     function constructor (parent : QWidget);
-
-    static const Rounded : Qt_QTabWidget_TabShape;
-    static const Triangular : Qt_QTabWidget_TabShape;
-    static function TabShape(value : Qt_QTabWidget_TabShape) : Qt_QTabWidget_TabShape;
 
     static const North : Qt_QTabWidget_TabPosition;
     static const South : Qt_QTabWidget_TabPosition;
     static const West : Qt_QTabWidget_TabPosition;
     static const East : Qt_QTabWidget_TabPosition;
     static function TabPosition(value : Qt_QTabWidget_TabPosition) : Qt_QTabWidget_TabPosition;
+
+    static const Rounded : Qt_QTabWidget_TabShape;
+    static const Triangular : Qt_QTabWidget_TabShape;
+    static function TabShape(value : Qt_QTabWidget_TabShape) : Qt_QTabWidget_TabShape;
 
     // Methods
     function addTab (widget : QWidget, icon : QIcon, label : string) : int;

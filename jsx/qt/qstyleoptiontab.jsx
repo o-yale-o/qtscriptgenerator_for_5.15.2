@@ -7,43 +7,43 @@
  */
 import "qt/qstyleoption.jsx";
 
-final native class Qt_QStyleOptionTab_StyleOptionType {}
-
 final native class Qt_QStyleOptionTab_SelectedPosition {}
 
+final native class Qt_QStyleOptionTab_StyleOptionType {}
+
 final native class Qt_QStyleOptionTab_StyleOptionVersion {}
+
+final native class Qt_QStyleOptionTab_TabPosition {}
 
 final native class Qt_QStyleOptionTab_CornerWidget {}
 
 final native class Qt_QStyleOptionTab_CornerWidgets {}
-
-final native class Qt_QStyleOptionTab_TabPosition {}
 
 native class QStyleOptionTab extends QStyleOption
 {
     function constructor ();
     function constructor (other : QStyleOptionTab);
 
-    static const Type : Qt_QStyleOptionTab_StyleOptionType;
-    static function StyleOptionType(value : Qt_QStyleOptionTab_StyleOptionType) : Qt_QStyleOptionTab_StyleOptionType;
-
     static const NotAdjacent : Qt_QStyleOptionTab_SelectedPosition;
     static const NextIsSelected : Qt_QStyleOptionTab_SelectedPosition;
     static const PreviousIsSelected : Qt_QStyleOptionTab_SelectedPosition;
     static function SelectedPosition(value : Qt_QStyleOptionTab_SelectedPosition) : Qt_QStyleOptionTab_SelectedPosition;
 
+    static const Type : Qt_QStyleOptionTab_StyleOptionType;
+    static function StyleOptionType(value : Qt_QStyleOptionTab_StyleOptionType) : Qt_QStyleOptionTab_StyleOptionType;
+
     static const Version : Qt_QStyleOptionTab_StyleOptionVersion;
     static function StyleOptionVersion(value : Qt_QStyleOptionTab_StyleOptionVersion) : Qt_QStyleOptionTab_StyleOptionVersion;
-
-    static const NoCornerWidgets : Qt_QStyleOptionTab_CornerWidget;
-    static const LeftCornerWidget : Qt_QStyleOptionTab_CornerWidget;
-    static const RightCornerWidget : Qt_QStyleOptionTab_CornerWidget;
-    static function CornerWidget(value : Qt_QStyleOptionTab_CornerWidget) : Qt_QStyleOptionTab_CornerWidget;
-    static function CornerWidgets(...value : Qt_QStyleOptionTab_CornerWidget) : Qt_QStyleOptionTab_CornerWidgets;
 
     static const Beginning : Qt_QStyleOptionTab_TabPosition;
     static const Middle : Qt_QStyleOptionTab_TabPosition;
     static const End : Qt_QStyleOptionTab_TabPosition;
     static const OnlyOneTab : Qt_QStyleOptionTab_TabPosition;
     static function TabPosition(value : Qt_QStyleOptionTab_TabPosition) : Qt_QStyleOptionTab_TabPosition;
+
+    static const NoCornerWidgets : Qt_QStyleOptionTab_CornerWidget;
+    static const LeftCornerWidget : Qt_QStyleOptionTab_CornerWidget;
+    static const RightCornerWidget : Qt_QStyleOptionTab_CornerWidget;
+    static function CornerWidget(value : Qt_QStyleOptionTab_CornerWidget) : Qt_QStyleOptionTab_CornerWidget;
+    static function CornerWidgets(...value : Qt_QStyleOptionTab_CornerWidget) : Qt_QStyleOptionTab_CornerWidgets;
 }

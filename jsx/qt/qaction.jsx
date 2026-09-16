@@ -16,9 +16,9 @@ import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QAction_ActionEvent {}
-
 final native class Qt_QAction_Priority {}
+
+final native class Qt_QAction_ActionEvent {}
 
 final native class Qt_QAction_MenuRole {}
 
@@ -28,14 +28,14 @@ native class QAction extends QObject
     function constructor (icon : QIcon, text : string, parent : QObject);
     function constructor (text : string, parent : QObject);
 
-    static const Trigger : Qt_QAction_ActionEvent;
-    static const Hover : Qt_QAction_ActionEvent;
-    static function ActionEvent(value : Qt_QAction_ActionEvent) : Qt_QAction_ActionEvent;
-
     static const LowPriority : Qt_QAction_Priority;
     static const NormalPriority : Qt_QAction_Priority;
     static const HighPriority : Qt_QAction_Priority;
     static function Priority(value : Qt_QAction_Priority) : Qt_QAction_Priority;
+
+    static const Trigger : Qt_QAction_ActionEvent;
+    static const Hover : Qt_QAction_ActionEvent;
+    static function ActionEvent(value : Qt_QAction_ActionEvent) : Qt_QAction_ActionEvent;
 
     static const NoRole : Qt_QAction_MenuRole;
     static const TextHeuristicRole : Qt_QAction_MenuRole;

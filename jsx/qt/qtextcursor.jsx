@@ -19,9 +19,9 @@ import "qt/qtextlistformat.jsx";
 import "qt/qtexttable.jsx";
 import "qt/qtexttableformat.jsx";
 
-final native class Qt_QTextCursor_MoveMode {}
-
 final native class Qt_QTextCursor_SelectionType {}
+
+final native class Qt_QTextCursor_MoveMode {}
 
 final native class Qt_QTextCursor_MoveOperation {}
 
@@ -33,15 +33,15 @@ native class QTextCursor
     function constructor (block : QTextBlock);
     function constructor (cursor : QTextCursor);
 
-    static const MoveAnchor : Qt_QTextCursor_MoveMode;
-    static const KeepAnchor : Qt_QTextCursor_MoveMode;
-    static function MoveMode(value : Qt_QTextCursor_MoveMode) : Qt_QTextCursor_MoveMode;
-
     static const WordUnderCursor : Qt_QTextCursor_SelectionType;
     static const LineUnderCursor : Qt_QTextCursor_SelectionType;
     static const BlockUnderCursor : Qt_QTextCursor_SelectionType;
     static const Document : Qt_QTextCursor_SelectionType;
     static function SelectionType(value : Qt_QTextCursor_SelectionType) : Qt_QTextCursor_SelectionType;
+
+    static const MoveAnchor : Qt_QTextCursor_MoveMode;
+    static const KeepAnchor : Qt_QTextCursor_MoveMode;
+    static function MoveMode(value : Qt_QTextCursor_MoveMode) : Qt_QTextCursor_MoveMode;
 
     static const NoMove : Qt_QTextCursor_MoveOperation;
     static const Start : Qt_QTextCursor_MoveOperation;

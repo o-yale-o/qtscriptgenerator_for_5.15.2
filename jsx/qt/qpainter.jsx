@@ -34,9 +34,9 @@ final native class Qt_QPainter_RenderHint {}
 
 final native class Qt_QPainter_RenderHints {}
 
-final native class Qt_QPainter_PixmapFragmentHint {}
-
 final native class Qt_QPainter_CompositionMode {}
+
+final native class Qt_QPainter_PixmapFragmentHint {}
 
 native class QPainter
 {
@@ -57,9 +57,6 @@ native class QPainter
     static const LosslessImageRendering : Qt_QPainter_RenderHint;
     static function RenderHint(value : Qt_QPainter_RenderHint) : Qt_QPainter_RenderHint;
     static function RenderHints(...value : Qt_QPainter_RenderHint) : Qt_QPainter_RenderHints;
-
-    static const OpaqueHint : Qt_QPainter_PixmapFragmentHint;
-    static function PixmapFragmentHint(value : Qt_QPainter_PixmapFragmentHint) : Qt_QPainter_PixmapFragmentHint;
 
     static const CompositionMode_SourceOver : Qt_QPainter_CompositionMode;
     static const CompositionMode_DestinationOver : Qt_QPainter_CompositionMode;
@@ -100,6 +97,9 @@ native class QPainter
     static const RasterOp_SetDestination : Qt_QPainter_CompositionMode;
     static const RasterOp_NotDestination : Qt_QPainter_CompositionMode;
     static function CompositionMode(value : Qt_QPainter_CompositionMode) : Qt_QPainter_CompositionMode;
+
+    static const OpaqueHint : Qt_QPainter_PixmapFragmentHint;
+    static function PixmapFragmentHint(value : Qt_QPainter_PixmapFragmentHint) : Qt_QPainter_PixmapFragmentHint;
 
     // Methods
     function background () : QBrush;
