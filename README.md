@@ -458,7 +458,16 @@ Qt 5.15 头文件 ──────────────┐
           ├ qtscriptshell_<Class>.cpp/h  虚函数外壳：JS 覆写 ↔ C++ 回传的通道
           └ com_trolltech_qt_<模块>_init.cpp + .pri
                             │
-                            ▼  nmake / MSVC
+                            ▼  qmake + nmake / MSVC
+        编译工程：qtbindings/qtscript_<模块>/qtscript_<模块>.pro
+          （.pro 只做两件事：编译自己的 plugin.cpp 入口 +
+           include($$GENERATEDCPP/com_trolltech_qt_<模块>.pri)
+           直接引用上一步 generated_cpp 里的源码；
+           DESTDIR 由 qtbindingsbase.pri 定为 plugins/script，
+           debug 版为 plugins/script_debug；
+           12 个模块工程由 qtbindings.pro 的 SUBDIRS 统一编排）
+                            │
+                            ▼
         plugins/script/qtscript_<模块>.dll   (QScriptExtensionPlugin)
                             │
                             ▼  运行时
@@ -475,7 +484,7 @@ Qt 5.15 头文件 ──────────────┐
 | 桥 | 连接的两端 | 性质 |
 |---|---|---|
 | **generator.exe**（+ typesystem XML） | C++ 头文件世界 → 脚本绑定源码 | **中枢**。XML 是"规格书"（绑哪些类、remove/rename 哪些函数、模块依赖链 `load-typesystem`），generator 把规格应用到 Qt 头上产出 cpp |
-| **nmake/MSVC** | cpp → dll | 纯编译，无逻辑 |
+| **qtscript_<模块>.pro + nmake/MSVC** | cpp → dll | **编译节点**。每模块一个 qmake 工程（`qtbindings/qtscript_<模块>/`），`.pro` 通过 `include($$GENERATEDCPP/....pri)` 直接引用 generated_cpp 源码，连同自身 `plugin.cpp`（keys/initialize 入口）链接成 QScriptExtensionPlugin，输出到 `plugins/script/`（debug → `script_debug/`）；`qtbindings.pro` 的 SUBDIRS 编排全部 12 个模块 + qs_eval |
 | **plugin.cpp + init.cpp** | dll → 引擎 | 运行时入口：`importExtension` 触发插件把所有类挂到 globalObject（qs_eval 启动时那串 import 就是在喂它） |
 | **qtscriptshell_*.cpp** | C++ 虚调用 ↔ JS 覆写 | **运行时桥梁**。AnalogClock 里 `paintEvent` 能被 C++ 绘制事件调到，靠的是生成的 shell 类在 C++ 侧覆写虚函数、再回头查找 JS 对象上的同名函数 |
 
