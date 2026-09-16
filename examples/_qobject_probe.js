@@ -1,9 +1,11 @@
 var lines = [];
-lines.push("Qt.MidButton=" + typeof Qt.MidButton);
-lines.push("Qt.MiddleButton=" + typeof Qt.MiddleButton);
-lines.push("MidButton.valueOf=" + (typeof Qt.MidButton === "object" ? Qt.MidButton.valueOf() : "n/a"));
-lines.push("Qt.XButton1=" + typeof Qt.XButton1);
+lines.push("QGuiApplication=" + typeof QGuiApplication);
+lines.push("queryKeyboardModifiers=" + typeof QGuiApplication.queryKeyboardModifiers);
+lines.push("????=" + QGuiApplication.queryKeyboardModifiers());
+lines.push("QApplication?queryKeyboardModifiers=" + (typeof QApplication !== "undefined" && QApplication.prototype ? typeof QApplication.prototype.queryKeyboardModifiers : "n/a"));
+lines.push("QApplication?clipboard=" + (typeof QApplication !== "undefined" && QApplication.prototype ? typeof QApplication.prototype.clipboard : "n/a"));
 lines.push("QWidget.setProperty=" + typeof new QWidget().setProperty);
+lines.push("Qt.MidButton=" + typeof Qt.MidButton);
 lines.push("QActionEvent.proto.action=" + (typeof QActionEvent !== "undefined" && QActionEvent.prototype ? typeof QActionEvent.prototype.action : "n/a"));
 lines.push("QPainter.begin=" + typeof QPainter.prototype.begin);
 var f = new QFile("D:/OpenSource/qtscriptgenerator-master/examples/_qobject_probe_out.txt");
