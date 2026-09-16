@@ -32,24 +32,42 @@ import "qt/qt.jsx";
 import "qt/qtransform.jsx";
 import "qt/qwidget.jsx";
 
-final native class Qt_QGraphicsItem_PanelModality {}
-
-final native class Qt_QGraphicsItem_GraphicsItemChange {}
-
 final native class Qt_QGraphicsItem_GraphicsItemFlag {}
 
 final native class Qt_QGraphicsItem_GraphicsItemFlags {}
 
+final native class Qt_QGraphicsItem_GraphicsItemChange {}
+
 final native class Qt_QGraphicsItem_CacheMode {}
+
+final native class Qt_QGraphicsItem_PanelModality {}
 
 native class QGraphicsItem
 {
     function constructor (parent : QGraphicsItem);
 
-    static const NonModal : Qt_QGraphicsItem_PanelModality;
-    static const PanelModal : Qt_QGraphicsItem_PanelModality;
-    static const SceneModal : Qt_QGraphicsItem_PanelModality;
-    static function PanelModality(value : Qt_QGraphicsItem_PanelModality) : Qt_QGraphicsItem_PanelModality;
+    static const ItemIsMovable : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemIsSelectable : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemIsFocusable : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemClipsToShape : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemClipsChildrenToShape : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemIgnoresTransformations : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemIgnoresParentOpacity : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemDoesntPropagateOpacityToChildren : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemStacksBehindParent : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemUsesExtendedStyleOption : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemHasNoContents : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemSendsGeometryChanges : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemAcceptsInputMethod : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemNegativeZStacksBehindParent : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemIsPanel : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemIsFocusScope : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemSendsScenePositionChanges : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemStopsClickFocusPropagation : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemStopsFocusHandling : Qt_QGraphicsItem_GraphicsItemFlag;
+    static const ItemContainsChildrenInShape : Qt_QGraphicsItem_GraphicsItemFlag;
+    static function GraphicsItemFlag(value : Qt_QGraphicsItem_GraphicsItemFlag) : Qt_QGraphicsItem_GraphicsItemFlag;
+    static function GraphicsItemFlags(...value : Qt_QGraphicsItem_GraphicsItemFlag) : Qt_QGraphicsItem_GraphicsItemFlags;
 
     static const ItemPositionChange : Qt_QGraphicsItem_GraphicsItemChange;
     static const ItemMatrixChange : Qt_QGraphicsItem_GraphicsItemChange;
@@ -87,33 +105,15 @@ native class QGraphicsItem
     static const ItemTransformOriginPointHasChanged : Qt_QGraphicsItem_GraphicsItemChange;
     static function GraphicsItemChange(value : Qt_QGraphicsItem_GraphicsItemChange) : Qt_QGraphicsItem_GraphicsItemChange;
 
-    static const ItemIsMovable : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemIsSelectable : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemIsFocusable : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemClipsToShape : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemClipsChildrenToShape : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemIgnoresTransformations : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemIgnoresParentOpacity : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemDoesntPropagateOpacityToChildren : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemStacksBehindParent : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemUsesExtendedStyleOption : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemHasNoContents : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemSendsGeometryChanges : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemAcceptsInputMethod : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemNegativeZStacksBehindParent : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemIsPanel : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemIsFocusScope : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemSendsScenePositionChanges : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemStopsClickFocusPropagation : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemStopsFocusHandling : Qt_QGraphicsItem_GraphicsItemFlag;
-    static const ItemContainsChildrenInShape : Qt_QGraphicsItem_GraphicsItemFlag;
-    static function GraphicsItemFlag(value : Qt_QGraphicsItem_GraphicsItemFlag) : Qt_QGraphicsItem_GraphicsItemFlag;
-    static function GraphicsItemFlags(...value : Qt_QGraphicsItem_GraphicsItemFlag) : Qt_QGraphicsItem_GraphicsItemFlags;
-
     static const NoCache : Qt_QGraphicsItem_CacheMode;
     static const ItemCoordinateCache : Qt_QGraphicsItem_CacheMode;
     static const DeviceCoordinateCache : Qt_QGraphicsItem_CacheMode;
     static function CacheMode(value : Qt_QGraphicsItem_CacheMode) : Qt_QGraphicsItem_CacheMode;
+
+    static const NonModal : Qt_QGraphicsItem_PanelModality;
+    static const PanelModal : Qt_QGraphicsItem_PanelModality;
+    static const SceneModal : Qt_QGraphicsItem_PanelModality;
+    static function PanelModality(value : Qt_QGraphicsItem_PanelModality) : Qt_QGraphicsItem_PanelModality;
 
     // Methods
     function acceptDrops () : boolean;

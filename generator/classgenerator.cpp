@@ -44,6 +44,7 @@
 
 #include <QtCore/QDir>
 #include <QtCore/QMetaType>
+#include <QtCore/QPair>
 
 #include <qdebug.h>
 
@@ -715,6 +716,27 @@ QList<int> uniqueEnumValueIndexes(const AbstractMetaEnumValueList &values)
 }
 
 /*!
+  Returns pairs (alias index, canonical index) for enum values that share
+  the same numeric value as an earlier enumerator (e.g. Qt::MidButton vs
+  Qt::MiddleButton in Qt 5 headers). The switch-statement arrays must stay
+  deduplicated, but the alias names are still registered as script
+  properties pointing at the canonical name's value.
+ */
+static QList<QPair<int, int> > enumValueAliases(const AbstractMetaEnumValueList &values)
+{
+    QMap<int, int> canonical;
+    QList<QPair<int, int> > aliases;
+    for (int i = 0; i < values.count(); ++i) {
+        AbstractMetaEnumValue *val = values.at(i);
+        if (canonical.contains(val->value()))
+            aliases.append(qMakePair(i, canonical.value(val->value())));
+        else
+            canonical.insert(val->value(), i);
+    }
+    return aliases;
+}
+
+/*!
  */
 static bool isContiguousEnum(const QList<int> &indexes, const AbstractMetaEnumValueList &values)
 {
@@ -787,6 +809,7 @@ static void writeEnumClass(QTextStream &stream, const AbstractMetaClass *meta_cl
     // determine unique values (aliases will cause switch statement to not compile)
     AbstractMetaEnumValueList values = enom->values();
     QList<int> uniqueIndexes = uniqueEnumValueIndexes(values);
+    QList<QPair<int, int> > valueAliases = enumValueAliases(values);
 
     bool contiguous = isContiguousEnum(uniqueIndexes, values);
 
@@ -945,6 +968,23 @@ static void writeEnumClass(QTextStream &stream, const AbstractMetaClass *meta_cl
            << qtScriptEnumName << "_keys[i]), ev," << endl
            << "            QScriptValue::ReadOnly | QScriptValue::Undeletable);" << endl
            << "    }" << endl;
+
+    if (!valueAliases.isEmpty()) {
+        stream << "    // value aliases: same numeric value as an earlier enumerator" << endl;
+        for (int ai = 0; ai < valueAliases.size(); ++ai) {
+            const QPair<int, int> &alias = valueAliases.at(ai);
+            stream << "    clazz.setProperty(QString::fromLatin1(\""
+                   << values.at(alias.first)->name() << "\"),"
+                   << " clazz.property(QString::fromLatin1(\""
+                   << values.at(alias.second)->name() << "\")),"
+                   << " QScriptValue::ReadOnly | QScriptValue::Undeletable);" << endl;
+            stream << "    ctor.setProperty(QString::fromLatin1(\""
+                   << values.at(alias.first)->name() << "\"),"
+                   << " ctor.property(QString::fromLatin1(\""
+                   << values.at(alias.second)->name() << "\")),"
+                   << " QScriptValue::ReadOnly | QScriptValue::Undeletable);" << endl;
+        }
+    }
 
     stream << "    return ctor;" << endl;
     stream << "}" << endl;

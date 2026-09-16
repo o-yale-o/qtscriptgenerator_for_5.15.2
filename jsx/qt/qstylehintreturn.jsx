@@ -8,9 +8,9 @@
 
 final native class Qt_QStyleHintReturn_HintReturnType {}
 
-final native class Qt_QStyleHintReturn_StyleOptionType {}
-
 final native class Qt_QStyleHintReturn_StyleOptionVersion {}
+
+final native class Qt_QStyleHintReturn_StyleOptionType {}
 
 native class QStyleHintReturn
 {
@@ -21,9 +21,9 @@ native class QStyleHintReturn
     static const SH_Variant : Qt_QStyleHintReturn_HintReturnType;
     static function HintReturnType(value : Qt_QStyleHintReturn_HintReturnType) : Qt_QStyleHintReturn_HintReturnType;
 
-    static const Type : Qt_QStyleHintReturn_StyleOptionType;
-    static function StyleOptionType(value : Qt_QStyleHintReturn_StyleOptionType) : Qt_QStyleHintReturn_StyleOptionType;
-
     static const Version : Qt_QStyleHintReturn_StyleOptionVersion;
     static function StyleOptionVersion(value : Qt_QStyleHintReturn_StyleOptionVersion) : Qt_QStyleHintReturn_StyleOptionVersion;
+
+    static const Type : Qt_QStyleHintReturn_StyleOptionType;
+    static function StyleOptionType(value : Qt_QStyleHintReturn_StyleOptionType) : Qt_QStyleHintReturn_StyleOptionType;
 }

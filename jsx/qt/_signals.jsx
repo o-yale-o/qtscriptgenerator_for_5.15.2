@@ -63,14 +63,124 @@ native __fake__ class QtJSXSignal {
     function disconnect(callback : () -> void): void;
 }
 
-native __fake__ class QtJSXQRectSignal {
-    function connect(callback : (QRect) -> void): void;
-    function disconnect(callback : (QRect) -> void): void;
+native __fake__ class QtJSXQAbstractButtonSignal {
+    function connect(callback : (QAbstractButton) -> void): void;
+    function disconnect(callback : (QAbstractButton) -> void): void;
 }
 
-native __fake__ class QtJSXQRegExpSignal {
-    function connect(callback : (RegExp) -> void): void;
-    function disconnect(callback : (RegExp) -> void): void;
+native __fake__ class QtJSXQAbstractItemModelSignal {
+    function connect(callback : (QAbstractItemModel) -> void): void;
+    function disconnect(callback : (QAbstractItemModel) -> void): void;
+}
+
+native __fake__ class QtJSXQActionSignal {
+    function connect(callback : (QAction) -> void): void;
+    function disconnect(callback : (QAction) -> void): void;
+}
+
+native __fake__ class QtJSXQBrushSignal {
+    function connect(callback : (QBrush) -> void): void;
+    function disconnect(callback : (QBrush) -> void): void;
+}
+
+native __fake__ class QtJSXQColorSignal {
+    function connect(callback : (QColor) -> void): void;
+    function disconnect(callback : (QColor) -> void): void;
+}
+
+native __fake__ class QtJSXQDateSignal {
+    function connect(callback : (QDate) -> void): void;
+    function disconnect(callback : (QDate) -> void): void;
+}
+
+native __fake__ class QtJSXQDateTimeSignal {
+    function connect(callback : (Date) -> void): void;
+    function disconnect(callback : (Date) -> void): void;
+}
+
+native __fake__ class QtJSXQDockWidgetSignal {
+    function connect(callback : (QDockWidget) -> void): void;
+    function disconnect(callback : (QDockWidget) -> void): void;
+}
+
+native __fake__ class QtJSXQFontSignal {
+    function connect(callback : (QFont) -> void): void;
+    function disconnect(callback : (QFont) -> void): void;
+}
+
+native __fake__ class QtJSXQGraphicsItemQGraphicsItemQt_FocusReasonSignal {
+    function connect(callback : (QGraphicsItem, QGraphicsItem, Qt_FocusReason) -> void): void;
+    function disconnect(callback : (QGraphicsItem, QGraphicsItem, Qt_FocusReason) -> void): void;
+}
+
+native __fake__ class QtJSXQIconSignal {
+    function connect(callback : (QIcon) -> void): void;
+    function disconnect(callback : (QIcon) -> void): void;
+}
+
+native __fake__ class QtJSXQItemSelectionQItemSelectionSignal {
+    function connect(callback : (QItemSelection, QItemSelection) -> void): void;
+    function disconnect(callback : (QItemSelection, QItemSelection) -> void): void;
+}
+
+native __fake__ class QtJSXQListWidgetItemSignal {
+    function connect(callback : (QListWidgetItem) -> void): void;
+    function disconnect(callback : (QListWidgetItem) -> void): void;
+}
+
+native __fake__ class QtJSXQListWidgetItemQListWidgetItemSignal {
+    function connect(callback : (QListWidgetItem, QListWidgetItem) -> void): void;
+    function disconnect(callback : (QListWidgetItem, QListWidgetItem) -> void): void;
+}
+
+native __fake__ class QtJSXQMdiSubWindowSignal {
+    function connect(callback : (QMdiSubWindow) -> void): void;
+    function disconnect(callback : (QMdiSubWindow) -> void): void;
+}
+
+native __fake__ class QtJSXQModelIndexSignal {
+    function connect(callback : (QModelIndex) -> void): void;
+    function disconnect(callback : (QModelIndex) -> void): void;
+}
+
+native __fake__ class QtJSXQModelIndexListSignal {
+    function connect(callback : (QModelIndex[]) -> void): void;
+    function disconnect(callback : (QModelIndex[]) -> void): void;
+}
+
+native __fake__ class QtJSXQModelIndexQModelIndexSignal {
+    function connect(callback : (QModelIndex, QModelIndex) -> void): void;
+    function disconnect(callback : (QModelIndex, QModelIndex) -> void): void;
+}
+
+native __fake__ class QtJSXQPointSignal {
+    function connect(callback : (QPoint) -> void): void;
+    function disconnect(callback : (QPoint) -> void): void;
+}
+
+native __fake__ class QtJSXQPointFSignal {
+    function connect(callback : (QPointF) -> void): void;
+    function disconnect(callback : (QPointF) -> void): void;
+}
+
+native __fake__ class QtJSXQRectFSignal {
+    function connect(callback : (QRectF) -> void): void;
+    function disconnect(callback : (QRectF) -> void): void;
+}
+
+native __fake__ class QtJSXQRectFListSignal {
+    function connect(callback : (QRectF[]) -> void): void;
+    function disconnect(callback : (QRectF[]) -> void): void;
+}
+
+native __fake__ class QtJSXQRectQPointFQPointFSignal {
+    function connect(callback : (QRect, QPointF, QPointF) -> void): void;
+    function disconnect(callback : (QRect, QPointF, QPointF) -> void): void;
+}
+
+native __fake__ class QtJSXQRectintSignal {
+    function connect(callback : (QRect, int) -> void): void;
+    function disconnect(callback : (QRect, int) -> void): void;
 }
 
 native __fake__ class QtJSXQSizeSignal {
@@ -78,9 +188,59 @@ native __fake__ class QtJSXQSizeSignal {
     function disconnect(callback : (QSize) -> void): void;
 }
 
-native __fake__ class QtJSXQTextCursorSignal {
-    function connect(callback : (QTextCursor) -> void): void;
-    function disconnect(callback : (QTextCursor) -> void): void;
+native __fake__ class QtJSXQStandardItemSignal {
+    function connect(callback : (QStandardItem) -> void): void;
+    function disconnect(callback : (QStandardItem) -> void): void;
+}
+
+native __fake__ class QtJSXQStringSignal {
+    function connect(callback : (string) -> void): void;
+    function disconnect(callback : (string) -> void): void;
+}
+
+native __fake__ class QtJSXQStringListSignal {
+    function connect(callback : (string[]) -> void): void;
+    function disconnect(callback : (string[]) -> void): void;
+}
+
+native __fake__ class QtJSXQTableWidgetItemSignal {
+    function connect(callback : (QTableWidgetItem) -> void): void;
+    function disconnect(callback : (QTableWidgetItem) -> void): void;
+}
+
+native __fake__ class QtJSXQTableWidgetItemQTableWidgetItemSignal {
+    function connect(callback : (QTableWidgetItem, QTableWidgetItem) -> void): void;
+    function disconnect(callback : (QTableWidgetItem, QTableWidgetItem) -> void): void;
+}
+
+native __fake__ class QtJSXQTextCharFormatSignal {
+    function connect(callback : (QTextCharFormat) -> void): void;
+    function disconnect(callback : (QTextCharFormat) -> void): void;
+}
+
+native __fake__ class QtJSXQTimeSignal {
+    function connect(callback : (QTime) -> void): void;
+    function disconnect(callback : (QTime) -> void): void;
+}
+
+native __fake__ class QtJSXQTreeWidgetItemSignal {
+    function connect(callback : (QTreeWidgetItem) -> void): void;
+    function disconnect(callback : (QTreeWidgetItem) -> void): void;
+}
+
+native __fake__ class QtJSXQTreeWidgetItemQTreeWidgetItemSignal {
+    function connect(callback : (QTreeWidgetItem, QTreeWidgetItem) -> void): void;
+    function disconnect(callback : (QTreeWidgetItem, QTreeWidgetItem) -> void): void;
+}
+
+native __fake__ class QtJSXQTreeWidgetItemintSignal {
+    function connect(callback : (QTreeWidgetItem, int) -> void): void;
+    function disconnect(callback : (QTreeWidgetItem, int) -> void): void;
+}
+
+native __fake__ class QtJSXQUndoStackSignal {
+    function connect(callback : (QUndoStack) -> void): void;
+    function disconnect(callback : (QUndoStack) -> void): void;
 }
 
 native __fake__ class QtJSXQUrlSignal {
@@ -88,19 +248,69 @@ native __fake__ class QtJSXQUrlSignal {
     function disconnect(callback : (QUrl) -> void): void;
 }
 
-native __fake__ class QtJSXQt_QDoubleValidator_NotationSignal {
-    function connect(callback : (Qt_QDoubleValidator_Notation) -> void): void;
-    function disconnect(callback : (Qt_QDoubleValidator_Notation) -> void): void;
+native __fake__ class QtJSXQUrlListSignal {
+    function connect(callback : (QUrl[]) -> void): void;
+    function disconnect(callback : (QUrl[]) -> void): void;
 }
 
-native __fake__ class QtJSXQt_QImageReader_ImageReaderErrorSignal {
-    function connect(callback : (Qt_QImageReader_ImageReaderError) -> void): void;
-    function disconnect(callback : (Qt_QImageReader_ImageReaderError) -> void): void;
+native __fake__ class QtJSXQWidgetSignal {
+    function connect(callback : (QWidget) -> void): void;
+    function disconnect(callback : (QWidget) -> void): void;
 }
 
-native __fake__ class QtJSXQt_QMovie_MovieStateSignal {
-    function connect(callback : (Qt_QMovie_MovieState) -> void): void;
-    function disconnect(callback : (Qt_QMovie_MovieState) -> void): void;
+native __fake__ class QtJSXQWidgetQWidgetSignal {
+    function connect(callback : (QWidget, QWidget) -> void): void;
+    function disconnect(callback : (QWidget, QWidget) -> void): void;
+}
+
+native __fake__ class QtJSXQWidgetQt_QAbstractItemDelegate_EndEditHintSignal {
+    function connect(callback : (QWidget, Qt_QAbstractItemDelegate_EndEditHint) -> void): void;
+    function disconnect(callback : (QWidget, Qt_QAbstractItemDelegate_EndEditHint) -> void): void;
+}
+
+native __fake__ class QtJSXQt_DockWidgetAreaSignal {
+    function connect(callback : (Qt_DockWidgetArea) -> void): void;
+    function disconnect(callback : (Qt_DockWidgetArea) -> void): void;
+}
+
+native __fake__ class QtJSXQt_DockWidgetAreasSignal {
+    function connect(callback : (Qt_DockWidgetAreas) -> void): void;
+    function disconnect(callback : (Qt_DockWidgetAreas) -> void): void;
+}
+
+native __fake__ class QtJSXQt_OrientationSignal {
+    function connect(callback : (Qt_Orientation) -> void): void;
+    function disconnect(callback : (Qt_Orientation) -> void): void;
+}
+
+native __fake__ class QtJSXQt_QDockWidget_DockWidgetFeaturesSignal {
+    function connect(callback : (Qt_QDockWidget_DockWidgetFeatures) -> void): void;
+    function disconnect(callback : (Qt_QDockWidget_DockWidgetFeatures) -> void): void;
+}
+
+native __fake__ class QtJSXQt_QGraphicsBlurEffect_BlurHintsSignal {
+    function connect(callback : (Qt_QGraphicsBlurEffect_BlurHints) -> void): void;
+    function disconnect(callback : (Qt_QGraphicsBlurEffect_BlurHints) -> void): void;
+}
+
+native __fake__ class QtJSXQt_QSystemTrayIcon_ActivationReasonSignal {
+    function connect(callback : (Qt_QSystemTrayIcon_ActivationReason) -> void): void;
+    function disconnect(callback : (Qt_QSystemTrayIcon_ActivationReason) -> void): void;
+}
+
+native __fake__ class QtJSXQt_ToolBarAreasSignal {
+    function connect(callback : (Qt_ToolBarAreas) -> void): void;
+    function disconnect(callback : (Qt_ToolBarAreas) -> void): void;
+}
+
+native __fake__ class QtJSXQt_ToolButtonStyleSignal {
+    function connect(callback : (Qt_ToolButtonStyle) -> void): void;
+    function disconnect(callback : (Qt_ToolButtonStyle) -> void): void;
+}
+
+native __fake__ class QtJSXQt_WindowStatesQt_WindowStatesSignal {
+    function connect(callback : (Qt_WindowStates, Qt_WindowStates) -> void): void;
+    function disconnect(callback : (Qt_WindowStates, Qt_WindowStates) -> void): void;
 }
 
 native __fake__ class QtJSXboolSignal {
@@ -118,8 +328,33 @@ native __fake__ class QtJSXintSignal {
     function disconnect(callback : (int) -> void): void;
 }
 
+native __fake__ class QtJSXintQt_SortOrderSignal {
+    function connect(callback : (int, Qt_SortOrder) -> void): void;
+    function disconnect(callback : (int, Qt_SortOrder) -> void): void;
+}
+
+native __fake__ class QtJSXintboolSignal {
+    function connect(callback : (int, boolean) -> void): void;
+    function disconnect(callback : (int, boolean) -> void): void;
+}
+
+native __fake__ class QtJSXintintSignal {
+    function connect(callback : (int, int) -> void): void;
+    function disconnect(callback : (int, int) -> void): void;
+}
+
 native __fake__ class QtJSXintintintSignal {
     function connect(callback : (int, int, int) -> void): void;
     function disconnect(callback : (int, int, int) -> void): void;
+}
+
+native __fake__ class QtJSXintintintintSignal {
+    function connect(callback : (int, int, int, int) -> void): void;
+    function disconnect(callback : (int, int, int, int) -> void): void;
+}
+
+native __fake__ class QtJSXqrealSignal {
+    function connect(callback : (number) -> void): void;
+    function disconnect(callback : (number) -> void): void;
 }
 

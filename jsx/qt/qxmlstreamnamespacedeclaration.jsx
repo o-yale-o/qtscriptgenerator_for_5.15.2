@@ -9,7 +9,6 @@
 native class QXmlStreamNamespaceDeclaration
 {
     function constructor ();
-    function constructor (other : QXmlStreamNamespaceDeclaration);
     function constructor (prefix : string, namespaceUri : string);
     function constructor (arg__1 : QXmlStreamNamespaceDeclaration);
 

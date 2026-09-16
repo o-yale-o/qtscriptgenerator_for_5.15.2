@@ -14,40 +14,40 @@ import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QListView_Movement {}
-
 final native class Qt_QListView_ResizeMode {}
 
-final native class Qt_QListView_Flow {}
+final native class Qt_QListView_Movement {}
+
+final native class Qt_QListView_ViewMode {}
 
 final native class Qt_QListView_LayoutMode {}
 
-final native class Qt_QListView_ViewMode {}
+final native class Qt_QListView_Flow {}
 
 native class QListView extends QAbstractItemView
 {
     function constructor (parent : QWidget);
+
+    static const Fixed : Qt_QListView_ResizeMode;
+    static const Adjust : Qt_QListView_ResizeMode;
+    static function ResizeMode(value : Qt_QListView_ResizeMode) : Qt_QListView_ResizeMode;
 
     static const Static : Qt_QListView_Movement;
     static const Free : Qt_QListView_Movement;
     static const Snap : Qt_QListView_Movement;
     static function Movement(value : Qt_QListView_Movement) : Qt_QListView_Movement;
 
-    static const Fixed : Qt_QListView_ResizeMode;
-    static const Adjust : Qt_QListView_ResizeMode;
-    static function ResizeMode(value : Qt_QListView_ResizeMode) : Qt_QListView_ResizeMode;
-
-    static const LeftToRight : Qt_QListView_Flow;
-    static const TopToBottom : Qt_QListView_Flow;
-    static function Flow(value : Qt_QListView_Flow) : Qt_QListView_Flow;
+    static const ListMode : Qt_QListView_ViewMode;
+    static const IconMode : Qt_QListView_ViewMode;
+    static function ViewMode(value : Qt_QListView_ViewMode) : Qt_QListView_ViewMode;
 
     static const SinglePass : Qt_QListView_LayoutMode;
     static const Batched : Qt_QListView_LayoutMode;
     static function LayoutMode(value : Qt_QListView_LayoutMode) : Qt_QListView_LayoutMode;
 
-    static const ListMode : Qt_QListView_ViewMode;
-    static const IconMode : Qt_QListView_ViewMode;
-    static function ViewMode(value : Qt_QListView_ViewMode) : Qt_QListView_ViewMode;
+    static const LeftToRight : Qt_QListView_Flow;
+    static const TopToBottom : Qt_QListView_Flow;
+    static function Flow(value : Qt_QListView_Flow) : Qt_QListView_Flow;
 
     // Methods
     function clearPropertyFlags () : void;

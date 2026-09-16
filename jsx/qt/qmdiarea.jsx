@@ -13,11 +13,11 @@ import "qt/qtabwidget.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
+final native class Qt_QMdiArea_ViewMode {}
+
 final native class Qt_QMdiArea_AreaOption {}
 
 final native class Qt_QMdiArea_AreaOptions {}
-
-final native class Qt_QMdiArea_ViewMode {}
 
 final native class Qt_QMdiArea_WindowOrder {}
 
@@ -25,13 +25,13 @@ native class QMdiArea extends QAbstractScrollArea
 {
     function constructor (parent : QWidget);
 
-    static const DontMaximizeSubWindowOnActivation : Qt_QMdiArea_AreaOption;
-    static function AreaOption(value : Qt_QMdiArea_AreaOption) : Qt_QMdiArea_AreaOption;
-    static function AreaOptions(...value : Qt_QMdiArea_AreaOption) : Qt_QMdiArea_AreaOptions;
-
     static const SubWindowView : Qt_QMdiArea_ViewMode;
     static const TabbedView : Qt_QMdiArea_ViewMode;
     static function ViewMode(value : Qt_QMdiArea_ViewMode) : Qt_QMdiArea_ViewMode;
+
+    static const DontMaximizeSubWindowOnActivation : Qt_QMdiArea_AreaOption;
+    static function AreaOption(value : Qt_QMdiArea_AreaOption) : Qt_QMdiArea_AreaOption;
+    static function AreaOptions(...value : Qt_QMdiArea_AreaOption) : Qt_QMdiArea_AreaOptions;
 
     static const CreationOrder : Qt_QMdiArea_WindowOrder;
     static const StackingOrder : Qt_QMdiArea_WindowOrder;

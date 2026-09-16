@@ -9,7 +9,6 @@
 native class QXmlStreamEntityDeclaration
 {
     function constructor ();
-    function constructor (other : QXmlStreamEntityDeclaration);
     function constructor (arg__1 : QXmlStreamEntityDeclaration);
 
     // Methods

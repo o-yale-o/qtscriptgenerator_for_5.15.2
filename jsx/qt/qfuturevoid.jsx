@@ -10,7 +10,6 @@ import "qt/qfuture.jsx";
 native class QFutureVoid
 {
     function constructor ();
-    function constructor (other : QFuture);
 
     // Methods
     function cancel () : void;

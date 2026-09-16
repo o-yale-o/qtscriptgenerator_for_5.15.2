@@ -8,20 +8,19 @@
 import "qt/qeasingcurve.jsx";
 import "qt/qobject.jsx";
 
-final native class Qt_QTimeLine_State {}
+final native class Qt_QTimeLine_Direction {}
 
 final native class Qt_QTimeLine_CurveShape {}
 
-final native class Qt_QTimeLine_Direction {}
+final native class Qt_QTimeLine_State {}
 
 native class QTimeLine extends QObject
 {
     function constructor (duration : int, parent : QObject);
 
-    static const NotRunning : Qt_QTimeLine_State;
-    static const Paused : Qt_QTimeLine_State;
-    static const Running : Qt_QTimeLine_State;
-    static function State(value : Qt_QTimeLine_State) : Qt_QTimeLine_State;
+    static const Forward : Qt_QTimeLine_Direction;
+    static const Backward : Qt_QTimeLine_Direction;
+    static function Direction(value : Qt_QTimeLine_Direction) : Qt_QTimeLine_Direction;
 
     static const EaseInCurve : Qt_QTimeLine_CurveShape;
     static const EaseOutCurve : Qt_QTimeLine_CurveShape;
@@ -31,9 +30,10 @@ native class QTimeLine extends QObject
     static const CosineCurve : Qt_QTimeLine_CurveShape;
     static function CurveShape(value : Qt_QTimeLine_CurveShape) : Qt_QTimeLine_CurveShape;
 
-    static const Forward : Qt_QTimeLine_Direction;
-    static const Backward : Qt_QTimeLine_Direction;
-    static function Direction(value : Qt_QTimeLine_Direction) : Qt_QTimeLine_Direction;
+    static const NotRunning : Qt_QTimeLine_State;
+    static const Paused : Qt_QTimeLine_State;
+    static const Running : Qt_QTimeLine_State;
+    static function State(value : Qt_QTimeLine_State) : Qt_QTimeLine_State;
 
     // Methods
     function currentFrame () : int;

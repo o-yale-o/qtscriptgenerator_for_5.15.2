@@ -7,18 +7,18 @@
  */
 import "qt/qstyleoption.jsx";
 
-final native class Qt_QStyleOptionFocusRect_StyleOptionType {}
-
 final native class Qt_QStyleOptionFocusRect_StyleOptionVersion {}
+
+final native class Qt_QStyleOptionFocusRect_StyleOptionType {}
 
 native class QStyleOptionFocusRect extends QStyleOption
 {
     function constructor ();
     function constructor (other : QStyleOptionFocusRect);
 
-    static const Type : Qt_QStyleOptionFocusRect_StyleOptionType;
-    static function StyleOptionType(value : Qt_QStyleOptionFocusRect_StyleOptionType) : Qt_QStyleOptionFocusRect_StyleOptionType;
-
     static const Version : Qt_QStyleOptionFocusRect_StyleOptionVersion;
     static function StyleOptionVersion(value : Qt_QStyleOptionFocusRect_StyleOptionVersion) : Qt_QStyleOptionFocusRect_StyleOptionVersion;
+
+    static const Type : Qt_QStyleOptionFocusRect_StyleOptionType;
+    static function StyleOptionType(value : Qt_QStyleOptionFocusRect_StyleOptionType) : Qt_QStyleOptionFocusRect_StyleOptionType;
 }

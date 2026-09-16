@@ -12,8 +12,8 @@ import "qt/qt.jsx";
 native class QPersistentModelIndex
 {
     function constructor ();
-    function constructor (other : QPersistentModelIndex);
     function constructor (index : QModelIndex);
+    function constructor (other : QPersistentModelIndex);
 
     // Methods
     function child (row : int, column : int) : QModelIndex;

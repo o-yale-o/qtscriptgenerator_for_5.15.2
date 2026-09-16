@@ -9,7 +9,6 @@
 native class QXmlStreamNotationDeclaration
 {
     function constructor ();
-    function constructor (other : QXmlStreamNotationDeclaration);
     function constructor (arg__1 : QXmlStreamNotationDeclaration);
 
     // Methods

@@ -11,7 +11,6 @@ import "qt/qt.jsx";
 native class QBasicTimer
 {
     function constructor ();
-    function constructor (other : QBasicTimer);
 
     // Methods
     function isActive () : boolean;

@@ -12,23 +12,17 @@ import "qt/qvalidator.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QAbstractSpinBox_StepEnabledFlag {}
-
-final native class Qt_QAbstractSpinBox_StepEnabled {}
-
 final native class Qt_QAbstractSpinBox_ButtonSymbols {}
 
 final native class Qt_QAbstractSpinBox_CorrectionMode {}
 
+final native class Qt_QAbstractSpinBox_StepEnabledFlag {}
+
+final native class Qt_QAbstractSpinBox_StepEnabled {}
+
 native class QAbstractSpinBox extends QWidget
 {
     function constructor (parent : QWidget);
-
-    static const StepNone : Qt_QAbstractSpinBox_StepEnabledFlag;
-    static const StepUpEnabled : Qt_QAbstractSpinBox_StepEnabledFlag;
-    static const StepDownEnabled : Qt_QAbstractSpinBox_StepEnabledFlag;
-    static function StepEnabledFlag(value : Qt_QAbstractSpinBox_StepEnabledFlag) : Qt_QAbstractSpinBox_StepEnabledFlag;
-    static function StepEnabled(...value : Qt_QAbstractSpinBox_StepEnabledFlag) : Qt_QAbstractSpinBox_StepEnabled;
 
     static const UpDownArrows : Qt_QAbstractSpinBox_ButtonSymbols;
     static const PlusMinus : Qt_QAbstractSpinBox_ButtonSymbols;
@@ -38,6 +32,12 @@ native class QAbstractSpinBox extends QWidget
     static const CorrectToPreviousValue : Qt_QAbstractSpinBox_CorrectionMode;
     static const CorrectToNearestValue : Qt_QAbstractSpinBox_CorrectionMode;
     static function CorrectionMode(value : Qt_QAbstractSpinBox_CorrectionMode) : Qt_QAbstractSpinBox_CorrectionMode;
+
+    static const StepNone : Qt_QAbstractSpinBox_StepEnabledFlag;
+    static const StepUpEnabled : Qt_QAbstractSpinBox_StepEnabledFlag;
+    static const StepDownEnabled : Qt_QAbstractSpinBox_StepEnabledFlag;
+    static function StepEnabledFlag(value : Qt_QAbstractSpinBox_StepEnabledFlag) : Qt_QAbstractSpinBox_StepEnabledFlag;
+    static function StepEnabled(...value : Qt_QAbstractSpinBox_StepEnabledFlag) : Qt_QAbstractSpinBox_StepEnabled;
 
     // Methods
     function clear () : void;

@@ -10,7 +10,6 @@ import "qt/qt.jsx";
 native class QByteArray
 {
     function constructor ();
-    function constructor (other : QByteArray);
     function constructor (arg__1 : QByteArray);
     function constructor (size : int, c : string);
 

@@ -11,9 +11,9 @@ import "qt/qobject.jsx";
 import "qt/qrect.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QSystemTrayIcon_MessageIcon {}
-
 final native class Qt_QSystemTrayIcon_ActivationReason {}
+
+final native class Qt_QSystemTrayIcon_MessageIcon {}
 
 native class QSystemTrayIcon extends QObject
 {
@@ -24,18 +24,18 @@ native class QSystemTrayIcon extends QObject
     static function isSystemTrayAvailable () : boolean;
     static function supportsMessages () : boolean;
 
-    static const NoIcon : Qt_QSystemTrayIcon_MessageIcon;
-    static const Information : Qt_QSystemTrayIcon_MessageIcon;
-    static const Warning : Qt_QSystemTrayIcon_MessageIcon;
-    static const Critical : Qt_QSystemTrayIcon_MessageIcon;
-    static function MessageIcon(value : Qt_QSystemTrayIcon_MessageIcon) : Qt_QSystemTrayIcon_MessageIcon;
-
     static const Unknown : Qt_QSystemTrayIcon_ActivationReason;
     static const Context : Qt_QSystemTrayIcon_ActivationReason;
     static const DoubleClick : Qt_QSystemTrayIcon_ActivationReason;
     static const Trigger : Qt_QSystemTrayIcon_ActivationReason;
     static const MiddleClick : Qt_QSystemTrayIcon_ActivationReason;
     static function ActivationReason(value : Qt_QSystemTrayIcon_ActivationReason) : Qt_QSystemTrayIcon_ActivationReason;
+
+    static const NoIcon : Qt_QSystemTrayIcon_MessageIcon;
+    static const Information : Qt_QSystemTrayIcon_MessageIcon;
+    static const Warning : Qt_QSystemTrayIcon_MessageIcon;
+    static const Critical : Qt_QSystemTrayIcon_MessageIcon;
+    static function MessageIcon(value : Qt_QSystemTrayIcon_MessageIcon) : Qt_QSystemTrayIcon_MessageIcon;
 
     // Methods
     function contextMenu () : QMenu;

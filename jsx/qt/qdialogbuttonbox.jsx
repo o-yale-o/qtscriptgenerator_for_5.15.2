@@ -11,11 +11,11 @@ import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QDialogButtonBox_ButtonRole {}
-
 final native class Qt_QDialogButtonBox_StandardButton {}
 
 final native class Qt_QDialogButtonBox_StandardButtons {}
+
+final native class Qt_QDialogButtonBox_ButtonRole {}
 
 final native class Qt_QDialogButtonBox_ButtonLayout {}
 
@@ -25,19 +25,6 @@ native class QDialogButtonBox extends QWidget
     function constructor (buttons : Qt_QDialogButtonBox_StandardButtons, orientation : Qt_Orientation, parent : QWidget);
     function constructor (parent : QWidget);
     function constructor (orientation : Qt_Orientation, parent : QWidget);
-
-    static const InvalidRole : Qt_QDialogButtonBox_ButtonRole;
-    static const AcceptRole : Qt_QDialogButtonBox_ButtonRole;
-    static const RejectRole : Qt_QDialogButtonBox_ButtonRole;
-    static const DestructiveRole : Qt_QDialogButtonBox_ButtonRole;
-    static const ActionRole : Qt_QDialogButtonBox_ButtonRole;
-    static const HelpRole : Qt_QDialogButtonBox_ButtonRole;
-    static const YesRole : Qt_QDialogButtonBox_ButtonRole;
-    static const NoRole : Qt_QDialogButtonBox_ButtonRole;
-    static const ResetRole : Qt_QDialogButtonBox_ButtonRole;
-    static const ApplyRole : Qt_QDialogButtonBox_ButtonRole;
-    static const NRoles : Qt_QDialogButtonBox_ButtonRole;
-    static function ButtonRole(value : Qt_QDialogButtonBox_ButtonRole) : Qt_QDialogButtonBox_ButtonRole;
 
     static const NoButton : Qt_QDialogButtonBox_StandardButton;
     static const Ok : Qt_QDialogButtonBox_StandardButton;
@@ -60,6 +47,19 @@ native class QDialogButtonBox extends QWidget
     static const RestoreDefaults : Qt_QDialogButtonBox_StandardButton;
     static function StandardButton(value : Qt_QDialogButtonBox_StandardButton) : Qt_QDialogButtonBox_StandardButton;
     static function StandardButtons(...value : Qt_QDialogButtonBox_StandardButton) : Qt_QDialogButtonBox_StandardButtons;
+
+    static const InvalidRole : Qt_QDialogButtonBox_ButtonRole;
+    static const AcceptRole : Qt_QDialogButtonBox_ButtonRole;
+    static const RejectRole : Qt_QDialogButtonBox_ButtonRole;
+    static const DestructiveRole : Qt_QDialogButtonBox_ButtonRole;
+    static const ActionRole : Qt_QDialogButtonBox_ButtonRole;
+    static const HelpRole : Qt_QDialogButtonBox_ButtonRole;
+    static const YesRole : Qt_QDialogButtonBox_ButtonRole;
+    static const NoRole : Qt_QDialogButtonBox_ButtonRole;
+    static const ResetRole : Qt_QDialogButtonBox_ButtonRole;
+    static const ApplyRole : Qt_QDialogButtonBox_ButtonRole;
+    static const NRoles : Qt_QDialogButtonBox_ButtonRole;
+    static function ButtonRole(value : Qt_QDialogButtonBox_ButtonRole) : Qt_QDialogButtonBox_ButtonRole;
 
     static const WinLayout : Qt_QDialogButtonBox_ButtonLayout;
     static const MacLayout : Qt_QDialogButtonBox_ButtonLayout;

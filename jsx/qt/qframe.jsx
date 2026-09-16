@@ -11,20 +11,15 @@ import "qt/qstyleoptionframe.jsx";
 import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 
-final native class Qt_QFrame_Shadow {}
-
 final native class Qt_QFrame_Shape {}
+
+final native class Qt_QFrame_Shadow {}
 
 final native class Qt_QFrame_StyleMask {}
 
 native class QFrame extends QWidget
 {
     function constructor (parent : QWidget, f : Qt_WindowFlags);
-
-    static const Plain : Qt_QFrame_Shadow;
-    static const Raised : Qt_QFrame_Shadow;
-    static const Sunken : Qt_QFrame_Shadow;
-    static function Shadow(value : Qt_QFrame_Shadow) : Qt_QFrame_Shadow;
 
     static const NoFrame : Qt_QFrame_Shape;
     static const Box : Qt_QFrame_Shape;
@@ -34,6 +29,11 @@ native class QFrame extends QWidget
     static const VLine : Qt_QFrame_Shape;
     static const StyledPanel : Qt_QFrame_Shape;
     static function Shape(value : Qt_QFrame_Shape) : Qt_QFrame_Shape;
+
+    static const Plain : Qt_QFrame_Shadow;
+    static const Raised : Qt_QFrame_Shadow;
+    static const Sunken : Qt_QFrame_Shadow;
+    static function Shadow(value : Qt_QFrame_Shadow) : Qt_QFrame_Shadow;
 
     static const Shape_Mask : Qt_QFrame_StyleMask;
     static const Shadow_Mask : Qt_QFrame_StyleMask;
