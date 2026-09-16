@@ -50,7 +50,10 @@
   <rejection class="QColormap"/>
   <rejection class="QClipboard"/>
   <rejection class="QDrag"/>
-  <rejection class="QGuiApplication"/>
+  <!-- Qt 5 fix: do NOT reject QGuiApplication - QCAD's library.js calls
+       QGuiApplication.queryKeyboardModifiers() on the Qt5 path, and
+       QApplication needs it as a resolvable base class for prototype
+       chaining (see the QGuiApplication entry near the end of this file). -->
   <!-- Qt 5: QCursor::bitmap()/mask() return const QBitmap* -->
   <rejection class="QCursor" function-name="bitmap"/>
   <rejection class="QCursor" function-name="mask"/>
@@ -1484,6 +1487,10 @@
        (QObject methods like setProperty unreachable from widget subclasses). -->
   <interface-type name="QPaintDevice"/>
 
+  <!-- QGuiApplication is declared at the end of this file (near QQuaternion);
+       the <rejection class="QGuiApplication"/> at the top was removed so the
+       declaration takes effect. -->
+
   <object-type name="QPaintEngine">
     <modify-function signature="begin(QPaintDevice*)">
         <modify-argument index="1" invalidate-after-use="yes"/>
@@ -1643,7 +1650,14 @@
     </modify-function>
   </object-type>
 
-  <object-type name="QGuiApplication"/>
+  <object-type name="QGuiApplication">
+    <!-- clipboard() returns QClipboard*, which is typesystem-rejected below
+         (unbound); include its header so Q_DECLARE_METATYPE(QClipboard*) in
+         the generated binding compiles and the wrapper stays usable. -->
+    <extra-includes>
+      <include file-name="qclipboard.h" location="global"/>
+    </extra-includes>
+  </object-type>
   <value-type name="QQuaternion"/>
   <interface-type name="QIconEngineFactoryInterfaceV2" java-name="QAbstractIconEngineFactoryV2"/>
   <interface-type name="QImageIOHandlerFactoryInterface" java-name="QAbstractImageIOHandlerFactory"/>

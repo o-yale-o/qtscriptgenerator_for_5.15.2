@@ -11,24 +11,15 @@ import "qt/qstyleoptionframe.jsx";
 import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 
-final native class Qt_QFrame_Shape {}
-
 final native class Qt_QFrame_Shadow {}
 
 final native class Qt_QFrame_StyleMask {}
 
+final native class Qt_QFrame_Shape {}
+
 native class QFrame extends QWidget
 {
     function constructor (parent : QWidget, f : Qt_WindowFlags);
-
-    static const NoFrame : Qt_QFrame_Shape;
-    static const Box : Qt_QFrame_Shape;
-    static const Panel : Qt_QFrame_Shape;
-    static const WinPanel : Qt_QFrame_Shape;
-    static const HLine : Qt_QFrame_Shape;
-    static const VLine : Qt_QFrame_Shape;
-    static const StyledPanel : Qt_QFrame_Shape;
-    static function Shape(value : Qt_QFrame_Shape) : Qt_QFrame_Shape;
 
     static const Plain : Qt_QFrame_Shadow;
     static const Raised : Qt_QFrame_Shadow;
@@ -38,6 +29,15 @@ native class QFrame extends QWidget
     static const Shape_Mask : Qt_QFrame_StyleMask;
     static const Shadow_Mask : Qt_QFrame_StyleMask;
     static function StyleMask(value : Qt_QFrame_StyleMask) : Qt_QFrame_StyleMask;
+
+    static const NoFrame : Qt_QFrame_Shape;
+    static const Box : Qt_QFrame_Shape;
+    static const Panel : Qt_QFrame_Shape;
+    static const WinPanel : Qt_QFrame_Shape;
+    static const HLine : Qt_QFrame_Shape;
+    static const VLine : Qt_QFrame_Shape;
+    static const StyledPanel : Qt_QFrame_Shape;
+    static function Shape(value : Qt_QFrame_Shape) : Qt_QFrame_Shape;
 
     // Methods
     function drawFrame (arg__1 : QPainter) : void;

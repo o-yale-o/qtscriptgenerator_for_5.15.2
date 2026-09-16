@@ -14,9 +14,9 @@ import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QCompleter_ModelSorting {}
-
 final native class Qt_QCompleter_CompletionMode {}
+
+final native class Qt_QCompleter_ModelSorting {}
 
 native class QCompleter extends QObject
 {
@@ -24,15 +24,15 @@ native class QCompleter extends QObject
     function constructor (parent : QObject);
     function constructor (completions : string[], parent : QObject);
 
-    static const UnsortedModel : Qt_QCompleter_ModelSorting;
-    static const CaseSensitivelySortedModel : Qt_QCompleter_ModelSorting;
-    static const CaseInsensitivelySortedModel : Qt_QCompleter_ModelSorting;
-    static function ModelSorting(value : Qt_QCompleter_ModelSorting) : Qt_QCompleter_ModelSorting;
-
     static const PopupCompletion : Qt_QCompleter_CompletionMode;
     static const UnfilteredPopupCompletion : Qt_QCompleter_CompletionMode;
     static const InlineCompletion : Qt_QCompleter_CompletionMode;
     static function CompletionMode(value : Qt_QCompleter_CompletionMode) : Qt_QCompleter_CompletionMode;
+
+    static const UnsortedModel : Qt_QCompleter_ModelSorting;
+    static const CaseSensitivelySortedModel : Qt_QCompleter_ModelSorting;
+    static const CaseInsensitivelySortedModel : Qt_QCompleter_ModelSorting;
+    static function ModelSorting(value : Qt_QCompleter_ModelSorting) : Qt_QCompleter_ModelSorting;
 
     // Methods
     function complete (rect : QRect) : void;

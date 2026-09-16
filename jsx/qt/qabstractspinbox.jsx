@@ -12,22 +12,17 @@ import "qt/qvalidator.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QAbstractSpinBox_ButtonSymbols {}
-
 final native class Qt_QAbstractSpinBox_CorrectionMode {}
 
 final native class Qt_QAbstractSpinBox_StepEnabledFlag {}
 
 final native class Qt_QAbstractSpinBox_StepEnabled {}
 
+final native class Qt_QAbstractSpinBox_ButtonSymbols {}
+
 native class QAbstractSpinBox extends QWidget
 {
     function constructor (parent : QWidget);
-
-    static const UpDownArrows : Qt_QAbstractSpinBox_ButtonSymbols;
-    static const PlusMinus : Qt_QAbstractSpinBox_ButtonSymbols;
-    static const NoButtons : Qt_QAbstractSpinBox_ButtonSymbols;
-    static function ButtonSymbols(value : Qt_QAbstractSpinBox_ButtonSymbols) : Qt_QAbstractSpinBox_ButtonSymbols;
 
     static const CorrectToPreviousValue : Qt_QAbstractSpinBox_CorrectionMode;
     static const CorrectToNearestValue : Qt_QAbstractSpinBox_CorrectionMode;
@@ -38,6 +33,11 @@ native class QAbstractSpinBox extends QWidget
     static const StepDownEnabled : Qt_QAbstractSpinBox_StepEnabledFlag;
     static function StepEnabledFlag(value : Qt_QAbstractSpinBox_StepEnabledFlag) : Qt_QAbstractSpinBox_StepEnabledFlag;
     static function StepEnabled(...value : Qt_QAbstractSpinBox_StepEnabledFlag) : Qt_QAbstractSpinBox_StepEnabled;
+
+    static const UpDownArrows : Qt_QAbstractSpinBox_ButtonSymbols;
+    static const PlusMinus : Qt_QAbstractSpinBox_ButtonSymbols;
+    static const NoButtons : Qt_QAbstractSpinBox_ButtonSymbols;
+    static function ButtonSymbols(value : Qt_QAbstractSpinBox_ButtonSymbols) : Qt_QAbstractSpinBox_ButtonSymbols;
 
     // Methods
     function clear () : void;

@@ -7,18 +7,18 @@
  */
 import "qt/qstyleoptioncomplex.jsx";
 
-final native class Qt_QStyleOptionGroupBox_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionGroupBox_StyleOptionType {}
+
+final native class Qt_QStyleOptionGroupBox_StyleOptionVersion {}
 
 native class QStyleOptionGroupBox extends QStyleOptionComplex
 {
     function constructor ();
     function constructor (other : QStyleOptionGroupBox);
 
-    static const Version : Qt_QStyleOptionGroupBox_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionGroupBox_StyleOptionVersion) : Qt_QStyleOptionGroupBox_StyleOptionVersion;
-
     static const Type : Qt_QStyleOptionGroupBox_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionGroupBox_StyleOptionType) : Qt_QStyleOptionGroupBox_StyleOptionType;
+
+    static const Version : Qt_QStyleOptionGroupBox_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionGroupBox_StyleOptionVersion) : Qt_QStyleOptionGroupBox_StyleOptionVersion;
 }

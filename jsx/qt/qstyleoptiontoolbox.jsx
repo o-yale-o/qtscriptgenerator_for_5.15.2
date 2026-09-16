@@ -7,11 +7,11 @@
  */
 import "qt/qstyleoption.jsx";
 
-final native class Qt_QStyleOptionToolBox_StyleOptionVersion {}
+final native class Qt_QStyleOptionToolBox_StyleOptionType {}
 
 final native class Qt_QStyleOptionToolBox_SelectedPosition {}
 
-final native class Qt_QStyleOptionToolBox_StyleOptionType {}
+final native class Qt_QStyleOptionToolBox_StyleOptionVersion {}
 
 final native class Qt_QStyleOptionToolBox_TabPosition {}
 
@@ -20,16 +20,16 @@ native class QStyleOptionToolBox extends QStyleOption
     function constructor ();
     function constructor (other : QStyleOptionToolBox);
 
-    static const Version : Qt_QStyleOptionToolBox_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionToolBox_StyleOptionVersion) : Qt_QStyleOptionToolBox_StyleOptionVersion;
+    static const Type : Qt_QStyleOptionToolBox_StyleOptionType;
+    static function StyleOptionType(value : Qt_QStyleOptionToolBox_StyleOptionType) : Qt_QStyleOptionToolBox_StyleOptionType;
 
     static const NotAdjacent : Qt_QStyleOptionToolBox_SelectedPosition;
     static const NextIsSelected : Qt_QStyleOptionToolBox_SelectedPosition;
     static const PreviousIsSelected : Qt_QStyleOptionToolBox_SelectedPosition;
     static function SelectedPosition(value : Qt_QStyleOptionToolBox_SelectedPosition) : Qt_QStyleOptionToolBox_SelectedPosition;
 
-    static const Type : Qt_QStyleOptionToolBox_StyleOptionType;
-    static function StyleOptionType(value : Qt_QStyleOptionToolBox_StyleOptionType) : Qt_QStyleOptionToolBox_StyleOptionType;
+    static const Version : Qt_QStyleOptionToolBox_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionToolBox_StyleOptionVersion) : Qt_QStyleOptionToolBox_StyleOptionVersion;
 
     static const Beginning : Qt_QStyleOptionToolBox_TabPosition;
     static const Middle : Qt_QStyleOptionToolBox_TabPosition;

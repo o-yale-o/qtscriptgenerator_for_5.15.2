@@ -26,6 +26,7 @@ import "qt/qfontinfo.jsx"; // QFontInfo
 import "qt/qfontmetrics.jsx"; // QFontMetrics
 import "qt/qfontmetricsf.jsx"; // QFontMetricsF
 import "qt/qgradient.jsx"; // QGradient
+import "qt/qguiapplication.jsx"; // QGuiApplication
 import "qt/qhelpevent.jsx"; // QHelpEvent
 import "qt/qhideevent.jsx"; // QHideEvent
 import "qt/qhoverevent.jsx"; // QHoverEvent

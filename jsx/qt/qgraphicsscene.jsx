@@ -45,11 +45,11 @@ import "qt/qtransform.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QGraphicsScene_ItemIndexMethod {}
-
 final native class Qt_QGraphicsScene_SceneLayer {}
 
 final native class Qt_QGraphicsScene_SceneLayers {}
+
+final native class Qt_QGraphicsScene_ItemIndexMethod {}
 
 native class QGraphicsScene extends QObject
 {
@@ -57,16 +57,16 @@ native class QGraphicsScene extends QObject
     function constructor (sceneRect : QRectF, parent : QObject);
     function constructor (x : number, y : number, width : number, height : number, parent : QObject);
 
-    static const NoIndex : Qt_QGraphicsScene_ItemIndexMethod;
-    static const BspTreeIndex : Qt_QGraphicsScene_ItemIndexMethod;
-    static function ItemIndexMethod(value : Qt_QGraphicsScene_ItemIndexMethod) : Qt_QGraphicsScene_ItemIndexMethod;
-
     static const ItemLayer : Qt_QGraphicsScene_SceneLayer;
     static const BackgroundLayer : Qt_QGraphicsScene_SceneLayer;
     static const ForegroundLayer : Qt_QGraphicsScene_SceneLayer;
     static const AllLayers : Qt_QGraphicsScene_SceneLayer;
     static function SceneLayer(value : Qt_QGraphicsScene_SceneLayer) : Qt_QGraphicsScene_SceneLayer;
     static function SceneLayers(...value : Qt_QGraphicsScene_SceneLayer) : Qt_QGraphicsScene_SceneLayers;
+
+    static const NoIndex : Qt_QGraphicsScene_ItemIndexMethod;
+    static const BspTreeIndex : Qt_QGraphicsScene_ItemIndexMethod;
+    static function ItemIndexMethod(value : Qt_QGraphicsScene_ItemIndexMethod) : Qt_QGraphicsScene_ItemIndexMethod;
 
     // Methods
     function activePanel () : QGraphicsItem;

@@ -7,18 +7,18 @@
  */
 import "qt/qstyleoption.jsx";
 
-final native class Qt_QStyleOptionComplex_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionComplex_StyleOptionType {}
+
+final native class Qt_QStyleOptionComplex_StyleOptionVersion {}
 
 native class QStyleOptionComplex extends QStyleOption
 {
     function constructor (other : QStyleOptionComplex);
     function constructor (version : int, type : int);
 
-    static const Version : Qt_QStyleOptionComplex_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionComplex_StyleOptionVersion) : Qt_QStyleOptionComplex_StyleOptionVersion;
-
     static const Type : Qt_QStyleOptionComplex_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionComplex_StyleOptionType) : Qt_QStyleOptionComplex_StyleOptionType;
+
+    static const Version : Qt_QStyleOptionComplex_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionComplex_StyleOptionVersion) : Qt_QStyleOptionComplex_StyleOptionVersion;
 }

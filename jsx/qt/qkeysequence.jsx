@@ -8,9 +8,9 @@
 
 final native class Qt_QKeySequence_SequenceMatch {}
 
-final native class Qt_QKeySequence_StandardKey {}
-
 final native class Qt_QKeySequence_SequenceFormat {}
+
+final native class Qt_QKeySequence_StandardKey {}
 
 native class QKeySequence
 {
@@ -31,6 +31,10 @@ native class QKeySequence
     static const PartialMatch : Qt_QKeySequence_SequenceMatch;
     static const ExactMatch : Qt_QKeySequence_SequenceMatch;
     static function SequenceMatch(value : Qt_QKeySequence_SequenceMatch) : Qt_QKeySequence_SequenceMatch;
+
+    static const NativeText : Qt_QKeySequence_SequenceFormat;
+    static const PortableText : Qt_QKeySequence_SequenceFormat;
+    static function SequenceFormat(value : Qt_QKeySequence_SequenceFormat) : Qt_QKeySequence_SequenceFormat;
 
     static const UnknownKey : Qt_QKeySequence_StandardKey;
     static const HelpContents : Qt_QKeySequence_StandardKey;
@@ -104,10 +108,6 @@ native class QKeySequence
     static const Backspace : Qt_QKeySequence_StandardKey;
     static const Cancel : Qt_QKeySequence_StandardKey;
     static function StandardKey(value : Qt_QKeySequence_StandardKey) : Qt_QKeySequence_StandardKey;
-
-    static const NativeText : Qt_QKeySequence_SequenceFormat;
-    static const PortableText : Qt_QKeySequence_SequenceFormat;
-    static function SequenceFormat(value : Qt_QKeySequence_SequenceFormat) : Qt_QKeySequence_SequenceFormat;
 
     // Methods
     function count () : int;

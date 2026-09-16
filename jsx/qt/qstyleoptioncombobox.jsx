@@ -7,18 +7,18 @@
  */
 import "qt/qstyleoptioncomplex.jsx";
 
-final native class Qt_QStyleOptionComboBox_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionComboBox_StyleOptionType {}
+
+final native class Qt_QStyleOptionComboBox_StyleOptionVersion {}
 
 native class QStyleOptionComboBox extends QStyleOptionComplex
 {
     function constructor ();
     function constructor (other : QStyleOptionComboBox);
 
-    static const Version : Qt_QStyleOptionComboBox_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionComboBox_StyleOptionVersion) : Qt_QStyleOptionComboBox_StyleOptionVersion;
-
     static const Type : Qt_QStyleOptionComboBox_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionComboBox_StyleOptionType) : Qt_QStyleOptionComboBox_StyleOptionType;
+
+    static const Version : Qt_QStyleOptionComboBox_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionComboBox_StyleOptionVersion) : Qt_QStyleOptionComboBox_StyleOptionVersion;
 }

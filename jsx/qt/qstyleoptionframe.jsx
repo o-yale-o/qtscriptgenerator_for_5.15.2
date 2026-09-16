@@ -7,18 +7,21 @@
  */
 import "qt/qstyleoption.jsx";
 
+final native class Qt_QStyleOptionFrame_StyleOptionType {}
+
 final native class Qt_QStyleOptionFrame_FrameFeature {}
 
 final native class Qt_QStyleOptionFrame_FrameFeatures {}
 
 final native class Qt_QStyleOptionFrame_StyleOptionVersion {}
 
-final native class Qt_QStyleOptionFrame_StyleOptionType {}
-
 native class QStyleOptionFrame extends QStyleOption
 {
     function constructor ();
     function constructor (other : QStyleOptionFrame);
+
+    static const Type : Qt_QStyleOptionFrame_StyleOptionType;
+    static function StyleOptionType(value : Qt_QStyleOptionFrame_StyleOptionType) : Qt_QStyleOptionFrame_StyleOptionType;
 
     static const None : Qt_QStyleOptionFrame_FrameFeature;
     static const Flat : Qt_QStyleOptionFrame_FrameFeature;
@@ -28,7 +31,4 @@ native class QStyleOptionFrame extends QStyleOption
 
     static const Version : Qt_QStyleOptionFrame_StyleOptionVersion;
     static function StyleOptionVersion(value : Qt_QStyleOptionFrame_StyleOptionVersion) : Qt_QStyleOptionFrame_StyleOptionVersion;
-
-    static const Type : Qt_QStyleOptionFrame_StyleOptionType;
-    static function StyleOptionType(value : Qt_QStyleOptionFrame_StyleOptionType) : Qt_QStyleOptionFrame_StyleOptionType;
 }

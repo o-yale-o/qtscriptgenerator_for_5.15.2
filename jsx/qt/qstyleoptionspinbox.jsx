@@ -7,18 +7,18 @@
  */
 import "qt/qstyleoptioncomplex.jsx";
 
-final native class Qt_QStyleOptionSpinBox_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionSpinBox_StyleOptionType {}
+
+final native class Qt_QStyleOptionSpinBox_StyleOptionVersion {}
 
 native class QStyleOptionSpinBox extends QStyleOptionComplex
 {
     function constructor ();
     function constructor (other : QStyleOptionSpinBox);
 
-    static const Version : Qt_QStyleOptionSpinBox_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionSpinBox_StyleOptionVersion) : Qt_QStyleOptionSpinBox_StyleOptionVersion;
-
     static const Type : Qt_QStyleOptionSpinBox_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionSpinBox_StyleOptionType) : Qt_QStyleOptionSpinBox_StyleOptionType;
+
+    static const Version : Qt_QStyleOptionSpinBox_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionSpinBox_StyleOptionVersion) : Qt_QStyleOptionSpinBox_StyleOptionVersion;
 }

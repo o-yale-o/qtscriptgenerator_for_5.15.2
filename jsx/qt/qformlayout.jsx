@@ -10,20 +10,15 @@ import "qt/qlayoutitem.jsx";
 import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 
-final native class Qt_QFormLayout_RowWrapPolicy {}
-
 final native class Qt_QFormLayout_FieldGrowthPolicy {}
 
 final native class Qt_QFormLayout_ItemRole {}
 
+final native class Qt_QFormLayout_RowWrapPolicy {}
+
 native class QFormLayout extends QLayout
 {
     function constructor (parent : QWidget);
-
-    static const DontWrapRows : Qt_QFormLayout_RowWrapPolicy;
-    static const WrapLongRows : Qt_QFormLayout_RowWrapPolicy;
-    static const WrapAllRows : Qt_QFormLayout_RowWrapPolicy;
-    static function RowWrapPolicy(value : Qt_QFormLayout_RowWrapPolicy) : Qt_QFormLayout_RowWrapPolicy;
 
     static const FieldsStayAtSizeHint : Qt_QFormLayout_FieldGrowthPolicy;
     static const ExpandingFieldsGrow : Qt_QFormLayout_FieldGrowthPolicy;
@@ -34,6 +29,11 @@ native class QFormLayout extends QLayout
     static const FieldRole : Qt_QFormLayout_ItemRole;
     static const SpanningRole : Qt_QFormLayout_ItemRole;
     static function ItemRole(value : Qt_QFormLayout_ItemRole) : Qt_QFormLayout_ItemRole;
+
+    static const DontWrapRows : Qt_QFormLayout_RowWrapPolicy;
+    static const WrapLongRows : Qt_QFormLayout_RowWrapPolicy;
+    static const WrapAllRows : Qt_QFormLayout_RowWrapPolicy;
+    static function RowWrapPolicy(value : Qt_QFormLayout_RowWrapPolicy) : Qt_QFormLayout_RowWrapPolicy;
 
     // Methods
     function addRow (layout : QLayout) : void;

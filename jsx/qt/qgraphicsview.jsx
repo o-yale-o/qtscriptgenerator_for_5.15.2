@@ -24,24 +24,34 @@ import "qt/qtransform.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QGraphicsView_DragMode {}
-
-final native class Qt_QGraphicsView_ViewportUpdateMode {}
+final native class Qt_QGraphicsView_ViewportAnchor {}
 
 final native class Qt_QGraphicsView_CacheModeFlag {}
 
 final native class Qt_QGraphicsView_CacheMode {}
 
+final native class Qt_QGraphicsView_DragMode {}
+
+final native class Qt_QGraphicsView_ViewportUpdateMode {}
+
 final native class Qt_QGraphicsView_OptimizationFlag {}
 
 final native class Qt_QGraphicsView_OptimizationFlags {}
-
-final native class Qt_QGraphicsView_ViewportAnchor {}
 
 native class QGraphicsView extends QAbstractScrollArea
 {
     function constructor (scene : QGraphicsScene, parent : QWidget);
     function constructor (parent : QWidget);
+
+    static const NoAnchor : Qt_QGraphicsView_ViewportAnchor;
+    static const AnchorViewCenter : Qt_QGraphicsView_ViewportAnchor;
+    static const AnchorUnderMouse : Qt_QGraphicsView_ViewportAnchor;
+    static function ViewportAnchor(value : Qt_QGraphicsView_ViewportAnchor) : Qt_QGraphicsView_ViewportAnchor;
+
+    static const CacheNone : Qt_QGraphicsView_CacheModeFlag;
+    static const CacheBackground : Qt_QGraphicsView_CacheModeFlag;
+    static function CacheModeFlag(value : Qt_QGraphicsView_CacheModeFlag) : Qt_QGraphicsView_CacheModeFlag;
+    static function CacheMode(...value : Qt_QGraphicsView_CacheModeFlag) : Qt_QGraphicsView_CacheMode;
 
     static const NoDrag : Qt_QGraphicsView_DragMode;
     static const ScrollHandDrag : Qt_QGraphicsView_DragMode;
@@ -55,22 +65,12 @@ native class QGraphicsView extends QAbstractScrollArea
     static const BoundingRectViewportUpdate : Qt_QGraphicsView_ViewportUpdateMode;
     static function ViewportUpdateMode(value : Qt_QGraphicsView_ViewportUpdateMode) : Qt_QGraphicsView_ViewportUpdateMode;
 
-    static const CacheNone : Qt_QGraphicsView_CacheModeFlag;
-    static const CacheBackground : Qt_QGraphicsView_CacheModeFlag;
-    static function CacheModeFlag(value : Qt_QGraphicsView_CacheModeFlag) : Qt_QGraphicsView_CacheModeFlag;
-    static function CacheMode(...value : Qt_QGraphicsView_CacheModeFlag) : Qt_QGraphicsView_CacheMode;
-
     static const DontClipPainter : Qt_QGraphicsView_OptimizationFlag;
     static const DontSavePainterState : Qt_QGraphicsView_OptimizationFlag;
     static const DontAdjustForAntialiasing : Qt_QGraphicsView_OptimizationFlag;
     static const IndirectPainting : Qt_QGraphicsView_OptimizationFlag;
     static function OptimizationFlag(value : Qt_QGraphicsView_OptimizationFlag) : Qt_QGraphicsView_OptimizationFlag;
     static function OptimizationFlags(...value : Qt_QGraphicsView_OptimizationFlag) : Qt_QGraphicsView_OptimizationFlags;
-
-    static const NoAnchor : Qt_QGraphicsView_ViewportAnchor;
-    static const AnchorViewCenter : Qt_QGraphicsView_ViewportAnchor;
-    static const AnchorUnderMouse : Qt_QGraphicsView_ViewportAnchor;
-    static function ViewportAnchor(value : Qt_QGraphicsView_ViewportAnchor) : Qt_QGraphicsView_ViewportAnchor;
 
     // Methods
     function centerOn (item : QGraphicsItem) : void;

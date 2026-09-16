@@ -7,18 +7,21 @@
  */
 import "qt/qstyleoption.jsx";
 
+final native class Qt_QStyleOptionMenuItem_StyleOptionType {}
+
 final native class Qt_QStyleOptionMenuItem_CheckType {}
 
 final native class Qt_QStyleOptionMenuItem_StyleOptionVersion {}
 
 final native class Qt_QStyleOptionMenuItem_MenuItemType {}
 
-final native class Qt_QStyleOptionMenuItem_StyleOptionType {}
-
 native class QStyleOptionMenuItem extends QStyleOption
 {
     function constructor ();
     function constructor (other : QStyleOptionMenuItem);
+
+    static const Type : Qt_QStyleOptionMenuItem_StyleOptionType;
+    static function StyleOptionType(value : Qt_QStyleOptionMenuItem_StyleOptionType) : Qt_QStyleOptionMenuItem_StyleOptionType;
 
     static const NotCheckable : Qt_QStyleOptionMenuItem_CheckType;
     static const Exclusive : Qt_QStyleOptionMenuItem_CheckType;
@@ -37,7 +40,4 @@ native class QStyleOptionMenuItem extends QStyleOption
     static const Margin : Qt_QStyleOptionMenuItem_MenuItemType;
     static const EmptyArea : Qt_QStyleOptionMenuItem_MenuItemType;
     static function MenuItemType(value : Qt_QStyleOptionMenuItem_MenuItemType) : Qt_QStyleOptionMenuItem_MenuItemType;
-
-    static const Type : Qt_QStyleOptionMenuItem_StyleOptionType;
-    static function StyleOptionType(value : Qt_QStyleOptionMenuItem_StyleOptionType) : Qt_QStyleOptionMenuItem_StyleOptionType;
 }

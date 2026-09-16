@@ -13,19 +13,26 @@ import "qt/qwidget.jsx";
 import "qt/qwizardpage.jsx";
 import "qt/_signals.jsx";
 
+final native class Qt_QWizard_WizardStyle {}
+
 final native class Qt_QWizard_WizardButton {}
 
 final native class Qt_QWizard_WizardOption {}
 
 final native class Qt_QWizard_WizardOptions {}
 
-final native class Qt_QWizard_WizardStyle {}
-
 final native class Qt_QWizard_WizardPixmap {}
 
 native class QWizard extends QDialog
 {
     function constructor (parent : QWidget, flags : Qt_WindowFlags);
+
+    static const ClassicStyle : Qt_QWizard_WizardStyle;
+    static const ModernStyle : Qt_QWizard_WizardStyle;
+    static const MacStyle : Qt_QWizard_WizardStyle;
+    static const AeroStyle : Qt_QWizard_WizardStyle;
+    static const NStyles : Qt_QWizard_WizardStyle;
+    static function WizardStyle(value : Qt_QWizard_WizardStyle) : Qt_QWizard_WizardStyle;
 
     static const NoButton : Qt_QWizard_WizardButton;
     static const BackButton : Qt_QWizard_WizardButton;
@@ -59,13 +66,6 @@ native class QWizard extends QDialog
     static const NoCancelButtonOnLastPage : Qt_QWizard_WizardOption;
     static function WizardOption(value : Qt_QWizard_WizardOption) : Qt_QWizard_WizardOption;
     static function WizardOptions(...value : Qt_QWizard_WizardOption) : Qt_QWizard_WizardOptions;
-
-    static const ClassicStyle : Qt_QWizard_WizardStyle;
-    static const ModernStyle : Qt_QWizard_WizardStyle;
-    static const MacStyle : Qt_QWizard_WizardStyle;
-    static const AeroStyle : Qt_QWizard_WizardStyle;
-    static const NStyles : Qt_QWizard_WizardStyle;
-    static function WizardStyle(value : Qt_QWizard_WizardStyle) : Qt_QWizard_WizardStyle;
 
     static const WatermarkPixmap : Qt_QWizard_WizardPixmap;
     static const LogoPixmap : Qt_QWizard_WizardPixmap;
