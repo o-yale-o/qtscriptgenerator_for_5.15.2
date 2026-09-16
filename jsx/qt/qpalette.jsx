@@ -9,9 +9,9 @@ import "qt/qbrush.jsx";
 import "qt/qcolor.jsx";
 import "qt/qt.jsx";
 
-final native class Qt_QPalette_ColorRole {}
-
 final native class Qt_QPalette_ColorGroup {}
+
+final native class Qt_QPalette_ColorRole {}
 
 native class QPalette
 {
@@ -21,6 +21,14 @@ native class QPalette
     function constructor (button : QColor);
     function constructor (button : QColor, window : QColor);
     function constructor (palette : QPalette);
+
+    static const Active : Qt_QPalette_ColorGroup;
+    static const Disabled : Qt_QPalette_ColorGroup;
+    static const Inactive : Qt_QPalette_ColorGroup;
+    static const NColorGroups : Qt_QPalette_ColorGroup;
+    static const Current : Qt_QPalette_ColorGroup;
+    static const All : Qt_QPalette_ColorGroup;
+    static function ColorGroup(value : Qt_QPalette_ColorGroup) : Qt_QPalette_ColorGroup;
 
     static const WindowText : Qt_QPalette_ColorRole;
     static const Button : Qt_QPalette_ColorRole;
@@ -45,14 +53,6 @@ native class QPalette
     static const PlaceholderText : Qt_QPalette_ColorRole;
     static const NColorRoles : Qt_QPalette_ColorRole;
     static function ColorRole(value : Qt_QPalette_ColorRole) : Qt_QPalette_ColorRole;
-
-    static const Active : Qt_QPalette_ColorGroup;
-    static const Disabled : Qt_QPalette_ColorGroup;
-    static const Inactive : Qt_QPalette_ColorGroup;
-    static const NColorGroups : Qt_QPalette_ColorGroup;
-    static const Current : Qt_QPalette_ColorGroup;
-    static const All : Qt_QPalette_ColorGroup;
-    static function ColorGroup(value : Qt_QPalette_ColorGroup) : Qt_QPalette_ColorGroup;
 
     // Methods
     function alternateBase () : QBrush;

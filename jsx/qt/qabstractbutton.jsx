@@ -10,7 +10,6 @@ import "qt/qicon.jsx";
 import "qt/qkeysequence.jsx";
 import "qt/qpoint.jsx";
 import "qt/qsize.jsx";
-import "qt/qtimerevent.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
@@ -25,7 +24,6 @@ native class QAbstractButton extends QWidget
     function group () : QButtonGroup;
     function hitButton (pos : QPoint) : boolean;
     function nextCheckState () : void;
-    function timerEvent (e : QTimerEvent) : void;
     function toggle () : void;
 
     // Signals

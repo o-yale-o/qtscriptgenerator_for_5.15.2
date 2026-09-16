@@ -16,7 +16,6 @@ import "qt/qt.jsx";
 import "qt/qtextcharformat.jsx";
 import "qt/qtextcursor.jsx";
 import "qt/qtextdocument.jsx";
-import "qt/qtimerevent.jsx";
 import "qt/qurl.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
@@ -96,7 +95,6 @@ native class QTextEdit extends QAbstractScrollArea
     function textBackgroundColor () : QColor;
     function textColor () : QColor;
     function textCursor () : QTextCursor;
-    function timerEvent (e : QTimerEvent) : void;
     function undo () : void;
     function zoomIn (range : int) : void;
     function zoomInF (range : number) : void;

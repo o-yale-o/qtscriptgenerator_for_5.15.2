@@ -10,7 +10,6 @@ import "qt/qicon.jsx";
 import "qt/qpoint.jsx";
 import "qt/qrect.jsx";
 import "qt/qstyleoptionmenuitem.jsx";
-import "qt/qtimerevent.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
@@ -53,7 +52,6 @@ native class QMenu extends QWidget
     function setDefaultAction (arg__1 : QAction) : void;
     function showTearOffMenu () : void;
     function showTearOffMenu (pos : QPoint) : void;
-    function timerEvent (arg__1 : QTimerEvent) : void;
 
     // Signals
     var aboutToHide : QtJSXSignal;

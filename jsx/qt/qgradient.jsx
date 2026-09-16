@@ -7,21 +7,15 @@
  */
 import "qt/qcolor.jsx";
 
-final native class Qt_QGradient_CoordinateMode {}
-
 final native class Qt_QGradient_Type {}
 
 final native class Qt_QGradient_Spread {}
 
+final native class Qt_QGradient_CoordinateMode {}
+
 native class QGradient
 {
     function constructor ();
-
-    static const LogicalMode : Qt_QGradient_CoordinateMode;
-    static const StretchToDeviceMode : Qt_QGradient_CoordinateMode;
-    static const ObjectBoundingMode : Qt_QGradient_CoordinateMode;
-    static const ObjectMode : Qt_QGradient_CoordinateMode;
-    static function CoordinateMode(value : Qt_QGradient_CoordinateMode) : Qt_QGradient_CoordinateMode;
 
     static const LinearGradient : Qt_QGradient_Type;
     static const RadialGradient : Qt_QGradient_Type;
@@ -33,6 +27,12 @@ native class QGradient
     static const ReflectSpread : Qt_QGradient_Spread;
     static const RepeatSpread : Qt_QGradient_Spread;
     static function Spread(value : Qt_QGradient_Spread) : Qt_QGradient_Spread;
+
+    static const LogicalMode : Qt_QGradient_CoordinateMode;
+    static const StretchToDeviceMode : Qt_QGradient_CoordinateMode;
+    static const ObjectBoundingMode : Qt_QGradient_CoordinateMode;
+    static const ObjectMode : Qt_QGradient_CoordinateMode;
+    static function CoordinateMode(value : Qt_QGradient_CoordinateMode) : Qt_QGradient_CoordinateMode;
 
     // Methods
     function coordinateMode () : Qt_QGradient_CoordinateMode;

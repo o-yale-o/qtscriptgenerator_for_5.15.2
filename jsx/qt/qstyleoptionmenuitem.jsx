@@ -9,11 +9,11 @@ import "qt/qstyleoption.jsx";
 
 final native class Qt_QStyleOptionMenuItem_StyleOptionType {}
 
-final native class Qt_QStyleOptionMenuItem_StyleOptionVersion {}
+final native class Qt_QStyleOptionMenuItem_MenuItemType {}
 
 final native class Qt_QStyleOptionMenuItem_CheckType {}
 
-final native class Qt_QStyleOptionMenuItem_MenuItemType {}
+final native class Qt_QStyleOptionMenuItem_StyleOptionVersion {}
 
 native class QStyleOptionMenuItem extends QStyleOption
 {
@@ -22,14 +22,6 @@ native class QStyleOptionMenuItem extends QStyleOption
 
     static const Type : Qt_QStyleOptionMenuItem_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionMenuItem_StyleOptionType) : Qt_QStyleOptionMenuItem_StyleOptionType;
-
-    static const Version : Qt_QStyleOptionMenuItem_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionMenuItem_StyleOptionVersion) : Qt_QStyleOptionMenuItem_StyleOptionVersion;
-
-    static const NotCheckable : Qt_QStyleOptionMenuItem_CheckType;
-    static const Exclusive : Qt_QStyleOptionMenuItem_CheckType;
-    static const NonExclusive : Qt_QStyleOptionMenuItem_CheckType;
-    static function CheckType(value : Qt_QStyleOptionMenuItem_CheckType) : Qt_QStyleOptionMenuItem_CheckType;
 
     static const Normal : Qt_QStyleOptionMenuItem_MenuItemType;
     static const DefaultItem : Qt_QStyleOptionMenuItem_MenuItemType;
@@ -40,4 +32,12 @@ native class QStyleOptionMenuItem extends QStyleOption
     static const Margin : Qt_QStyleOptionMenuItem_MenuItemType;
     static const EmptyArea : Qt_QStyleOptionMenuItem_MenuItemType;
     static function MenuItemType(value : Qt_QStyleOptionMenuItem_MenuItemType) : Qt_QStyleOptionMenuItem_MenuItemType;
+
+    static const NotCheckable : Qt_QStyleOptionMenuItem_CheckType;
+    static const Exclusive : Qt_QStyleOptionMenuItem_CheckType;
+    static const NonExclusive : Qt_QStyleOptionMenuItem_CheckType;
+    static function CheckType(value : Qt_QStyleOptionMenuItem_CheckType) : Qt_QStyleOptionMenuItem_CheckType;
+
+    static const Version : Qt_QStyleOptionMenuItem_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionMenuItem_StyleOptionVersion) : Qt_QStyleOptionMenuItem_StyleOptionVersion;
 }

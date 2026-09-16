@@ -32,19 +32,24 @@ import "qt/qt.jsx";
 import "qt/qtransform.jsx";
 import "qt/qwidget.jsx";
 
-final native class Qt_QGraphicsItem_GraphicsItemChange {}
+final native class Qt_QGraphicsItem_PanelModality {}
 
-final native class Qt_QGraphicsItem_CacheMode {}
+final native class Qt_QGraphicsItem_GraphicsItemChange {}
 
 final native class Qt_QGraphicsItem_GraphicsItemFlag {}
 
 final native class Qt_QGraphicsItem_GraphicsItemFlags {}
 
-final native class Qt_QGraphicsItem_PanelModality {}
+final native class Qt_QGraphicsItem_CacheMode {}
 
 native class QGraphicsItem
 {
     function constructor (parent : QGraphicsItem);
+
+    static const NonModal : Qt_QGraphicsItem_PanelModality;
+    static const PanelModal : Qt_QGraphicsItem_PanelModality;
+    static const SceneModal : Qt_QGraphicsItem_PanelModality;
+    static function PanelModality(value : Qt_QGraphicsItem_PanelModality) : Qt_QGraphicsItem_PanelModality;
 
     static const ItemPositionChange : Qt_QGraphicsItem_GraphicsItemChange;
     static const ItemMatrixChange : Qt_QGraphicsItem_GraphicsItemChange;
@@ -82,11 +87,6 @@ native class QGraphicsItem
     static const ItemTransformOriginPointHasChanged : Qt_QGraphicsItem_GraphicsItemChange;
     static function GraphicsItemChange(value : Qt_QGraphicsItem_GraphicsItemChange) : Qt_QGraphicsItem_GraphicsItemChange;
 
-    static const NoCache : Qt_QGraphicsItem_CacheMode;
-    static const ItemCoordinateCache : Qt_QGraphicsItem_CacheMode;
-    static const DeviceCoordinateCache : Qt_QGraphicsItem_CacheMode;
-    static function CacheMode(value : Qt_QGraphicsItem_CacheMode) : Qt_QGraphicsItem_CacheMode;
-
     static const ItemIsMovable : Qt_QGraphicsItem_GraphicsItemFlag;
     static const ItemIsSelectable : Qt_QGraphicsItem_GraphicsItemFlag;
     static const ItemIsFocusable : Qt_QGraphicsItem_GraphicsItemFlag;
@@ -110,10 +110,10 @@ native class QGraphicsItem
     static function GraphicsItemFlag(value : Qt_QGraphicsItem_GraphicsItemFlag) : Qt_QGraphicsItem_GraphicsItemFlag;
     static function GraphicsItemFlags(...value : Qt_QGraphicsItem_GraphicsItemFlag) : Qt_QGraphicsItem_GraphicsItemFlags;
 
-    static const NonModal : Qt_QGraphicsItem_PanelModality;
-    static const PanelModal : Qt_QGraphicsItem_PanelModality;
-    static const SceneModal : Qt_QGraphicsItem_PanelModality;
-    static function PanelModality(value : Qt_QGraphicsItem_PanelModality) : Qt_QGraphicsItem_PanelModality;
+    static const NoCache : Qt_QGraphicsItem_CacheMode;
+    static const ItemCoordinateCache : Qt_QGraphicsItem_CacheMode;
+    static const DeviceCoordinateCache : Qt_QGraphicsItem_CacheMode;
+    static function CacheMode(value : Qt_QGraphicsItem_CacheMode) : Qt_QGraphicsItem_CacheMode;
 
     // Methods
     function acceptDrops () : boolean;

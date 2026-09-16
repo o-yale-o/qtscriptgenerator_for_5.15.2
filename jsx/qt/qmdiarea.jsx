@@ -7,11 +7,9 @@
  */
 import "qt/qabstractscrollarea.jsx";
 import "qt/qbrush.jsx";
-import "qt/qchildevent.jsx";
 import "qt/qmdisubwindow.jsx";
 import "qt/qt.jsx";
 import "qt/qtabwidget.jsx";
-import "qt/qtimerevent.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
@@ -19,9 +17,9 @@ final native class Qt_QMdiArea_AreaOption {}
 
 final native class Qt_QMdiArea_AreaOptions {}
 
-final native class Qt_QMdiArea_WindowOrder {}
-
 final native class Qt_QMdiArea_ViewMode {}
+
+final native class Qt_QMdiArea_WindowOrder {}
 
 native class QMdiArea extends QAbstractScrollArea
 {
@@ -31,14 +29,14 @@ native class QMdiArea extends QAbstractScrollArea
     static function AreaOption(value : Qt_QMdiArea_AreaOption) : Qt_QMdiArea_AreaOption;
     static function AreaOptions(...value : Qt_QMdiArea_AreaOption) : Qt_QMdiArea_AreaOptions;
 
+    static const SubWindowView : Qt_QMdiArea_ViewMode;
+    static const TabbedView : Qt_QMdiArea_ViewMode;
+    static function ViewMode(value : Qt_QMdiArea_ViewMode) : Qt_QMdiArea_ViewMode;
+
     static const CreationOrder : Qt_QMdiArea_WindowOrder;
     static const StackingOrder : Qt_QMdiArea_WindowOrder;
     static const ActivationHistoryOrder : Qt_QMdiArea_WindowOrder;
     static function WindowOrder(value : Qt_QMdiArea_WindowOrder) : Qt_QMdiArea_WindowOrder;
-
-    static const SubWindowView : Qt_QMdiArea_ViewMode;
-    static const TabbedView : Qt_QMdiArea_ViewMode;
-    static function ViewMode(value : Qt_QMdiArea_ViewMode) : Qt_QMdiArea_ViewMode;
 
     // Methods
     function activateNextSubWindow () : void;
@@ -46,7 +44,6 @@ native class QMdiArea extends QAbstractScrollArea
     function activeSubWindow () : QMdiSubWindow;
     function addSubWindow (widget : QWidget, flags : Qt_WindowFlags) : QMdiSubWindow;
     function cascadeSubWindows () : void;
-    function childEvent (childEvent : QChildEvent) : void;
     function closeActiveSubWindow () : void;
     function closeAllSubWindows () : void;
     function currentSubWindow () : QMdiSubWindow;
@@ -56,7 +53,6 @@ native class QMdiArea extends QAbstractScrollArea
     function subWindowList (order : Qt_QMdiArea_WindowOrder) : QMdiSubWindow[];
     function testOption (opton : Qt_QMdiArea_AreaOption) : boolean;
     function tileSubWindows () : void;
-    function timerEvent (timerEvent : QTimerEvent) : void;
 
     // Signals
     var subWindowActivated : QtJSXQMdiSubWindowSignal;

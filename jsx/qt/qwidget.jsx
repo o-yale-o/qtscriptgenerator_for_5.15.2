@@ -30,8 +30,8 @@ import "qt/qlocale.jsx";
 import "qt/qmargins.jsx";
 import "qt/qmouseevent.jsx";
 import "qt/qmoveevent.jsx";
+import "qt/qobject.jsx";
 import "qt/qpaintdevice.jsx";
-import "qt/qpaintengine.jsx";
 import "qt/qpainter.jsx";
 import "qt/qpaintevent.jsx";
 import "qt/qpalette.jsx";
@@ -53,7 +53,7 @@ final native class Qt_QWidget_RenderFlag {}
 
 final native class Qt_QWidget_RenderFlags {}
 
-native class QWidget
+native class QWidget extends QObject
 {
     function constructor (parent : QWidget, f : Qt_WindowFlags);
 
@@ -88,14 +88,12 @@ native class QWidget
     function contextMenuEvent (event : QContextMenuEvent) : void;
     function createWinId () : void;
     function destroy (destroyWindow : boolean, destroySubWindows : boolean) : void;
-    function devType () : int;
     function dragEnterEvent (event : QDragEnterEvent) : void;
     function dragLeaveEvent (event : QDragLeaveEvent) : void;
     function dragMoveEvent (event : QDragMoveEvent) : void;
     function dropEvent (event : QDropEvent) : void;
     function ensurePolished () : void;
     function enterEvent (event : QEvent) : void;
-    function event (event : QEvent) : boolean;
     function focusInEvent (event : QFocusEvent) : void;
     function focusNextChild () : boolean;
     function focusNextPrevChild (next : boolean) : boolean;
@@ -117,7 +115,6 @@ native class QWidget
     function heightForWidth (arg__1 : int) : int;
     function hide () : void;
     function hideEvent (event : QHideEvent) : void;
-    function initPainter (painter : QPainter) : void;
     function inputMethodQuery (arg__1 : Qt_InputMethodQuery) : variant;
     function insertAction (before : QAction, action : QAction) : void;
     function insertActions (before : QAction, actions : QAction[]) : void;
@@ -140,7 +137,6 @@ native class QWidget
     function mapToGlobal (arg__1 : QPoint) : QPoint;
     function mapToParent (arg__1 : QPoint) : QPoint;
     function mask () : QRegion;
-    function metric (arg__1 : Qt_QPaintDevice_PaintDeviceMetric) : int;
     function mouseDoubleClickEvent (event : QMouseEvent) : void;
     function mouseMoveEvent (event : QMouseEvent) : void;
     function mousePressEvent (event : QMouseEvent) : void;
@@ -152,12 +148,10 @@ native class QWidget
     function nextInFocusChain () : QWidget;
     function overrideWindowFlags (type : Qt_WindowFlags) : void;
     function overrideWindowState (state : Qt_WindowStates) : void;
-    function paintEngine () : QPaintEngine;
     function paintEvent (event : QPaintEvent) : void;
     function parentWidget () : QWidget;
     function previousInFocusChain () : QWidget;
     function raise () : void;
-    function redirected (offset : QPoint) : QPaintDevice;
     function releaseKeyboard () : void;
     function releaseMouse () : void;
     function releaseShortcut (id : int) : void;
@@ -207,7 +201,6 @@ native class QWidget
     function setWindowFlags (type : Qt_WindowFlags) : void;
     function setWindowRole (arg__1 : string) : void;
     function setWindowState (state : Qt_WindowStates) : void;
-    function sharedPainter () : QPainter;
     function show () : void;
     function showEvent (event : QShowEvent) : void;
     function showFullScreen () : void;

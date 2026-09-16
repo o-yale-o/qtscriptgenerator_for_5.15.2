@@ -19,27 +19,44 @@ import "qt/qregion.jsx";
 import "qt/qsize.jsx";
 import "qt/qstyleoptionviewitem.jsx";
 import "qt/qt.jsx";
-import "qt/qtimerevent.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
+
+final native class Qt_QAbstractItemView_SelectionBehavior {}
+
+final native class Qt_QAbstractItemView_SelectionMode {}
+
+final native class Qt_QAbstractItemView_ScrollHint {}
 
 final native class Qt_QAbstractItemView_DragDropMode {}
 
 final native class Qt_QAbstractItemView_ScrollMode {}
 
-final native class Qt_QAbstractItemView_ScrollHint {}
-
 final native class Qt_QAbstractItemView_EditTrigger {}
 
 final native class Qt_QAbstractItemView_EditTriggers {}
 
-final native class Qt_QAbstractItemView_SelectionMode {}
-
-final native class Qt_QAbstractItemView_SelectionBehavior {}
-
 native class QAbstractItemView extends QAbstractScrollArea
 {
     function constructor (parent : QWidget);
+
+    static const SelectItems : Qt_QAbstractItemView_SelectionBehavior;
+    static const SelectRows : Qt_QAbstractItemView_SelectionBehavior;
+    static const SelectColumns : Qt_QAbstractItemView_SelectionBehavior;
+    static function SelectionBehavior(value : Qt_QAbstractItemView_SelectionBehavior) : Qt_QAbstractItemView_SelectionBehavior;
+
+    static const NoSelection : Qt_QAbstractItemView_SelectionMode;
+    static const SingleSelection : Qt_QAbstractItemView_SelectionMode;
+    static const MultiSelection : Qt_QAbstractItemView_SelectionMode;
+    static const ExtendedSelection : Qt_QAbstractItemView_SelectionMode;
+    static const ContiguousSelection : Qt_QAbstractItemView_SelectionMode;
+    static function SelectionMode(value : Qt_QAbstractItemView_SelectionMode) : Qt_QAbstractItemView_SelectionMode;
+
+    static const EnsureVisible : Qt_QAbstractItemView_ScrollHint;
+    static const PositionAtTop : Qt_QAbstractItemView_ScrollHint;
+    static const PositionAtBottom : Qt_QAbstractItemView_ScrollHint;
+    static const PositionAtCenter : Qt_QAbstractItemView_ScrollHint;
+    static function ScrollHint(value : Qt_QAbstractItemView_ScrollHint) : Qt_QAbstractItemView_ScrollHint;
 
     static const NoDragDrop : Qt_QAbstractItemView_DragDropMode;
     static const DragOnly : Qt_QAbstractItemView_DragDropMode;
@@ -52,12 +69,6 @@ native class QAbstractItemView extends QAbstractScrollArea
     static const ScrollPerPixel : Qt_QAbstractItemView_ScrollMode;
     static function ScrollMode(value : Qt_QAbstractItemView_ScrollMode) : Qt_QAbstractItemView_ScrollMode;
 
-    static const EnsureVisible : Qt_QAbstractItemView_ScrollHint;
-    static const PositionAtTop : Qt_QAbstractItemView_ScrollHint;
-    static const PositionAtBottom : Qt_QAbstractItemView_ScrollHint;
-    static const PositionAtCenter : Qt_QAbstractItemView_ScrollHint;
-    static function ScrollHint(value : Qt_QAbstractItemView_ScrollHint) : Qt_QAbstractItemView_ScrollHint;
-
     static const NoEditTriggers : Qt_QAbstractItemView_EditTrigger;
     static const CurrentChanged : Qt_QAbstractItemView_EditTrigger;
     static const DoubleClicked : Qt_QAbstractItemView_EditTrigger;
@@ -67,18 +78,6 @@ native class QAbstractItemView extends QAbstractScrollArea
     static const AllEditTriggers : Qt_QAbstractItemView_EditTrigger;
     static function EditTrigger(value : Qt_QAbstractItemView_EditTrigger) : Qt_QAbstractItemView_EditTrigger;
     static function EditTriggers(...value : Qt_QAbstractItemView_EditTrigger) : Qt_QAbstractItemView_EditTriggers;
-
-    static const NoSelection : Qt_QAbstractItemView_SelectionMode;
-    static const SingleSelection : Qt_QAbstractItemView_SelectionMode;
-    static const MultiSelection : Qt_QAbstractItemView_SelectionMode;
-    static const ExtendedSelection : Qt_QAbstractItemView_SelectionMode;
-    static const ContiguousSelection : Qt_QAbstractItemView_SelectionMode;
-    static function SelectionMode(value : Qt_QAbstractItemView_SelectionMode) : Qt_QAbstractItemView_SelectionMode;
-
-    static const SelectItems : Qt_QAbstractItemView_SelectionBehavior;
-    static const SelectRows : Qt_QAbstractItemView_SelectionBehavior;
-    static const SelectColumns : Qt_QAbstractItemView_SelectionBehavior;
-    static function SelectionBehavior(value : Qt_QAbstractItemView_SelectionBehavior) : Qt_QAbstractItemView_SelectionBehavior;
 
     // Methods
     function clearSelection () : void;
@@ -141,7 +140,6 @@ native class QAbstractItemView extends QAbstractScrollArea
     function startAutoScroll () : void;
     function startDrag (supportedActions : Qt_DropActions) : void;
     function stopAutoScroll () : void;
-    function timerEvent (event : QTimerEvent) : void;
     function update (index : QModelIndex) : void;
     function updateEditorData () : void;
     function updateEditorGeometries () : void;

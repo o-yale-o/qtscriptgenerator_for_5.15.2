@@ -17,7 +17,6 @@ import "qt/qtextblock.jsx";
 import "qt/qtextcharformat.jsx";
 import "qt/qtextcursor.jsx";
 import "qt/qtextdocument.jsx";
-import "qt/qtimerevent.jsx";
 import "qt/qurl.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
@@ -72,7 +71,6 @@ native class QPlainTextEdit extends QAbstractScrollArea
     function setDocument (document : QTextDocument) : void;
     function setTextCursor (cursor : QTextCursor) : void;
     function textCursor () : QTextCursor;
-    function timerEvent (e : QTimerEvent) : void;
     function undo () : void;
     function zoomIn (range : int) : void;
     function zoomInF (range : number) : void;

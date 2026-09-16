@@ -13,10 +13,10 @@ import "qt/qt.jsx";
 native class QPolygonF
 {
     function constructor ();
+    function constructor (v : QPointF[]);
     function constructor (a : QPolygon);
     function constructor (a : QPolygonF);
     function constructor (r : QRectF);
-    function constructor (v : QPointF[]);
     function constructor (size : int);
 
     // Static Members
@@ -25,7 +25,6 @@ native class QPolygonF
     // Methods
     function append (t : QPointF) : void;
     function append (l : QPointF[]) : void;
-    function append (arg__1 : QPointF) : void;
     function at (i : int) : QPointF;
     function boundingRect () : QRectF;
     function capacity () : int;
@@ -56,10 +55,7 @@ native class QPolygonF
     function pop_back () : void;
     function pop_front () : void;
     function prepend (t : QPointF) : void;
-    function prepend (arg__1 : QPointF) : void;
-    function push_back (arg__1 : QPointF) : void;
     function push_back (t : QPointF) : void;
-    function push_front (arg__1 : QPointF) : void;
     function push_front (t : QPointF) : void;
     function remove (i : int) : void;
     function remove (i : int, n : int) : void;

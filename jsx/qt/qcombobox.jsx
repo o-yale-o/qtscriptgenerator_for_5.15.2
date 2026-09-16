@@ -19,19 +19,13 @@ import "qt/qvalidator.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QComboBox_SizeAdjustPolicy {}
-
 final native class Qt_QComboBox_InsertPolicy {}
+
+final native class Qt_QComboBox_SizeAdjustPolicy {}
 
 native class QComboBox extends QWidget
 {
     function constructor (parent : QWidget);
-
-    static const AdjustToContents : Qt_QComboBox_SizeAdjustPolicy;
-    static const AdjustToContentsOnFirstShow : Qt_QComboBox_SizeAdjustPolicy;
-    static const AdjustToMinimumContentsLength : Qt_QComboBox_SizeAdjustPolicy;
-    static const AdjustToMinimumContentsLengthWithIcon : Qt_QComboBox_SizeAdjustPolicy;
-    static function SizeAdjustPolicy(value : Qt_QComboBox_SizeAdjustPolicy) : Qt_QComboBox_SizeAdjustPolicy;
 
     static const NoInsert : Qt_QComboBox_InsertPolicy;
     static const InsertAtTop : Qt_QComboBox_InsertPolicy;
@@ -41,6 +35,12 @@ native class QComboBox extends QWidget
     static const InsertBeforeCurrent : Qt_QComboBox_InsertPolicy;
     static const InsertAlphabetically : Qt_QComboBox_InsertPolicy;
     static function InsertPolicy(value : Qt_QComboBox_InsertPolicy) : Qt_QComboBox_InsertPolicy;
+
+    static const AdjustToContents : Qt_QComboBox_SizeAdjustPolicy;
+    static const AdjustToContentsOnFirstShow : Qt_QComboBox_SizeAdjustPolicy;
+    static const AdjustToMinimumContentsLength : Qt_QComboBox_SizeAdjustPolicy;
+    static const AdjustToMinimumContentsLengthWithIcon : Qt_QComboBox_SizeAdjustPolicy;
+    static function SizeAdjustPolicy(value : Qt_QComboBox_SizeAdjustPolicy) : Qt_QComboBox_SizeAdjustPolicy;
 
     // Methods
     function addItem (icon : QIcon, text : string, userData : variant) : void;

@@ -8,7 +8,6 @@
 import "qt/qlineedit.jsx";
 import "qt/qstyleoptionspinbox.jsx";
 import "qt/qt.jsx";
-import "qt/qtimerevent.jsx";
 import "qt/qvalidator.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
@@ -52,7 +51,6 @@ native class QAbstractSpinBox extends QWidget
     function stepDown () : void;
     function stepEnabled () : Qt_QAbstractSpinBox_StepEnabled;
     function stepUp () : void;
-    function timerEvent (event : QTimerEvent) : void;
     function validate (input : string, pos : int) : Qt_QValidator_State;
 
     // Signals

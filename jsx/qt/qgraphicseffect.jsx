@@ -13,20 +13,15 @@ import "qt/qrectf.jsx";
 import "qt/qt.jsx";
 import "qt/_signals.jsx";
 
-final native class Qt_QGraphicsEffect_PixmapPadMode {}
-
 final native class Qt_QGraphicsEffect_ChangeFlag {}
 
 final native class Qt_QGraphicsEffect_ChangeFlags {}
 
+final native class Qt_QGraphicsEffect_PixmapPadMode {}
+
 native class QGraphicsEffect extends QObject
 {
     function constructor (parent : QObject);
-
-    static const NoPad : Qt_QGraphicsEffect_PixmapPadMode;
-    static const PadToTransparentBorder : Qt_QGraphicsEffect_PixmapPadMode;
-    static const PadToEffectiveBoundingRect : Qt_QGraphicsEffect_PixmapPadMode;
-    static function PixmapPadMode(value : Qt_QGraphicsEffect_PixmapPadMode) : Qt_QGraphicsEffect_PixmapPadMode;
 
     static const SourceAttached : Qt_QGraphicsEffect_ChangeFlag;
     static const SourceDetached : Qt_QGraphicsEffect_ChangeFlag;
@@ -34,6 +29,11 @@ native class QGraphicsEffect extends QObject
     static const SourceInvalidated : Qt_QGraphicsEffect_ChangeFlag;
     static function ChangeFlag(value : Qt_QGraphicsEffect_ChangeFlag) : Qt_QGraphicsEffect_ChangeFlag;
     static function ChangeFlags(...value : Qt_QGraphicsEffect_ChangeFlag) : Qt_QGraphicsEffect_ChangeFlags;
+
+    static const NoPad : Qt_QGraphicsEffect_PixmapPadMode;
+    static const PadToTransparentBorder : Qt_QGraphicsEffect_PixmapPadMode;
+    static const PadToEffectiveBoundingRect : Qt_QGraphicsEffect_PixmapPadMode;
+    static function PixmapPadMode(value : Qt_QGraphicsEffect_PixmapPadMode) : Qt_QGraphicsEffect_PixmapPadMode;
 
     // Methods
     function boundingRect () : QRectF;

@@ -22,13 +22,13 @@ import "qt/_signals.jsx";
 
 final native class Qt_QTextDocument_ResourceType {}
 
-final native class Qt_QTextDocument_Stacks {}
+final native class Qt_QTextDocument_MetaInformation {}
 
 final native class Qt_QTextDocument_FindFlag {}
 
 final native class Qt_QTextDocument_FindFlags {}
 
-final native class Qt_QTextDocument_MetaInformation {}
+final native class Qt_QTextDocument_Stacks {}
 
 native class QTextDocument extends QObject
 {
@@ -43,10 +43,9 @@ native class QTextDocument extends QObject
     static const UserResource : Qt_QTextDocument_ResourceType;
     static function ResourceType(value : Qt_QTextDocument_ResourceType) : Qt_QTextDocument_ResourceType;
 
-    static const UndoStack : Qt_QTextDocument_Stacks;
-    static const RedoStack : Qt_QTextDocument_Stacks;
-    static const UndoAndRedoStacks : Qt_QTextDocument_Stacks;
-    static function Stacks(value : Qt_QTextDocument_Stacks) : Qt_QTextDocument_Stacks;
+    static const DocumentTitle : Qt_QTextDocument_MetaInformation;
+    static const DocumentUrl : Qt_QTextDocument_MetaInformation;
+    static function MetaInformation(value : Qt_QTextDocument_MetaInformation) : Qt_QTextDocument_MetaInformation;
 
     static const FindBackward : Qt_QTextDocument_FindFlag;
     static const FindCaseSensitively : Qt_QTextDocument_FindFlag;
@@ -54,9 +53,10 @@ native class QTextDocument extends QObject
     static function FindFlag(value : Qt_QTextDocument_FindFlag) : Qt_QTextDocument_FindFlag;
     static function FindFlags(...value : Qt_QTextDocument_FindFlag) : Qt_QTextDocument_FindFlags;
 
-    static const DocumentTitle : Qt_QTextDocument_MetaInformation;
-    static const DocumentUrl : Qt_QTextDocument_MetaInformation;
-    static function MetaInformation(value : Qt_QTextDocument_MetaInformation) : Qt_QTextDocument_MetaInformation;
+    static const UndoStack : Qt_QTextDocument_Stacks;
+    static const RedoStack : Qt_QTextDocument_Stacks;
+    static const UndoAndRedoStacks : Qt_QTextDocument_Stacks;
+    static function Stacks(value : Qt_QTextDocument_Stacks) : Qt_QTextDocument_Stacks;
 
     // Methods
     function addResource (type : int, name : QUrl, resource : variant) : void;

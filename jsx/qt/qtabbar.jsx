@@ -12,23 +12,18 @@ import "qt/qrect.jsx";
 import "qt/qsize.jsx";
 import "qt/qstyleoptiontab.jsx";
 import "qt/qt.jsx";
-import "qt/qtimerevent.jsx";
 import "qt/qwidget.jsx";
 import "qt/_signals.jsx";
-
-final native class Qt_QTabBar_ButtonPosition {}
 
 final native class Qt_QTabBar_SelectionBehavior {}
 
 final native class Qt_QTabBar_Shape {}
 
+final native class Qt_QTabBar_ButtonPosition {}
+
 native class QTabBar extends QWidget
 {
     function constructor (parent : QWidget);
-
-    static const LeftSide : Qt_QTabBar_ButtonPosition;
-    static const RightSide : Qt_QTabBar_ButtonPosition;
-    static function ButtonPosition(value : Qt_QTabBar_ButtonPosition) : Qt_QTabBar_ButtonPosition;
 
     static const SelectLeftTab : Qt_QTabBar_SelectionBehavior;
     static const SelectRightTab : Qt_QTabBar_SelectionBehavior;
@@ -44,6 +39,10 @@ native class QTabBar extends QWidget
     static const TriangularWest : Qt_QTabBar_Shape;
     static const TriangularEast : Qt_QTabBar_Shape;
     static function Shape(value : Qt_QTabBar_Shape) : Qt_QTabBar_Shape;
+
+    static const LeftSide : Qt_QTabBar_ButtonPosition;
+    static const RightSide : Qt_QTabBar_ButtonPosition;
+    static function ButtonPosition(value : Qt_QTabBar_ButtonPosition) : Qt_QTabBar_ButtonPosition;
 
     // Methods
     function accessibleTabName (index : int) : string;
@@ -80,7 +79,6 @@ native class QTabBar extends QWidget
     function tabTextColor (index : int) : QColor;
     function tabToolTip (index : int) : string;
     function tabWhatsThis (index : int) : string;
-    function timerEvent (event : QTimerEvent) : void;
 
     // Signals
     var currentChanged : QtJSXintSignal;

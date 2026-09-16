@@ -12,9 +12,9 @@ import "qt/qsize.jsx";
 import "qt/qt.jsx";
 import "qt/qtreewidget.jsx";
 
-final native class Qt_QTreeWidgetItem_ChildIndicatorPolicy {}
-
 final native class Qt_QTreeWidgetItem_ItemType {}
+
+final native class Qt_QTreeWidgetItem_ChildIndicatorPolicy {}
 
 native class QTreeWidgetItem
 {
@@ -27,14 +27,14 @@ native class QTreeWidgetItem
     function constructor (strings : string[], type : int);
     function constructor (type : int);
 
+    static const Type : Qt_QTreeWidgetItem_ItemType;
+    static const UserType : Qt_QTreeWidgetItem_ItemType;
+    static function ItemType(value : Qt_QTreeWidgetItem_ItemType) : Qt_QTreeWidgetItem_ItemType;
+
     static const ShowIndicator : Qt_QTreeWidgetItem_ChildIndicatorPolicy;
     static const DontShowIndicator : Qt_QTreeWidgetItem_ChildIndicatorPolicy;
     static const DontShowIndicatorWhenChildless : Qt_QTreeWidgetItem_ChildIndicatorPolicy;
     static function ChildIndicatorPolicy(value : Qt_QTreeWidgetItem_ChildIndicatorPolicy) : Qt_QTreeWidgetItem_ChildIndicatorPolicy;
-
-    static const Type : Qt_QTreeWidgetItem_ItemType;
-    static const UserType : Qt_QTreeWidgetItem_ItemType;
-    static function ItemType(value : Qt_QTreeWidgetItem_ItemType) : Qt_QTreeWidgetItem_ItemType;
 
     // Methods
     function addChild (child : QTreeWidgetItem) : void;

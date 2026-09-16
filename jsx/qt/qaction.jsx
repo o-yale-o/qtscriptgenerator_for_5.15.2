@@ -18,9 +18,9 @@ import "qt/_signals.jsx";
 
 final native class Qt_QAction_MenuRole {}
 
-final native class Qt_QAction_Priority {}
-
 final native class Qt_QAction_ActionEvent {}
+
+final native class Qt_QAction_Priority {}
 
 native class QAction extends QObject
 {
@@ -37,14 +37,14 @@ native class QAction extends QObject
     static const QuitRole : Qt_QAction_MenuRole;
     static function MenuRole(value : Qt_QAction_MenuRole) : Qt_QAction_MenuRole;
 
+    static const Trigger : Qt_QAction_ActionEvent;
+    static const Hover : Qt_QAction_ActionEvent;
+    static function ActionEvent(value : Qt_QAction_ActionEvent) : Qt_QAction_ActionEvent;
+
     static const LowPriority : Qt_QAction_Priority;
     static const NormalPriority : Qt_QAction_Priority;
     static const HighPriority : Qt_QAction_Priority;
     static function Priority(value : Qt_QAction_Priority) : Qt_QAction_Priority;
-
-    static const Trigger : Qt_QAction_ActionEvent;
-    static const Hover : Qt_QAction_ActionEvent;
-    static function ActionEvent(value : Qt_QAction_ActionEvent) : Qt_QAction_ActionEvent;
 
     // Methods
     function actionGroup () : QActionGroup;

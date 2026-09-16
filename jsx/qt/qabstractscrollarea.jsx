@@ -8,7 +8,6 @@
 import "qt/qevent.jsx";
 import "qt/qframe.jsx";
 import "qt/qmargins.jsx";
-import "qt/qobject.jsx";
 import "qt/qscrollbar.jsx";
 import "qt/qsize.jsx";
 import "qt/qt.jsx";
@@ -21,7 +20,6 @@ native class QAbstractScrollArea extends QFrame
     // Methods
     function addScrollBarWidget (widget : QWidget, alignment : Qt_Alignment) : void;
     function cornerWidget () : QWidget;
-    function eventFilter (arg__1 : QObject, arg__2 : QEvent) : boolean;
     function horizontalScrollBar () : QScrollBar;
     function maximumViewportSize () : QSize;
     function scrollBarWidgets (alignment : Qt_Alignment) : QWidget[];

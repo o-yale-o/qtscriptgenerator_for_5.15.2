@@ -9,21 +9,21 @@ import "qt/qpainter.jsx";
 import "qt/qpointf.jsx";
 import "qt/qrectf.jsx";
 
-final native class Qt_QTextLine_Edge {}
-
 final native class Qt_QTextLine_CursorPosition {}
+
+final native class Qt_QTextLine_Edge {}
 
 native class QTextLine
 {
     function constructor ();
 
-    static const Leading : Qt_QTextLine_Edge;
-    static const Trailing : Qt_QTextLine_Edge;
-    static function Edge(value : Qt_QTextLine_Edge) : Qt_QTextLine_Edge;
-
     static const CursorBetweenCharacters : Qt_QTextLine_CursorPosition;
     static const CursorOnCharacter : Qt_QTextLine_CursorPosition;
     static function CursorPosition(value : Qt_QTextLine_CursorPosition) : Qt_QTextLine_CursorPosition;
+
+    static const Leading : Qt_QTextLine_Edge;
+    static const Trailing : Qt_QTextLine_Edge;
+    static function Edge(value : Qt_QTextLine_Edge) : Qt_QTextLine_Edge;
 
     // Methods
     function ascent () : number;

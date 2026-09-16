@@ -9,15 +9,15 @@ import "qt/qstyleoption.jsx";
 
 final native class Qt_QStyleOptionViewItem_StyleOptionType {}
 
-final native class Qt_QStyleOptionViewItem_Position {}
-
-final native class Qt_QStyleOptionViewItem_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionViewItem_ViewItemFeature {}
 
 final native class Qt_QStyleOptionViewItem_ViewItemFeatures {}
 
 final native class Qt_QStyleOptionViewItem_ViewItemPosition {}
+
+final native class Qt_QStyleOptionViewItem_StyleOptionVersion {}
+
+final native class Qt_QStyleOptionViewItem_Position {}
 
 native class QStyleOptionViewItem extends QStyleOption
 {
@@ -26,15 +26,6 @@ native class QStyleOptionViewItem extends QStyleOption
 
     static const Type : Qt_QStyleOptionViewItem_StyleOptionType;
     static function StyleOptionType(value : Qt_QStyleOptionViewItem_StyleOptionType) : Qt_QStyleOptionViewItem_StyleOptionType;
-
-    static const Left : Qt_QStyleOptionViewItem_Position;
-    static const Right : Qt_QStyleOptionViewItem_Position;
-    static const Top : Qt_QStyleOptionViewItem_Position;
-    static const Bottom : Qt_QStyleOptionViewItem_Position;
-    static function Position(value : Qt_QStyleOptionViewItem_Position) : Qt_QStyleOptionViewItem_Position;
-
-    static const Version : Qt_QStyleOptionViewItem_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionViewItem_StyleOptionVersion) : Qt_QStyleOptionViewItem_StyleOptionVersion;
 
     static const None : Qt_QStyleOptionViewItem_ViewItemFeature;
     static const WrapText : Qt_QStyleOptionViewItem_ViewItemFeature;
@@ -51,4 +42,13 @@ native class QStyleOptionViewItem extends QStyleOption
     static const End : Qt_QStyleOptionViewItem_ViewItemPosition;
     static const OnlyOne : Qt_QStyleOptionViewItem_ViewItemPosition;
     static function ViewItemPosition(value : Qt_QStyleOptionViewItem_ViewItemPosition) : Qt_QStyleOptionViewItem_ViewItemPosition;
+
+    static const Version : Qt_QStyleOptionViewItem_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionViewItem_StyleOptionVersion) : Qt_QStyleOptionViewItem_StyleOptionVersion;
+
+    static const Left : Qt_QStyleOptionViewItem_Position;
+    static const Right : Qt_QStyleOptionViewItem_Position;
+    static const Top : Qt_QStyleOptionViewItem_Position;
+    static const Bottom : Qt_QStyleOptionViewItem_Position;
+    static function Position(value : Qt_QStyleOptionViewItem_Position) : Qt_QStyleOptionViewItem_Position;
 }

@@ -21,31 +21,31 @@ import "qt/qstyleoptioncomplex.jsx";
 import "qt/qt.jsx";
 import "qt/qwidget.jsx";
 
+final native class Qt_QStyle_StateFlag {}
+
+final native class Qt_QStyle_State {}
+
+final native class Qt_QStyle_PixelMetric {}
+
 final native class Qt_QStyle_StandardPixmap {}
+
+final native class Qt_QStyle_ContentsType {}
+
+final native class Qt_QStyle_ControlElement {}
 
 final native class Qt_QStyle_SubElement {}
 
 final native class Qt_QStyle_ComplexControl {}
 
-final native class Qt_QStyle_StyleHint {}
-
-final native class Qt_QStyle_ContentsType {}
-
-final native class Qt_QStyle_RequestSoftwareInputPanel {}
-
-final native class Qt_QStyle_StateFlag {}
-
-final native class Qt_QStyle_State {}
+final native class Qt_QStyle_PrimitiveElement {}
 
 final native class Qt_QStyle_SubControl {}
 
 final native class Qt_QStyle_SubControls {}
 
-final native class Qt_QStyle_ControlElement {}
+final native class Qt_QStyle_RequestSoftwareInputPanel {}
 
-final native class Qt_QStyle_PixelMetric {}
-
-final native class Qt_QStyle_PrimitiveElement {}
+final native class Qt_QStyle_StyleHint {}
 
 native class QStyle extends QObject
 {
@@ -58,6 +58,136 @@ native class QStyle extends QObject
     static function visualAlignment (direction : Qt_LayoutDirection, alignment : Qt_Alignment) : Qt_Alignment;
     static function visualPos (direction : Qt_LayoutDirection, boundingRect : QRect, logicalPos : QPoint) : QPoint;
     static function visualRect (direction : Qt_LayoutDirection, boundingRect : QRect, logicalRect : QRect) : QRect;
+
+    static const State_None : Qt_QStyle_StateFlag;
+    static const State_Enabled : Qt_QStyle_StateFlag;
+    static const State_Raised : Qt_QStyle_StateFlag;
+    static const State_Sunken : Qt_QStyle_StateFlag;
+    static const State_Off : Qt_QStyle_StateFlag;
+    static const State_NoChange : Qt_QStyle_StateFlag;
+    static const State_On : Qt_QStyle_StateFlag;
+    static const State_DownArrow : Qt_QStyle_StateFlag;
+    static const State_Horizontal : Qt_QStyle_StateFlag;
+    static const State_HasFocus : Qt_QStyle_StateFlag;
+    static const State_Top : Qt_QStyle_StateFlag;
+    static const State_Bottom : Qt_QStyle_StateFlag;
+    static const State_FocusAtBorder : Qt_QStyle_StateFlag;
+    static const State_AutoRaise : Qt_QStyle_StateFlag;
+    static const State_MouseOver : Qt_QStyle_StateFlag;
+    static const State_UpArrow : Qt_QStyle_StateFlag;
+    static const State_Selected : Qt_QStyle_StateFlag;
+    static const State_Active : Qt_QStyle_StateFlag;
+    static const State_Window : Qt_QStyle_StateFlag;
+    static const State_Open : Qt_QStyle_StateFlag;
+    static const State_Children : Qt_QStyle_StateFlag;
+    static const State_Item : Qt_QStyle_StateFlag;
+    static const State_Sibling : Qt_QStyle_StateFlag;
+    static const State_Editing : Qt_QStyle_StateFlag;
+    static const State_KeyboardFocusChange : Qt_QStyle_StateFlag;
+    static const State_ReadOnly : Qt_QStyle_StateFlag;
+    static const State_Small : Qt_QStyle_StateFlag;
+    static const State_Mini : Qt_QStyle_StateFlag;
+    static function StateFlag(value : Qt_QStyle_StateFlag) : Qt_QStyle_StateFlag;
+    static function State(...value : Qt_QStyle_StateFlag) : Qt_QStyle_State;
+
+    static const PM_CustomBase : Qt_QStyle_PixelMetric;
+    static const PM_ButtonMargin : Qt_QStyle_PixelMetric;
+    static const PM_ButtonDefaultIndicator : Qt_QStyle_PixelMetric;
+    static const PM_MenuButtonIndicator : Qt_QStyle_PixelMetric;
+    static const PM_ButtonShiftHorizontal : Qt_QStyle_PixelMetric;
+    static const PM_ButtonShiftVertical : Qt_QStyle_PixelMetric;
+    static const PM_DefaultFrameWidth : Qt_QStyle_PixelMetric;
+    static const PM_SpinBoxFrameWidth : Qt_QStyle_PixelMetric;
+    static const PM_ComboBoxFrameWidth : Qt_QStyle_PixelMetric;
+    static const PM_MaximumDragDistance : Qt_QStyle_PixelMetric;
+    static const PM_ScrollBarExtent : Qt_QStyle_PixelMetric;
+    static const PM_ScrollBarSliderMin : Qt_QStyle_PixelMetric;
+    static const PM_SliderThickness : Qt_QStyle_PixelMetric;
+    static const PM_SliderControlThickness : Qt_QStyle_PixelMetric;
+    static const PM_SliderLength : Qt_QStyle_PixelMetric;
+    static const PM_SliderTickmarkOffset : Qt_QStyle_PixelMetric;
+    static const PM_SliderSpaceAvailable : Qt_QStyle_PixelMetric;
+    static const PM_DockWidgetSeparatorExtent : Qt_QStyle_PixelMetric;
+    static const PM_DockWidgetHandleExtent : Qt_QStyle_PixelMetric;
+    static const PM_DockWidgetFrameWidth : Qt_QStyle_PixelMetric;
+    static const PM_TabBarTabOverlap : Qt_QStyle_PixelMetric;
+    static const PM_TabBarTabHSpace : Qt_QStyle_PixelMetric;
+    static const PM_TabBarTabVSpace : Qt_QStyle_PixelMetric;
+    static const PM_TabBarBaseHeight : Qt_QStyle_PixelMetric;
+    static const PM_TabBarBaseOverlap : Qt_QStyle_PixelMetric;
+    static const PM_ProgressBarChunkWidth : Qt_QStyle_PixelMetric;
+    static const PM_SplitterWidth : Qt_QStyle_PixelMetric;
+    static const PM_TitleBarHeight : Qt_QStyle_PixelMetric;
+    static const PM_MenuScrollerHeight : Qt_QStyle_PixelMetric;
+    static const PM_MenuHMargin : Qt_QStyle_PixelMetric;
+    static const PM_MenuVMargin : Qt_QStyle_PixelMetric;
+    static const PM_MenuPanelWidth : Qt_QStyle_PixelMetric;
+    static const PM_MenuTearoffHeight : Qt_QStyle_PixelMetric;
+    static const PM_MenuDesktopFrameWidth : Qt_QStyle_PixelMetric;
+    static const PM_MenuBarPanelWidth : Qt_QStyle_PixelMetric;
+    static const PM_MenuBarItemSpacing : Qt_QStyle_PixelMetric;
+    static const PM_MenuBarVMargin : Qt_QStyle_PixelMetric;
+    static const PM_MenuBarHMargin : Qt_QStyle_PixelMetric;
+    static const PM_IndicatorWidth : Qt_QStyle_PixelMetric;
+    static const PM_IndicatorHeight : Qt_QStyle_PixelMetric;
+    static const PM_ExclusiveIndicatorWidth : Qt_QStyle_PixelMetric;
+    static const PM_ExclusiveIndicatorHeight : Qt_QStyle_PixelMetric;
+    static const PM_DialogButtonsSeparator : Qt_QStyle_PixelMetric;
+    static const PM_DialogButtonsButtonWidth : Qt_QStyle_PixelMetric;
+    static const PM_DialogButtonsButtonHeight : Qt_QStyle_PixelMetric;
+    static const PM_MdiSubWindowFrameWidth : Qt_QStyle_PixelMetric;
+    static const PM_MdiSubWindowMinimizedWidth : Qt_QStyle_PixelMetric;
+    static const PM_HeaderMargin : Qt_QStyle_PixelMetric;
+    static const PM_HeaderMarkSize : Qt_QStyle_PixelMetric;
+    static const PM_HeaderGripMargin : Qt_QStyle_PixelMetric;
+    static const PM_TabBarTabShiftHorizontal : Qt_QStyle_PixelMetric;
+    static const PM_TabBarTabShiftVertical : Qt_QStyle_PixelMetric;
+    static const PM_TabBarScrollButtonWidth : Qt_QStyle_PixelMetric;
+    static const PM_ToolBarFrameWidth : Qt_QStyle_PixelMetric;
+    static const PM_ToolBarHandleExtent : Qt_QStyle_PixelMetric;
+    static const PM_ToolBarItemSpacing : Qt_QStyle_PixelMetric;
+    static const PM_ToolBarItemMargin : Qt_QStyle_PixelMetric;
+    static const PM_ToolBarSeparatorExtent : Qt_QStyle_PixelMetric;
+    static const PM_ToolBarExtensionExtent : Qt_QStyle_PixelMetric;
+    static const PM_SpinBoxSliderHeight : Qt_QStyle_PixelMetric;
+    static const PM_DefaultTopLevelMargin : Qt_QStyle_PixelMetric;
+    static const PM_DefaultChildMargin : Qt_QStyle_PixelMetric;
+    static const PM_DefaultLayoutSpacing : Qt_QStyle_PixelMetric;
+    static const PM_ToolBarIconSize : Qt_QStyle_PixelMetric;
+    static const PM_ListViewIconSize : Qt_QStyle_PixelMetric;
+    static const PM_IconViewIconSize : Qt_QStyle_PixelMetric;
+    static const PM_SmallIconSize : Qt_QStyle_PixelMetric;
+    static const PM_LargeIconSize : Qt_QStyle_PixelMetric;
+    static const PM_FocusFrameVMargin : Qt_QStyle_PixelMetric;
+    static const PM_FocusFrameHMargin : Qt_QStyle_PixelMetric;
+    static const PM_ToolTipLabelFrameWidth : Qt_QStyle_PixelMetric;
+    static const PM_CheckBoxLabelSpacing : Qt_QStyle_PixelMetric;
+    static const PM_TabBarIconSize : Qt_QStyle_PixelMetric;
+    static const PM_SizeGripSize : Qt_QStyle_PixelMetric;
+    static const PM_DockWidgetTitleMargin : Qt_QStyle_PixelMetric;
+    static const PM_MessageBoxIconSize : Qt_QStyle_PixelMetric;
+    static const PM_ButtonIconSize : Qt_QStyle_PixelMetric;
+    static const PM_DockWidgetTitleBarButtonMargin : Qt_QStyle_PixelMetric;
+    static const PM_RadioButtonLabelSpacing : Qt_QStyle_PixelMetric;
+    static const PM_LayoutLeftMargin : Qt_QStyle_PixelMetric;
+    static const PM_LayoutTopMargin : Qt_QStyle_PixelMetric;
+    static const PM_LayoutRightMargin : Qt_QStyle_PixelMetric;
+    static const PM_LayoutBottomMargin : Qt_QStyle_PixelMetric;
+    static const PM_LayoutHorizontalSpacing : Qt_QStyle_PixelMetric;
+    static const PM_LayoutVerticalSpacing : Qt_QStyle_PixelMetric;
+    static const PM_TabBar_ScrollButtonOverlap : Qt_QStyle_PixelMetric;
+    static const PM_TextCursorWidth : Qt_QStyle_PixelMetric;
+    static const PM_TabCloseIndicatorWidth : Qt_QStyle_PixelMetric;
+    static const PM_TabCloseIndicatorHeight : Qt_QStyle_PixelMetric;
+    static const PM_ScrollView_ScrollBarSpacing : Qt_QStyle_PixelMetric;
+    static const PM_ScrollView_ScrollBarOverlap : Qt_QStyle_PixelMetric;
+    static const PM_SubMenuOverlap : Qt_QStyle_PixelMetric;
+    static const PM_TreeViewIndentation : Qt_QStyle_PixelMetric;
+    static const PM_HeaderDefaultSectionSizeHorizontal : Qt_QStyle_PixelMetric;
+    static const PM_HeaderDefaultSectionSizeVertical : Qt_QStyle_PixelMetric;
+    static const PM_TitleBarButtonIconSize : Qt_QStyle_PixelMetric;
+    static const PM_TitleBarButtonSize : Qt_QStyle_PixelMetric;
+    static function PixelMetric(value : Qt_QStyle_PixelMetric) : Qt_QStyle_PixelMetric;
 
     static const SP_CustomBase : Qt_QStyle_StandardPixmap;
     static const SP_TitleBarMenuButton : Qt_QStyle_StandardPixmap;
@@ -140,6 +270,82 @@ native class QStyle extends QObject
     static const SP_RestoreDefaultsButton : Qt_QStyle_StandardPixmap;
     static function StandardPixmap(value : Qt_QStyle_StandardPixmap) : Qt_QStyle_StandardPixmap;
 
+    static const CT_CustomBase : Qt_QStyle_ContentsType;
+    static const CT_PushButton : Qt_QStyle_ContentsType;
+    static const CT_CheckBox : Qt_QStyle_ContentsType;
+    static const CT_RadioButton : Qt_QStyle_ContentsType;
+    static const CT_ToolButton : Qt_QStyle_ContentsType;
+    static const CT_ComboBox : Qt_QStyle_ContentsType;
+    static const CT_Splitter : Qt_QStyle_ContentsType;
+    static const CT_ProgressBar : Qt_QStyle_ContentsType;
+    static const CT_MenuItem : Qt_QStyle_ContentsType;
+    static const CT_MenuBarItem : Qt_QStyle_ContentsType;
+    static const CT_MenuBar : Qt_QStyle_ContentsType;
+    static const CT_Menu : Qt_QStyle_ContentsType;
+    static const CT_TabBarTab : Qt_QStyle_ContentsType;
+    static const CT_Slider : Qt_QStyle_ContentsType;
+    static const CT_ScrollBar : Qt_QStyle_ContentsType;
+    static const CT_LineEdit : Qt_QStyle_ContentsType;
+    static const CT_SpinBox : Qt_QStyle_ContentsType;
+    static const CT_SizeGrip : Qt_QStyle_ContentsType;
+    static const CT_TabWidget : Qt_QStyle_ContentsType;
+    static const CT_DialogButtons : Qt_QStyle_ContentsType;
+    static const CT_HeaderSection : Qt_QStyle_ContentsType;
+    static const CT_GroupBox : Qt_QStyle_ContentsType;
+    static const CT_MdiControls : Qt_QStyle_ContentsType;
+    static const CT_ItemViewItem : Qt_QStyle_ContentsType;
+    static function ContentsType(value : Qt_QStyle_ContentsType) : Qt_QStyle_ContentsType;
+
+    static const CE_CustomBase : Qt_QStyle_ControlElement;
+    static const CE_PushButton : Qt_QStyle_ControlElement;
+    static const CE_PushButtonBevel : Qt_QStyle_ControlElement;
+    static const CE_PushButtonLabel : Qt_QStyle_ControlElement;
+    static const CE_CheckBox : Qt_QStyle_ControlElement;
+    static const CE_CheckBoxLabel : Qt_QStyle_ControlElement;
+    static const CE_RadioButton : Qt_QStyle_ControlElement;
+    static const CE_RadioButtonLabel : Qt_QStyle_ControlElement;
+    static const CE_TabBarTab : Qt_QStyle_ControlElement;
+    static const CE_TabBarTabShape : Qt_QStyle_ControlElement;
+    static const CE_TabBarTabLabel : Qt_QStyle_ControlElement;
+    static const CE_ProgressBar : Qt_QStyle_ControlElement;
+    static const CE_ProgressBarGroove : Qt_QStyle_ControlElement;
+    static const CE_ProgressBarContents : Qt_QStyle_ControlElement;
+    static const CE_ProgressBarLabel : Qt_QStyle_ControlElement;
+    static const CE_MenuItem : Qt_QStyle_ControlElement;
+    static const CE_MenuScroller : Qt_QStyle_ControlElement;
+    static const CE_MenuVMargin : Qt_QStyle_ControlElement;
+    static const CE_MenuHMargin : Qt_QStyle_ControlElement;
+    static const CE_MenuTearoff : Qt_QStyle_ControlElement;
+    static const CE_MenuEmptyArea : Qt_QStyle_ControlElement;
+    static const CE_MenuBarItem : Qt_QStyle_ControlElement;
+    static const CE_MenuBarEmptyArea : Qt_QStyle_ControlElement;
+    static const CE_ToolButtonLabel : Qt_QStyle_ControlElement;
+    static const CE_Header : Qt_QStyle_ControlElement;
+    static const CE_HeaderSection : Qt_QStyle_ControlElement;
+    static const CE_HeaderLabel : Qt_QStyle_ControlElement;
+    static const CE_ToolBoxTab : Qt_QStyle_ControlElement;
+    static const CE_SizeGrip : Qt_QStyle_ControlElement;
+    static const CE_Splitter : Qt_QStyle_ControlElement;
+    static const CE_RubberBand : Qt_QStyle_ControlElement;
+    static const CE_DockWidgetTitle : Qt_QStyle_ControlElement;
+    static const CE_ScrollBarAddLine : Qt_QStyle_ControlElement;
+    static const CE_ScrollBarSubLine : Qt_QStyle_ControlElement;
+    static const CE_ScrollBarAddPage : Qt_QStyle_ControlElement;
+    static const CE_ScrollBarSubPage : Qt_QStyle_ControlElement;
+    static const CE_ScrollBarSlider : Qt_QStyle_ControlElement;
+    static const CE_ScrollBarFirst : Qt_QStyle_ControlElement;
+    static const CE_ScrollBarLast : Qt_QStyle_ControlElement;
+    static const CE_FocusFrame : Qt_QStyle_ControlElement;
+    static const CE_ComboBoxLabel : Qt_QStyle_ControlElement;
+    static const CE_ToolBar : Qt_QStyle_ControlElement;
+    static const CE_ToolBoxTabShape : Qt_QStyle_ControlElement;
+    static const CE_ToolBoxTabLabel : Qt_QStyle_ControlElement;
+    static const CE_HeaderEmptyArea : Qt_QStyle_ControlElement;
+    static const CE_ColumnViewGrip : Qt_QStyle_ControlElement;
+    static const CE_ItemViewItem : Qt_QStyle_ControlElement;
+    static const CE_ShapedFrame : Qt_QStyle_ControlElement;
+    static function ControlElement(value : Qt_QStyle_ControlElement) : Qt_QStyle_ControlElement;
+
     static const SE_CustomBase : Qt_QStyle_SubElement;
     static const SE_PushButtonContents : Qt_QStyle_SubElement;
     static const SE_PushButtonFocusRect : Qt_QStyle_SubElement;
@@ -212,6 +418,78 @@ native class QStyle extends QObject
     static const CC_GroupBox : Qt_QStyle_ComplexControl;
     static const CC_MdiControls : Qt_QStyle_ComplexControl;
     static function ComplexControl(value : Qt_QStyle_ComplexControl) : Qt_QStyle_ComplexControl;
+
+    static const PE_Frame : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameDefaultButton : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameDockWidget : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameFocusRect : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameGroupBox : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameLineEdit : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameMenu : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameStatusBarItem : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameTabWidget : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameWindow : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameButtonBevel : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameButtonTool : Qt_QStyle_PrimitiveElement;
+    static const PE_FrameTabBarBase : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelButtonCommand : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelButtonBevel : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelButtonTool : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelMenuBar : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelToolBar : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelLineEdit : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorArrowDown : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorArrowLeft : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorArrowRight : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorArrowUp : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorBranch : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorButtonDropDown : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorItemViewItemCheck : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorCheckBox : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorDockWidgetResizeHandle : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorHeaderArrow : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorMenuCheckMark : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorProgressChunk : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorRadioButton : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorSpinDown : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorSpinMinus : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorSpinPlus : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorSpinUp : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorToolBarHandle : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorToolBarSeparator : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelTipLabel : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorTabTear : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelScrollAreaCorner : Qt_QStyle_PrimitiveElement;
+    static const PE_Widget : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorColumnViewArrow : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorItemViewItemDrop : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelItemViewItem : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelItemViewRow : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelStatusBar : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorTabClose : Qt_QStyle_PrimitiveElement;
+    static const PE_PanelMenu : Qt_QStyle_PrimitiveElement;
+    static const PE_IndicatorTabTearRight : Qt_QStyle_PrimitiveElement;
+    static const PE_CustomBase : Qt_QStyle_PrimitiveElement;
+    static function PrimitiveElement(value : Qt_QStyle_PrimitiveElement) : Qt_QStyle_PrimitiveElement;
+
+    static const SC_CustomBase : Qt_QStyle_SubControl;
+    static const SC_All : Qt_QStyle_SubControl;
+    static const SC_None : Qt_QStyle_SubControl;
+    static const SC_ScrollBarAddLine : Qt_QStyle_SubControl;
+    static const SC_ScrollBarSubLine : Qt_QStyle_SubControl;
+    static const SC_ScrollBarAddPage : Qt_QStyle_SubControl;
+    static const SC_ScrollBarSubPage : Qt_QStyle_SubControl;
+    static const SC_ScrollBarFirst : Qt_QStyle_SubControl;
+    static const SC_ScrollBarLast : Qt_QStyle_SubControl;
+    static const SC_ScrollBarSlider : Qt_QStyle_SubControl;
+    static const SC_ScrollBarGroove : Qt_QStyle_SubControl;
+    static const SC_TitleBarLabel : Qt_QStyle_SubControl;
+    static function SubControl(value : Qt_QStyle_SubControl) : Qt_QStyle_SubControl;
+    static function SubControls(...value : Qt_QStyle_SubControl) : Qt_QStyle_SubControls;
+
+    static const RSIP_OnMouseClickAndAlreadyFocused : Qt_QStyle_RequestSoftwareInputPanel;
+    static const RSIP_OnMouseClick : Qt_QStyle_RequestSoftwareInputPanel;
+    static function RequestSoftwareInputPanel(value : Qt_QStyle_RequestSoftwareInputPanel) : Qt_QStyle_RequestSoftwareInputPanel;
 
     static const SH_CustomBase : Qt_QStyle_StyleHint;
     static const SH_EtchDisabledText : Qt_QStyle_StyleHint;
@@ -333,284 +611,6 @@ native class QStyle extends QObject
     static const SH_SpinBox_ButtonsInsideFrame : Qt_QStyle_StyleHint;
     static const SH_SpinBox_StepModifier : Qt_QStyle_StyleHint;
     static function StyleHint(value : Qt_QStyle_StyleHint) : Qt_QStyle_StyleHint;
-
-    static const CT_CustomBase : Qt_QStyle_ContentsType;
-    static const CT_PushButton : Qt_QStyle_ContentsType;
-    static const CT_CheckBox : Qt_QStyle_ContentsType;
-    static const CT_RadioButton : Qt_QStyle_ContentsType;
-    static const CT_ToolButton : Qt_QStyle_ContentsType;
-    static const CT_ComboBox : Qt_QStyle_ContentsType;
-    static const CT_Splitter : Qt_QStyle_ContentsType;
-    static const CT_ProgressBar : Qt_QStyle_ContentsType;
-    static const CT_MenuItem : Qt_QStyle_ContentsType;
-    static const CT_MenuBarItem : Qt_QStyle_ContentsType;
-    static const CT_MenuBar : Qt_QStyle_ContentsType;
-    static const CT_Menu : Qt_QStyle_ContentsType;
-    static const CT_TabBarTab : Qt_QStyle_ContentsType;
-    static const CT_Slider : Qt_QStyle_ContentsType;
-    static const CT_ScrollBar : Qt_QStyle_ContentsType;
-    static const CT_LineEdit : Qt_QStyle_ContentsType;
-    static const CT_SpinBox : Qt_QStyle_ContentsType;
-    static const CT_SizeGrip : Qt_QStyle_ContentsType;
-    static const CT_TabWidget : Qt_QStyle_ContentsType;
-    static const CT_DialogButtons : Qt_QStyle_ContentsType;
-    static const CT_HeaderSection : Qt_QStyle_ContentsType;
-    static const CT_GroupBox : Qt_QStyle_ContentsType;
-    static const CT_MdiControls : Qt_QStyle_ContentsType;
-    static const CT_ItemViewItem : Qt_QStyle_ContentsType;
-    static function ContentsType(value : Qt_QStyle_ContentsType) : Qt_QStyle_ContentsType;
-
-    static const RSIP_OnMouseClickAndAlreadyFocused : Qt_QStyle_RequestSoftwareInputPanel;
-    static const RSIP_OnMouseClick : Qt_QStyle_RequestSoftwareInputPanel;
-    static function RequestSoftwareInputPanel(value : Qt_QStyle_RequestSoftwareInputPanel) : Qt_QStyle_RequestSoftwareInputPanel;
-
-    static const State_None : Qt_QStyle_StateFlag;
-    static const State_Enabled : Qt_QStyle_StateFlag;
-    static const State_Raised : Qt_QStyle_StateFlag;
-    static const State_Sunken : Qt_QStyle_StateFlag;
-    static const State_Off : Qt_QStyle_StateFlag;
-    static const State_NoChange : Qt_QStyle_StateFlag;
-    static const State_On : Qt_QStyle_StateFlag;
-    static const State_DownArrow : Qt_QStyle_StateFlag;
-    static const State_Horizontal : Qt_QStyle_StateFlag;
-    static const State_HasFocus : Qt_QStyle_StateFlag;
-    static const State_Top : Qt_QStyle_StateFlag;
-    static const State_Bottom : Qt_QStyle_StateFlag;
-    static const State_FocusAtBorder : Qt_QStyle_StateFlag;
-    static const State_AutoRaise : Qt_QStyle_StateFlag;
-    static const State_MouseOver : Qt_QStyle_StateFlag;
-    static const State_UpArrow : Qt_QStyle_StateFlag;
-    static const State_Selected : Qt_QStyle_StateFlag;
-    static const State_Active : Qt_QStyle_StateFlag;
-    static const State_Window : Qt_QStyle_StateFlag;
-    static const State_Open : Qt_QStyle_StateFlag;
-    static const State_Children : Qt_QStyle_StateFlag;
-    static const State_Item : Qt_QStyle_StateFlag;
-    static const State_Sibling : Qt_QStyle_StateFlag;
-    static const State_Editing : Qt_QStyle_StateFlag;
-    static const State_KeyboardFocusChange : Qt_QStyle_StateFlag;
-    static const State_ReadOnly : Qt_QStyle_StateFlag;
-    static const State_Small : Qt_QStyle_StateFlag;
-    static const State_Mini : Qt_QStyle_StateFlag;
-    static function StateFlag(value : Qt_QStyle_StateFlag) : Qt_QStyle_StateFlag;
-    static function State(...value : Qt_QStyle_StateFlag) : Qt_QStyle_State;
-
-    static const SC_CustomBase : Qt_QStyle_SubControl;
-    static const SC_All : Qt_QStyle_SubControl;
-    static const SC_None : Qt_QStyle_SubControl;
-    static const SC_ScrollBarAddLine : Qt_QStyle_SubControl;
-    static const SC_ScrollBarSubLine : Qt_QStyle_SubControl;
-    static const SC_ScrollBarAddPage : Qt_QStyle_SubControl;
-    static const SC_ScrollBarSubPage : Qt_QStyle_SubControl;
-    static const SC_ScrollBarFirst : Qt_QStyle_SubControl;
-    static const SC_ScrollBarLast : Qt_QStyle_SubControl;
-    static const SC_ScrollBarSlider : Qt_QStyle_SubControl;
-    static const SC_ScrollBarGroove : Qt_QStyle_SubControl;
-    static const SC_TitleBarLabel : Qt_QStyle_SubControl;
-    static function SubControl(value : Qt_QStyle_SubControl) : Qt_QStyle_SubControl;
-    static function SubControls(...value : Qt_QStyle_SubControl) : Qt_QStyle_SubControls;
-
-    static const CE_CustomBase : Qt_QStyle_ControlElement;
-    static const CE_PushButton : Qt_QStyle_ControlElement;
-    static const CE_PushButtonBevel : Qt_QStyle_ControlElement;
-    static const CE_PushButtonLabel : Qt_QStyle_ControlElement;
-    static const CE_CheckBox : Qt_QStyle_ControlElement;
-    static const CE_CheckBoxLabel : Qt_QStyle_ControlElement;
-    static const CE_RadioButton : Qt_QStyle_ControlElement;
-    static const CE_RadioButtonLabel : Qt_QStyle_ControlElement;
-    static const CE_TabBarTab : Qt_QStyle_ControlElement;
-    static const CE_TabBarTabShape : Qt_QStyle_ControlElement;
-    static const CE_TabBarTabLabel : Qt_QStyle_ControlElement;
-    static const CE_ProgressBar : Qt_QStyle_ControlElement;
-    static const CE_ProgressBarGroove : Qt_QStyle_ControlElement;
-    static const CE_ProgressBarContents : Qt_QStyle_ControlElement;
-    static const CE_ProgressBarLabel : Qt_QStyle_ControlElement;
-    static const CE_MenuItem : Qt_QStyle_ControlElement;
-    static const CE_MenuScroller : Qt_QStyle_ControlElement;
-    static const CE_MenuVMargin : Qt_QStyle_ControlElement;
-    static const CE_MenuHMargin : Qt_QStyle_ControlElement;
-    static const CE_MenuTearoff : Qt_QStyle_ControlElement;
-    static const CE_MenuEmptyArea : Qt_QStyle_ControlElement;
-    static const CE_MenuBarItem : Qt_QStyle_ControlElement;
-    static const CE_MenuBarEmptyArea : Qt_QStyle_ControlElement;
-    static const CE_ToolButtonLabel : Qt_QStyle_ControlElement;
-    static const CE_Header : Qt_QStyle_ControlElement;
-    static const CE_HeaderSection : Qt_QStyle_ControlElement;
-    static const CE_HeaderLabel : Qt_QStyle_ControlElement;
-    static const CE_ToolBoxTab : Qt_QStyle_ControlElement;
-    static const CE_SizeGrip : Qt_QStyle_ControlElement;
-    static const CE_Splitter : Qt_QStyle_ControlElement;
-    static const CE_RubberBand : Qt_QStyle_ControlElement;
-    static const CE_DockWidgetTitle : Qt_QStyle_ControlElement;
-    static const CE_ScrollBarAddLine : Qt_QStyle_ControlElement;
-    static const CE_ScrollBarSubLine : Qt_QStyle_ControlElement;
-    static const CE_ScrollBarAddPage : Qt_QStyle_ControlElement;
-    static const CE_ScrollBarSubPage : Qt_QStyle_ControlElement;
-    static const CE_ScrollBarSlider : Qt_QStyle_ControlElement;
-    static const CE_ScrollBarFirst : Qt_QStyle_ControlElement;
-    static const CE_ScrollBarLast : Qt_QStyle_ControlElement;
-    static const CE_FocusFrame : Qt_QStyle_ControlElement;
-    static const CE_ComboBoxLabel : Qt_QStyle_ControlElement;
-    static const CE_ToolBar : Qt_QStyle_ControlElement;
-    static const CE_ToolBoxTabShape : Qt_QStyle_ControlElement;
-    static const CE_ToolBoxTabLabel : Qt_QStyle_ControlElement;
-    static const CE_HeaderEmptyArea : Qt_QStyle_ControlElement;
-    static const CE_ColumnViewGrip : Qt_QStyle_ControlElement;
-    static const CE_ItemViewItem : Qt_QStyle_ControlElement;
-    static const CE_ShapedFrame : Qt_QStyle_ControlElement;
-    static function ControlElement(value : Qt_QStyle_ControlElement) : Qt_QStyle_ControlElement;
-
-    static const PM_CustomBase : Qt_QStyle_PixelMetric;
-    static const PM_ButtonMargin : Qt_QStyle_PixelMetric;
-    static const PM_ButtonDefaultIndicator : Qt_QStyle_PixelMetric;
-    static const PM_MenuButtonIndicator : Qt_QStyle_PixelMetric;
-    static const PM_ButtonShiftHorizontal : Qt_QStyle_PixelMetric;
-    static const PM_ButtonShiftVertical : Qt_QStyle_PixelMetric;
-    static const PM_DefaultFrameWidth : Qt_QStyle_PixelMetric;
-    static const PM_SpinBoxFrameWidth : Qt_QStyle_PixelMetric;
-    static const PM_ComboBoxFrameWidth : Qt_QStyle_PixelMetric;
-    static const PM_MaximumDragDistance : Qt_QStyle_PixelMetric;
-    static const PM_ScrollBarExtent : Qt_QStyle_PixelMetric;
-    static const PM_ScrollBarSliderMin : Qt_QStyle_PixelMetric;
-    static const PM_SliderThickness : Qt_QStyle_PixelMetric;
-    static const PM_SliderControlThickness : Qt_QStyle_PixelMetric;
-    static const PM_SliderLength : Qt_QStyle_PixelMetric;
-    static const PM_SliderTickmarkOffset : Qt_QStyle_PixelMetric;
-    static const PM_SliderSpaceAvailable : Qt_QStyle_PixelMetric;
-    static const PM_DockWidgetSeparatorExtent : Qt_QStyle_PixelMetric;
-    static const PM_DockWidgetHandleExtent : Qt_QStyle_PixelMetric;
-    static const PM_DockWidgetFrameWidth : Qt_QStyle_PixelMetric;
-    static const PM_TabBarTabOverlap : Qt_QStyle_PixelMetric;
-    static const PM_TabBarTabHSpace : Qt_QStyle_PixelMetric;
-    static const PM_TabBarTabVSpace : Qt_QStyle_PixelMetric;
-    static const PM_TabBarBaseHeight : Qt_QStyle_PixelMetric;
-    static const PM_TabBarBaseOverlap : Qt_QStyle_PixelMetric;
-    static const PM_ProgressBarChunkWidth : Qt_QStyle_PixelMetric;
-    static const PM_SplitterWidth : Qt_QStyle_PixelMetric;
-    static const PM_TitleBarHeight : Qt_QStyle_PixelMetric;
-    static const PM_MenuScrollerHeight : Qt_QStyle_PixelMetric;
-    static const PM_MenuHMargin : Qt_QStyle_PixelMetric;
-    static const PM_MenuVMargin : Qt_QStyle_PixelMetric;
-    static const PM_MenuPanelWidth : Qt_QStyle_PixelMetric;
-    static const PM_MenuTearoffHeight : Qt_QStyle_PixelMetric;
-    static const PM_MenuDesktopFrameWidth : Qt_QStyle_PixelMetric;
-    static const PM_MenuBarPanelWidth : Qt_QStyle_PixelMetric;
-    static const PM_MenuBarItemSpacing : Qt_QStyle_PixelMetric;
-    static const PM_MenuBarVMargin : Qt_QStyle_PixelMetric;
-    static const PM_MenuBarHMargin : Qt_QStyle_PixelMetric;
-    static const PM_IndicatorWidth : Qt_QStyle_PixelMetric;
-    static const PM_IndicatorHeight : Qt_QStyle_PixelMetric;
-    static const PM_ExclusiveIndicatorWidth : Qt_QStyle_PixelMetric;
-    static const PM_ExclusiveIndicatorHeight : Qt_QStyle_PixelMetric;
-    static const PM_DialogButtonsSeparator : Qt_QStyle_PixelMetric;
-    static const PM_DialogButtonsButtonWidth : Qt_QStyle_PixelMetric;
-    static const PM_DialogButtonsButtonHeight : Qt_QStyle_PixelMetric;
-    static const PM_MdiSubWindowFrameWidth : Qt_QStyle_PixelMetric;
-    static const PM_MdiSubWindowMinimizedWidth : Qt_QStyle_PixelMetric;
-    static const PM_HeaderMargin : Qt_QStyle_PixelMetric;
-    static const PM_HeaderMarkSize : Qt_QStyle_PixelMetric;
-    static const PM_HeaderGripMargin : Qt_QStyle_PixelMetric;
-    static const PM_TabBarTabShiftHorizontal : Qt_QStyle_PixelMetric;
-    static const PM_TabBarTabShiftVertical : Qt_QStyle_PixelMetric;
-    static const PM_TabBarScrollButtonWidth : Qt_QStyle_PixelMetric;
-    static const PM_ToolBarFrameWidth : Qt_QStyle_PixelMetric;
-    static const PM_ToolBarHandleExtent : Qt_QStyle_PixelMetric;
-    static const PM_ToolBarItemSpacing : Qt_QStyle_PixelMetric;
-    static const PM_ToolBarItemMargin : Qt_QStyle_PixelMetric;
-    static const PM_ToolBarSeparatorExtent : Qt_QStyle_PixelMetric;
-    static const PM_ToolBarExtensionExtent : Qt_QStyle_PixelMetric;
-    static const PM_SpinBoxSliderHeight : Qt_QStyle_PixelMetric;
-    static const PM_DefaultTopLevelMargin : Qt_QStyle_PixelMetric;
-    static const PM_DefaultChildMargin : Qt_QStyle_PixelMetric;
-    static const PM_DefaultLayoutSpacing : Qt_QStyle_PixelMetric;
-    static const PM_ToolBarIconSize : Qt_QStyle_PixelMetric;
-    static const PM_ListViewIconSize : Qt_QStyle_PixelMetric;
-    static const PM_IconViewIconSize : Qt_QStyle_PixelMetric;
-    static const PM_SmallIconSize : Qt_QStyle_PixelMetric;
-    static const PM_LargeIconSize : Qt_QStyle_PixelMetric;
-    static const PM_FocusFrameVMargin : Qt_QStyle_PixelMetric;
-    static const PM_FocusFrameHMargin : Qt_QStyle_PixelMetric;
-    static const PM_ToolTipLabelFrameWidth : Qt_QStyle_PixelMetric;
-    static const PM_CheckBoxLabelSpacing : Qt_QStyle_PixelMetric;
-    static const PM_TabBarIconSize : Qt_QStyle_PixelMetric;
-    static const PM_SizeGripSize : Qt_QStyle_PixelMetric;
-    static const PM_DockWidgetTitleMargin : Qt_QStyle_PixelMetric;
-    static const PM_MessageBoxIconSize : Qt_QStyle_PixelMetric;
-    static const PM_ButtonIconSize : Qt_QStyle_PixelMetric;
-    static const PM_DockWidgetTitleBarButtonMargin : Qt_QStyle_PixelMetric;
-    static const PM_RadioButtonLabelSpacing : Qt_QStyle_PixelMetric;
-    static const PM_LayoutLeftMargin : Qt_QStyle_PixelMetric;
-    static const PM_LayoutTopMargin : Qt_QStyle_PixelMetric;
-    static const PM_LayoutRightMargin : Qt_QStyle_PixelMetric;
-    static const PM_LayoutBottomMargin : Qt_QStyle_PixelMetric;
-    static const PM_LayoutHorizontalSpacing : Qt_QStyle_PixelMetric;
-    static const PM_LayoutVerticalSpacing : Qt_QStyle_PixelMetric;
-    static const PM_TabBar_ScrollButtonOverlap : Qt_QStyle_PixelMetric;
-    static const PM_TextCursorWidth : Qt_QStyle_PixelMetric;
-    static const PM_TabCloseIndicatorWidth : Qt_QStyle_PixelMetric;
-    static const PM_TabCloseIndicatorHeight : Qt_QStyle_PixelMetric;
-    static const PM_ScrollView_ScrollBarSpacing : Qt_QStyle_PixelMetric;
-    static const PM_ScrollView_ScrollBarOverlap : Qt_QStyle_PixelMetric;
-    static const PM_SubMenuOverlap : Qt_QStyle_PixelMetric;
-    static const PM_TreeViewIndentation : Qt_QStyle_PixelMetric;
-    static const PM_HeaderDefaultSectionSizeHorizontal : Qt_QStyle_PixelMetric;
-    static const PM_HeaderDefaultSectionSizeVertical : Qt_QStyle_PixelMetric;
-    static const PM_TitleBarButtonIconSize : Qt_QStyle_PixelMetric;
-    static const PM_TitleBarButtonSize : Qt_QStyle_PixelMetric;
-    static function PixelMetric(value : Qt_QStyle_PixelMetric) : Qt_QStyle_PixelMetric;
-
-    static const PE_Frame : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameDefaultButton : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameDockWidget : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameFocusRect : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameGroupBox : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameLineEdit : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameMenu : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameStatusBarItem : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameTabWidget : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameWindow : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameButtonBevel : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameButtonTool : Qt_QStyle_PrimitiveElement;
-    static const PE_FrameTabBarBase : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelButtonCommand : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelButtonBevel : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelButtonTool : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelMenuBar : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelToolBar : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelLineEdit : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorArrowDown : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorArrowLeft : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorArrowRight : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorArrowUp : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorBranch : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorButtonDropDown : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorItemViewItemCheck : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorCheckBox : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorDockWidgetResizeHandle : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorHeaderArrow : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorMenuCheckMark : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorProgressChunk : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorRadioButton : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorSpinDown : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorSpinMinus : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorSpinPlus : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorSpinUp : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorToolBarHandle : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorToolBarSeparator : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelTipLabel : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorTabTear : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelScrollAreaCorner : Qt_QStyle_PrimitiveElement;
-    static const PE_Widget : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorColumnViewArrow : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorItemViewItemDrop : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelItemViewItem : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelItemViewRow : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelStatusBar : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorTabClose : Qt_QStyle_PrimitiveElement;
-    static const PE_PanelMenu : Qt_QStyle_PrimitiveElement;
-    static const PE_IndicatorTabTearRight : Qt_QStyle_PrimitiveElement;
-    static const PE_CustomBase : Qt_QStyle_PrimitiveElement;
-    static function PrimitiveElement(value : Qt_QStyle_PrimitiveElement) : Qt_QStyle_PrimitiveElement;
 
     // Methods
     function combinedLayoutSpacing (controls1 : Qt_QSizePolicy_ControlTypes, controls2 : Qt_QSizePolicy_ControlTypes, orientation : Qt_Orientation, option : QStyleOption, widget : QWidget) : int;

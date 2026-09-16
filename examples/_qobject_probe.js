@@ -1,0 +1,12 @@
+var lines = [];
+var w = new QWidget();
+lines.push("QWidget.setProperty=" + typeof w.setProperty);
+var scene = new QGraphicsScene();
+var it = new QGraphicsItem();
+lines.push("QGraphicsItem ctor-with-parent=" + (it ? "ok" : "null"));
+var f = new QFile("D:/OpenSource/qtscriptgenerator-master/examples/_qobject_probe_out.txt");
+f.open(QIODevice.OpenMode(QIODevice.WriteOnly, QIODevice.Truncate));
+var ts = new QTextStream(f);
+ts.writeString(lines.join("\n"));
+ts.flush();
+f.close();

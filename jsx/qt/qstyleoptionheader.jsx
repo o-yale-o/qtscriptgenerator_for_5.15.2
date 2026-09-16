@@ -13,9 +13,9 @@ final native class Qt_QStyleOptionHeader_SectionPosition {}
 
 final native class Qt_QStyleOptionHeader_SortIndicator {}
 
-final native class Qt_QStyleOptionHeader_StyleOptionVersion {}
-
 final native class Qt_QStyleOptionHeader_SelectedPosition {}
+
+final native class Qt_QStyleOptionHeader_StyleOptionVersion {}
 
 native class QStyleOptionHeader extends QStyleOption
 {
@@ -36,12 +36,12 @@ native class QStyleOptionHeader extends QStyleOption
     static const SortDown : Qt_QStyleOptionHeader_SortIndicator;
     static function SortIndicator(value : Qt_QStyleOptionHeader_SortIndicator) : Qt_QStyleOptionHeader_SortIndicator;
 
-    static const Version : Qt_QStyleOptionHeader_StyleOptionVersion;
-    static function StyleOptionVersion(value : Qt_QStyleOptionHeader_StyleOptionVersion) : Qt_QStyleOptionHeader_StyleOptionVersion;
-
     static const NotAdjacent : Qt_QStyleOptionHeader_SelectedPosition;
     static const NextIsSelected : Qt_QStyleOptionHeader_SelectedPosition;
     static const PreviousIsSelected : Qt_QStyleOptionHeader_SelectedPosition;
     static const NextAndPreviousAreSelected : Qt_QStyleOptionHeader_SelectedPosition;
     static function SelectedPosition(value : Qt_QStyleOptionHeader_SelectedPosition) : Qt_QStyleOptionHeader_SelectedPosition;
+
+    static const Version : Qt_QStyleOptionHeader_StyleOptionVersion;
+    static function StyleOptionVersion(value : Qt_QStyleOptionHeader_StyleOptionVersion) : Qt_QStyleOptionHeader_StyleOptionVersion;
 }
