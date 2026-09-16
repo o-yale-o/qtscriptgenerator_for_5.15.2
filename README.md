@@ -523,6 +523,57 @@ Qt5 头文件在拷贝构造旁新增 `X(X &&other)`。解析器把 rvalue-ref �
 
 ---
 
+## 【修改说明 · 六】QCAD 兼容续：枚举别名、QGuiApplication 与 rpp 残留清理
+
+QCAD 集成实测又暴露并修复了三个独立缺口（均已在源头修复，DLL 同步
+部署目录与发布包）：
+
+### 1. 重复枚举值别名被丢弃（classgenerator.cpp）
+
+`DefaultNavigation.js:167` 报 `Qt.MidButton undefined`。Qt5 头在多个枚举
+中同时声明新旧名字（同值不同名：MidButton/MiddleButton、XButton1/
+BackButton、ImMicroFocus/ImCursorRectangle…），builder 去重只保留首个
+名字，其余进警告丢弃；`uniqueEnumValueIndexes` 也按值去重（switch 需要
+唯一 case）。QCAD 有 32 个脚本使用 `Qt.MidButton`。
+
+修复：新增 `enumValueAliases()` 收集别名对；枚举 create 函数在属性注册
+循环后追加别名绑定——别名指向规范名的同一 QScriptValue（ReadOnly |
+Undeletable），valueOf/toString 天然正确；switch/values 数组仍用去重集。
+
+### 2. QGuiApplication 未绑定（typesystem_gui.xml）
+
+`library.js:3228`（Qt5 路径）调用 `QGuiApplication.queryKeyboardModifiers()`
+报 Can't find variable。根因：文件顶部遗留上游
+`<rejection class="QGuiApplication"/>`，压过了文件尾部的条目声明。
+
+修复：删除该 rejection；为条目补 `extra-includes(qclipboard.h)` 使
+`clipboard()` 的元类型注册可编译。连带收益：QApplication 的基类变为
+可解析，其脚本原型链正确链接
+`QApplication → QGuiApplication → QCoreApplication → QObject`。
+
+### 3. rpp 残留导致整类静默丢失（generator/main.cpp）
+
+`SvgImporter.js:36` 报 Can't find variable: QXmlDefaultHandler。根因：
+Qt 5.15 的 qxml.h 将 SAX 段包在 `#if QT_DEPRECATED_SINCE(5, 15)` 中，
+且类头使用版本链式宏 `class QT_DEPRECATED_VERSION_5(15) QXmlDefaultHandler`。
+旧 rpp 预处理器做 `##` 拼接后不再重扫描，宏调用以字面量残留在类头，
+解析器读崩后整类静默丢弃（零警告）。
+
+修复：rpp 写出 `.preprocessed.tmp` 后、解析前，用正则剥离
+`QT_DEPRECATED_VERSION(_X)?_5(数字)` 残留。验证：QXmlDefaultHandler 及
+六个接口类（QXmlContentHandler 等）全部生成，SAX 方法经原型链可达
+（SvgImporter 的 SvgHandler 继承即可用）。
+
+### 已知遗留
+
+解析/建模层仍会静默丢弃**部分内联访问器**（最小复现固化于
+`generator/_ptest/`：TestA 类第二个内联方法丢失，TestB/TestC 正常；
+QActionEvent.action、TestA.other 属此类）。遇到此类缺口时，按
+QActionEvent 的先例用 `inject-code class="native"
+position="prototype-initialization"` 显式补绑即可。深挖 parser 需专项。
+
+---
+
 ## 【架构说明】绑定流水线：xml ⇒ cpp ⇒ dll ⇒ js
 
 ```
