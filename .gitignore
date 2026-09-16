@@ -40,3 +40,6 @@ qtbindings/*/moc_*.cpp
 /generator/buil-result/
 /generator/buil-result=/
 /generator/release=/
+
+# release package staging (published via GitHub Releases, not git)
+_pkg/
