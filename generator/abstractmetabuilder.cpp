@@ -1290,6 +1290,23 @@ void AbstractMetaBuilder::traverseFunctions(ScopeModelItem scope_item, AbstractM
             }
 
 
+            // Qt 5 fix: reject move constructors. Qt 5 headers add
+            // `X(X &&other)` next to the copy ctor; the parser folds the
+            // rvalue-ref parameter into a self-typed value/ref parameter,
+            // so the generated shell class gets BOTH `QtScriptShell_X(X)`
+            // and `QtScriptShell_X(const X &)` and every forwarding call
+            // with a temporary fails with C2668. Script-side, move vs copy
+            // is indistinguishable anyway, so drop the extra ctor.
+            if (meta_function->isConstructor() && !meta_function->isPrivate()) {
+                const AbstractMetaArgumentList &move_check_args = meta_function->arguments();
+                if (move_check_args.size() == 1
+                    && move_check_args.at(0)->type()->typeEntry() == meta_class->typeEntry()
+                    && move_check_args.at(0)->type()->indirections() == 0
+                    && !move_check_args.at(0)->type()->isConstant()) {
+                    meta_function->setInvalid(true);
+                }
+            }
+
             bool isInvalidDestructor = meta_function->isDestructor() && meta_function->isPrivate();
             bool isInvalidConstructor = meta_function->isConstructor()
                 && (meta_function->isPrivate() || meta_function->isInvalid());

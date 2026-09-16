@@ -473,6 +473,56 @@ StreamBookmarks 自动加载 frank.xbel 成功（`_sb_check.js` 往返验证：
 
 ---
 
+## 【修改说明 · 五】QCAD 兼容：QWidget 原型链悬空与 move 构造歧义
+
+把本仓库编译的绑定 DLL 替换进 QCAD（`src/3rdparty/qt-labs-qtscriptgenerator-5.5.0`
+是其自带的参照分叉，QCAD 脚本按它的行为编写）后，`autostart.js:588` 报
+`appWin.setProperty is not a function`。两个独立根因，均在源头修复：
+
+### 1. QWidget 脚本原型链悬空（typesystem_gui.xml）
+
+QCAD 的 `appWin = new RMainWindowQt()`（QMainWindow → QWidget），588 行的
+`setProperty` 是 QObject 方法，只能沿原型链找到。探针显示
+`QObject.setProperty=function` 但 `QWidget.setProperty=undefined`——
+QWidget 原型的 `__proto__` 是悬空的。
+
+**根因**：QPaintDevice 被声明了两次——GUI 模块 `<object-type>`（【修改
+说明·三】为修 QPainter::begin 添加），widgets 模块 `<interface-type>`。
+gui 先加载，object-type 占位，widgets 的 interface-type 沦为重复条目被
+无视 → QWidget 解析基类时 QObject 与 QPaintDevice 双双成为"primary base"
+→ `return false` → baseClass 为空 → classgenerator 跳过原型挂接。
+（示例全绿掩盖了它：paintEvent/信号走 shell 回查机制，不经过原型链。）
+
+**修复**：gui 条目改为 `<interface-type name="QPaintDevice"/>`（类型注册
+与 QPainter::begin 绑定保留；widgets 加载后接口语义不再被冲掉）。重生成
+后 `qtscript_QWidget.cpp` 出现
+`proto.setPrototype(engine->defaultPrototype(qMetaTypeId<QObject*>()))`
+——与 QCAD 分叉的手工补丁完全一致。
+
+### 2. move 构造导致 shell 双歧义（abstractmetabuilder.cpp）
+
+Qt5 头文件在拷贝构造旁新增 `X(X &&other)`。解析器把 rvalue-ref 参数折叠
+为自身类型的值参数，生成器于是为 QImage 同时产出
+`QtScriptShell_QImage(QImage)` 与 `QtScriptShell_QImage(const QImage &)`，
+转发调用报 C2668；脚本侧构造函数表也出现两个近重复项。
+
+**修复**：builder 中拒绝"单一自身类型值参数、非 const"的构造函数
+（即 move 构造；脚本无法区分 move/copy）。注意排除指针参数——
+`QGraphicsItem(QGraphicsItem *parent)` 是合法父子构造，不能误杀
+（第一版条件漏了 `indirections()==0`，CollidingMice 的 Mouse(parent)
+当场回归暴露，已修正）。
+
+### 验证
+
+- 探针：`QWidget.setProperty/property=function`、
+  `QGraphicsItem(parent)` 构造可用、`QPainter.prototype.begin=function`、
+  QImage 构造/拷贝正常；
+- 18 示例全量回归 0 异常（CollidingMice 曾被第一版条件误伤，修正后恢复）；
+- QCAD 侧：替换 `qtscript_gui.dll` + `qtscript_widgets.dll` 后
+  `appWin.setProperty` 可用。
+
+---
+
 ## 【架构说明】绑定流水线：xml ⇒ cpp ⇒ dll ⇒ js
 
 ```

@@ -1446,8 +1446,13 @@
   <!-- Qt 5 fix: without this entry QPaintDevice is an unknown type and
        QPainter::begin(QPaintDevice*) / QPainter(QPaintDevice*) get silently
        dropped, breaking painter.begin(this) in scripts (e.g. AnalogClock.js).
-       All ctors are protected, so `new QPaintDevice()` stays impossible. -->
-  <object-type name="QPaintDevice"/>
+       All ctors are protected, so `new QPaintDevice()` stays impossible.
+       MUST stay an interface-type: declared as object-type it defeats the
+       interface semantics of the widgets declaration, so QWidget resolves
+       BOTH QObject and QPaintDevice as "primary base classes", its base
+       setup aborts and the QWidget script prototype ends up dangling
+       (QObject methods like setProperty unreachable from widget subclasses). -->
+  <interface-type name="QPaintDevice"/>
 
   <object-type name="QPaintEngine">
     <modify-function signature="begin(QPaintDevice*)">
