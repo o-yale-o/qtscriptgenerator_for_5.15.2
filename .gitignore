@@ -43,3 +43,6 @@ qtbindings/*/moc_*.cpp
 
 # release package staging (published via GitHub Releases, not git)
 _pkg/
+
+# parser repro fixture output
+generator/_ptest/out/
