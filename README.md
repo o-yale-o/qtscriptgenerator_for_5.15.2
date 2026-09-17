@@ -11,6 +11,66 @@ sql / xml / svg / xmlpatterns / uitools）全部**可从源码再生成、可编
 > 生成器"等）描述的是旧工作流，与本仓库实际不符，已删除；原版原文可从
 > git 历史找回。
 
+---
+
+## 【项目总则】
+
+**`generated_cpp/` 里的每一个 cpp/h，都必须且只能由 generator.exe 一键
+生成——任何时候、任何人、任何理由，都不手改生成产物。**
+
+这是本仓库的第一纪律。它的价值：绑定行为永远可以从源头的两个输入
+（Qt 头文件 + typesystem 规格）+ 一份生成器源码**完整推导**出来；修复
+可复现、可审查、可继承，不会随着"顺手改生成文件"而流失。
+
+### typesystem 是什么
+
+`generator/typesystem_*.xml` 是生成器的**规格书**，回答三个问题：
+
+1. **绑定什么**——哪些类、枚举、函数暴露给脚本
+   （`<object-type name="QWidget"/>`、`<enum-type name="QClipboard::Mode"/>`）；
+2. **怎么改**——对个别函数做拒绝/改名/改所有权等
+   （`<rejection class="X"/>`、`<modify-function signature="..." remove="all"/>`）；
+3. **模块关系**——本模块依赖哪些其他模块的类型
+   （`<load-typesystem name="typesystem_core.xml" generate="no"/>`）。
+
+分工类比：Qt 头文件是**原料**，typesystem 是**图纸**，generator.exe 是
+**机床**。改绑定行为 = 改图纸；改加工工艺（如解析器、默认实参处理）=
+改机床源码。机床和图纸都可以改，唯独**成品（generated_cpp）不能改**——
+因为它必须永远能被机床按图纸重新加工出来。
+
+本仓库的全部绑定修复，都落在这两个输入层：
+- 符号缺失/被错误拒绝 → 修 typesystem
+  （例：删掉压过 QGuiApplication 声明的 rejection）；
+- 解析器/生成器工艺缺陷 → 修 generator 源码
+  （例：move 构造拒绝、枚举别名注册、rpp 残留清理）；
+- 个别解析器暂无法处理的声明 → typesystem `inject-code` 显式补绑
+  （例：QActionEvent::action/before），并把最小复现固化到
+  `generator/_ptest/` 供深挖。
+
+### 面向使用者（QCAD 等宿主）的承诺
+
+对宿主应用而言，绑定 DLL 是**黑盒契约**：脚本里出现过的任何符号——
+`Qt.MidButton`、`event.action()`、`QGuiApplication.queryKeyboardModifiers()`、
+`appWin.setProperty()`——必须永远存在、行为正确。本仓库维护这份契约的
+方式不是"哪里报错补哪里"，而是**每次都修到源头**：
+
+> typesystem / 生成器源码 → regenerate → build → 18 示例回归 →
+> 三关全过才算修复完成。
+
+因此宿主升级绑定 DLL 后，不但老符号全部健在，此前没有的符号也会随
+typesystem 的完善持续补齐；QCAD 集成过程中修复的五个缺口
+（setProperty、QActionEvent.action、Qt.MidButton、QGuiApplication、
+QXmlDefaultHandler）正是这条流程的实测记录（见【修改说明·五/六】）。
+
+### 纪律红线
+
+1. **禁止手改** `generated_cpp/`、`plugins/`、`jsx/` 中的任何生成物；
+2. 修复只落在三处：**typesystem XML**、**生成器源码**、**宿主脚本**（examples）；
+3. 每次修复必须完整走一遍 **regenerate → build → 回归**（18 示例 + 探针），
+   且回归全绿才允许交付；
+4. 解析器已知缺陷用 typesystem 注入绕过，同时把最小复现固化
+   （`generator/_ptest/`），留待专项深挖。
+
 ## 环境要求
 
 | 用途 | 需要 |
